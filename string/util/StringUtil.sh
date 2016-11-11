@@ -2,6 +2,17 @@ include base.comparator.BaseComparator
 include string.validator.StringValidator
 
 StringUtil(){
+	_flipArray(){
+		inputArray=($@)
+		newArray=()
+
+		for (( i=${#inputArray[@]}; i>=0; i-- )); do
+			newArray+=(${inputArray[i]})
+		done
+
+		echo ${newArray[@]}
+	}
+
 	append(){
 		echo ${1}${2}
 	}
