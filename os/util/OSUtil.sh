@@ -1,0 +1,7 @@
+OSUtil(){
+	getOS(){
+		uname
+	}
+
+	$@
+}
