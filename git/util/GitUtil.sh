@@ -4,7 +4,7 @@ GitUtil(){
 	}
 
 	listBranches(){
-		git branch | sed s/\*//g
+		git branch | sed s/\*/\ /g
 	}
 
 	$@
