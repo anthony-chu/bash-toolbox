@@ -19,9 +19,20 @@ StringUtil(){
 	}
 
 	replace(){
-		local str=${1}
-		local orig=${2}
-		local new=${3}
+		local input=(${@})
+
+		orig=${input[-2]}
+		new=${input[-1]}
+
+		for (( i=${#input[@]}; i>=0; i-- )); do
+			_temp+=(${input[i]})
+		done
+
+		_input=(${_temp[@]:2})
+
+		for (( i=${#_input[@]}; i>=0; i-- )); do
+			string+=(${_input[i]})
+		done
 
 		if [[ $(BaseComparator isEqual ${orig} space) ]]; then
 			orig=" "
@@ -29,9 +40,11 @@ StringUtil(){
 
 		if [[ $(BaseComparator isEqual ${new} space) ]]; then
 			new=" "
+		elif [[ $(BaseComparator isEqual ${new} null) ]]; then
+			new=""
 		fi
 
-		echo ${str//${orig}/${new}}
+		echo ${string[@]//${orig}/${new}}
 	}
 
 	returnOption(){
