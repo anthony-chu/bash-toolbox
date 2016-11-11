@@ -35,15 +35,11 @@ StringUtil(){
 		orig=${input[-2]}
 		new=${input[-1]}
 
-		for (( i=${#input[@]}; i>=0; i-- )); do
-			_temp+=(${input[i]})
-		done
+		_temp=($(_flipArray ${input[@]}))
 
 		_input=(${_temp[@]:2})
 
-		for (( i=${#_input[@]}; i>=0; i-- )); do
-			string+=(${_input[i]})
-		done
+		string=($(_flipArray ${_input[@]}))
 
 		if [[ $(BaseComparator isEqual ${orig} space) ]]; then
 			orig=" "
