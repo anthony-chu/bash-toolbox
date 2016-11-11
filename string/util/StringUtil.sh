@@ -54,7 +54,7 @@ StringUtil(){
 	}
 
 	strip(){
-		replace ${1} ${2}
+		replace ${@} null
 	}
 
 	toLowerCase(){
