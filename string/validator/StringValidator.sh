@@ -6,8 +6,6 @@ StringValidator(){
 
 		if [[ ${string:0:1} == ${char} ]]; then
 			echo true
-		else
-			return;
 		fi
 	}
 
@@ -42,16 +40,12 @@ StringValidator(){
 
 		if [[ ${str1} =~ ${str2} ]]; then
 			echo true
-		else
-			return;
 		fi
 	}
 
 	isNull(){
 		if [[ ${@} == "" ]]; then
 			echo true
-		else
-			return;
 		fi
 	}
 
@@ -66,8 +60,6 @@ StringValidator(){
 
 		if [[ $(beginsWith - ${opt}) && $(isAlphaNum ${opt//-/}) ]]; then
 			echo true
-		else
-			return
 		fi
 	}
 

@@ -2,8 +2,6 @@ BaseComparator(){
 	isEqual(){
 		if [[ ${1} == ${2} ]]; then
 			echo true
-		else
-			return;
 		fi
 	}
 
@@ -16,16 +14,12 @@ BaseComparator(){
 	isLessThan(){
 		if [[ ${1} < ${2} ]]; then
 			echo true
-		else
-			return;
 		fi
 	}
 
 	isGreaterThan(){
 		if [[ ${1} > ${2} ]]; then
 			echo true
-		else
-			return;
 		fi
 	}
 
