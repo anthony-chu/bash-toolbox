@@ -4,7 +4,7 @@ StringValidator(){
 		shift
 		string=${@}
 
-		if [[ ${string} == ${char}* ]]; then
+		if [[ ${string:0:1} == ${char} ]]; then
 			echo true
 		else
 			return;
