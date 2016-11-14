@@ -20,9 +20,7 @@ AppServerVersion(){
 	}
 
 	returnAppServerVersion(){
-		if [[ $(StringValidator isNull ${@}) ]]; then
-			return
-		else
+		if [[ ! $(StringValidator isNull ${@}) ]]; then
 			local appServer=${1}
 			local branch=${2}
 

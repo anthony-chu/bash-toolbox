@@ -28,9 +28,7 @@ BaseUtil(){
 			local port=${1}
 		fi
 
-		if [[ $(netstat -an | grep ${port}) == "" ]]; then
-			return;
-		else
+		if [[ $(netstat -an | grep ${port}) != "" ]]; then
 			echo true
 		fi
 	}

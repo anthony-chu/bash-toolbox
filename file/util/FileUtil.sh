@@ -30,13 +30,9 @@ FileUtil(){
 	}
 
 	getStatus(){
-		if [[ $(StringValidator isNull $(ls | grep ${1})) ]]; then
-			return;
-		else
+		if [[ ! $(StringValidator isNull $(ls | grep ${1})) ]]; then
 			if [[ $(ls | grep ${1}) == ${1} ]]; then
 				echo true
-			else
-				return;
 			fi
 		fi
 	}
@@ -47,11 +43,9 @@ FileUtil(){
 
 		local matchingContent=($(grep -o '${pattern}' ${file}))
 
-		if [[ $(ArrayValidator
+		if [[ ! $(ArrayValidator
 			hasEntry ${matchingContent[@]} ${pattern}) ]]; then
 
-			return;
-		else
 			echo true
 		fi
 	}

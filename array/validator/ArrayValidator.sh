@@ -31,9 +31,7 @@ ArrayValidator(){
 				fi
 			done
 
-			if [[ $(BaseComparator isGreaterThan ${count} 1) ]]; then
-				return
-			else
+			if [[ ! $(BaseComparator isGreaterThan ${count} 1) ]]; then
 				echo true
 			fi
 		else
