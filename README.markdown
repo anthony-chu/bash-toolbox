@@ -32,20 +32,13 @@ $ git submodule add https://github.com/anthony-chu/bash-toolbox
 This will clone the `bash-toolbox` project into your current project as a new
 subdirectory with the path `bash-toolbox`.
 
-Next, you'll need a few additional files. In order to properly leverage the
-`include` and `colorme` functions found throughout this project, you'll need to
-create a `lib` directory in your project directory. In your lib directory, add
-these following two files:
+Next, you'll need to make sure to source `init.sh` in every one of your
+top-level project files.
 
-- [colorme.sh](
-	https://github.com/anthony-chu/build-tool/blob/master/lib/colorme.sh)
-- [include.sh](
-	https://github.com/anthony-chu/build-tool/blob/master/lib/include.sh)
+`source bash-toolbox/init.sh`
 
-Lastly, you'll need to create an init.sh script like
-[this](https://github.com/anthony-chu/build-tool/blob/master/.init.sh) and
-source this init script in all your project files. You're now ready to leverage
-the bash-toolbox project
+With this one line in your top-level project file(s), you're now able to
+leverage the bash-toolbox library.
 
 ## Roadmap
 
