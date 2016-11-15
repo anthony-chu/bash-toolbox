@@ -18,7 +18,9 @@ ArrayUtilTest(){
 		local inputArray=(foo foobar)
 		local outputArray=(foo... foobar)
 
-		if [[ $(ArrayUtil appendArrayEntry ${inputArray[@]}) == ${outputArray[@]} ]]; then
+		if [[ $(ArrayUtil
+			appendArrayEntry ${inputArray[@]}) == ${outputArray[@]} ]]; then
+
 			echo PASS
 		else
 			echo FAIL
@@ -40,7 +42,9 @@ ArrayUtilTest(){
 		local inputArray=(foo bar)
 		local outputArray=(bar foo)
 
-		if [[ $(ArrayUtil flipArray ${inputArray[@]}) == ${outputArray[@]} ]]; then
+		if [[ $(ArrayUtil
+			flipArray ${inputArray[@]}) == ${outputArray[@]} ]]; then
+
 			echo PASS
 		else
 			echo FAIL
@@ -51,7 +55,9 @@ ArrayUtilTest(){
 		local inputArray=(foo foobar)
 		local maxLength=6
 
-		if [[ $(ArrayUtil returnMaxLength ${inputArray[@]}) == ${maxLength} ]]; then
+		if [[ $(ArrayUtil
+			returnMaxLength ${inputArray[@]}) == ${maxLength} ]]; then
+
 			echo PASS
 		else
 			echo FAIL
