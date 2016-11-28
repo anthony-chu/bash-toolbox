@@ -4,7 +4,8 @@
 
 1. [Welcome](#welcome)
 2. [Getting Started](#getting-started)
-3. [Roadmap](#roadmap)
+3. [Contributing](#contributing)
+4. [Roadmap](#roadmap)
 
 ## Welcome
 
@@ -39,6 +40,17 @@ top-level project files.
 
 With this one line in your top-level project file(s), you're now able to
 leverage the bash-toolbox library.
+
+## Contributing
+
+Improvements are greatly valued, so please avail yourself to contributing to the
+`bash-toolbox` project. In order to do so, you'll need to have a fork of the
+project along with a local clone of the repo (not just the submodule clone). You
+will be able to submit pull requests from there as you would any other project.
+
+Feel free to also open issues found during the use of this project. No project
+is perfect, as we ourselves as the originators of our different projects are not
+perfect either.
 
 ## Roadmap
 
