@@ -17,9 +17,9 @@ that now reside in the bash-toolbox project, was born. It housed all of the core
 functionality of the build-tool project and was reusable across all of the
 various scripts within the build-tool project.
 
-It only made sense that, as the next move towards modularity, the next step was
-to migrate the contents of the build-tool `src` directory into its own
-submodule. This, then, is that next step.
+It only made sense that, as the project moved towards increased modularity, the
+next logical step was to migrate the contents of the build-tool `src` directory
+into its own submodule. This, then, is that next logical step.
 
 ## Getting started
 
