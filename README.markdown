@@ -11,7 +11,7 @@
 
 Welcome to the bash-toolbox project! The bash-toolbox project was born out of
 the `build-tool` project, which you can learn about [here](
-	https://github.com/anthony-chu/build-tool). As a result of a move towards
+https://github.com/anthony-chu/build-tool). As a result of a move towards
 modularity and reusability, the `src` directory, which contained the scripts
 that now reside in the bash-toolbox project, was born. It housed all of the core
 functionality of the build-tool project and was reusable across all of the
