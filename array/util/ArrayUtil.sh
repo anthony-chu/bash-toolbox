@@ -19,6 +19,22 @@ ArrayUtil(){
 		echo ${newArray[@]}
 	}
 
+	bisect(){
+		local state=${1}
+
+		shift
+
+		local array=(${@})
+
+		local size=${#array[@]}
+
+		if [[ $(BaseComparator isEqual ${state} true) ]]; then
+			echo ${array[@]:0:${size}/2}
+		elif [[ $(BaseComparator isEqual ${state} false) ]]; then
+			echo ${array[@]:${size}/2:${size}}
+		fi
+	}
+
 	convertStringToArray(){
 		StringUtil replace ${1} , space
 	}
