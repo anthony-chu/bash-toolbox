@@ -29,6 +29,10 @@ StringUtil(){
 		echo ${#str}
 	}
 
+	parseMessage(){
+		replace ${@} _ space
+	}
+
 	replace(){
 		local input=(${@})
 
