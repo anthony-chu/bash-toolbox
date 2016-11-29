@@ -3,16 +3,15 @@ include string.util.StringUtil
 
 HelpMessage(){
 	_printHelpMessage(){
-		local everything=($@)
-		local everythingSize=${#everything[@]}
+		local array=($@)
 
-		local funcList=($(ArrayUtil
-			appendArrayEntry ${everything[@]:0:${everythingSize}/2}))
+		local funcList=($(ArrayUtil	appendArrayEntry $(ArrayUtil
+			bisect true ${array[@]})))
 
-		local helpList=(${everything[@]:${everythingSize}/2:${everythingSize}})
+		local helpList=($(ArrayUtil bisect false ${array[@]}))
 
 		echo "Commands:"
-		for (( i=0; i<${everythingSize}/2; i++ )); do
+		for (( i=0; i<${#array[@]}/2; i++ )); do
 			local funcListEntry=${funcList[i]}
 
 			local helpMessage=$(StringUtil capitalize ${helpList[i]})
