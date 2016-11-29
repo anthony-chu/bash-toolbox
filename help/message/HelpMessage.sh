@@ -12,13 +12,11 @@ HelpMessage(){
 
 		echo "Commands:"
 		for (( i=0; i<${#array[@]}/2; i++ )); do
-			local funcListEntry=${funcList[i]}
-
 			local helpMessage=$(StringUtil capitalize ${helpList[i]})
 
 			local helpListEntry=$(StringUtil parseMessage ${helpMessage})
 
-			echo -e "\t${funcListEntry}................${helpListEntry}"
+			echo -e "\t${funcList[i]}................${helpListEntry}"
 		done
 	}
 
