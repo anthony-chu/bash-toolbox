@@ -5,7 +5,7 @@ HelpMessage(){
 	_printHelpMessage(){
 		local array=($@)
 
-		local funcList=($(ArrayUtil	appendArrayEntry $(ArrayUtil
+		local funcList=($(ArrayUtil appendArrayEntry $(ArrayUtil
 			bisect true ${array[@]})))
 
 		local helpList=($(ArrayUtil bisect false ${array[@]}))
