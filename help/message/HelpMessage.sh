@@ -6,7 +6,9 @@ HelpMessage(){
 		local everything=($@)
 		local everythingSize=${#everything[@]}
 
-		local funcList=(${everything[@]:0:${everythingSize}/2})
+		local funcList=($(ArrayUtil
+			appendArrayEntry ${everything[@]:0:${everythingSize}/2}))
+
 		local helpList=(${everything[@]:${everythingSize}/2:${everythingSize}})
 
 		echo "Commands:"
@@ -37,8 +39,6 @@ HelpMessage(){
 			switch
 		)
 
-		local newFuncList=($(ArrayUtil appendArrayEntry ${funcList[@]}))
-
 		local helpList=(
 			displays_all_changes_made_to_the_current_branch
 			displays_the_current_branch
@@ -54,7 +54,7 @@ HelpMessage(){
 			changes_to_a_different_local_branch
 		)
 
-		_printHelpMessage ${newFuncList[@]} ${helpList[@]}
+		_printHelpMessage ${funcList[@]} ${helpList[@]}
 	}
 
 	buildHelpMessage(){
@@ -66,8 +66,6 @@ HelpMessage(){
 			run
 		)
 
-		local newFuncList=($(ArrayUtil appendArrayEntry ${funcList[@]}))
-
 		local helpList=(
 			builds_bundle_on_specified_app_server
 			rebuilds_database_and_prepares_bundle
@@ -76,7 +74,7 @@ HelpMessage(){
 			runs_a_bundle_on_specified_app_server
 		)
 
-		_printHelpMessage ${newFuncList[@]} ${helpList[@]}
+		_printHelpMessage ${funcList[@]} ${helpList[@]}
 	}
 
 	testHelpMessage(){
@@ -87,8 +85,6 @@ HelpMessage(){
 			test
 		)
 
-		local newFuncList=($(ArrayUtil appendArrayEntry ${funcList[@]}))
-
 		local helpList=(
 			submits_a_pull_request
 			formats_source_files
@@ -96,7 +92,7 @@ HelpMessage(){
 			executes_a_frontend_test
 		)
 
-		_printHelpMessage ${newFuncList[@]} ${helpList[@]}
+		_printHelpMessage ${funcList[@]} ${helpList[@]}
 	}
 
 	$@
