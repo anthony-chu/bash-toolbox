@@ -26,7 +26,7 @@ LoggerUtil(){
 			message=$(colorme red $(StringUtil replace $(StringUtil
 				capitalize ${2}) _ space))
 		else
-			message=$(StringUtil replace $(StringUtil capitalize ${2}) _ space)
+			message=$(StringUtil parseMessage $(StringUtil capitalize ${2}))
 		fi
 
 		echo -e "${time} [ $(_formatLogLevel ${1}) ] ${message}"
