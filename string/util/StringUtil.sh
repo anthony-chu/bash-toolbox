@@ -3,8 +3,8 @@ include string.validator.StringValidator
 
 StringUtil(){
 	_flipArray(){
-		inputArray=($@)
-		newArray=()
+		local inputArray=($@)
+		local newArray=()
 
 		for (( i=${#inputArray[@]}; i>=0; i-- )); do
 			newArray+=(${inputArray[i]})
@@ -24,7 +24,7 @@ StringUtil(){
 	}
 
 	length(){
-		str=${@}
+		local str=${@}
 
 		echo ${#str}
 	}
@@ -36,23 +36,23 @@ StringUtil(){
 	replace(){
 		local input=(${@})
 
-		orig=${input[-2]}
-		new=${input[-1]}
+		local orig=${input[-2]}
+		local new=${input[-1]}
 
-		_temp=($(_flipArray ${input[@]}))
+		local _temp=($(_flipArray ${input[@]}))
 
-		_input=(${_temp[@]:2})
+		local _input=(${_temp[@]:2})
 
-		string=($(_flipArray ${_input[@]}))
+		local string=($(_flipArray ${_input[@]}))
 
 		if [[ $(BaseComparator isEqual ${orig} space) ]]; then
-			orig=" "
+			local orig=" "
 		fi
 
 		if [[ $(BaseComparator isEqual ${new} space) ]]; then
-			new=" "
+			local new=" "
 		elif [[ $(BaseComparator isEqual ${new} null) ]]; then
-			new=""
+			local new=""
 		fi
 
 		echo ${string[@]//${orig}/${new}}

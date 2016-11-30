@@ -1,8 +1,8 @@
 StringValidator(){
 	beginsWith(){
-		char=${1}
+		local char=${1}
 		shift
-		string=${@}
+		local string=${@}
 
 		if [[ ${string:0:1} == ${char} ]]; then
 			echo true
@@ -10,9 +10,9 @@ StringValidator(){
 	}
 
 	beginsWithVowel(){
-		string=${@}
+		local string=${@}
 
-		vowels=(a e i o u A E I O U)
+		local vowels=(a e i o u A E I O U)
 
 		for vowel in ${vowels[@]}; do
 			if [[ $(beginsWith ${vowel} ${string}) ]]; then

@@ -84,7 +84,7 @@ AppServerValidator(){
 	}
 
 	validateAppServer(){
-		validAppServer=(
+		local validAppServer=(
 			glassfish
 			jetty
 			jboss

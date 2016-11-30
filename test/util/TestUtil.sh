@@ -8,11 +8,11 @@ TestUtil(){
 		local time=$(BaseUtil timestamp log)
 
 		if [[ $(StringValidator isSubstring ${2} PASSED) ]]; then
-			message=$(colorme green $(StringUtil replace $(StringUtil
+			local message=$(colorme green $(StringUtil replace $(StringUtil
 				capitalize ${2}) _ space))
 
 		else
-			message=$(StringUtil parseMessage $(StringUtil capitalize ${2}))
+			local message=$(StringUtil parseMessage $(StringUtil capitalize ${2}))
 		fi
 
 		echo -e "${time} [ $(LoggerUtil _formatLogLevel ${1}) ] ${message}"

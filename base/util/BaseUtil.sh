@@ -8,7 +8,7 @@ BaseUtil(){
 	}
 
 	getCurFile(){
-		thisFile=${0//*\//}
+		local thisFile=${0//*\//}
 
 		if [[ ${1} == true ]]; then
 			echo ${thisFile}
@@ -48,12 +48,12 @@ BaseUtil(){
 		elif [[ ${1} == date ]]; then
 			date +%Y%m%d
 		elif [[ ${1} == log ]]; then
-			d=$(date +%Y-%m-%d)
-			t=$(date +%H:%M:%S)
+			local d=$(date +%Y-%m-%d)
+			local t=$(date +%H:%M:%S)
 
 			echo ${d} ${t}
 		else
-			ms=$(date +%S%N)
+			local ms=$(date +%S%N)
 			date +%H:%M:${ms:0:3}
 		fi
 	}

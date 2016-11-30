@@ -6,8 +6,8 @@ FileNameUtil(){
 		local path=${1}
 
 		if [[ $(OSValidator isWindows) ]]; then
-			drive=$(StringUtil capitalize ${path:1:1})
-			headlessPath=${path/\/[a-z]/}
+			local drive=$(StringUtil capitalize ${path:1:1})
+			local headlessPath=${path/\/[a-z]/}
 
 			echo ${drive}:${headlessPath}
 		else

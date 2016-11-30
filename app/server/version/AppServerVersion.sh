@@ -4,7 +4,7 @@ include string.validator.StringValidator
 
 AppServerVersion(){
 	_overrideTomcatVersion(){
-		branch=${1}
+		local branch=${1}
 
 		if [[ $(StringValidator isNull ${branch}) ]]; then
 			AppServerVersionConstants tomcatVersion

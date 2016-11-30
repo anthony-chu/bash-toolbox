@@ -4,10 +4,10 @@ include string.validator.StringValidator
 
 FileUtil(){
 	construct(){
-		directories=($(StringUtil replace ${1} [/] space))
+		local directories=($(StringUtil replace ${1} [/] space))
 
 		for directory in ${directories[@]}; do
-			dir=${dir}/${directory}
+			local dir=${dir}/${directory}
 
 			if [ ! -e ${dir} ]; then
 				mkdir ${dir}

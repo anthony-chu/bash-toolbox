@@ -6,9 +6,9 @@ include string.validator.StringValidator
 Database(){
 	create(){
 		if [[ $(StringValidator isNull ${2}) ]]; then
-			cmd="create database ${1};"
+			local cmd="create database ${1};"
 		elif [[ $(BaseComparator isEqual ${2} utf8) ]]; then
-			cmd="create database ${1} char set ${2};"
+			local cmd="create database ${1} char set ${2};"
 		fi
 
 		Logger logProgressMsg "creating_database_${1}"
@@ -19,7 +19,7 @@ Database(){
 	}
 
 	drop(){
-		cmd="drop database if exists ${1};"
+		local cmd="drop database if exists ${1};"
 
 		Logger logProgressMsg "deleting_database_${1}"
 

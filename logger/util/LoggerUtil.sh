@@ -5,15 +5,15 @@ include string.util.StringUtil
 
 LoggerUtil(){
 	_formatLogLevel(){
-		logLevel=${1}
-		validLogLevels=(info error)
+		local logLevel=${1}
+		local validLogLevels=(info error)
 
-		maxLength=$(ArrayUtil returnMaxLength ${validLogLevels[@]})
+		local maxLength=$(ArrayUtil returnMaxLength ${validLogLevels[@]})
 
 		while [[ $(BaseComparator isLessThan $(StringUtil
 			length ${logLevel}) ${maxLength}) ]]; do
 
-			logLevel=$(StringUtil append ${logLevel} _)
+			local logLevel=$(StringUtil append ${logLevel} _)
 		done
 
 		StringUtil toUpperCase ${logLevel}
@@ -23,10 +23,10 @@ LoggerUtil(){
 		local time=$(BaseUtil timestamp log)
 
 		if [[ $(BaseComparator isEqualIgnoreCase ${1} error) ]]; then
-			message=$(colorme red $(StringUtil replace $(StringUtil
+			local message=$(colorme red $(StringUtil replace $(StringUtil
 				capitalize ${2}) _ space))
 		else
-			message=$(StringUtil parseMessage $(StringUtil capitalize ${2}))
+			local message=$(StringUtil parseMessage $(StringUtil capitalize ${2}))
 		fi
 
 		echo -e "${time} [ $(_formatLogLevel ${1}) ] ${message}"

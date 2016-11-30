@@ -10,7 +10,7 @@ ArrayUtil(){
 
 		for a in ${array[@]}; do
 			while [ $(StringUtil length ${a}) -lt ${maxLength} ]; do
-				a=$(StringUtil append ${a} ${placeholder})
+				local a=$(StringUtil append ${a} ${placeholder})
 			done
 
 			newArray+=(${a})
@@ -38,8 +38,8 @@ ArrayUtil(){
 	}
 
 	flipArray(){
-		inputArray=($@)
-		newArray=()
+		local inputArray=($@)
+		local newArray=()
 
 		for (( i=${#inputArray[@]}; i>=0; i-- )); do
 			newArray+=(${inputArray[i]})
@@ -54,7 +54,7 @@ ArrayUtil(){
 
 		for a in ${array[@]}; do
 			if [[ $(StringUtil length ${a}) > ${maxLength} ]]; then
-				maxLength=$(StringUtil length ${a})
+				local maxLength=$(StringUtil length ${a})
 			fi
 		done
 
@@ -79,16 +79,16 @@ ArrayUtil(){
 			eval "subArray${i}=(${array[@]:${init}:${length}})"
 		done
 
-		subArray=subArray${group}[@]
+		local subArray=subArray${group}[@]
 
 		echo ${!subArray}
 	}
 
 	strip(){
-		array=(${@})
-		entry=${array[-1]}
+		local array=(${@})
+		local entry=${array[-1]}
 
-		newArray=()
+		local newArray=()
 
 		for arrayEntry in ${array[@]}; do
 			if [[ ! $(BaseComparator isEqual ${entry} ${arrayEntry}) ]]; then
