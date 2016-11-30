@@ -79,7 +79,7 @@ ArrayUtil(){
 			eval "subArray${i}=(${array[@]:${init}:${length}})"
 		done
 
-		subArray="subArray${group}[@]"
+		subArray=subArray${group}[@]
 
 		echo ${!subArray}
 	}
