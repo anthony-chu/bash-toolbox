@@ -26,12 +26,10 @@ ArrayUtil(){
 
 		local array=(${@})
 
-		local size=${#array[@]}
-
 		if [[ $(BaseComparator isEqual ${state} true) ]]; then
-			echo ${array[@]:0:${size}/2}
+			partition 2 1 ${array[@]}
 		elif [[ $(BaseComparator isEqual ${state} false) ]]; then
-			echo ${array[@]:${size}/2:${size}}
+			partition 2 2 ${array[@]}
 		fi
 	}
 
