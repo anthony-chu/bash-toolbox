@@ -63,6 +63,29 @@ ArrayUtil(){
 		echo ${maxLength}
 	}
 
+	partition(){
+		local _partitions=${1}
+		local partitions=$((${1}-1))
+		shift
+		local group=$((${1}-1))
+		shift
+
+		local array=(${@})
+		local divisor=$((${partitions}+1))
+		local size=${#array[@]}
+		local length=$((${size}/${_partitions}))
+
+		for (( i=0; i<=${partitions}; i++ )); do
+			local init=$((${i}*${size}/${divisor}))
+
+			eval "subArray${i}=(${array[@]:${init}:${length}})"
+		done
+
+		subArray="subArray${group}[@]"
+
+		echo ${!subArray}
+	}
+
 	strip(){
 		array=(${@})
 		entry=${array[-1]}
