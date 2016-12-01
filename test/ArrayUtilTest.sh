@@ -87,7 +87,7 @@ ArrayUtilTest(){
 		local outputArray=(1 2)
 
 		if [[ $(ArrayUtil
-			partition 3 1 ${inputArray[@]}) == ${outputArray[@]}]]; then
+			partition 3 1 ${inputArray[@]}) == ${outputArray[@]} ]]; then
 
 			echo PASS
 		else
@@ -100,7 +100,7 @@ ArrayUtilTest(){
 		local outputArray=(3 4)
 
 		if [[ $(ArrayUtil
-			partition 3 2 ${inputArray[@]}) == ${outputArray[@]}]]; then
+			partition 3 2 ${inputArray[@]}) == ${outputArray[@]} ]]; then
 
 			echo PASS
 		else
@@ -113,7 +113,7 @@ ArrayUtilTest(){
 		local outputArray=(5 6)
 
 		if [[ $(ArrayUtil
-			partition 3 3 ${inputArray[@]}) == ${outputArray[@]}]]; then
+			partition 3 3 ${inputArray[@]}) == ${outputArray[@]} ]]; then
 
 			echo PASS
 		else
