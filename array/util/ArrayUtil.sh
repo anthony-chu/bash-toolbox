@@ -1,4 +1,5 @@
 include base.comparator.BaseComparator
+include math.util.MathUtil
 include string.util.StringUtil
 
 ArrayUtil(){
@@ -63,13 +64,13 @@ ArrayUtil(){
 
 	partition(){
 		local _partitions=${1}
-		local partitions=$((${1}-1))
+		local partitions=$(MathUtil decrement ${1})
 		shift
-		local group=$((${1}-1))
+		local group=$(MathUtil decrement ${1})
 		shift
 
 		local array=(${@})
-		local divisor=$((${partitions}+1))
+		local divisor=$(MathUtil increment ${partitions})
 		local size=${#array[@]}
 		local length=$((${size}/${_partitions}))
 
