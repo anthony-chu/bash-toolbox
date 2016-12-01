@@ -40,7 +40,7 @@ HelpMessage(){
 			displays_all_changes_made_to_the_current_branch
 			displays_the_current_branch
 			deletes_the_branch
-			fetches_a_developer\'s_branch
+			fetches_a_developer\\\'s_branch
 			prints_a_formatted_jira_message
 			displays_all_local_branches
 			shows_the_log_for_the_current_branch
