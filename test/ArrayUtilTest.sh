@@ -5,8 +5,13 @@ ArrayUtilTest(){
 	run(){
 		local tests=(
 			appendArrayEntry
+			bisect[false]
+			bisect[true]
 			convertStringToArray
 			flipArray
+			partition[1-of-3]
+			partition[2-of-3]
+			partition[3-of-3]
 			returnMaxLength
 			strip
 		)
@@ -20,6 +25,32 @@ ArrayUtilTest(){
 
 		if [[ $(ArrayUtil
 			appendArrayEntry ${inputArray[@]}) == ${outputArray[@]} ]]; then
+
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testBisect[false](){
+		local inputArray=(1 2 3 4 5 6)
+		local outputArray=(4 5 6)
+
+		if [[ $(ArrayUtil
+			bisect false ${inputArray[@]}) == ${outputArray[@]} ]]; then
+
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testBisect[true](){
+		local inputArray=(1 2 3 4 5 6)
+		local outputArray=(1 2 3)
+
+		if [[ $(ArrayUtil
+			bisect true ${inputArray[@]}) == ${outputArray[@]} ]]; then
 
 			echo PASS
 		else
@@ -44,6 +75,45 @@ ArrayUtilTest(){
 
 		if [[ $(ArrayUtil
 			flipArray ${inputArray[@]}) == ${outputArray[@]} ]]; then
+
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testPartition[1-of-3](){
+		local inputArray=(1 2 3 4 5 6)
+		local outputArray=(1 2)
+
+		if [[ $(ArrayUtil
+			partition 3 1 ${inputArray[@]}) == ${outputArray[@]}]]; then
+
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testPartition[2-of-3](){
+		local inputArray=(1 2 3 4 5 6)
+		local outputArray=(3 4)
+
+		if [[ $(ArrayUtil
+			partition 3 2 ${inputArray[@]}) == ${outputArray[@]}]]; then
+
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testPartition[3-of-3](){
+		local inputArray=(1 2 3 4 5 6)
+		local outputArray=(5 6)
+
+		if [[ $(ArrayUtil
+			partition 3 3 ${inputArray[@]}) == ${outputArray[@]}]]; then
 
 			echo PASS
 		else
