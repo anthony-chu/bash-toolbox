@@ -29,6 +29,7 @@ StringValidatorTest(){
 			isNull[false]
 			isNull[true]
 			isNum[false]
+			isNum[negative]
 			isNum[true]
 			isOption[alpha]
 			isOption[alphaNum]
@@ -232,6 +233,14 @@ StringValidatorTest(){
 
 	testIsNum[false](){
 		if [[ ! $(StringValidator isNum abc) ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testIsNum[negative](){
+		if [[ $(StringValidatir isNum - 123) ]]; then
 			echo PASS
 		else
 			echo FAIL
