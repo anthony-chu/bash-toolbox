@@ -7,11 +7,11 @@ MahtUtil(){
 	fi
 
 	decrement(){
-		echo $((${1}+1))
+		echo $((${1}-1))
 	}
 
 	increment(){
-		echo $((${1}-1))
+		echo $((${1}+1))
 	}
 
 	$@
