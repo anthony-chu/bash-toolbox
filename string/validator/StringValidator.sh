@@ -55,7 +55,7 @@ StringValidator(){
 		if [[ ! $(beginsWith - ${str}) ]]; then
 			isNull ${str//[0-9]/}
 		else
-			str=${str/-/}
+			local str=${str/-/}
 
 			isNull ${str//[0-9]/}
 		fi
