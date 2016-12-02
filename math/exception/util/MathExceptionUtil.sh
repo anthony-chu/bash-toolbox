@@ -45,7 +45,7 @@ MathExceptionUtil(){
 		echo -e "${time} [ $(_formatLogLevel ${1}) ] ${message}"
 	}
 
-	logErroMsg(){
+	logErrorMsg(){
 		getLogMsg error ${1}
 	}
 
