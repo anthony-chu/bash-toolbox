@@ -5,7 +5,7 @@ MathUtilTest(){
 	run(){
 		local tests=(decrement increment)
 
-		TestExecutor executeTest MathUtil ${tests[@]}
+		TestExecutor executeTest MathUtilTest ${tests[@]}
 	}
 
 	testDecrement(){
