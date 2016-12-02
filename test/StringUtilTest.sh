@@ -7,6 +7,7 @@ StringUtilTest(){
 			append
 			capitalize
 			length
+			parseMessage
 			replace[space]
 			replace
 			returnOption[false]
@@ -36,6 +37,14 @@ StringUtilTest(){
 
 	testLength(){
 		if [[ $(StringUtil length foo) == 3 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testParseMessage(){
+		if [[ $(StringUtil parseMessage foo_bar) == "foo bar" ]]; then
 			echo PASS
 		else
 			echo FAIL
