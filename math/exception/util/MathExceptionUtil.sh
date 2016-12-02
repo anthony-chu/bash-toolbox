@@ -2,7 +2,7 @@ include base.comparator.BaseComparator
 include base.util.BaseUtil
 include string.util.StringUtil
 
-MathExceptionHelper(){
+MathExceptionUtil(){
 	_formatLogLevel(){
 		local logLevel=${1}
 		local validLogLevels=(info error)
