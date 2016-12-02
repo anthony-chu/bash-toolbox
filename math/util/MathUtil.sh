@@ -1,7 +1,7 @@
 include math.exception.MathException
 include string.validator.StringValidator
 
-MahtUtil(){
+MathUtil(){
 	if [[ ! $(StringValidator isNum ${2}) ]]; then
 		MathException notANumberException ${2}
 	fi
