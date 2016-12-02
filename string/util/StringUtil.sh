@@ -45,10 +45,6 @@ StringUtil(){
 
 		local string=($(_flipArray ${_input[@]}))
 
-		if [[ $(BaseComparator isEqual ${orig} space) ]]; then
-			local orig=" "
-		fi
-
 		if [[ $(BaseComparator isEqual ${new} space) ]]; then
 			local new=" "
 		elif [[ $(BaseComparator isEqual ${new} null) ]]; then
