@@ -240,7 +240,7 @@ StringValidatorTest(){
 	}
 
 	testIsNum[negative](){
-		if [[ $(StringValidatir isNum - 123) ]]; then
+		if [[ $(StringValidator isNum - 123) ]]; then
 			echo PASS
 		else
 			echo FAIL
