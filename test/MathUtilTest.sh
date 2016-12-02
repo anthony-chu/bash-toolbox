@@ -3,7 +3,12 @@ include test.executor.TestExecutor
 
 MathUtilTest(){
 	run(){
-		local tests=(decrement increment)
+		local tests=(
+			decrement
+			decrement[negative]
+			increment
+			increment[negative]
+		)
 
 		TestExecutor executeTest MathUtilTest ${tests[@]}
 	}
@@ -16,8 +21,24 @@ MathUtilTest(){
 		fi
 	}
 
+	testDecrement[negative](){
+		if [[ $(MathUtil decrement -1) == -2 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	testIncrement(){
 		if [[ $(MathUtil increment 1) == 2 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testIncrement[negative](){
+		if [[ $(MathUtil increment -1) == 0 ]]; then
 			echo PASS
 		else
 			echo FAIL
