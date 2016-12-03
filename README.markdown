@@ -4,8 +4,9 @@
 
 1. [Welcome](#welcome)
 2. [Getting Started](#getting-started)
-3. [Contributing](#contributing)
-4. [Roadmap](#roadmap)
+3. [Using the toolbox](#using-the-toolbox)
+4. [Contributing](#contributing)
+5. [Roadmap](#roadmap)
 
 ## Welcome
 
@@ -40,6 +41,27 @@ top-level project files.
 
 With this one line in your top-level project file(s), you're now able to
 leverage the bash-toolbox library.
+
+## Using the toolbox
+
+As previously mentioned, in order to use the toolbox, you'll need to source it:
+
+- `source bash-toolbox/init.sh`
+
+Once you've sourced the init script, you can include any of the bash-toolbox
+function classes using the following format:
+
+- `include path.to.file.FunctionClassName`
+
+For example, if your script requires the use of the StringValidator function
+class, you'll need to have this in the header of the file after the init source:
+
+- `include string.validator.StringValidator`
+
+Every path is assumed to be within the bash-toolbox directory, so there is no
+need to explicitly add the bash-toolbox directory (in fact, you can't; it will
+fail to include the specified file). With that, you're ready to use the rest of
+the bash-toolbox! Happy coding!
 
 ## Contributing
 
