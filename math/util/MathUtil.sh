@@ -7,7 +7,7 @@ MathUtil(){
 	fi
 
 	decrement(){
-		echo $((${1}-1))
+		difference ${1} 1
 	}
 
 	difference(){
@@ -19,7 +19,7 @@ MathUtil(){
 	}
 
 	increment(){
-		echo $((${1}+1))
+		sum ${1} 1
 	}
 
 	sum(){
