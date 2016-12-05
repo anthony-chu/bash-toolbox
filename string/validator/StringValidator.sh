@@ -52,13 +52,11 @@ StringValidator(){
 	isNum(){
 		local str=${@}
 
-		if [[ ! $(beginsWith - ${str}) ]]; then
-			isNull ${str//[0-9]/}
-		else
+		if [[ $(beginsWith - ${str}) ]]; then
 			local str=${str/-/}
-
-			isNull ${str//[0-9]/}
 		fi
+
+		isNull ${str//[0-9]/}
 	}
 
 	isOption(){
