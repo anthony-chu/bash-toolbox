@@ -6,8 +6,13 @@ MathUtilTest(){
 		local tests=(
 			decrement
 			decrement[negative]
+			difference
 			increment
 			increment[negative]
+			isDivisible[false]
+			isDivisible[true]
+			modulus
+			sum
 		)
 
 		TestExecutor executeTest MathUtilTest ${tests[@]}
@@ -29,6 +34,14 @@ MathUtilTest(){
 		fi
 	}
 
+	testDifference(){
+		if [[ $(MathUtil difference 2 1) == 1 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	testIncrement(){
 		if [[ $(MathUtil increment 1) == 2 ]]; then
 			echo PASS
@@ -39,6 +52,38 @@ MathUtilTest(){
 
 	testIncrement[negative](){
 		if [[ $(MathUtil increment -1) == 0 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testIsDivisible[false](){
+		if [[ ! $(MathUtil isDivisible 3 2) ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testIsDivisible[true](){
+		if [[ $(MathUtil isDivisible 4 2) ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testModulus(){
+		if [[ $(MathUtil modulus 4 2) == 0 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testSum(){
+		if [[ $(MathUtil sum 1 1) == 2 ]]; then
 			echo PASS
 		else
 			echo FAIL
