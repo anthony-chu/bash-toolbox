@@ -31,6 +31,16 @@ MathUtil(){
 		BaseComparator isEqual $(modulus ${1} ${2}) 0
 	}
 
+	isEven(){
+		isDivisible ${1} 2
+	}
+
+	isOdd(){
+		if [[ ! $(isEven ${1}) ]]; then
+			echo true
+		fi
+	}
+
 	modulus(){
 		if [[ ! $(StringValidator isNum ${2}) ]]; then
 			MathException notANumberException ${2}
