@@ -1,4 +1,5 @@
 include array.util.ArrayUtil
+
 include base.comparator.BaseComparator
 
 ArrayValidator(){
