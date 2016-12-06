@@ -11,6 +11,10 @@ MathUtilTest(){
 			increment[negative]
 			isDivisible[false]
 			isDivisible[true]
+			isEven[false]
+			isEven[true]
+			isOdd[false]
+			isOdd[true]
 			modulus
 			sum
 		)
@@ -68,6 +72,38 @@ MathUtilTest(){
 
 	testIsDivisible[true](){
 		if [[ $(MathUtil isDivisible 4 2) ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testIsEven[false](){
+		if [[ ! $(MathUtil isEven 3) ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testIsEven[true](){
+		if [[ $(MathUtil isEven 4) ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testIsOdd[false](){
+		if [[ ! $(MathUtil isOdd 4) ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testIsOdd[true](){
+		if [[ $(MathUtil isOdd 3) ]]; then
 			echo PASS
 		else
 			echo FAIL
