@@ -23,6 +23,14 @@ MathUtil(){
 		sum ${1} 1
 	}
 
+	isDivisible(){
+		if [[ ! $(StringValidator isNum ${2}) ]]; then
+			MathException notANumberException ${2}
+		fi
+
+		BaseComparator isEqual $(modulus ${1} ${2}) 0
+	}
+
 	modulus(){
 		if [[ ! $(StringValidator isNum ${2}) ]]; then
 			MathException notANumberException ${2}
