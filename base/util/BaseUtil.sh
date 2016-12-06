@@ -17,6 +17,16 @@ BaseUtil(){
 		fi
 	}
 
+	getDate(){
+		if [[ ${1} == -m ]]; then
+			date +%m
+		elif [[ ${1} == -y ]]; then
+			date +%Y
+		elif [[ ${1} == -d ]]; then
+			date +%d
+		fi
+	}
+
 	gitpr(){
 		source "d:/git-tools/git-pull-request/git-pull-request.sh"
 	}
