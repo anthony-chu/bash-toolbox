@@ -2,6 +2,7 @@ include base.comparator.BaseComparator
 
 include math.exception.MathException
 
+include string.util.StringUtil
 include string.validator.StringValidator
 
 MathUtil(){
@@ -48,7 +49,13 @@ MathUtil(){
 			MathException notANumberException ${2}
 		fi
 
-		echo $((${1}%${2}))
+		var=${1}
+
+		if [[ $(StringValidator beginsWith 0 ${var}) ]]; then
+			var=$(StringUtil strip ${var} 0)
+		fi
+
+		echo $((${var}%${2}))
 	}
 
 	sum(){
