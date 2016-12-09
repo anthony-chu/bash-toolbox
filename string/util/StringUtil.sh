@@ -18,6 +18,14 @@ StringUtil(){
 		echo ${1}${2}
 	}
 
+	build(){
+		for _string in ${@}; do
+			local string=$(append ${string} ${_string})
+		done
+
+		echo ${string}
+	}
+
 	capitalize(){
 		local str=${@}
 
