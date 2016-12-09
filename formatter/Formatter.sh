@@ -35,7 +35,7 @@ Formatter(){
 					if [[ ${line} != *for* && ${line} != local* ]]; then
 						local f=${file}
 
-						local _message=(set_variable_scope_to_local_ ${f}:${n})
+						local _message=(set_variable_scope_to_local:_ ${f}:${n})
 
 						for _m in ${_message[@]}; do
 							local message=$(StringUtil append ${message} ${_m})
