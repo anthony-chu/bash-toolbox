@@ -37,11 +37,7 @@ Formatter(){
 
 						local _message=(set_variable_scope_to_local:_ ${f}:${n})
 
-						for _m in ${_message[@]}; do
-							local message=$(StringUtil append ${message} ${_m})
-						done
-
-						Logger logErrorMsg "${message}"
+						Logger logErrorMsg "$(StringUtil build ${message[@]})"
 
 						unset message
 					fi
