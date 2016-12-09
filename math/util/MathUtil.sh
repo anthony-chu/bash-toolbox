@@ -10,15 +10,15 @@ MathUtil(){
 		MathException notANumberException ${2}
 	fi
 
+	if [[ ! $(StringValidator isNum ${3}) ]]; then
+		MathException notANumberException ${3}
+	fi
+
 	decrement(){
 		difference ${1} 1
 	}
 
 	difference(){
-		if [[ ! $(StringValidator isNum ${2}) ]]; then
-			MathException notANumberException ${2}
-		fi
-
 		echo $((${1}-${2}))
 	}
 
@@ -27,10 +27,6 @@ MathUtil(){
 	}
 
 	isDivisible(){
-		if [[ ! $(StringValidator isNum ${2}) ]]; then
-			MathException notANumberException ${2}
-		fi
-
 		BaseComparator isEqual $(modulus ${1} ${2}) 0
 	}
 
@@ -45,10 +41,6 @@ MathUtil(){
 	}
 
 	modulus(){
-		if [[ ! $(StringValidator isNum ${2}) ]]; then
-			MathException notANumberException ${2}
-		fi
-
 		local var=${1}
 
 		if [[ $(StringValidator beginsWith 0 ${var}) ]]; then
@@ -59,10 +51,6 @@ MathUtil(){
 	}
 
 	sum(){
-		if [[ ! $(StringValidator isNum ${2}) ]]; then
-			MathException notANumberException ${2}
-		fi
-
 		echo $((${1}+${2}))
 	}
 
