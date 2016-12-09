@@ -49,10 +49,10 @@ MathUtil(){
 			MathException notANumberException ${2}
 		fi
 
-		var=${1}
+		local var=${1}
 
 		if [[ $(StringValidator beginsWith 0 ${var}) ]]; then
-			var=$(StringUtil strip ${var} 0)
+			local var=$(StringUtil strip ${var} 0)
 		fi
 
 		echo $((${var}%${2}))
