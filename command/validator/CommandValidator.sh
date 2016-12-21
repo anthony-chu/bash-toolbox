@@ -6,8 +6,8 @@ include command.exception.CommandException
 CommandValidator(){
 	validateCommand(){
 		if [[ ! $(ArrayValidator hasEntry ${@}) ]]; then
-			_flip=($(ArrayUtil flipArray ${@}))
-			cmd=${_flip[0]}
+			local _flip=($(ArrayUtil flipArray ${@}))
+			local cmd=${_flip[0]}
 
 			CommandException noSuchCommandException ${cmd}
 		fi

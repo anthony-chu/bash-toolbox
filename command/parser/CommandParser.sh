@@ -2,13 +2,13 @@ include string.util.StringUtil
 
 CommandParser(){
 	getValidFunctions(){
-		file=${1}
+		local file=${1}
 
-		validFunctions=()
+		local validFunctions=()
 
 		while read line; do
 			if [[ ${line} == *\(\){ ]]; then
-				validFunctions+=($(StringUtil strip ${line} \(\)\{))
+				local validFunctions+=($(StringUtil strip ${line} \(\)\{))
 			fi
 		done < ${file}
 
