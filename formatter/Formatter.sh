@@ -33,13 +33,19 @@ Formatter(){
 			while read line; do
 				if [[ ${line} =~ [a-zA-Z]+= && ${line} != export* ]]; then
 					if [[ ${line} != *for* && ${line} != local* ]]; then
-						local f=${file}
+						if [[ ${line} != *+* ]]; then
+							local f=${file}
 
-						local _message=(set_variable_scope_to_local:_ ${f}:${n})
+							local _message=(
+								set_variable_scope_to_local:_
+								${f}:${n}
+							)
 
-						Logger logErrorMsg "$(StringUtil build ${_message[@]})"
+							Logger logErrorMsg "$(
+								StringUtil build ${_message[@]})"
 
-						unset _message
+							unset _message
+						fi
 					fi
 				fi
 
