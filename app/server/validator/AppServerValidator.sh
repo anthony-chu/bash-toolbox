@@ -3,6 +3,25 @@ include array.validator.ArrayValidator
 include string.validator.StringValidator
 
 AppServerValidator(){
+	getAppServers(){
+		appServers=(
+			glassfish
+			jboss
+			jetty
+			jonas
+			resin
+			tcat
+			tcserver
+			tcserver
+			tomcat
+			weblobic
+			websphere
+			wildfly
+		)
+
+		echo ${appServers[@]}
+	}
+
 	isGlassfish(){
 		if [[ $(ArrayValidator hasEntry ${@} glassfish) ]]; then
 			echo true
@@ -85,21 +104,7 @@ AppServerValidator(){
 	}
 
 	validateAppServer(){
-		local validAppServer=(
-			glassfish
-			jetty
-			jboss
-			jonas
-			resin
-			tcat
-			tc-server
-			tomcat
-			weblogic
-			websphere
-			wildfly
-		)
-
-		for v in ${validAppServer[@]}; do
+		for v in $(getAppServers); do
 			if [[ $(ArrayValidator hasEntry ${@} ${v}) ]]; then
 				echo ${v}
 				break
