@@ -1,9 +1,15 @@
 BaseVars(){
 	_returnPrivacy(){
-		if [[ $@ == *ee-* ]]; then
+		if [[ $(isPrivate $@) ]]; then
 			echo private
 		else
 			echo public
+		fi
+	}
+
+	isPrivate(){
+		if [[ $@ == *ee-* ]]; then
+			echo true
 		fi
 	}
 
