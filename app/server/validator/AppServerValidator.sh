@@ -12,7 +12,6 @@ AppServerValidator(){
 			resin
 			tcat
 			tcserver
-			tcserver
 			tomcat
 			weblobic
 			websphere
