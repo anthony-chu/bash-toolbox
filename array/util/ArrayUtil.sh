@@ -57,13 +57,11 @@ ArrayUtil(){
 
 	partition(){
 		local _partitions=${1}
-		local partitions=$(MathUtil decrement ${1})
-		shift
-		local group=$(MathUtil decrement ${1})
-		shift
+		local array=($(import ${3}))
+		local partitions=$(MathUtil decrement ${_partitions})
 
-		local array=($(import ${1}))
 		local divisor=$(MathUtil increment ${partitions})
+		local group=$(MathUtil decrement ${2})
 		local size=${#array[@]}
 		local length=$((${size}/${_partitions}))
 
