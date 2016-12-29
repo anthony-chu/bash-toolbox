@@ -3,24 +3,6 @@ include base.comparator.BaseComparator
 include string.validator.StringValidator
 
 StringUtil(){
-	_flipArray(){
-		local inputArray=($@)
-		local newArray=()
-
-		for (( i=${#inputArray[@]}; i>=0; i-- )); do
-			newArray+=(${inputArray[i]})
-		done
-
-		echo ${newArray[@]}
-	}
-
-	_importArray(){
-		local _array=${1}
-		local array=${_array}[@]
-
-		echo ${!array}
-	}
-
 	append(){
 		echo ${1}${2}
 	}
