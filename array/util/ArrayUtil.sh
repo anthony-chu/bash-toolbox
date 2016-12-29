@@ -51,19 +51,6 @@ ArrayUtil(){
 		echo ${newArray[@]}
 	}
 
-	returnMaxLength(){
-		local array=($@)
-		local maxLength=0
-
-		for a in ${array[@]}; do
-			if [[ $(StringUtil length ${a}) > ${maxLength} ]]; then
-				local maxLength=$(StringUtil length ${a})
-			fi
-		done
-
-		echo ${maxLength}
-	}
-
 	partition(){
 		local _partitions=${1}
 		local partitions=$(MathUtil decrement ${1})
@@ -85,6 +72,19 @@ ArrayUtil(){
 		local subArray=subArray${group}[@]
 
 		echo ${!subArray}
+	}
+
+	returnMaxLength(){
+		local array=($@)
+		local maxLength=0
+
+		for a in ${array[@]}; do
+			if [[ $(StringUtil length ${a}) > ${maxLength} ]]; then
+				local maxLength=$(StringUtil length ${a})
+			fi
+		done
+
+		echo ${maxLength}
 	}
 
 	strip(){
