@@ -44,9 +44,7 @@ FileUtil(){
 
 		local matchingContent=($(grep -o '${pattern}' ${file}))
 
-		if [[ ! $(ArrayValidator
-			hasEntry ${matchingContent[@]} ${pattern}) ]]; then
-
+		if [[ ! $(ArrayValidator hasEntry matchingContent ${pattern}) ]]; then
 			echo true
 		fi
 	}
