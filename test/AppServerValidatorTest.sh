@@ -21,8 +21,22 @@ AppServerValidatorTest(){
 		TestExecutor executeTest AppServerValidatorTest ${tests[@]}
 	}
 
+	local appServers=(
+		glassfish
+		jboss
+		jetty
+		jonas
+		resin
+		tcat
+		tc-server
+		tomcat
+		weblogic
+		websphere
+		wildfly
+	)
+
 	testIsGlassfish(){
-		if [[ $(AppServerValidator isGlassfish glassfish) ]]; then
+		if [[ $(AppServerValidator isGlassfish appServers) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -30,7 +44,7 @@ AppServerValidatorTest(){
 	}
 
 	testIsJboss(){
-		if [[ $(AppServerValidator isJboss jboss) ]]; then
+		if [[ $(AppServerValidator isJboss appServers) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -38,7 +52,7 @@ AppServerValidatorTest(){
 	}
 
 	testIsJetty(){
-		if [[ $(AppServerValidator isJetty jetty) ]]; then
+		if [[ $(AppServerValidator isJetty appServers) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -46,7 +60,7 @@ AppServerValidatorTest(){
 	}
 
 	testIsJonas(){
-		if [[ $(AppServerValidator isJonas jonas) ]]; then
+		if [[ $(AppServerValidator isJonas appServers) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -54,7 +68,7 @@ AppServerValidatorTest(){
 	}
 
 	testIsResin(){
-		if [[ $(AppServerValidator isResin resin) ]]; then
+		if [[ $(AppServerValidator isResin appServers) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -62,7 +76,7 @@ AppServerValidatorTest(){
 	}
 
 	testIsTcat(){
-		if [[ $(AppServerValidator isTcat tcat) ]]; then
+		if [[ $(AppServerValidator isTcat appServers) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -70,7 +84,7 @@ AppServerValidatorTest(){
 	}
 
 	testIsTCserver(){
-		if [[ $(AppServerValidator isTCServer tc-server) ]]; then
+		if [[ $(AppServerValidator isTCServer appServers) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -78,7 +92,7 @@ AppServerValidatorTest(){
 	}
 
 	testIsTomcat(){
-		if [[ $(AppServerValidator isTomcat tomcat) ]]; then
+		if [[ $(AppServerValidator isTomcat appServers) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -86,7 +100,7 @@ AppServerValidatorTest(){
 	}
 
 	testIsWeblogic(){
-		if [[ $(AppServerValidator isWeblogic weblogic) ]]; then
+		if [[ $(AppServerValidator isWeblogic appServers) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -94,7 +108,7 @@ AppServerValidatorTest(){
 	}
 
 	testIsWebsphere(){
-		if [[ $(AppServerValidator isWebsphere websphere) ]]; then
+		if [[ $(AppServerValidator isWebsphere appServers) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -102,7 +116,7 @@ AppServerValidatorTest(){
 	}
 
 	testIsWildfly(){
-		if [[ $(AppServerValidator isWildfly wildfly) ]]; then
+		if [[ $(AppServerValidator isWildfly appServers) ]]; then
 			echo PASS
 		else
 			echo FAIL

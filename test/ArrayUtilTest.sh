@@ -74,9 +74,7 @@ ArrayUtilTest(){
 		local inputArray=(foo bar)
 		local outputArray=(bar foo)
 
-		if [[ $(ArrayUtil
-			flipArray ${inputArray[@]}) == ${outputArray[@]} ]]; then
-
+		if [[ $(ArrayUtil flipArray inputArray) == ${outputArray[@]} ]]; then
 			echo PASS
 		else
 			echo FAIL

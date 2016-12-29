@@ -17,7 +17,7 @@ ArrayValidatorTest(){
 	testHasEntry[false](){
 		local inputArray=(foo foo)
 
-		if [[ ! $(ArrayValidator hasEntry ${inputArray[@]} bar) ]]; then
+		if [[ ! $(ArrayValidator hasEntry inputArray bar) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -27,7 +27,7 @@ ArrayValidatorTest(){
 	testHasEntry[true](){
 		local inputArray=(foo bar)
 
-		if [[ $(ArrayValidator hasEntry ${inputArray[@]} foo) ]]; then
+		if [[ $(ArrayValidator hasEntry inputArray foo) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -37,7 +37,7 @@ ArrayValidatorTest(){
 	testHasUniqueEntry[false](){
 		local inputArray=(foo foo bar)
 
-		if [[ ! $(ArrayValidator hasUniqueEntry ${inputArray[@]} foo) ]]; then
+		if [[ ! $(ArrayValidator hasUniqueEntry inputArray foo) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -47,7 +47,7 @@ ArrayValidatorTest(){
 	testHasUniqueEntry[true](){
 		local inputArray=(foo foo bar)
 
-		if [[ $(ArrayValidator hasUniqueEntry ${inputArray[@]} bar) ]]; then
+		if [[ $(ArrayValidator hasUniqueEntry inputArray bar) ]]; then
 			echo PASS
 		else
 			echo FAIL
