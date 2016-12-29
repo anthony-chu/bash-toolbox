@@ -10,6 +10,7 @@ ArrayUtilTest(){
 			bisect[true]
 			convertStringToArray
 			flipArray
+			import
 			partition[1-of-3]
 			partition[2-of-3]
 			partition[3-of-3]
@@ -75,6 +76,16 @@ ArrayUtilTest(){
 		local outputArray=(bar foo)
 
 		if [[ $(ArrayUtil flipArray inputArray) == ${outputArray[@]} ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testImport(){
+		local inputArray=(a b c d e)
+
+		if [[ $(ArrayUtil import inputArray) == ${inputArray[@]} ]]; then
 			echo PASS
 		else
 			echo FAIL
