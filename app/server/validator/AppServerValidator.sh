@@ -13,7 +13,7 @@ AppServerValidator(){
 			tcat
 			tcserver
 			tomcat
-			weblobic
+			weblogic
 			websphere
 			wildfly
 		)
