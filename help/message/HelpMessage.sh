@@ -11,7 +11,7 @@ HelpMessage(){
 		for (( i=0; i<${#funcList[@]}; i++ )); do
 			local helpMessage=$(StringUtil capitalize ${helpList[i]})
 
-			local helpListEntry=$(StringUtil parseMessage ${helpMessage})
+			local helpListEntry=$(StringUtil parseMessage helpMessage)
 
 			echo -e "\t${funcList[i]}................${helpListEntry}"
 		done

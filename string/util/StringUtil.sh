@@ -51,7 +51,9 @@ StringUtil(){
 
 	returnOption(){
 		if [[ $(StringValidator isOption ${1}) ]]; then
-			strip ${1} -
+			local option=${1}
+
+			strip option -
 		fi
 	}
 

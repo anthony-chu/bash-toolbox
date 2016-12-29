@@ -34,7 +34,9 @@ ArrayUtil(){
 	}
 
 	convertStringToArray(){
-		StringUtil replace ${1} , space
+		local array=${1}
+
+		StringUtil replace array , space
 	}
 
 	flipArray(){

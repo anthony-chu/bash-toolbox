@@ -40,14 +40,13 @@ MathExceptionUtil(){
 	}
 
 	getLogMsg(){
+		local _message=$(StringUtil capitalize ${2})
 		local time=$(BaseUtil timestamp log)
 
 		if [[ $(BaseComparator isEqualIgnoreCase ${1} error) ]]; then
-			local message=$(colorme red $(StringUtil replace $(StringUtil
-				capitalize ${2}) _ space))
+			local message=$(colorme red $(StringUtil replace _message _ space))
 		else
-			local message=$(StringUtil parseMessage $(StringUtil
-				capitalize ${2}))
+			local message=$(StringUtil parseMessage _message)
 		fi
 
 		echo -e "${time} [ $(_formatLogLevel ${1}) ] ${message}"
