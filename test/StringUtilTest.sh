@@ -45,7 +45,9 @@ StringUtilTest(){
 	}
 
 	testParseMessage(){
-		if [[ $(StringUtil parseMessage foo_bar) == "foo bar" ]]; then
+		local message="foo_bar"
+
+		if [[ $(StringUtil parseMessage message) == "foo bar" ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -53,7 +55,9 @@ StringUtilTest(){
 	}
 
 	testReplace(){
-		if [[ $(StringUtil replace foo-bar - .) == foo.bar ]]; then
+		local string="foo-bar"
+
+		if [[ $(StringUtil replace string - .) == foo.bar ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -61,7 +65,9 @@ StringUtilTest(){
 	}
 
 	testReplace[space](){
-		if [[ $(StringUtil replace foo-bar - space) == "foo bar" ]]; then
+		local string="foo-bar"
+
+		if [[ $(StringUtil replace string - space) == "foo bar" ]]; then
 			echo PASS
 		else
 			echo FAIL
