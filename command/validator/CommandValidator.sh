@@ -8,7 +8,7 @@ CommandValidator(){
 		local validCommands=($(CommandParser getValidFunctions ${1}))
 
 		if [[ ! $(ArrayValidator hasEntry ${validCommands[@]} ${2}) ]]; then
-			local cmd=${@:${#}}
+			local cmd=${2}
 
 			CommandException noSuchCommandException ${cmd}
 		fi
