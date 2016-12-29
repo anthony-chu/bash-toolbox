@@ -4,7 +4,7 @@ include string.validator.StringValidator
 
 AppServerValidator(){
 	getAppServers(){
-		appServers=(
+		local appServers=(
 			glassfish
 			jboss
 			jetty
