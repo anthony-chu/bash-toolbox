@@ -26,7 +26,7 @@ ArrayUtilTest(){
 		local outputArray=(foo... foobar)
 
 		if [[ $(ArrayUtil
-			appendArrayEntry ${inputArray[@]}) == ${outputArray[@]} ]]; then
+			appendArrayEntry inputArray) == ${outputArray[@]} ]]; then
 
 			echo PASS
 		else
@@ -38,9 +38,7 @@ ArrayUtilTest(){
 		local inputArray=(1 2 3 4 5 6)
 		local outputArray=(4 5 6)
 
-		if [[ $(ArrayUtil
-			bisect false ${inputArray[@]}) == ${outputArray[@]} ]]; then
-
+		if [[ $(ArrayUtil bisect false inputArray) == ${outputArray[@]} ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -51,9 +49,7 @@ ArrayUtilTest(){
 		local inputArray=(1 2 3 4 5 6)
 		local outputArray=(1 2 3)
 
-		if [[ $(ArrayUtil
-			bisect true ${inputArray[@]}) == ${outputArray[@]} ]]; then
-
+		if [[ $(ArrayUtil bisect true inputArray) == ${outputArray[@]} ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -97,7 +93,7 @@ ArrayUtilTest(){
 		local outputArray=(1 2)
 
 		if [[ $(ArrayUtil
-			partition 3 1 ${inputArray[@]}) == ${outputArray[@]} ]]; then
+			partition 3 1 inputArray) == ${outputArray[@]} ]]; then
 
 			echo PASS
 		else
@@ -110,7 +106,7 @@ ArrayUtilTest(){
 		local outputArray=(3 4)
 
 		if [[ $(ArrayUtil
-			partition 3 2 ${inputArray[@]}) == ${outputArray[@]} ]]; then
+			partition 3 2 inputArray) == ${outputArray[@]} ]]; then
 
 			echo PASS
 		else
@@ -123,7 +119,7 @@ ArrayUtilTest(){
 		local outputArray=(5 6)
 
 		if [[ $(ArrayUtil
-			partition 3 3 ${inputArray[@]}) == ${outputArray[@]} ]]; then
+			partition 3 3 inputArray) == ${outputArray[@]} ]]; then
 
 			echo PASS
 		else
@@ -135,9 +131,7 @@ ArrayUtilTest(){
 		local inputArray=(foo foobar)
 		local maxLength=6
 
-		if [[ $(ArrayUtil
-			returnMaxLength ${inputArray[@]}) == ${maxLength} ]]; then
-
+		if [[ $(ArrayUtil returnMaxLength inputArray) == ${maxLength} ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -147,7 +141,7 @@ ArrayUtilTest(){
 	testStrip(){
 		local inputArray=(foo foo bar bar)
 
-		if [[ $(ArrayUtil strip ${inputArray[@]} foo) == "bar bar" ]]; then
+		if [[ $(ArrayUtil strip inputArray foo) == "bar bar" ]]; then
 			echo PASS
 		else
 			echo FAIL
