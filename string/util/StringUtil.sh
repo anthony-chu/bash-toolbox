@@ -14,6 +14,13 @@ StringUtil(){
 		echo ${newArray[@]}
 	}
 
+	_importArray(){
+		local _array=${1}
+		local array=${_array}[@]
+
+		echo ${!array}
+	}
+
 	append(){
 		echo ${1}${2}
 	}
