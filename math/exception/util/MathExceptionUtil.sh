@@ -8,7 +8,7 @@ MathExceptionUtil(){
 		local logLevel=${1}
 		local validLogLevels=(info error)
 
-		local maxLength=$(_returnMaxLength ${validLogLevels[@]})
+		local maxLength=$(_returnMaxLength validLogLevels)
 
 		while [[ $(BaseComparator isLessThan $(StringUtil
 			length ${logLevel}) ${maxLength}) ]]; do
@@ -19,8 +19,15 @@ MathExceptionUtil(){
 		StringUtil toUpperCase ${logLevel}
 	}
 
+	_import(){
+		local __array=${1}
+		local _array=${__array}[@]
+
+		echo ${!_array}
+	}
+
 	_returnMaxLength(){
-		local array=($@)
+		local array=($(_import ${1}))
 		local maxLength=0
 
 		for a in ${array[@]}; do

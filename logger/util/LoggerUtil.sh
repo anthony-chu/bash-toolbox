@@ -10,7 +10,7 @@ LoggerUtil(){
 		local logLevel=${1}
 		local validLogLevels=(info error)
 
-		local maxLength=$(ArrayUtil returnMaxLength ${validLogLevels[@]})
+		local maxLength=$(ArrayUtil returnMaxLength validLogLevels)
 
 		while [[ $(BaseComparator isLessThan $(StringUtil
 			length ${logLevel}) ${maxLength}) ]]; do

@@ -6,8 +6,8 @@ include string.util.StringUtil
 
 ArrayUtil(){
 	appendArrayEntry(){
-		local array=($@)
-		local maxLength=$(returnMaxLength ${array[@]})
+		local array=($(import ${1}))
+		local maxLength=$(returnMaxLength array)
 		local newArray=()
 		local placeholder=.
 
@@ -23,16 +23,13 @@ ArrayUtil(){
 	}
 
 	bisect(){
+		local array=($(import ${2}))
 		local state=${1}
 
-		shift
-
-		local array=(${@})
-
 		if [[ $(BaseComparator isEqual ${state} true) ]]; then
-			partition 2 1 ${array[@]}
+			partition 2 1 array
 		elif [[ $(BaseComparator isEqual ${state} false) ]]; then
-			partition 2 2 ${array[@]}
+			partition 2 2 array
 		fi
 	}
 
@@ -65,7 +62,7 @@ ArrayUtil(){
 		local group=$(MathUtil decrement ${1})
 		shift
 
-		local array=(${@})
+		local array=($(import ${1}))
 		local divisor=$(MathUtil increment ${partitions})
 		local size=${#array[@]}
 		local length=$((${size}/${_partitions}))
@@ -82,7 +79,7 @@ ArrayUtil(){
 	}
 
 	returnMaxLength(){
-		local array=($@)
+		local array=($(import ${1}))
 		local maxLength=0
 
 		for a in ${array[@]}; do
@@ -95,13 +92,11 @@ ArrayUtil(){
 	}
 
 	strip(){
-		local array=(${@})
-		local entry=${array[-1]}
-
+		local array=($(import ${1}))
 		local newArray=()
 
 		for arrayEntry in ${array[@]}; do
-			if [[ ! $(BaseComparator isEqual ${entry} ${arrayEntry}) ]]; then
+			if [[ ! $(BaseComparator isEqual ${2} ${arrayEntry}) ]]; then
 				newArray+=(${arrayEntry})
 			fi
 		done
