@@ -5,7 +5,8 @@ include string.validator.StringValidator
 
 FileUtil(){
 	construct(){
-		local directories=($(StringUtil replace ${1} / space))
+		local _path=${1}
+		local directories=($(StringUtil replace _path / space))
 
 		for directory in ${directories[@]}; do
 			local dir=${dir}/${directory}
@@ -27,7 +28,7 @@ FileUtil(){
 
 	getExtension(){
 		local file=${1}
-		StringUtil strip ${file} .*[.]
+		StringUtil strip file .*[.]
 	}
 
 	getStatus(){
