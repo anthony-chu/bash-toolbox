@@ -41,7 +41,7 @@ ArrayUtil(){
 	}
 
 	flipArray(){
-		local inputArray=($@)
+		local inputArray=($(import ${1}))
 		local newArray=()
 
 		for (( i=${#inputArray[@]}; i>=0; i-- )); do

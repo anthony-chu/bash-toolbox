@@ -25,9 +25,9 @@ AppServerVersion(){
 			local appServer=${1}
 			local branch=${2}
 
-			if [[ $(AppServerValidator isTomcat ${appServer}) ]]; then
+			if [[ $(AppServerValidator isTomcat appServer) ]]; then
 				_overrideTomcatVersion ${branch}
-			elif [[ $(AppServerValidator isTCServer ${appServer}) ]]; then
+			elif [[ $(AppServerValidator isTCServer appServer) ]]; then
 				AppServerVersionConstants tcserverVersion
 			else
 				AppServerVersionConstants ${appServer}Version

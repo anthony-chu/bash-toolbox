@@ -4,13 +4,11 @@ include base.comparator.BaseComparator
 
 ArrayValidator(){
 	hasEntry(){
-		local _flip=($(ArrayUtil flipArray $@))
-
-		local entry=${_flip[0]}
-		local array=(${_flip[@]:1})
+		local array=$(ArrayUtil import ${1})
+		local entry=${2}
 
 		for a in ${array[@]}; do
-			if [[ $(BaseComparator isEqual ${a} ${entry}) ]]; then
+			if [[ $(BaseComparator isEqual ${a} ${2}) ]]; then
 				echo true
 				break
 			fi
@@ -18,16 +16,12 @@ ArrayValidator(){
 	}
 
 	hasUniqueEntry(){
-		local _flip=($(ArrayUtil flipArray $@))
-
-		local entry=${_flip[0]}
-		local array=(${_flip[@]:1})
-
-		if [[ $(hasEntry ${array[@]} ${entry}) ]]; then
+		if [[ $(hasEntry ${1} ${2}) ]]; then
+			local array=($(ArrayUtil import ${1}))
 			local count=0
 
 			for a in ${array[@]}; do
-				if [[ $(BaseComparator isEqual ${a} ${entry}) ]]; then
+				if [[ $(BaseComparator isEqual ${a} ${2}) ]]; then
 					((count++))
 				fi
 			done

@@ -23,67 +23,67 @@ AppServerValidator(){
 	}
 
 	isGlassfish(){
-		if [[ $(ArrayValidator hasEntry ${@} glassfish) ]]; then
+		if [[ $(ArrayValidator hasEntry ${1} glassfish) ]]; then
 			echo true
 		fi
 	}
 
 	isJboss(){
-		if [[ $(ArrayValidator hasEntry ${@} jboss) ]]; then
+		if [[ $(ArrayValidator hasEntry ${1} jboss) ]]; then
 			echo true
 		fi
 	}
 
 	isJetty(){
-		if [[ $(ArrayValidator hasEntry ${@} jetty) ]]; then
+		if [[ $(ArrayValidator hasEntry ${1} jetty) ]]; then
 			echo true
 		fi
 	}
 
 	isJonas(){
-		if [[ $(ArrayValidator hasEntry ${@} jonas) ]]; then
+		if [[ $(ArrayValidator hasEntry ${1} jonas) ]]; then
 			echo true
 		fi
 	}
 
 	isResin(){
-		if [[ $(ArrayValidator hasEntry ${@} resin) ]]; then
+		if [[ $(ArrayValidator hasEntry ${1} resin) ]]; then
 			echo true
 		fi
 	}
 
 	isTcat(){
-		if [[ $(ArrayValidator hasEntry ${@} tcat) ]]; then
+		if [[ $(ArrayValidator hasEntry ${1} tcat) ]]; then
 			echo true
 		fi
 	}
 
 	isTCServer(){
-		if [[ $(ArrayValidator hasEntry ${@} tc*server) ]]; then
+		if [[ $(ArrayValidator hasEntry ${1} tc*server) ]]; then
 			echo true
 		fi
 	}
 
 	isTomcat(){
-		if [[ $(ArrayValidator hasEntry ${@} tomcat) ]]; then
+		if [[ $(ArrayValidator hasEntry ${1} tomcat) ]]; then
 			echo true
 		fi
 	}
 
 	isWeblogic(){
-		if [[ $(ArrayValidator hasEntry ${@} weblogic) ]]; then
+		if [[ $(ArrayValidator hasEntry ${1} weblogic) ]]; then
 			echo true
 		fi
 	}
 
 	isWebsphere(){
-		if [[ $(ArrayValidator hasEntry ${@} websphere) ]]; then
+		if [[ $(ArrayValidator hasEntry ${1} websphere) ]]; then
 			echo true
 		fi
 	}
 
 	isWildfly(){
-		if [[ $(ArrayValidator hasEntry ${@} wildfly) ]]; then
+		if [[ $(ArrayValidator hasEntry ${1} wildfly) ]]; then
 			echo true
 		fi
 	}
@@ -105,7 +105,7 @@ AppServerValidator(){
 
 	validateAppServer(){
 		for v in $(getAppServers); do
-			if [[ $(ArrayValidator hasEntry ${@} ${v}) ]]; then
+			if [[ $(ArrayValidator hasEntry ${1} ${v}) ]]; then
 				echo ${v}
 				break
 			fi
