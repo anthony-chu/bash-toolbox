@@ -2,6 +2,8 @@ include array.util.ArrayUtil
 
 include base.comparator.BaseComparator
 
+include math.util.MathUtil
+
 ArrayValidator(){
 	hasEntry(){
 		local array=$(ArrayUtil import ${1})
@@ -22,7 +24,7 @@ ArrayValidator(){
 
 			for a in ${array[@]}; do
 				if [[ $(BaseComparator isEqual ${a} ${2}) ]]; then
-					((count++))
+					local count=$(MathUtil increment ${count})
 				fi
 			done
 
