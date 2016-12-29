@@ -32,24 +32,21 @@ StringUtil(){
 	}
 
 	replace(){
-		local input=(${@})
-
-		local orig=${input[-2]}
-		local new=${input[-1]}
-
-		local _temp=($(_flipArray ${input[@]}))
-
-		local _input=(${_temp[@]:2})
-
-		local string=($(_flipArray ${_input[@]}))
+		local input=${!1}
+		local new=${3}
+		local old=${2}
 
 		if [[ $(BaseComparator isEqual ${new} space) ]]; then
-			local new=" "
+			local new="\ "
 		elif [[ $(BaseComparator isEqual ${new} null) ]]; then
 			local new=""
 		fi
 
-		echo ${string[@]//${orig}/${new}}
+		if [[ $(BaseComparator isEqual ${old} space) ]]; then
+			local old=" "
+		fi
+
+		echo ${input} | sed "s#${old}#${new}#g"
 	}
 
 	returnOption(){
