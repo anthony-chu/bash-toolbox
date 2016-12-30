@@ -8,7 +8,7 @@ CommandParser(){
 
 		while read line; do
 			if [[ ${line} == *\(\){ ]]; then
-				validFunctions+=($(StringUtil strip ${line} \(\)\{))
+				validFunctions+=($(StringUtil strip line \(\)\{))
 			fi
 		done < ${file}
 
