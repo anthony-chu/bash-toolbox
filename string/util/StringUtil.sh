@@ -46,7 +46,7 @@ StringUtil(){
 			local old=" "
 		fi
 
-		echo ${input} | sed "s#${old}#${new}#g"
+		echo ${input} | sed "s;${old};${new};g"
 	}
 
 	returnOption(){
