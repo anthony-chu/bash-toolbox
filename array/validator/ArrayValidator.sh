@@ -6,7 +6,7 @@ include math.util.MathUtil
 
 ArrayValidator(){
 	hasEntry(){
-		local array=$(ArrayUtil import ${1})
+		local array=($(ArrayUtil import ${1}))
 		local entry=${2}
 
 		for a in ${array[@]}; do
