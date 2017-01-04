@@ -1,11 +1,26 @@
 include array.validator.ArrayValidator
 
 include command.exception.CommandException
-include command.parser.CommandParser
+
+include string.util.StringUtil
 
 CommandValidator(){
+	_getValidFunctions(){
+		local file=${1}
+
+		local validFunctions=()
+
+		while read line; do
+			if [[ ${line} == *\(\){ ]]; then
+				validFunctions+=($(StringUtil strip line \(\)\{))
+			fi
+		done < ${file}
+
+		echo ${validFunctions[@]}
+	}
+
 	validateCommand(){
-		local validCommands=($(CommandParser getValidFunctions ${1}))
+		local validCommands=($(_getValidFunctions ${1}))
 
 		if [[ ! $(ArrayValidator hasEntry validCommands ${2}) ]]; then
 			local cmd=${2}
