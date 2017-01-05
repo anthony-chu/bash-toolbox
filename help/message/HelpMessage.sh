@@ -71,6 +71,22 @@ HelpMessage(){
 		_printHelpMessage funcList helpList
 	}
 
+	buildTestHelpMessage(){
+		local funcList=(run-unit-tests)
+
+		local helpList=(runs_all_unit_tests_in_/test_directory)
+
+		_printHelpMessage funcList helpList
+	}
+
+	formatHelpMessage(){
+		local funcList=([empty])
+
+		local helpList=(validates_all_script_files_using_formatting_rules)
+
+		_printHelpMessage funcList helpList
+	}
+
 	testHelpMessage(){
 		local funcList=(
 			pr
