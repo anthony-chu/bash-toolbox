@@ -42,8 +42,19 @@ BundleUtil(){
 	}
 
 	deleteBundleContent(){
-		Logger logProgressMsg "deleting_all_bundle_content"
-		rm -rf ${bundleDir}/*
+		deleteHomeFolders ${1}
+		deleteTempFiles ${1}
+
+		Logger logProgressMsg "deleting_remaining_bundle_folders"
+
+		for dir in deploy osgi poshi tools work; do
+			rm -rf ${bundleDir}/${dir}
+		done
+
+		Logger logCompletedMsg
+
+		Logger logProgressMsg "deleting_app_server_directory"
+		rm -rf $(AppServerFactory getAppServerDir ${1} ${2})
 		Logger logCompletedMsg
 	}
 
