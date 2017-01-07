@@ -1,5 +1,4 @@
-include app.server.validator.AppServerValidator
-include app.server.version.AppServerVersion
+include app.server.factory.AppServerFactory
 
 include base.comparator.BaseComparator
 include base.vars.BaseVars
@@ -70,8 +69,14 @@ BundleUtil(){
 		Logger logCompletedMsg
 	}
 
-	local branch=$(BaseVars returnBranch ${2})
-	local bundleDir=$(BaseVars returnBbundleDir ${2})
+	if [[ ${2} ]]; then
+		local branch=$(BaseVars returnBranch ${2})
+		local bundleDir=$(BaseVars returnBundleDir ${2})
+	else
+		local branch=$(BaseVars returnBranch ${1})
+		local bundleDir=$(BaseVars returnBundleDir ${1})
+	fi
+
 	local replace="FileIOUtil replace"
 
 	$@
