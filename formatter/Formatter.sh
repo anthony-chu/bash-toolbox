@@ -41,9 +41,7 @@ Formatter(){
 								${f}:${n}
 							)
 
-							Logger logErrorMsg "$(
-								StringUtil build ${_message[@]})"
-
+							Logger logErrorMsg "$(StringUtil build _message)"
 						fi
 					fi
 				fi
