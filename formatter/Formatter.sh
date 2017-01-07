@@ -44,7 +44,6 @@ Formatter(){
 							Logger logErrorMsg "$(
 								StringUtil build ${_message[@]})"
 
-							unset _message
 						fi
 					fi
 				fi
