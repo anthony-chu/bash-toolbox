@@ -12,14 +12,7 @@ include string.util.StringUtil
 
 BundleUtil(){
 	configure(){
-		local appServer=$(AppServerValidator returnAppServer ${2})
-		local _appServerDir=(
-			${bundleDir}/
-			${appServer}-
-			$(AppServerVersion returnAppServerVersion ${appServer} ${branch})
-		)
-
-		local appServerDir=$(StringUtil build _appServerDir)
+		local appServerDir=$(AppServerFactory getAppServerDir ${1} ${2})
 
 		Logger logProgressMsg "increasing_memory_limit"
 		if [[ $(AppServerValidator isTomcat appServer) ]]; then
