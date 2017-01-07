@@ -15,7 +15,9 @@ StringUtil(){
 	}
 
 	build(){
-		for _string in ${@}; do
+		local array=$(_import ${1})
+
+		for _string in ${array[@]}; do
 			local string=$(append ${string} ${_string})
 		done
 
