@@ -60,7 +60,13 @@ BundleUtil(){
 
 	deleteHomeFolders(){
 		Logger logProgressMsg "deleting_home_folders"
-		rm -rf ${bundleDir}/data ${bundleDir}/deploy
+		rm -rf ${bundleDir}/data ${bundleDir}/logs
+		Logger logCompletedMsg
+	}
+
+	deleteTempFiles(){
+		Logger logProgressMsg "deleting_temporary_directories"
+		rm -rf ${bundleDir}/temp ${bundleDir}/work
 		Logger logCompletedMsg
 	}
 
