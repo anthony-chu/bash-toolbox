@@ -64,8 +64,10 @@ BundleUtil(){
 	}
 
 	deleteTempFiles(){
+		local appServerDir=$(AppServerFactory getAppServerDir ${1} ${2})
+
 		Logger logProgressMsg "deleting_temporary_directories"
-		rm -rf ${bundleDir}/temp ${bundleDir}/work
+		rm -rf ${appServerDir}/temp ${appServerDir}/work
 		Logger logCompletedMsg
 	}
 
