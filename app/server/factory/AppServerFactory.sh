@@ -3,6 +3,8 @@ include app.server.version.AppServerVersion
 
 include base.vars.BaseVars
 
+include string.util.StringUtil
+
 AppServerFactory(){
 	getAppServerDir(){
 		local appServer=$(AppServerValidator returnAppServer ${2})
