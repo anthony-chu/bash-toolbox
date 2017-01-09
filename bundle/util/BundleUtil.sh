@@ -17,17 +17,17 @@ BundleUtil(){
 		if [[ $(AppServerValidator isTomcat appServer) ]]; then
 			${replace} ${appServerDir}/bin/setenv.sh Xmx1024m Xmx2048m
 
-			string1=XX:MaxPermSize=384m
-			string2=Xms1024m
+			local string1=XX:MaxPermSize=384m
+			local string2=Xms1024m
 
 			${replace} ${appServerDir}/bin/setenv.sh ${string1} ${string2}
 		elif [[ $(AppServerValidator isWildfly appServer) ]]; then
-			d=[[:digit:]]
+			local d=[[:digit:]]
 
 			${replace} ${appServerDir}/bin/standalone.conf Xmx${d}\+m Xmx2048m
 
-			string1=MaxMetaspaceSize=${d}\+m
-			string2=MaxMetaspaceSize=1024m
+			local string1=MaxMetaspaceSize=${d}\+m
+			local string2=MaxMetaspaceSize=1024m
 
 			${replace} ${appServerDir}/bin/standalone.conf ${string1} ${string2}
 		fi
