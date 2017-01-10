@@ -17,7 +17,7 @@ StringUtilTest(){
 			toUpperCase
 		)
 
-		TestExecutor executeTest StringUtilTest ${tests[@]}
+		TestExecutor executeTest StringUtilTest
 	}
 
 	testAppend(){

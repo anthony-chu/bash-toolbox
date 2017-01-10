@@ -9,7 +9,7 @@ LoggerUtilTest(){
 			_formatLogLevel[info]
 		)
 
-		TestExecutor executeTest LoggerUtilTest ${tests[@]}
+		TestExecutor executeTest LoggerUtilTest
 	}
 
 	test_formatLogLevel[error](){

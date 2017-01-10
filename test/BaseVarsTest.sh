@@ -37,7 +37,7 @@ BaseVarsTest(){
 			returnBundleDir[master]
 		)
 
-		TestExecutor executeTest BaseVarsTest ${tests[@]}
+		TestExecutor executeTest BaseVarsTest
 	}
 
 	test_returnPrivacyTest[private](){

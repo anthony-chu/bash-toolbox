@@ -31,7 +31,7 @@ AppServerVersionTest(){
 			returnAppServerVersion[wildfly]
 		)
 
-		TestExecutor executeTest AppServerVersionTest ${tests[@]}
+		TestExecutor executeTest AppServerVersionTest
 	}
 
 	test_overrideTomcatVersion[6.1.x](){

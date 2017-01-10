@@ -11,7 +11,7 @@ LanguageUtilTest(){
 			togglePlurality[true]
 		)
 
-		TestExecutor executeTest LoggerUtilTest ${tests[@]}
+		TestExecutor executeTest LoggerUtilTest
 	}
 
 	testToggleArticleVowelForm[false](){

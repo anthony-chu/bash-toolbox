@@ -18,7 +18,7 @@ ArrayUtilTest(){
 			strip
 		)
 
-		TestExecutor executeTest ArrayUtilTest ${tests[@]}
+		TestExecutor executeTest ArrayUtilTest
 	}
 
 	testAppendArrayEntry(){

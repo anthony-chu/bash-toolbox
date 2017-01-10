@@ -11,7 +11,7 @@ ArrayValidatorTest(){
 			hasUniqueEntry[true]
 		)
 
-		TestExecutor executeTest ArrayValidatorTest ${tests[@]}
+		TestExecutor executeTest ArrayValidatorTest
 	}
 
 	testHasEntry[false](){

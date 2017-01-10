@@ -16,7 +16,7 @@ BaseComparatorTest(){
 			isGreaterThan[String]
 		)
 
-		TestExecutor executeTest BaseComparatorTest ${tests[@]}
+		TestExecutor executeTest BaseComparatorTest
 	}
 
 	testIsEqual[Number](){

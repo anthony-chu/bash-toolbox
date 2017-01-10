@@ -18,7 +18,7 @@ AppServerValidatorTest(){
 			isWildfly
 		)
 
-		TestExecutor executeTest AppServerValidatorTest ${tests[@]}
+		TestExecutor executeTest AppServerValidatorTest
 	}
 
 	local appServers=(

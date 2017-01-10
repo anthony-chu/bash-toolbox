@@ -20,7 +20,7 @@ MathUtilTest(){
 			sum
 		)
 
-		TestExecutor executeTest MathUtilTest ${tests[@]}
+		TestExecutor executeTest MathUtilTest
 	}
 
 	testDecrement(){

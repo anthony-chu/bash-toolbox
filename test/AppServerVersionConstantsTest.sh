@@ -18,7 +18,7 @@ AppServerVersionConstantsTest(){
 			wildflyVersion
 		)
 
-		TestExecutor executeTest AppServerVersionConstantsTest ${tests[@]}
+		TestExecutor executeTest AppServerVersionConstantsTest
 	}
 
 	testGlassfishVersion(){

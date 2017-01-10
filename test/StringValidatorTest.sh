@@ -37,7 +37,7 @@ StringValidatorTest(){
 			isOption[num]
 		)
 
-		TestExecutor executeTest StringValidatorTest ${tests[@]}
+		TestExecutor executeTest StringValidatorTest
 	}
 
 	testBeginsWith[false](){
