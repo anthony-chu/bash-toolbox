@@ -6,37 +6,6 @@ include test.executor.TestExecutor
 
 BaseVarsTest(){
 	run(){
-		local tests=(
-			_returnPrivacyTest[private]
-			_returnPrivacyTest[public]
-			returnBranch[6.1.x]
-			returnBranch[6.2.x]
-			returnBranch[ee-6.1.x]
-			returnBranch[ee-6.2.x]
-			returnBranch[ee-6.2.10]
-			returnBranch[ee-7.0.x]
-			returnBranch[default]
-			returnBranch[master]
-			returnBuildDir[6.1.x]
-			returnBuildDir[6.2.x]
-			returnBuildDir[7.0.x]
-			returnBuildDir[default]
-			returnBuildDir[ee-6.1.x]
-			returnBuildDir[ee-6.2.x]
-			returnBuildDir[ee-6.2.10]
-			returnBuildDir[ee-7.0.x]
-			returnBuildDir[master]
-			returnBundleDir[6.1.x]
-			returnBundleDir[6.2.x]
-			returnBundleDir[7.0.x]
-			returnBundleDir[default]
-			returnBundleDir[ee-6.1.x]
-			returnBundleDir[ee-6.2.x]
-			returnBundleDir[ee-6.2.10]
-			returnBundleDir[ee-7.0.x]
-			returnBundleDir[master]
-		)
-
 		TestExecutor executeTest BaseVarsTest
 	}
 

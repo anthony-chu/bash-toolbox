@@ -4,20 +4,6 @@ include test.executor.TestExecutor
 
 AppServerValidatorTest(){
 	run(){
-		local tests=(
-			isGlassfish
-			isJboss
-			isJetty
-			isJonas
-			isResin
-			isTcat
-			isTCserver
-			isTomcat
-			isWeblogic
-			isWebsphere
-			isWildfly
-		)
-
 		TestExecutor executeTest AppServerValidatorTest
 	}
 

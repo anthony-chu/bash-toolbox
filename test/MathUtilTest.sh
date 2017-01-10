@@ -4,22 +4,6 @@ include test.executor.TestExecutor
 
 MathUtilTest(){
 	run(){
-		local tests=(
-			decrement
-			decrement[negative]
-			difference
-			increment
-			increment[negative]
-			isDivisible[false]
-			isDivisible[true]
-			isEven[false]
-			isEven[true]
-			isOdd[false]
-			isOdd[true]
-			modulus
-			sum
-		)
-
 		TestExecutor executeTest MathUtilTest
 	}
 

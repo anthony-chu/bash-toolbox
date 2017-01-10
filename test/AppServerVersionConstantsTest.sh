@@ -4,20 +4,6 @@ include test.executor.Testexecutor
 
 AppServerVersionConstantsTest(){
 	run(){
-		local tests=(
-			glassfishVersion
-			jettyVersion
-			jbossVersion
-			jonasVersion
-			resinVersion
-			tcatVersion
-			tcserverVersion
-			tomcatVersion
-			weblogicVersion
-			websphereVersion
-			wildflyVersion
-		)
-
 		TestExecutor executeTest AppServerVersionConstantsTest
 	}
 

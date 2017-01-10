@@ -4,11 +4,6 @@ include test.executor.TestExecutor
 
 LoggerUtilTest(){
 	run(){
-		local tests=(
-			_formatLogLevel[error]
-			_formatLogLevel[info]
-		)
-
 		TestExecutor executeTest LoggerUtilTest
 	}
 

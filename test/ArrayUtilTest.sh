@@ -4,20 +4,6 @@ include test.executor.TestExecutor
 
 ArrayUtilTest(){
 	run(){
-		local tests=(
-			appendArrayEntry
-			bisect[false]
-			bisect[true]
-			convertStringToArray
-			flipArray
-			import
-			partition[1-of-3]
-			partition[2-of-3]
-			partition[3-of-3]
-			returnMaxLength
-			strip
-		)
-
 		TestExecutor executeTest ArrayUtilTest
 	}
 

@@ -4,18 +4,6 @@ include test.executor.TestExecutor
 
 BaseComparatorTest(){
 	run(){
-		local tests=(
-			isEqual[Number]
-			isEqual[String]
-			isEqualIgnoreCase
-			isLessThan[Case]
-			isLessThan[Number]
-			isLessThan[String]
-			isGreaterThan[Case]
-			isGreaterThan[Number]
-			isGreaterThan[String]
-		)
-
 		TestExecutor executeTest BaseComparatorTest
 	}
 

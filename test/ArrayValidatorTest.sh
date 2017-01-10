@@ -4,13 +4,6 @@ include test.executor.TestExecutor
 
 ArrayValidatorTest(){
 	run(){
-		local tests=(
-			hasEntry[false]
-			hasEntry[true]
-			hasUniqueEntry[false]
-			hasUniqueEntry[true]
-		)
-
 		TestExecutor executeTest ArrayValidatorTest
 	}
 

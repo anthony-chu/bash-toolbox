@@ -4,13 +4,6 @@ include test.executor.TestExecutor
 
 LanguageUtilTest(){
 	run(){
-		local tests=(
-			toggleArticleVowelForm[false]
-			toggleArticleVowelForm[true]
-			togglePlurality[false]
-			togglePlurality[true]
-		)
-
 		TestExecutor executeTest LoggerUtilTest
 	}
 

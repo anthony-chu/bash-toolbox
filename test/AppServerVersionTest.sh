@@ -5,32 +5,6 @@ include test.executor.TestExecutor
 
 AppServerVersionTest(){
 	run(){
-		local tests=(
-			_overrideTomcatVersion[6.1.x]
-			_overrideTomcatVersion[ee-6.2.10]
-			_overrideTomcatVersion[6.2.x]
-			_overrideTomcatVersion[null]
-			returnAppServerVersion[glassfish]
-			returnAppServerVersion[jboss]
-			returnAppServerVersion[jetty]
-			returnAppServerVersion[jonas]
-			returnAppServerVersion[null]
-			returnAppServerVersion[resin]
-			returnAppServerVersion[tcat]
-			returnAppServerVersion[tcserver]
-			returnAppServerVersion[tomcat,6.1.x]
-			returnAppServerVersion[tomcat,6.2.x]
-			returnAppServerVersion[tomcat,7.0.x]
-			returnAppServerVersion[tomcat,ee-6.1.x]
-			returnAppServerVersion[tomcat,ee-6.2.10]
-			returnAppServerVersion[tomcat,ee-6.2.x]
-			returnAppServerVersion[tomcat,ee-7.0.x]
-			returnAppServerVersion[tomcat,master]
-			returnAppServerVersion[weblogic]
-			returnAppServerVersion[websphere]
-			returnAppServerVersion[wildfly]
-		)
-
 		TestExecutor executeTest AppServerVersionTest
 	}
 

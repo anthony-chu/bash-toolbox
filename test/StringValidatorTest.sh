@@ -4,39 +4,6 @@ include test.executor.TestExecutor
 
 StringValidatorTest(){
 	run(){
-		local tests=(
-			beginsWith[false]
-			beginsWith[true]
-			beginsWithVowel[a]
-			beginsWithVowel[A]
-			beginsWithVowel[e]
-			beginsWithVowel[E]
-			beginsWithVowel[false]
-			beginsWithVowel[i]
-			beginsWithVowel[I]
-			beginsWithVowel[null]
-			beginsWithVowel[o]
-			beginsWithVowel[O]
-			beginsWithVowel[u]
-			beginsWithVowel[U]
-			isAlpha[false]
-			isAlpha[space]
-			isAlpha[true]
-			isAlphaNum[false]
-			isAlphaNum[space]
-			isAlphaNum[true]
-			isSubstring[false]
-			isSubstring[true]
-			isNull[false]
-			isNull[true]
-			isNum[false]
-			isNum[negative]
-			isNum[true]
-			isOption[alpha]
-			isOption[alphaNum]
-			isOption[num]
-		)
-
 		TestExecutor executeTest StringValidatorTest
 	}
 

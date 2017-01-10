@@ -4,19 +4,6 @@ include test.executor.TestExecutor
 
 StringUtilTest(){
 	run(){
-		local tests=(
-			append
-			capitalize
-			length
-			parseMessage
-			replace[space]
-			replace
-			returnOption[false]
-			returnOption[true]
-			toLowerCase
-			toUpperCase
-		)
-
 		TestExecutor executeTest StringUtilTest
 	}
 
