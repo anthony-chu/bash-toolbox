@@ -5,7 +5,7 @@ include command.exception.CommandException
 include string.util.StringUtil
 
 CommandValidator(){
-	_getValidFunctions(){
+	getValidFunctions(){
 		local file=${1}
 
 		local validFunctions=()
@@ -20,7 +20,7 @@ CommandValidator(){
 	}
 
 	validateCommand(){
-		local validCommands=($(_getValidFunctions ${1}))
+		local validCommands=($(getValidFunctions ${1}))
 
 		if [[ ! $(ArrayValidator hasEntry validCommands ${2}) ]]; then
 			local cmd=${2}
