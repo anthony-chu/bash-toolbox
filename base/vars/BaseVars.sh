@@ -1,4 +1,18 @@
 BaseVars(){
+	_getPath(){
+		local path=${1}
+
+		if [[ $(uname) =~ NT ]]; then
+			local _drive=${path:1:1}
+			local drive=${_drive^}
+			local headlessPath=${path/\/[a-z]/}
+
+			echo ${drive}:${headlessPath}
+		else
+			echo ${path}
+		fi
+	}
+
 	_returnPrivacy(){
 		if [[ $(isPrivate $@) ]]; then
 			echo private
