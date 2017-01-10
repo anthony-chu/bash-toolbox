@@ -1,4 +1,5 @@
 include app.server.factory.AppServerFactory
+include app.server.validator.AppServerValidator
 
 include base.comparator.BaseComparator
 include base.vars.BaseVars
