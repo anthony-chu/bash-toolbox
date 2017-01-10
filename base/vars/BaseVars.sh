@@ -28,11 +28,11 @@ BaseVars(){
 	}
 
 	returnBuildDir(){
-		echo d:/$(_returnPrivacy $@)/$(returnBranch $@)-portal
+		echo D:/$(_returnPrivacy $@)/$(returnBranch $@)-portal
 	}
 
 	returnBundleDir(){
-		echo d:/$(_returnPrivacy $@)/$(returnBranch $@)-bundles
+		echo D:/$(_returnPrivacy $@)/$(returnBranch $@)-bundles
 	}
 
 	$@
