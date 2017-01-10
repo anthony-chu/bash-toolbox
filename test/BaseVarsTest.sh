@@ -119,7 +119,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBuildDir[6.1.x](){
-		local expectedDir=d:/public/6.1.x-portal
+		local expectedDir=D:/public/6.1.x-portal
 
 		if [[ $(BaseVars returnBuildDir 6.1.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -129,7 +129,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBuildDir[6.2.x](){
-		local expectedDir=d:/public/6.2.x-portal
+		local expectedDir=D:/public/6.2.x-portal
 
 		if [[ $(BaseVars returnBuildDir 6.2.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -139,7 +139,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBuildDir[7.0.x](){
-		local expectedDir=d:/public/7.0.x-portal
+		local expectedDir=D:/public/7.0.x-portal
 
 		if [[ $(BaseVars returnBuildDir 7.0.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -149,7 +149,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBuildDir[default](){
-		local expectedDir=d:/public/master-portal
+		local expectedDir=D:/public/master-portal
 
 		if [[ $(BaseVars returnBuildDir default) == ${expectedDir} ]]; then
 			echo PASS
@@ -159,7 +159,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBuildDir[ee-6.1.x](){
-		local expectedDir=d:/private/ee-6.1.x-portal
+		local expectedDir=D:/private/ee-6.1.x-portal
 
 		if [[ $(BaseVars returnBuildDir ee-6.1.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -169,7 +169,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBuildDir[ee-6.2.x](){
-		local expectedDir=d:/private/ee-6.2.x-portal
+		local expectedDir=D:/private/ee-6.2.x-portal
 
 		if [[ $(BaseVars returnBuildDir ee-6.2.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -179,7 +179,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBuildDir[ee-6.2.10](){
-		local expectedDir=d:/private/ee-6.2.10-portal
+		local expectedDir=D:/private/ee-6.2.10-portal
 
 		if [[ $(BaseVars returnBuildDir ee-6.2.10) == ${expectedDir} ]]; then
 			echo PASS
@@ -189,7 +189,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBuildDir[ee-7.0.x](){
-		local expectedDir=d:/private/ee-7.0.x-portal
+		local expectedDir=D:/private/ee-7.0.x-portal
 
 		if [[ $(BaseVars returnBuildDir ee-7.0.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -199,7 +199,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBuildDir[master](){
-		local expectedDir=d:/public/master-portal
+		local expectedDir=D:/public/master-portal
 
 		if [[ $(BaseVars returnBuildDir master) == ${expectedDir} ]]; then
 			echo PASS
@@ -209,7 +209,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBundleDir[6.1.x](){
-		local expectedDir=d:/public/6.1.x-bundles
+		local expectedDir=D:/public/6.1.x-bundles
 
 		if [[ $(BaseVars returnBundleDir 6.1.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -219,7 +219,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBundleDir[6.2.x](){
-		local expectedDir=d:/public/6.2.x-bundles
+		local expectedDir=D:/public/6.2.x-bundles
 
 		if [[ $(BaseVars returnBundleDir 6.2.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -229,7 +229,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBundleDir[7.0.x](){
-		local expectedDir=d:/public/7.0.x-bundles
+		local expectedDir=D:/public/7.0.x-bundles
 
 		if [[ $(BaseVars returnBundleDir 7.0.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -239,7 +239,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBundleDir[default](){
-		local expectedDir=d:/public/master-bundles
+		local expectedDir=D:/public/master-bundles
 
 		if [[ $(BaseVars returnBundleDir default) == ${expectedDir} ]]; then
 			echo PASS
@@ -249,7 +249,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBundleDir[ee-6.1.x](){
-		local expectedDir=d:/private/ee-6.1.x-bundles
+		local expectedDir=D:/private/ee-6.1.x-bundles
 
 		if [[ $(BaseVars returnBundleDir ee-6.1.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -259,7 +259,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBundleDir[ee-6.2.x](){
-		local expectedDir=d:/private/ee-6.2.x-bundles
+		local expectedDir=D:/private/ee-6.2.x-bundles
 
 		if [[ $(BaseVars returnBundleDir ee-6.2.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -269,7 +269,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBundleDir[ee-6.2.10](){
-		local expectedDir=d:/private/ee-6.2.10-bundles
+		local expectedDir=D:/private/ee-6.2.10-bundles
 
 		if [[ $(BaseVars returnBundleDir ee-6.2.10) == ${expectedDir} ]]; then
 			echo PASS
@@ -279,7 +279,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBundleDir[ee-7.0.x](){
-		local expectedDir=d:/private/ee-7.0.x-bundles
+		local expectedDir=D:/private/ee-7.0.x-bundles
 
 		if [[ $(BaseVars returnBundleDir ee-7.0.x) == ${expectedDir} ]]; then
 			echo PASS
@@ -289,7 +289,7 @@ BaseVarsTest(){
 	}
 
 	testReturnBundleDir[master](){
-		local expectedDir=d:/public/master-bundles
+		local expectedDir=D:/public/master-bundles
 
 		if [[ $(BaseVars returnBundleDir master) == ${expectedDir} ]]; then
 			echo PASS
