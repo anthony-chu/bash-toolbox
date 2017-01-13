@@ -1,8 +1,8 @@
-include math.exception.util.MathExceptionUtil
+include logger.Logger
 
 MathException(){
 	notANumberException(){
-		MathExceptionUtil logErrorMsg "\"${1}\"_is_not_a_number"
+		Logger logErrorMsg "\"${1}\"_is_not_a_number"
 		exit
 	}
 
