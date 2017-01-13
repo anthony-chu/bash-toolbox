@@ -1,21 +1,16 @@
+include array.util.ArrayUtil
+
 include base.comparator.BaseComparator
 
 include string.validator.StringValidator
 
 StringUtil(){
-	_import(){
-		local __array=${1}
-		local _array=${__array}[@]
-
-		echo ${!_array}
-	}
-
 	append(){
 		echo ${1}${2}
 	}
 
 	build(){
-		local array=$(_import ${1})
+		local array=$(ArrayUtil import ${1})
 
 		for _string in ${array[@]}; do
 			local string=$(append ${string} ${_string})
