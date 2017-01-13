@@ -31,12 +31,6 @@ ArrayUtil(){
 		fi
 	}
 
-	convertStringToArray(){
-		local array=${1}
-
-		StringUtil replace array , space
-	}
-
 	flipArray(){
 		local inputArray=($(import ${1}))
 		local newArray=()
