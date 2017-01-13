@@ -2,8 +2,6 @@ include base.comparator.BaseComparator
 
 include math.util.MathUtil
 
-include string.util.StringUtil
-
 ArrayUtil(){
 	appendArrayEntry(){
 		local array=($(import ${1}))
@@ -12,8 +10,8 @@ ArrayUtil(){
 		local placeholder=.
 
 		for a in ${array[@]}; do
-			while [ $(StringUtil length ${a}) -lt ${maxLength} ]; do
-				local a=$(StringUtil append ${a} ${placeholder})
+			while [ ${#a} -lt ${maxLength} ]; do
+				a+=${placeholder}
 			done
 
 			newArray+=(${a})
@@ -83,8 +81,8 @@ ArrayUtil(){
 		local maxLength=0
 
 		for a in ${array[@]}; do
-			if [[ $(StringUtil length ${a}) > ${maxLength} ]]; then
-				local maxLength=$(StringUtil length ${a})
+			if [[ ${#a} > ${maxLength} ]]; then
+				local maxLength=${#a}
 			fi
 		done
 
