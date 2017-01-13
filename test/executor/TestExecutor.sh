@@ -4,16 +4,19 @@ include string.util.StringUtil
 
 TestExecutor(){
 	executeTest(){
+		local testClass=${1}
+
 		local _tests=(
-			$(CommandValidator getValidFunctions bash-toolbox/test/${1}.sh)
+			$(CommandValidator
+				getValidFunctions bash-toolbox/test/${testClass}.sh)
 		)
 
 		local tests=()
 
 		for _test in ${_tests[@]}; do
-			if [[ ${_test} != ${1} && ${_test} != run ]]; then
-				if [[ $(${1} ${_test}) == FAIL ]]; then
-					echo ${1}\#${_test}
+			if [[ ${_test} != ${testClass} && ${_test} != run ]]; then
+				if [[ $(${testClass} ${_test}) == FAIL ]]; then
+					echo ${testClass}\#${_test}
 				fi
 			fi
 		done
