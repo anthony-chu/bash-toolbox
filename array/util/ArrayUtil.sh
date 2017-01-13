@@ -1,7 +1,5 @@
 include base.comparator.BaseComparator
 
-include math.util.MathUtil
-
 ArrayUtil(){
 	appendArrayEntry(){
 		local array=($(import ${1}))
@@ -52,10 +50,10 @@ ArrayUtil(){
 	partition(){
 		local _partitions=${1}
 		local array=($(import ${3}))
-		local partitions=$(MathUtil decrement ${_partitions})
+		local partitions=$((${_partitions}-1))
 
-		local divisor=$(MathUtil increment ${partitions})
-		local group=$(MathUtil decrement ${2})
+		local divisor=$((${partitions}+1))
+		local group=$((${2}-1))
 		local size=${#array[@]}
 		local length=$((${size}/${_partitions}))
 
