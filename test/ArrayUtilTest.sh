@@ -42,17 +42,6 @@ ArrayUtilTest(){
 		fi
 	}
 
-	testConvertStringToArray(){
-		local input="foo,bar"
-		local output="foo bar"
-
-		if [[ $(ArrayUtil convertStringToArray ${input}) == ${output} ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
-	}
-
 	testFlipArray(){
 		local inputArray=(foo bar)
 		local outputArray=(bar foo)
