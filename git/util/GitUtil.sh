@@ -1,4 +1,5 @@
 include base.comparator.BaseComparator
+include base.vars.BaseVars
 
 include logger.Logger
 
@@ -7,6 +8,8 @@ include math.util.MathUtil
 GitUtil(){
 	cleanSource(){
 		Logger logProgressMsg "resetting_the_source_directory"
+
+		local buildDir=$(BaseVars returnBuildDir ${@})
 
 		cd ${buildDir}
 
