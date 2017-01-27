@@ -2,7 +2,17 @@ include base.vars.BaseVars
 
 include file.io.util.FileIOUtil
 
+include props.validator.PropsValidator
+
 PropsWriter(){
+
+	_setProps(){
+		if [[ $(PropsValidator propertyExists ${1} ${2}) ]]; then
+			FileIOUtil replace ${1} ${2}=.* ${2}=${3}
+		else
+			FileIOUtil append ${1} ${2}
+		fi
+	}
 
 	setAppServerProps(){
 		FileIOUtil replace ${appServerProps} ${2}=.* ${2}=${3}
