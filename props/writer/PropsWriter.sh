@@ -10,7 +10,7 @@ PropsWriter(){
 		if [[ $(PropsValidator propertyExists ${1} ${2}) ]]; then
 			FileIOUtil replace ${1} ${2}=.* ${2}=${3}
 		else
-			FileIOUtil append ${1} ${2}
+			FileIOUtil append ${1} ${2}=${3}
 		fi
 	}
 
