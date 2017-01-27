@@ -42,15 +42,11 @@ BaseVars(){
 	}
 
 	returnBuildDir(){
-		local dir=/d/$(_returnPrivacy $@)/$(returnBranch $@)-portal
-
-		_getPath ${dir}
+		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)-portal
 	}
 
 	returnBundleDir(){
-		 local dir=/d/$(_returnPrivacy $@)/$(returnBranch $@)-bundles
-
-		 _getPath ${dir}
+		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)-bundles
 	}
 
 	$@
