@@ -15,19 +15,11 @@ PropsWriter(){
 	}
 
 	setAppServerProps(){
-		FileIOUtil replace ${appServerProps} ${2}=.* ${2}=${3}
+		_setProps ${appServerProps} ${2} ${3}
 	}
 
 	setBuildProps(){
-		FileIOUtil replace ${buildProps} ${2}=.* ${2}=${3}
-	}
-
-	writeAppServerProps(){
-		FileIOUtil append ${appServerProps} ${2}
-	}
-
-	writeBuildProps(){
-		FileIOUtil append ${buildProps} ${2}
+		_setProps ${buildProps} ${2} ${3}
 	}
 
 	local _buildDir=$(BaseVars returnBuildDir ${2})
