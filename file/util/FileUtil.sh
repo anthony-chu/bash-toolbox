@@ -13,10 +13,9 @@ FileUtil(){
 
 			if [ ! -e ${dir} ]; then
 				mkdir ${dir}
-				cd ${dir}
-			else
-				cd ${dir}
 			fi
+
+			cd ${dir}
 		done
 	}
 
