@@ -19,7 +19,7 @@ GitUtil(){
 		if [[ $(MathUtil isEven $(BaseUtil getDate -d)) || $(
 			BaseComparator isEqual ${1} true) ]] ; then
 
-			git clean -fdqx -e "*.${HOSTNAME}.properties"
+			git clean -fdqx
 		fi
 
 		Logger logCompletedMsg
