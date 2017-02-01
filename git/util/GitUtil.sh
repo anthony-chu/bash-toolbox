@@ -1,10 +1,8 @@
-include base.comparator.BaseComparator
-include base.util.BaseUtil
-include base.vars.BaseVars
-
 include logger.Logger
 
 include math.util.MathUtil
+
+package base
 
 GitUtil(){
 	cleanSource(){
