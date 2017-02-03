@@ -63,6 +63,10 @@ StringUtil(){
 		fi
 	}
 
+	split(){
+		replace ${@} space
+	}
+
 	strip(){
 		replace ${@} null
 	}
