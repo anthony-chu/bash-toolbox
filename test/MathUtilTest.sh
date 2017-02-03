@@ -31,6 +31,22 @@ MathUtilTest(){
 		fi
 	}
 
+	testFormat[false](){
+		if [[ $(MathUtil format 10) == 10 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testFormat[true](){
+		if [[ $(MathUtil format 9) == 09 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	testIncrement(){
 		if [[ $(MathUtil increment 1) == 2 ]]; then
 			echo PASS
