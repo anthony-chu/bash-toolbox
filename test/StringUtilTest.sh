@@ -61,6 +61,16 @@ StringUtilTest(){
 		fi
 	}
 
+	testReplace[old-space](){
+		local string="foo bar"
+
+		if [[ $(StringUtil replace string space -) == foo-bar ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	testReturnOption[false](){
 		if [[ ! $(StringUtil returnOption foo) ]]; then
 			echo PASS
@@ -81,6 +91,16 @@ StringUtilTest(){
 		local input="foo-bar"
 
 		if [[ $(StringUtil split input) == "foo bar" ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testStrip(){
+		local input="foo-bar"
+
+		if [[ $(StringUtil strip input) == foobar ]]; then
 			echo PASS
 		else
 			echo FAIL
