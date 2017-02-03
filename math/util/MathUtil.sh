@@ -22,6 +22,12 @@ MathUtil(){
 		echo $((${1}-${2}))
 	}
 
+	format(){
+		if [[ ${1} -le 9 ]]; then
+			local length=$(StringUtil append 0 ${1})
+		fi
+	}
+
 	increment(){
 		sum ${1} 1
 	}
