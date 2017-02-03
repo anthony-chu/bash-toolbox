@@ -77,6 +77,16 @@ StringUtilTest(){
 		fi
 	}
 
+	testSplit(){
+		local input="foo-bar"
+
+		if [[ $(StringUtil split input) == "foo bar" ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	testToLowerCase(){
 		if [[ $(StringUtil toLowerCase FOO) == foo ]]; then
 			echo PASS
