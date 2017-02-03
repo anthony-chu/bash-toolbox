@@ -51,7 +51,7 @@ StringUtilTest(){
 		fi
 	}
 
-	testReplace[space](){
+	testReplace[new-space](){
 		local string="foo-bar"
 
 		if [[ $(StringUtil replace string - space) == "foo bar" ]]; then
