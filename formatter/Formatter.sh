@@ -77,11 +77,7 @@ Formatter(){
 
 		if [[ ! $(BaseComparator isEqual ${file} build.sh) ]]; then
 			while read line; do
-				local length=$(StringUtil length ${line})
-
-				if [[ ${length} -le 9 ]]; then
-					local length=$(StringUtil append 0 ${length})
-				fi
+				local length=$(MathUtil format $(StringUtil length ${line}))
 
 				if [[ ${length} > 80 && ${line} != *gitpr* ]]; then
 					local n=${lineNumber}
