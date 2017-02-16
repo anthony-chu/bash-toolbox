@@ -24,7 +24,7 @@ MathUtil(){
 
 	format(){
 		if [[ ${1} -le 9 ]]; then
-			local length=$(StringUtil append 0 ${1})
+			StringUtil append 0 ${1}
 		fi
 	}
 
