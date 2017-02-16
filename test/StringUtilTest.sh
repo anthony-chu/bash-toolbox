@@ -90,7 +90,7 @@ StringUtilTest(){
 	testSplit(){
 		local input="foo-bar"
 
-		if [[ $(StringUtil split input) == "foo bar" ]]; then
+		if [[ $(StringUtil split input -) == "foo bar" ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -100,7 +100,7 @@ StringUtilTest(){
 	testStrip(){
 		local input="foo-bar"
 
-		if [[ $(StringUtil strip input) == foobar ]]; then
+		if [[ $(StringUtil strip input -) == foobar ]]; then
 			echo PASS
 		else
 			echo FAIL
