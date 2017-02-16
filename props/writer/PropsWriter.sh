@@ -31,6 +31,7 @@ PropsWriter(){
 	local _buildDir=$(BaseVars returnBuildDir ${2})
 	local appServerProps=${_buildDir}/app.server.${HOSTNAME}.properties
 	local buildProps=${_buildDir}/build.${HOSTNAME}.properties
+	local portalProps=${bundleDir}/portal-ext.properties
 
 	$@
 }
