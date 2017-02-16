@@ -25,6 +25,8 @@ MathUtil(){
 	format(){
 		if [[ ${1} -le 9 ]]; then
 			StringUtil append 0 ${1}
+		else
+			echo ${1}
 		fi
 	}
 
