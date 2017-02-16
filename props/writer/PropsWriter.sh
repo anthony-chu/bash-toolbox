@@ -22,6 +22,10 @@ PropsWriter(){
 		_setProps ${buildProps} ${2} ${3}
 	}
 
+	setPortalProps(){
+		_setProps ${portalProps} ${2} ${3}
+	}
+
 	if [[ ! ${bundleDir} ]]; then
 		local bundleDir=$(BaseVars returnBundleDir ${2})
 	else
