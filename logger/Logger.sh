@@ -17,5 +17,9 @@ Logger(){
 		logInfoMsg ${1}..
 	}
 
+	logRequestMsg(){
+		LoggerUtil getLogMsg info ${1}:
+	}
+
 	${@}
 }
