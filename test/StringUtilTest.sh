@@ -15,6 +15,16 @@ StringUtilTest(){
 		fi
 	}
 
+	testBuild(){
+		local array=(foo bar)
+
+		if [[ $(StringUtil build array) == foobar ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	testCapitalize(){
 		if [[ $(StringUtil capitalize foo) == Foo ]]; then
 			echo PASS
