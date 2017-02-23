@@ -26,7 +26,7 @@ LoggerUtil(){
 		local time=$(BaseUtil timestamp log)
 
 		if [[ $(BaseComparator isEqualIgnoreCase ${1} error) ]]; then
-			local message=$(colorme red $(StringUtil replace _message _ space))
+			local message=$(colorme red $(StringUtil parseMessage _message))
 		else
 			local message=$(StringUtil parseMessage _message)
 		fi
