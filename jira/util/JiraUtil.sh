@@ -39,11 +39,12 @@ JiraUtil(){
 	local _args=(${@})
 	local appServer=$(AppServerValidator returnAppServer _args)
 	local branch=$(BaseVars returnBranch ${_args[@]})
-	local gitInfo="Portal ${branch} GIT ID: $(GitUtil getOriginSHA ${branch})"
 
 	if [[ $(BaseComparator isEqual ${branch} master) ]]; then
 		branch=$(StringUtil capitalize ${branch})
 	fi
+
+	local gitInfo="Portal ${branch} GIT ID: $(GitUtil getOriginSHA ${branch})"
 
 	$@
 	_getEnv ${appServer} ${branch}
