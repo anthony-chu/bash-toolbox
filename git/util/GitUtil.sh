@@ -39,6 +39,19 @@ GitUtil(){
 		git rev-parse --abbrev-ref HEAD
 	}
 
+	getSHA(){
+		local length=${2}
+		local projectDir=${1}
+
+		cd ${projectDir}
+
+		if [[ $(BaseComparator isEqual ${length} long) ]]; then
+			git log --oneline --pretty=format:%H -1
+		elif [[ $(BaseComparator isEqual ${length} short) ]]; then
+			git log --oneline --pretty=format:%h -1
+		fi
+	}
+
 	listBranches(){
 		git branch | sed s/\*/\ /g
 	}
