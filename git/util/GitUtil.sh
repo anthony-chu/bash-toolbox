@@ -2,6 +2,8 @@ include logger.Logger
 
 include math.util.MathUtil
 
+include string.util.StringUtil
+
 package base
 
 GitUtil(){
@@ -37,6 +39,16 @@ GitUtil(){
 
 	getCurBranch(){
 		git rev-parse --abbrev-ref HEAD
+	}
+
+	getOriginSHA(){
+		local branch=${2}
+		local projectDir=${1}
+
+		cd ${projectDir}
+
+		git --git-dir=${projectDir}/.git rev-parse origin/$(StringUtil
+			toLowerCase ${branch})
 	}
 
 	getSHA(){
