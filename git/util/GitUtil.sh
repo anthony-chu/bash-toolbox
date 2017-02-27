@@ -23,6 +23,18 @@ GitUtil(){
 		Logger logCompletedMsg
 	}
 
+	clearIndexLock(){
+		local lockFile=$(BaseVars returnBuildDir ${1})/.git/index.lock
+
+		if [ -e ${lockFile} ]; then
+			Logger logProgressMsg "clearing_index_lock"
+
+			rm -rf ${lockFile}
+
+			Logger logCompletedMsg
+		fi
+	}
+
 	getCurBranch(){
 		git rev-parse --abbrev-ref HEAD
 	}
