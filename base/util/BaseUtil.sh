@@ -34,11 +34,9 @@ BaseUtil(){
 	portListener(){
 		if [[ $# == 0 ]]; then
 			exit
-		else
-			local port=${1}
 		fi
 
-		if [[ $(netstat -an | grep ${port}) ]]; then
+		if [[ $(netstat -an | grep ${1}) ]]; then
 			echo true
 		fi
 	}
@@ -58,10 +56,7 @@ BaseUtil(){
 		elif [[ ${1} == date ]]; then
 			date +%Y%m%d
 		elif [[ ${1} == log ]]; then
-			local d=$(date +%Y-%m-%d)
-			local t=$(date +%H:%M:%S)
-
-			echo ${d} ${t}
+			echo $(date +%Y-%m-%d) $(date +%H:%M:%S)
 		else
 			local ms=$(date +%S%N)
 			date +%H:%M:${ms:0:3}
