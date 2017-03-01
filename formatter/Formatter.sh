@@ -71,12 +71,10 @@ Formatter(){
 	}
 
 	verifyCharacterLimitPerLine(){
-		local file=${1}
-
 		local lineNumber=1
 
-		if [[ ! $(BaseComparator isEqual ${file} build.sh) && ! $(StringValidator
-			isSubstring ${file} lib) ]]; then
+		if [[ ! $(BaseComparator isEqual ${1} build.sh) && ! $(StringValidator
+			isSubstring ${1} lib) ]]; then
 
 			while read line; do
 				local length=$(MathUtil format $(StringUtil length ${line}))
@@ -84,11 +82,11 @@ Formatter(){
 				if [[ ${length} > 80 && ${line} != *gitpr* ]]; then
 					local n=${lineNumber}
 
-					Logger logErrorMsg "character_limit_exceeded:_${file}:${n}"
+					Logger logErrorMsg "character_limit_exceeded:_${1}:${n}"
 				fi
 
 				local lineNumber=$(MathUtil increment ${lineNumber})
-			done < ${file}
+			done < ${1}
 		fi
 	}
 
