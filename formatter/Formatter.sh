@@ -75,7 +75,9 @@ Formatter(){
 
 		local lineNumber=1
 
-		if [[ ! $(BaseComparator isEqual ${file} build.sh) ]]; then
+		if [[ ! $(BaseComparator isEqual ${file} build.sh) && $(StringValidator
+			isSubstring ${file} lib)]]; then
+
 			while read line; do
 				local length=$(MathUtil format $(StringUtil length ${line}))
 
