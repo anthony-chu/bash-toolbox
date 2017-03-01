@@ -75,7 +75,7 @@ Formatter(){
 
 		local lineNumber=1
 
-		if [[ ! $(BaseComparator isEqual ${file} build.sh) && $(StringValidator
+		if [[ ! $(BaseComparator isEqual ${file} build.sh) && ! $(StringValidator
 			isSubstring ${file} lib) ]]; then
 
 			while read line; do
