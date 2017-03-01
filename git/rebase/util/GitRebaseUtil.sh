@@ -43,7 +43,7 @@ GitRebaseUtil(){
 	default(){
 		cd ${buildDir}
 
-		curBranch=$(GitUtil getCurBranch)
+		local curBranch=$(GitUtil getCurBranch)
 
 		Logger logProgressMsg "rebasing_${curBranch}_against_${branch}_HEAD"
 

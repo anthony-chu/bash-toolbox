@@ -41,7 +41,7 @@ JiraUtil(){
 	local branch=$(BaseVars returnBranch ${_args[@]})
 
 	if [[ $(BaseComparator isEqual ${branch} master) ]]; then
-		branch=$(StringUtil capitalize ${branch})
+		local branch=$(StringUtil capitalize ${branch})
 	fi
 
 	local gitInfo="Portal ${branch} GIT ID: $(GitUtil getOriginSHA ${branch})"
