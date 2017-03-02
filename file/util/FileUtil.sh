@@ -1,3 +1,4 @@
+include array.util.ArrayUtil
 include array.validator.ArrayValidator
 
 include string.util.StringUtil
@@ -38,6 +39,21 @@ FileUtil(){
 				echo true
 			fi
 		fi
+	}
+
+	makeFile(){
+		local fileName=${1}
+		local fileNameArray=($(StringUtil split fileName /))
+		local _fileName=${fileNameArray[-1]}
+		local _filePath=($(ArrayUtil flipArray fileNameArray))
+		local _filePath=${filePath[@]:1}
+		local filePath=($(ArrayUtil flipArray _filePath))
+
+		local filePath=$(construct $(StringUtil replace filePath[@] space /))
+
+		for cmd in {touch,echo}; do
+			${cmd} /${filePath}/${_fileName}
+		done
 	}
 
 	matchFileContentSubstring(){
