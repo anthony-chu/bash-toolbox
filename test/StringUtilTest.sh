@@ -15,18 +15,18 @@ StringUtilTest(){
 		fi
 	}
 
-	testBuild(){
-		local array=(foo bar)
-
-		if [[ $(StringUtil join array) == foobar ]]; then
+	testCapitalize(){
+		if [[ $(StringUtil capitalize foo) == Foo ]]; then
 			echo PASS
 		else
 			echo FAIL
 		fi
 	}
 
-	testCapitalize(){
-		if [[ $(StringUtil capitalize foo) == Foo ]]; then
+	testJoin(){
+		local array=(foo bar)
+
+		if [[ $(StringUtil join array) == foobar ]]; then
 			echo PASS
 		else
 			echo FAIL
