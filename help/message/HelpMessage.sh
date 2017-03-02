@@ -91,15 +91,15 @@ HelpMessage(){
 		local funcList=(
 			pr
 			sf
-			validate
 			test
+			validate
 		)
 
 		local helpList=(
 			submits_a_pull_request
 			formats_source_files
-			runs_poshi_validation
 			executes_a_frontend_test
+			runs_poshi_validation
 		)
 
 		_printHelpMessage funcList helpList
