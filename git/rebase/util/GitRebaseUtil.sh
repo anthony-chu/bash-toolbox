@@ -60,7 +60,7 @@ GitRebaseUtil(){
 			$(LanguageUtil togglePlurality ${value} commit commits)
 		)
 
-		Logger logProgressMsg "$(StringUtil build _message)"
+		Logger logProgressMsg "$(StringUtil join _message)"
 
 		cd ${buildDir}
 

@@ -18,7 +18,7 @@ StringUtilTest(){
 	testBuild(){
 		local array=(foo bar)
 
-		if [[ $(StringUtil build array) == foobar ]]; then
+		if [[ $(StringUtil join array) == foobar ]]; then
 			echo PASS
 		else
 			echo FAIL

@@ -19,7 +19,7 @@ JiraUtil(){
 			+_MySQL_5.7
 		)
 
-		local message=$(StringUtil build environment)
+		local message=$(StringUtil join environment)
 
 		StringUtil replace message _ space
 	}

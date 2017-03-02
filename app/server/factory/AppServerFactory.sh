@@ -15,7 +15,7 @@ AppServerFactory(){
 				returnBranch ${1}))
 		)
 
-		StringUtil build _appServerDir
+		StringUtil join _appServerDir
 	}
 
 	$@

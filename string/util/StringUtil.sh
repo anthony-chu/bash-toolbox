@@ -9,7 +9,13 @@ StringUtil(){
 		echo ${1}${2}
 	}
 
-	build(){
+	capitalize(){
+		local str=${@}
+
+		echo ${str^}
+	}
+
+	join(){
 		local array=$(ArrayUtil import ${1})
 
 		for _string in ${array[@]}; do
@@ -19,12 +25,6 @@ StringUtil(){
 		echo ${string}
 
 		unset ${1}
-	}
-
-	capitalize(){
-		local str=${@}
-
-		echo ${str^}
 	}
 
 	length(){
