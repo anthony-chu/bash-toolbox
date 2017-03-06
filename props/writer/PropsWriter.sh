@@ -30,16 +30,11 @@ PropsWriter(){
 		_setProps ${testProps} ${2} ${3}
 	}
 
-	if [[ ! ${bundleDir} ]]; then
-		local bundleDir=$(BaseVars returnBundleDir ${2})
-	else
-		local bundleDir=${bundleDir}
-	fi
-
+	local _bundleDir=$(BaseVars returnBundleDir ${2})
 	local _buildDir=$(BaseVars returnBuildDir ${2})
 	local appServerProps=${_buildDir}/app.server.${HOSTNAME}.properties
 	local buildProps=${_buildDir}/build.${HOSTNAME}.properties
-	local portalProps=${bundleDir}/portal-ext.properties
+	local portalProps=${_bundleDir}/portal-ext.properties
 	local testProps=${_buildDir}/test.${HOSTNAME}.properties
 
 	$@

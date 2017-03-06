@@ -74,14 +74,8 @@ BundleUtil(){
 		Logger logCompletedMsg
 	}
 
-	if [[ ${2} ]]; then
-		local branch=$(BaseVars returnBranch ${2})
-		local bundleDir=$(BaseVars returnBundleDir ${2})
-	else
-		local branch=$(BaseVars returnBranch ${1})
-		local bundleDir=$(BaseVars returnBundleDir ${1})
-	fi
-
+	local branch=$(BaseVars returnBranch $@)
+	local bundleDir=$(BaseVars returnBundleDir $@)
 	local replace="FileIOUtil replace"
 
 	$@
