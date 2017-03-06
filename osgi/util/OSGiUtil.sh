@@ -4,9 +4,11 @@ include logger.Logger
 
 OSGiUtil(){
 	resetState(){
-		if [[ -e ${bundleDir}/osgi/state ]]; then
+		local osgiStateDir=${bundleDir}/osgi/state
+
+		if [[ -e ${osgiStateDir} ]]; then
 			Logger logProgressMsg "deleting_osgi_state_folder"
-			rm -rf ${bundleDir}/osgi/state
+			rm -rf ${osgiStateDir}
 			Logger logCompletedMsg
 		fi
 	}
