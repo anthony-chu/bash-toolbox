@@ -30,19 +30,28 @@ Formatter(){
 		if [[ $(StringValidator isSubstring ${file} bash-toolbox) ]]; then
 			local n=1
 
+			local localVariableExceptions=("export" "for" "git"	"local"	"+")
+
 			while read line; do
-				if [[ ${line} =~ [a-zA-Z]+= && ${line} != export* ]]; then
-					if [[ ${line} != *for* && ${line} != local* ]]; then
-						if [[ ${line} != *+* && ${line} != *git* ]]; then
-							local f=${file}
+				if [[ ${line} =~ [a-zA-Z]+= ]]; then
+					local doIgnore=""
 
-							local _message=(
-								set_variable_scope_to_local:_
-								${f}:${n}
-							)
-
-							Logger logErrorMsg "$(StringUtil join _message)"
+					for exception in ${localVariableExceptions[@]}; do
+						if [[ ${line} == *${exception}* ]]; then
+							local doIgnore=true
+							break
 						fi
+					done
+
+					if [[ ! ${doIgnore} ]]; then
+						local f=${file}
+
+						local _message=(
+							set_variable_scope_to_local:_
+							${f}:${n}
+						)
+
+						Logger logErrorMsg "$(StringUtil join _message)"
 					fi
 				fi
 
