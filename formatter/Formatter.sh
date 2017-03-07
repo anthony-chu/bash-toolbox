@@ -33,7 +33,7 @@ Formatter(){
 			while read line; do
 				if [[ ${line} =~ [a-zA-Z]+= && ${line} != export* ]]; then
 					if [[ ${line} != *for* && ${line} != local* ]]; then
-						if [[ ${line} != *+*  && ${line} != *git* ]]; then
+						if [[ ${line} != *+* && ${line} != *git* ]]; then
 							local f=${file}
 
 							local _message=(
