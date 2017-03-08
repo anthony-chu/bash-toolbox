@@ -2,12 +2,12 @@ include string.util.StringUtil
 
 CalendarUtil(){
 	getDate(){
-		if [[ ${1} == -m ]]; then
+		if [[ ${1} == -d ]]; then
+			date +%d
+		elif [[ ${1} == -m ]]; then
 			date +%m
 		elif [[ ${1} == -y ]]; then
 			date +%Y
-		elif [[ ${1} == -d ]]; then
-			date +%d
 		fi
 	}
 
