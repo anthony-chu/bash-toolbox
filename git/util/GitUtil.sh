@@ -1,10 +1,11 @@
+include base.comparator.BaseComparator
+include base.vars.BaseVars
+
 include logger.Logger
 
 include math.util.MathUtil
 
 include string.util.StringUtil
-
-package base
 
 GitUtil(){
 	cleanSource(){
