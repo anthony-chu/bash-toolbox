@@ -16,9 +16,9 @@ CalendarUtil(){
 			local t=$(date +%T%s)
 			StringUtil strip t [:]
 		elif [[ ${1} == date ]]; then
-			date +Y%m%d
+			echo $(getDate -y)$(getDate -m)$(getDate -d)
 		elif [[ ${1} == log ]]; then
-			echo $(date +%Y-%m-%d) $(date +%H:%M:%S)
+			echo $(getDate -y)-$(getDate -m)-$(getDate -d) $(date +%H:%M:%S)
 		else
 			local ms=$(date +%S%N)
 			date +%H:%M:${ms:0:3}
