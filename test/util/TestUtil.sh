@@ -1,4 +1,4 @@
-include base.util.BaseUtil
+include calendar.util.CalendarUtil
 
 include logger.util.LoggerUtil
 
@@ -8,7 +8,7 @@ include string.Validator.StringValidator
 TestUtil(){
 	_getLogMsg(){
 		local _message=$(StringUtil capitalize ${2})
-		local time=$(BaseUtil timestamp log)
+		local time=$(CalendarUtil getTimestamp log)
 
 		if [[ $(StringValidator isSubstring ${2} PASSED) ]]; then
 			local message=$(colorme green $(StringUtil replace _message _ space))

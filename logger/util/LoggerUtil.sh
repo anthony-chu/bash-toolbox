@@ -1,7 +1,8 @@
 include array.util.ArrayUtil
 
 include base.comparator.BaseComparator
-include base.util.BaseUtil
+
+include.calendar.util.CalendarUtil
 
 include string.util.StringUtil
 
@@ -23,7 +24,7 @@ LoggerUtil(){
 
 	getLogMsg(){
 		local _message=$(StringUtil capitalize ${2})
-		local time=$(BaseUtil timestamp log)
+		local time=$(CalendarUtil getTimestamp log)
 
 		if [[ $(BaseComparator isEqualIgnoreCase ${1} error) ]]; then
 			local message=$(colorme red $(StringUtil parseMessage _message))
