@@ -8,7 +8,7 @@ ArrayUtilTest(){
 	}
 
 	test_trim(){
-		local array=(1 2 3 4 5 6 7)
+		local array=({1..7})
 
 		if [[ $(ArrayUtil _trim array) == "1 2 3 4 5 6" ]]; then
 			echo PASS
@@ -31,7 +31,7 @@ ArrayUtilTest(){
 	}
 
 	testBisect[false](){
-		local inputArray=(1 2 3 4 5 6)
+		local inputArray=({1..6})
 		local outputArray=(4 5 6)
 
 		if [[ $(ArrayUtil bisect false inputArray) == ${outputArray[@]} ]]; then
@@ -42,8 +42,8 @@ ArrayUtilTest(){
 	}
 
 	testBisect[true](){
-		local inputArray=(1 2 3 4 5 6)
-		local outputArray=(1 2 3)
+		local inputArray=({1..6})
+		local outputArray=({1..3})
 
 		if [[ $(ArrayUtil bisect true inputArray) == ${outputArray[@]} ]]; then
 			echo PASS
@@ -64,7 +64,7 @@ ArrayUtilTest(){
 	}
 
 	testImport(){
-		local inputArray=(a b c d e)
+		local inputArray=({a..e})
 
 		if [[ $(ArrayUtil import inputArray) == ${inputArray[@]} ]]; then
 			echo PASS
@@ -74,7 +74,7 @@ ArrayUtilTest(){
 	}
 
 	testPartition[1-of-3](){
-		local inputArray=(1 2 3 4 5 6)
+		local inputArray=({1..6})
 		local outputArray=(1 2)
 
 		if [[ $(ArrayUtil
@@ -87,7 +87,7 @@ ArrayUtilTest(){
 	}
 
 	testPartition[2-of-3](){
-		local inputArray=(1 2 3 4 5 6)
+		local inputArray=({1..6})
 		local outputArray=(3 4)
 
 		if [[ $(ArrayUtil
@@ -100,7 +100,7 @@ ArrayUtilTest(){
 	}
 
 	testPartition[3-of-3](){
-		local inputArray=(1 2 3 4 5 6)
+		local inputArray=({1..6})
 		local outputArray=(5 6)
 
 		if [[ $(ArrayUtil
@@ -134,7 +134,7 @@ ArrayUtilTest(){
 	}
 
 	testTrim[1](){
-		local array=(1 2 3 4 5 6 7)
+		local array=({1..7})
 
 		if [[ $(ArrayUtil trim array 1) == "1 2 3 4 5 6" ]]; then
 			echo PASS
@@ -144,7 +144,7 @@ ArrayUtilTest(){
 	}
 
 	testTrim[multiple](){
-		local array=(1 2 3 4 5 6 7)
+		local array=({1..7})
 
 		if [[ $(ArrayUtil trim array 3) == "1 2 3 4" ]]; then
 			echo PASS
