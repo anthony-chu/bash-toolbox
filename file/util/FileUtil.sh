@@ -43,17 +43,12 @@ FileUtil(){
 
 	makeFile(){
 		local fileName=${1}
-		local fileNameArray=($(StringUtil split fileName /))
-		local _fileName=${fileNameArray[-1]}
-		local _filePath=($(ArrayUtil flipArray fileNameArray))
-		local _filePath=${filePath[@]:1}
-		local filePath=($(ArrayUtil flipArray _filePath))
+		local _fileNameArray=($(StringUtil split fileName /))
+		local _fileName=${_fileNameArray[-1]}
 
-		local filePath=$(construct $(StringUtil replace filePath[@] space /))
+		local fileNameArray=$(ArrayUtil trim _fileNameArray 1)
 
-		for cmd in {touch,echo}; do
-			${cmd} /${filePath}/${_fileName}
-		done
+		echo $(StringUtil replace fileNameArray[@] space /)/${_fileName}
 	}
 
 	matchFileContentSubstring(){
