@@ -7,6 +7,16 @@ ArrayUtilTest(){
 		TestExecutor executeTest ArrayUtilTest
 	}
 
+	test_trim(){
+		local array=(1 2 3 4 5 6 7)
+
+		if [[ $(ArrayUtil _trim array) == "1 2 3 4 5 6" ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	testAppendArrayEntry(){
 		local inputArray=(foo foobar)
 		local outputArray=(foo... foobar)
@@ -117,6 +127,26 @@ ArrayUtilTest(){
 		local inputArray=(foo foo bar bar)
 
 		if [[ $(ArrayUtil strip inputArray foo) == "bar bar" ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testTrim[1](){
+		local array=(1 2 3 4 5 6 7)
+
+		if [[ $(ArrayUtil trim array 1) == "1 2 3 4 5 6" ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testTrim[multiple](){
+		local array=(1 2 3 4 5 6 7)
+
+		if [[ $(ArrayUtil trim array 3) == "1 2 3 4" ]]; then
 			echo PASS
 		else
 			echo FAIL
