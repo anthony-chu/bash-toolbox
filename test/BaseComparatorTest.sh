@@ -7,7 +7,7 @@ BaseComparatorTest(){
 		TestExecutor executeTest BaseComparatorTest
 	}
 
-	testIsEqual[Number](){
+	testIsEqual[number](){
 		if [[ $(BaseComparator isEqual 123 123) ]]; then
 			echo PASS
 		else
@@ -15,7 +15,7 @@ BaseComparatorTest(){
 		fi
 	}
 
-	testIsEqual[String](){
+	testIsEqual[string](){
 		if [[ $(BaseComparator isEqual foo foo) ]]; then
 			echo PASS
 		else
@@ -31,7 +31,7 @@ BaseComparatorTest(){
 		fi
 	}
 
-	testIsLessThan[Case](){
+	testIsLessThan[case](){
 		if [[ $(BaseComparator isLessThan foo FOO) ]]; then
 			echo PASS
 		else
@@ -39,7 +39,7 @@ BaseComparatorTest(){
 		fi
 	}
 
-	testIsLessThan[Number](){
+	testIsLessThan[number](){
 		if [[ $(BaseComparator isLessThan 1 2) ]]; then
 			echo PASS
 		else
@@ -47,7 +47,7 @@ BaseComparatorTest(){
 		fi
 	}
 
-	testIsLessThan[String](){
+	testIsLessThan[string](){
 		if [[ $(BaseComparator isLessThan bar foo) ]]; then
 			echo PASS
 		else
@@ -55,7 +55,7 @@ BaseComparatorTest(){
 		fi
 	}
 
-	testIsGreaterThan[Case](){
+	testIsGreaterThan[case](){
 		if [[ $(BaseComparator isGreaterThan FOO foo) ]]; then
 			echo PASS
 		else
@@ -63,7 +63,7 @@ BaseComparatorTest(){
 		fi
 	}
 
-	testIsGreaterThan[Number](){
+	testIsGreaterThan[number](){
 		if [[ $(BaseComparator isGreaterThan 2 1) ]]; then
 			echo PASS
 		else
@@ -71,7 +71,7 @@ BaseComparatorTest(){
 		fi
 	}
 
-	testIsGreaterThan[String](){
+	testIsGreaterThan[string](){
 		if [[ $(BaseComparator isGreaterThan foo bar) ]]; then
 			echo PASS
 		else
