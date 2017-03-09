@@ -1,6 +1,14 @@
 include base.comparator.BaseComparator
 
 ArrayUtil(){
+	_trim(){
+		local array=($(import ${1}))
+
+		unset 'array[${#array[@]}-1]'
+
+		echo ${array[@]}
+	}
+
 	appendArrayEntry(){
 		local array=($(import ${1}))
 		local maxLength=$(returnMaxLength array)
