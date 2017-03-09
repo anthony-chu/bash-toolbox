@@ -8,9 +8,9 @@ ArrayUtilTest(){
 	}
 
 	test_trim(){
-		local array=({1..7})
+		local input=({1..7})
 
-		if [[ $(ArrayUtil _trim array) == "1 2 3 4 5 6" ]]; then
+		if [[ $(ArrayUtil _trim input) == "1 2 3 4 5 6" ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -134,9 +134,9 @@ ArrayUtilTest(){
 	}
 
 	testTrim[1](){
-		local array=({1..7})
+		local input=({1..7})
 
-		if [[ $(ArrayUtil trim array 1) == "1 2 3 4 5 6" ]]; then
+		if [[ $(ArrayUtil trim input 1) == "1 2 3 4 5 6" ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -144,9 +144,9 @@ ArrayUtilTest(){
 	}
 
 	testTrim[multiple](){
-		local array=({1..7})
+		local input=({1..7})
 
-		if [[ $(ArrayUtil trim array 3) == "1 2 3 4" ]]; then
+		if [[ $(ArrayUtil trim input 3) == "1 2 3 4" ]]; then
 			echo PASS
 		else
 			echo FAIL
