@@ -102,5 +102,18 @@ ArrayUtil(){
 		echo ${newArray[@]}
 	}
 
+	trim(){
+		local array=($(import ${1}))
+		local i=0
+
+		while [[ ${i} < ${2} ]]; do
+			local array=($(_trim array))
+
+			local i=$((i+1))
+		done
+
+		echo ${array[@]}
+	}
+
 	$@
 }
