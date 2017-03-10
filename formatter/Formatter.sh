@@ -12,22 +12,16 @@ include string.validator.StringValidator
 
 Formatter(){
 	applyUnixLineEndings(){
-		local file=${1}
-
-		FileIOUtil replace ${file} "\r\n" "\n"
+		FileIOUtil replace ${1} "\r\n" "\n"
 	}
 
 	convertSpacesToTabs(){
-		local file=${1}
-
-		sed -i "s/[ ][ ]/\t/g" ${file}
-		sed -i "s/[ ][ ][ ][ ]/\t/g" ${file}
+		sed -i "s/[ ][ ]/\t/g" ${1}
+		sed -i "s/[ ][ ][ ][ ]/\t/g" ${1}
 	}
 
 	enforceBashToolboxLocalVariables(){
-		local file=${1}
-
-		if [[ $(StringValidator isSubstring ${file} bash-toolbox) ]]; then
+		if [[ $(StringValidator isSubstring ${1} bash-toolbox) ]]; then
 			local n=1
 
 			local localVariableExceptions=("export" "for" "git"	"local"	"+")
@@ -44,11 +38,9 @@ Formatter(){
 					done
 
 					if [[ ! ${doIgnore} ]]; then
-						local f=${file}
-
 						local _message=(
 							set_variable_scope_to_local:_
-							${f}:${n}
+							${1}:${n}
 						)
 
 						Logger logErrorMsg "$(StringUtil join _message)"
@@ -56,13 +48,11 @@ Formatter(){
 				fi
 
 				local n=$(MathUtil increment ${n})
-			done < ${file}
+			done < ${1}
 		fi
 	}
 
 	enforceLoggerMessageQuotes(){
-		local file=${1}
-
 		local lineNumber=1
 
 		while read line; do
@@ -71,12 +61,12 @@ Formatter(){
 				if [[ ${line} != *\"* && ${line} == *log*Msg* ]]; then
 					local n=${lineNumber}
 
-					Logger logErrorMsg "unquoted_log_message:_${file}:${n}"
+					Logger logErrorMsg "unquoted_log_message:_${1}:${n}"
 				fi
 			fi
 
 			local lineNumber=$(MathUtil increment ${lineNumber})
-		done < ${file}
+		done < ${1}
 	}
 
 	verifyCharacterLimitPerLine(){
@@ -100,13 +90,11 @@ Formatter(){
 	}
 
 	verifyNoIncludesInBase(){
-		local file=${1}
+		if [[ $(StringValidator isSubstring ${1} Base) && ! $(StringValidator
+			isSubstring ${1} Test) ]]; then
 
-		if [[ $(StringValidator isSubstring ${file} Base) && ! $(StringValidator
-			isSubstring ${file} Test) ]]; then
-
-			if [[ $(FileUtil getContent ${file}) =~ include ]]; then
-				Logger logErrorMsg "illegal_include:_${file}"
+			if [[ $(FileUtil getContent ${1}) =~ include ]]; then
+				Logger logErrorMsg "illegal_include:_${1}"
 			fi
 		fi
 	}
