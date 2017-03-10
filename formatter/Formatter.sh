@@ -72,9 +72,7 @@ Formatter(){
 	verifyCharacterLimitPerLine(){
 		local lineNumber=1
 
-		if [[ ! $(BaseComparator isEqual ${1} build.sh) && ! $(StringValidator
-			isSubstring ${1} lib) ]]; then
-
+		if [[ ! $(StringValidator isSubstring ${1} lib) ]]; then
 			while read line; do
 				local length=$(MathUtil format $(StringUtil length ${line}))
 
