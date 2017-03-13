@@ -6,14 +6,6 @@ include string.util.StringUtil
 include string.validator.StringValidator
 
 MathUtil(){
-	if [[ ! $(StringValidator isNum ${2}) ]]; then
-		MathException notANumberException ${2}
-	fi
-
-	if [[ ! $(StringValidator isNum ${3}) ]]; then
-		MathException notANumberException ${3}
-	fi
-
 	decrement(){
 		difference ${1} 1
 	}
@@ -61,6 +53,14 @@ MathUtil(){
 	sum(){
 		echo $((${1}+${2}))
 	}
+
+	if [[ ! $(StringValidator isNum ${2}) ]]; then
+		MathException notANumberException ${2}
+	fi
+
+	if [[ ! $(StringValidator isNum ${3}) ]]; then
+		MathException notANumberException ${3}
+	fi
 
 	$@
 }
