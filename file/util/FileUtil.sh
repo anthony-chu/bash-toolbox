@@ -44,8 +44,6 @@ FileUtil(){
 	makeFile(){
 		local fileName=${1}
 		local _fileNameArray=($(StringUtil split fileName /))
-		local _fileName=${_fileNameArray[-1]}
-
 		local fileNameArray=$(ArrayUtil trim _fileNameArray 1)
 
 		echo $(StringUtil replace fileNameArray[@] space /)/${_fileName}
