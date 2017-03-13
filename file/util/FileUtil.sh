@@ -19,7 +19,7 @@ FileUtil(){
 			cd ${dir}
 		done
 
-		StringUtil replace directories[@] space /
+		echo /$(StringUtil replace directories[@] space /)
 	}
 
 	getContent(){
