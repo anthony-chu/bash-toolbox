@@ -28,19 +28,6 @@ FileUtil(){
 		cat ${file}
 	}
 
-	getExtension(){
-		local file=${1}
-		StringUtil strip file .*[.]
-	}
-
-	getStatus(){
-		if [[ ! $(StringValidator isNull $(ls | grep ${1})) ]]; then
-			if [[ $(ls | grep ${1}) == ${1} ]]; then
-				echo true
-			fi
-		fi
-	}
-
 	makeFile(){
 		local fileName=${1}
 		local _fileNameArray=($(StringUtil split fileName /))
@@ -51,17 +38,6 @@ FileUtil(){
 		for cmd in {touch,echo}; do
 			${cmd} ${filePath}/${_fileNameArray[-1]}
 		done
-	}
-
-	matchFileContentSubstring(){
-		local pattern=${1}
-		local file=${2}
-
-		local matchingContent=($(grep -o '${pattern}' ${file}))
-
-		if [[ ! $(ArrayValidator hasEntry matchingContent ${pattern}) ]]; then
-			echo true
-		fi
 	}
 
 	$@
