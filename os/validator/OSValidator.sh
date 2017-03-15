@@ -1,14 +1,14 @@
-include os.util.OSUtil
+include system.System
 
 OSValidator(){
 	isLinux(){
-		if [[ $(OSUtil getOS) =~ Linux ]]; then
+		if [[ $(System getOS) =~ Linux ]]; then
 			echo true
 		fi
 	}
 
 	isWindows(){
-		if [[ $(OSUtil getOS) =~ NT ]]; then
+		if [[ $(System getOS) =~ NT ]]; then
 			echo true
 		fi
 	}
