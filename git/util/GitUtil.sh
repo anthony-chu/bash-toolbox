@@ -71,5 +71,9 @@ GitUtil(){
 		git branch | sed s/\*/\ /g
 	}
 
+	pr(){
+		source /d/git-tools/git-pull-request/git-pull-request.sh
+	}
+
 	$@
 }

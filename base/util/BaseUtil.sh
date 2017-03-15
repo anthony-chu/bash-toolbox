@@ -9,10 +9,6 @@ BaseUtil(){
 		fi
 	}
 
-	gitpr(){
-		source "d:/git-tools/git-pull-request/git-pull-request.sh"
-	}
-
 	portListener(){
 		if [[ $# == 0 ]]; then
 			exit
