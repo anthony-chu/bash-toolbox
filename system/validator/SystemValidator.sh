@@ -1,6 +1,6 @@
 include system.System
 
-OSValidator(){
+SystemValidator(){
 	isLinux(){
 		if [[ $(System getOS) =~ Linux ]]; then
 			echo true
