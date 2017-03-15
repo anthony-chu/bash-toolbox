@@ -28,6 +28,16 @@ FileUtil(){
 		cat ${file}
 	}
 
+	getCurFile(){
+		local thisFile=${0//*\//}
+
+		if [[ ${1} == true ]]; then
+			echo ${thisFile}
+		elif [[ ${1} == false ]]; then
+			echo ${thisFile/.sh/}
+		fi
+	}
+
 	makeFile(){
 		local fileName=${1}
 		local _fileNameArray=($(StringUtil split fileName /))
