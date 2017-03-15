@@ -1,7 +1,0 @@
-OSUtil(){
-	getOS(){
-		uname
-	}
-
-	$@
-}
