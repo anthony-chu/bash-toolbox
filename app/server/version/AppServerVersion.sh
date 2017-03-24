@@ -9,9 +9,7 @@ AppServerVersion(){
 
 		if [[ $(StringValidator isNull ${branch}) ]]; then
 			AppServerVersionConstants tomcatVersion
-		elif [[ $(StringValidator isSubstring ${branch} 6.2.x) ]]; then
-			echo 7.0.62
-		elif [[ $(StringValidator isSubstring ${branch} 6.2.10) ]]; then
+		elif [[ $(StringValidator isSubstring ${branch} 6.2) ]]; then
 			echo 7.0.42
 		elif [[ $(StringValidator isSubstring ${branch} 6.1.x) ]]; then
 			echo 7.0.40
