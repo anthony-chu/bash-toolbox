@@ -1,3 +1,3 @@
-source bash-toolbox/lib/colorme.sh
-source bash-toolbox/lib/include.sh
-source bash-toolbox/lib/package.sh
+source ${projectDir}bash-toolbox/lib/colorme.sh
+source ${projectDir}bash-toolbox/lib/include.sh
+source ${projectDir}bash-toolbox/lib/package.sh
