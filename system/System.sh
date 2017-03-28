@@ -18,7 +18,13 @@ System(){
 	setJavaHome(){
 		if [[ ${1} =~ 6. ]]; then
 			Logger logProgressMsg "configuring_Liferay_to_use_JDK7"
-			export JAVA_HOME="C:\Program Files\Java\jdk1.7.0_80"
+
+			if [[ $(getOS) =~ NT ]]; then
+				export JAVA_HOME="C:\Program Files\Java\jdk1.7.0_80"
+			else
+				export JAVA_HOME="/usr/java/jdk1.7.0_80"
+			fi
+
 			Logger logCompletedMsg
 		fi
 	}
