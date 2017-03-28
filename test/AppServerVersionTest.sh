@@ -20,7 +20,7 @@ AppServerVersionTest(){
 
 	test_overrideTomcatVersion[6.2.x](){
 		if [[ $(AppServerVersion
-			_overrideTomcatVersion 6.2.x) == 7.0.42 ]]; then
+			_overrideTomcatVersion 6.2.x) == 7.0.62 ]]; then
 
 			echo PASS
 		else
