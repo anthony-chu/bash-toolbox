@@ -38,6 +38,16 @@ AppServerVersionTest(){
 		fi
 	}
 
+	test_overrideTomcatVersion[ee-6.2.x](){
+		if [[ $(AppServerVersion
+			_overrideTomcatVersion ee-6.2.x) == 7.0.62 ]]; then
+
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	test_overrideTomcatVersion[null](){
 		if [[ $(AppServerVersion _overrideTomcatVersion) == 8.0.32 ]]; then
 			echo PASS
