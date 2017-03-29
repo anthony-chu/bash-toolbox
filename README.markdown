@@ -27,7 +27,7 @@ into its own submodule. This, then, is that next logical step.
 To start leverage the bash-toolbox library, navigate to your existing project
 and execute the following:
 
-```
+```bash
 $ git submodule add https://github.com/anthony-chu/bash-toolbox
 ```
 
@@ -46,17 +46,23 @@ leverage the bash-toolbox library.
 
 As previously mentioned, in order to use the toolbox, you'll need to source it:
 
-- `source bash-toolbox/init.sh`
+```bash
+source bash-toolbox/init.sh
+```
 
 Once you've sourced the init script, you can include any of the bash-toolbox
 function classes using the following format:
 
-- `include path.to.file.FunctionClassName`
+```bash
+include path.to.file.FunctionClassName
+```
 
 For example, if your script requires the use of the StringValidator function
 class, you'll need to have this in the header of the file after the init source:
 
-- `include string.validator.StringValidator`
+```bash
+include string.validator.StringValidator
+```
 
 Every path is assumed to be within the bash-toolbox directory, so there is no
 need to explicitly add the bash-toolbox directory (in fact, you can't; it will
