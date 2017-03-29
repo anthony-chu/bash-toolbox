@@ -12,14 +12,9 @@ StringValidator(){
 	beginsWithVowel(){
 		local string=${@}
 
-		local vowels=(a e i o u A E I O U)
-
-		for vowel in ${vowels[@]}; do
-			if [[ $(beginsWith ${vowel} ${string}) ]]; then
-				echo true
-				break
-			fi
-		done
+		case "${string}" in
+			[aeiouAEIOU]*) echo true;;
+		esac
 	}
 
 	isAlpha(){
