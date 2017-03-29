@@ -28,6 +28,16 @@ AppServerVersionTest(){
 		fi
 	}
 
+	test_overrideTomcatVersion[ee-6.1.30](){
+		if [[ $(AppServerVersion
+			_overrideTomcatVersion 6.1.30) == 7.0.40 ]]; then
+
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	test_overrideTomcatVersion[ee-6.2.10](){
 		if [[ $(AppServerVersion
 			_overrideTomcatVersion ee-6.2.10) == 7.0.42 ]]; then
@@ -167,6 +177,16 @@ AppServerVersionTest(){
 	testReturnAppServerVersion[tomcat,ee-6.1.x](){
 		if [[ $(AppServerVersion
 			returnAppServerVersion tomcat ee-6.1.x) == 7.0.40 ]]; then
+
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testReturnAppServerVersion[tomcat,ee-6.1.30](){
+		if [[ $(AppServerVersion
+			returnAppServerVersion tomcat ee-6.1.30) == 7.0.40 ]]; then
 
 			echo PASS
 		else
