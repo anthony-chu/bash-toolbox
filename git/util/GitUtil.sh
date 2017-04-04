@@ -19,7 +19,7 @@ GitUtil(){
 
 		git reset --hard -q
 
-		if [[ $(MathUtil isEven $(CalendarUtil getDate -d)) || $(
+		if [[ $(MathUtil isOdd $(CalendarUtil getDayOfWeek num)) || $(
 			BaseComparator isEqual ${1} true) ]] ; then
 
 			git clean -fdqx
