@@ -11,6 +11,14 @@ CalendarUtil(){
 		fi
 	}
 
+	getDayOfWeek(){
+		if [[ ${1} == num ]]; then
+			date +%u
+		elif [[ ${1} == name ]]; then
+			date +%A
+		fi
+	}
+
 	getTimestamp(){
 		if [[ ${1} == clock ]]; then
 			local t=$(date +%T%s)
