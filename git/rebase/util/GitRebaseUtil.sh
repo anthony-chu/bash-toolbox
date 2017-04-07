@@ -53,7 +53,7 @@ GitRebaseUtil(){
 	}
 
 	start(){
-		local value=$(StringUtil returnOption ${2})
+		local value=$(StringUtil returnOption ${1})
 
 		local _message=(
 			rebasing_the_last_${value}_
