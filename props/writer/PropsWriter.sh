@@ -1,12 +1,18 @@
 include base.vars.BaseVars
 
 include file.io.util.FileIOUtil
+include file.name.util.FileNameUtil
 
 include props.validator.PropsValidator
 
 PropsWriter(){
 
 	_setProps(){
+		if [[ ! -e ${1} ]]; then
+			local propsFile=$(FileUtil
+				makeFile $(FileNameUtil getPath nix ${1}))
+		fi
+
 		if [[ $(PropsValidator propertyExists ${1} ${2}) ]]; then
 			FileIOUtil replace ${1} ${2}=.* ${2}=${3}
 		else
