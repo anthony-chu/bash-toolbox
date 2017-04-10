@@ -1,12 +1,14 @@
 include array.util.ArrayUtil
 include array.validator.ArrayValidator
 
+include file.name.util.FileNameUtil
+
 include string.util.StringUtil
 include string.validator.StringValidator
 
 FileUtil(){
 	construct(){
-		local _path=${1}
+		local _path=$(FileNameUtil getPath nix ${1})
 		local directories=($(StringUtil replace _path / space))
 
 		for directory in ${directories[@]}; do
@@ -39,7 +41,7 @@ FileUtil(){
 	}
 
 	makeFile(){
-		local fileName=${1}
+		local fileName=$(FileNameUtil getPath nix ${1})
 		local _fileNameArray=($(StringUtil split fileName /))
 		local fileNameArray=($(ArrayUtil trim _fileNameArray 1))
 		local filePath=$(
