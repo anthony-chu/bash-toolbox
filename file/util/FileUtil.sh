@@ -41,7 +41,7 @@ FileUtil(){
 	makeFile(){
 		local fileName=${1}
 		local _fileNameArray=($(StringUtil split fileName /))
-		local fileNameArray=$(ArrayUtil trim _fileNameArray 1)
+		local fileNameArray=($(ArrayUtil trim _fileNameArray 1))
 		local filePath=$(
 			construct /$(StringUtil replace fileNameArray[@] space /))
 
