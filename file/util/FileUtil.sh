@@ -34,7 +34,7 @@ FileUtil(){
 		if [[ ${1} == true ]]; then
 			echo ${thisFile}
 		elif [[ ${1} == false ]]; then
-			echo ${thisFile/.sh/}
+			StringUtil strip thisFile .sh
 		fi
 	}
 
