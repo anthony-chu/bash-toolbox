@@ -20,27 +20,23 @@ PropsWriter(){
 	}
 
 	setAppServerProps(){
-		_setProps ${appServerProps} ${2} ${3}
+		_setProps ${_buildDir}/app.server.${HOSTNAME}.properties ${2} ${3}
 	}
 
 	setBuildProps(){
-		_setProps ${buildProps} ${2} ${3}
+		_setProps ${_buildDir}/build.${HOSTNAME}.properties ${2} ${3}
 	}
 
 	setPortalProps(){
-		_setProps ${portalProps} ${2} ${3}
+		_setProps ${_bundleDir}/portal-ext.properties ${2} ${3}
 	}
 
 	setTestProps(){
-		_setProps ${testProps} ${2} ${3}
+		_setProps ${_buildDir}/test.${HOSTNAME}.properties ${2} ${3}
 	}
 
 	local _bundleDir=$(BaseVars returnBundleDir ${2})
 	local _buildDir=$(BaseVars returnBuildDir ${2})
-	local appServerProps=${_buildDir}/app.server.${HOSTNAME}.properties
-	local buildProps=${_buildDir}/build.${HOSTNAME}.properties
-	local portalProps=${_bundleDir}/portal-ext.properties
-	local testProps=${_buildDir}/test.${HOSTNAME}.properties
 
 	$@
 }
