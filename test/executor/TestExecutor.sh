@@ -5,10 +5,10 @@ include string.util.StringUtil
 TestExecutor(){
 	executeTest(){
 		local classPath=${1}
-		local testClass=($(StringUtil split classPath [.]))
+		local testClassArray=($(StringUtil split classPath [.]))
 
 		for (( i=0; i < ${#testClass[@]}; i++ )); do
-			testClass[${i}]=$(StringUtil capitalize ${testClass[i]})
+			testClassArray[${i}]=$(StringUtil capitalize ${testClassArray[i]})
 		done
 
 		local _tests=(
