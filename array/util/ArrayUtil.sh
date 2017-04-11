@@ -15,15 +15,13 @@ ArrayUtil(){
 		local newArray=()
 		local placeholder=.
 
-		for a in ${array[@]}; do
-			while [ ${#a} -lt ${maxLength} ]; do
-				a+=${placeholder}
+		for (( i=0; i < ${#array[@]}; i++ )); do
+			while [ ${#array[i]} -lt ${maxLength} ]; do
+				array[${i}]+=${placeholder}
 			done
-
-			newArray+=(${a})
 		done
 
-		echo ${newArray[@]}
+		echo ${array[@]}
 	}
 
 	bisect(){
