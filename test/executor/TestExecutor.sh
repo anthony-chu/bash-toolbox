@@ -16,8 +16,6 @@ TestExecutor(){
 				replace classPath [.] /)/$(StringUtil join testClass).sh)
 		)
 
-		local tests=()
-
 		for _test in ${_tests[@]}; do
 			if [[ ${_test} != $(StringUtil join testClass) && ${_test} != run ]]; then
 				if [[ $($(StringUtil join testClass) ${_test}) == FAIL ]]; then
