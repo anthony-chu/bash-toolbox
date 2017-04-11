@@ -4,7 +4,7 @@ include test.executor.TestExecutor
 
 StringUtilTest(){
 	run(){
-		TestExecutor executeTest StringUtilTest
+		TestExecutor executeTest string.util.test
 	}
 
 	testAppend(){

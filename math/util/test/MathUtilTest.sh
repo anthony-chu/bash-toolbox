@@ -4,7 +4,7 @@ include test.executor.TestExecutor
 
 MathUtilTest(){
 	run(){
-		TestExecutor executeTest MathUtilTest
+		TestExecutor executeTest math.util.test
 	}
 
 	testDecrement(){

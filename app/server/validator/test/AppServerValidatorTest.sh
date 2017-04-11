@@ -4,7 +4,7 @@ include test.executor.TestExecutor
 
 AppServerValidatorTest(){
 	run(){
-		TestExecutor executeTest AppServerValidatorTest
+		TestExecutor executeTest app.server.validator.test
 	}
 
 	local appServers=(

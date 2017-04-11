@@ -8,7 +8,7 @@ include test.executor.TestExecutor
 
 BaseVarsTest(){
 	run(){
-		TestExecutor executeTest BaseVarsTest
+		TestExecutor executeTest base.vars.test
 	}
 
 	test_returnPrivacyTest[private](){
