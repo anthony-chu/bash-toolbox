@@ -12,6 +12,12 @@ package(){
 			if [[ ${file} != *lib* ]]; then
 				source ${file}
 			fi
+
+			if [[ ${1} != *test* ]]; then
+				if [[ ${file} != *test* && ${file} != *Test* ]]; then
+					source ${file}
+				fi
+			fi
 		done
 	else
 		echo -e "[ ERROR ] \033[0;31m"Cannot import an empty package."\033[0m"
