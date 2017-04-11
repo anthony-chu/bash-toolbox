@@ -94,7 +94,7 @@ BundleUtil(){
 	}
 
 	local branch=$(BaseVars returnBranch $@)
-	local bundleDir=$(BaseVars returnBundleDir $@)
+	local bundleDir=$(BaseVars returnBundleDir ${branch})
 	local replace="FileIOUtil replace"
 
 	$@
