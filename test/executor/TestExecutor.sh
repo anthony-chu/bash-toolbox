@@ -19,7 +19,9 @@ TestExecutor(){
 		)
 
 		for _test in ${_tests[@]}; do
-			if [[ ${_test} != $(StringUtil join testClass) && ${_test} != run ]]; then
+			if [[ ${_test} != $(StringUtil
+				join testClass) && ${_test} != run ]]; then
+
 				if [[ $(${testClass} ${_test}) == FAIL ]]; then
 					echo ${testClass}\#${_test}
 				fi
