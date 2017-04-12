@@ -54,6 +54,11 @@ MathUtil(){
 	}
 
 	quotient(){
+		if [[ $(BaseComparator isEqual ${2} 0) ]]; then
+			MathException divideByZeroException
+			return
+		fi
+
 		echo $((${1}/${2}))
 	}
 
