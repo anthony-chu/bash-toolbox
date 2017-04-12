@@ -16,7 +16,7 @@ StringUtil(){
 	}
 
 	join(){
-		local array=$(ArrayUtil import ${1})
+		local array=($(ArrayUtil import ${1}))
 
 		for _string in ${array[@]}; do
 			local string=$(append ${string} ${_string})
