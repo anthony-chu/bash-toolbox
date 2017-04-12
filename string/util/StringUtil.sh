@@ -1,5 +1,3 @@
-include array.util.ArrayUtil
-
 include base.comparator.BaseComparator
 
 include string.validator.StringValidator
@@ -16,7 +14,9 @@ StringUtil(){
 	}
 
 	join(){
-		local array=($(ArrayUtil import ${1}))
+		local __array=${1}
+		local _array=${__array}[@]
+		local array=(${!_array})
 
 		for _string in ${array[@]}; do
 			local string=$(append ${string} ${_string})
