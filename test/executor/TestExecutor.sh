@@ -7,7 +7,7 @@ TestExecutor(){
 		local classPath=${1}
 		local testClassArray=($(StringUtil split classPath [.]))
 
-		for (( i=0; i < ${#testClass[@]}; i++ )); do
+		for (( i=0; i < ${#testClassArray[@]}; i++ )); do
 			testClassArray[${i}]=$(StringUtil capitalize ${testClassArray[i]})
 		done
 
