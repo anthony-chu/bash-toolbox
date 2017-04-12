@@ -23,8 +23,6 @@ StringUtil(){
 		done
 
 		echo ${string}
-
-		unset ${1}
 	}
 
 	length(){
