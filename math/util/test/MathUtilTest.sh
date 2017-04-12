@@ -119,6 +119,54 @@ MathUtilTest(){
 		fi
 	}
 
+	testProduct(){
+		if [[ $(MathUtil product 2 3) == 6 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testProduct[identity](){
+		if [[ $(MathUtil product 1 2) == 2 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testProduct[zero](){
+		if [[ $(MathUtil product 0 3) == 0 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testQuotient(){
+		if [[ $(MathUtil quotient 4 2) == 2 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testQuotient[cannot-divide-by-zero](){
+		if [[ $(MathUtil quotient 1 0) =~ "Cannot divide by zero." ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	testQuotient[floor](){
+		if [[ $(MathUtil quotient 5 2 ) == 2 ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	testSum(){
 		if [[ $(MathUtil sum 1 1) == 2 ]]; then
 			echo PASS
