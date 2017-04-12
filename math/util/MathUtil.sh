@@ -49,6 +49,14 @@ MathUtil(){
 		echo $((${var}%${2}))
 	}
 
+	product(){
+		echo $((${1}*${2}))
+	}
+
+	quotient(){
+		echo $((${1}/${2}))
+	}
+
 	sum(){
 		echo $((${1}+${2}))
 	}
