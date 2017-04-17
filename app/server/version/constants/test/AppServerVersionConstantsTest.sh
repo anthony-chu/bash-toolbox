@@ -1,6 +1,7 @@
 include app.server.version.constants.AppServerVersionConstants
 
 include test.executor.Testexecutor
+include test.util.TestUtil
 
 AppServerVersionConstantsTest(){
 	run(){
@@ -8,92 +9,50 @@ AppServerVersionConstantsTest(){
 	}
 
 	testGlassfishVersion(){
-		if [[ $(AppServerVersionConstants glassfishVersion) == 3.1.2.2 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersionConstants glassfishVersion) 3.1.2.2
 	}
 
 	testJbossVersion(){
-		if [[ $(AppServerVersionConstants jbossVersion) == eap-7.0.0 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersionConstants jbossVersion) eap-7.0.0
 	}
 
 	testJettyVersion(){
-		if [[ $(AppServerVersionConstants jettyVersion) == 8.1.10 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersionConstants jettyVersion) 8.1.10
 	}
 
 	testJonasVersion(){
-		if [[ $(AppServerVersionConstants jonasVersion) == 5.2.3 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersionConstants jonasVersion) 5.2.3
 	}
 
 	testResinVersion(){
-		if [[ $(AppServerVersionConstants resinVersion) == 4.0.44 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersionConstants resinVersion) 4.0.44
 	}
 
 	testTcatVersion(){
-		if [[ $(AppServerVersionConstants tcatVersion) == 7.0.2 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersionConstants tcatVersion) 7.0.2
 	}
 
 	testTcserverVersion(){
-		if [[ $(AppServerVersionConstants tcserverVersion) == 3.1.2 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersionConstants tcserverVersion) 3.1.2
 	}
 
 	testTomcatVersion(){
-		if [[ $(AppServerVersionConstants tomcatVersion) == 8.0.32 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersionConstants tomcatVersion) 8.0.32
 	}
 
 	testWeblogicVersion(){
-		if [[ $(AppServerVersionConstants weblogicVersion) == 12.2.1 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersionConstants weblogicVersion) 12.2.1
 	}
 
 	testWebsphereVersion(){
-		if [[ $(AppServerVersionConstants websphereVersion) == 8.5.5.0 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersionConstants websphereVersion) 8.5.5.0
 	}
 
 	testWildflyVersion(){
-		if [[ $(AppServerVersionConstants wildflyVersion) == 10.0.0 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersionConstants wildflyVersion) 10.0.0
 	}
+
+	local assertEquals="TestUtil assertEquals"
 
 	$@
 }

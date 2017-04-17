@@ -1,6 +1,7 @@
 include base.comparator.BaseComparator
 
 include test.executor.TestExecutor
+include test.util.Test.Util
 
 BaseComparatorTest(){
 	run(){
@@ -8,76 +9,42 @@ BaseComparatorTest(){
 	}
 
 	testIsEqual[number](){
-		if [[ $(BaseComparator isEqual 123 123) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(BaseComparator isEqual 123 123)
 	}
 
 	testIsEqual[string](){
-		if [[ $(BaseComparator isEqual foo foo) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(BaseComparator isEqual foo foo)
 	}
 
 	testIsEqualIgnoreCase(){
-		if [[ $(BaseComparator isEqualIgnoreCase FOO foo) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(BaseComparator isEqualIgnoreCase FOO foo)
 	}
 
 	testIsLessThan[case](){
-		if [[ $(BaseComparator isLessThan foo FOO) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(BaseComparator isLessThan foo FOO)
 	}
 
 	testIsLessThan[number](){
-		if [[ $(BaseComparator isLessThan 1 2) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(BaseComparator isLessThan 1 2)
 	}
 
 	testIsLessThan[string](){
-		if [[ $(BaseComparator isLessThan bar foo) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(BaseComparator isLessThan bar foo)
 	}
 
 	testIsGreaterThan[case](){
-		if [[ $(BaseComparator isGreaterThan FOO foo) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(BaseComparator isGreaterThan FOO foo)
 	}
 
 	testIsGreaterThan[number](){
-		if [[ $(BaseComparator isGreaterThan 2 1) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(BaseComparator isGreaterThan 2 1)
 	}
 
 	testIsGreaterThan[string](){
-		if [[ $(BaseComparator isGreaterThan foo bar) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(BaseComparator isGreaterThan foo bar)
 	}
+
+	local assertTrue="TestUtil assertTrue"
 
 	$@
 }

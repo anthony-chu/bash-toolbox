@@ -1,6 +1,7 @@
 include string.util.StringUtil
 
 include test.executor.TestExecutor
+include test.util.TestUtil
 
 StringUtilTest(){
 	run(){
@@ -8,37 +9,21 @@ StringUtilTest(){
 	}
 
 	testAppend(){
-		if [[ $(StringUtil append foo bar) == foobar ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(StringUtil append foo bar) foobar
 	}
 
 	testCapitalize(){
-		if [[ $(StringUtil capitalize foo) == Foo ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(StringUtil capitalize foo) Foo
 	}
 
 	testJoin(){
 		local array=(foo bar)
 
-		if [[ $(StringUtil join array) == foobar ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(StringUtil join array) foobar
 	}
 
 	testLength(){
-		if [[ $(StringUtil length foo) == 3 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(StringUtil length foo) 3
 	}
 
 	testParseMessage(){
@@ -54,11 +39,7 @@ StringUtilTest(){
 	testReplace(){
 		local string="foo-bar"
 
-		if [[ $(StringUtil replace string - .) == foo.bar ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(StringUtil replace string - .) foo.bar
 	}
 
 	testReplace[new-space](){
@@ -74,27 +55,15 @@ StringUtilTest(){
 	testReplace[old-space](){
 		local string="foo bar"
 
-		if [[ $(StringUtil replace string space -) == foo-bar ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(StringUtil replace string space -) foo-bar
 	}
 
 	testReturnOption[false](){
-		if [[ ! $(StringUtil returnOption foo) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(StringUtil returnOption foo)
 	}
 
 	testReturnOption[true](){
-		if [[ $(StringUtil returnOption -foo) == foo ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(StringUtil returnOption -foo) foo
 	}
 
 	testSplit(){
@@ -110,28 +79,19 @@ StringUtilTest(){
 	testStrip(){
 		local input="foo-bar"
 
-		if [[ $(StringUtil strip input -) == foobar ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(StringUtil strip input -) foobar
 	}
 
 	testToLowerCase(){
-		if [[ $(StringUtil toLowerCase FOO) == foo ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(StringUtil toLowerCase FOO) foo
 	}
 
 	testToUpperCase(){
-		if [[ $(StringUtil toUpperCase foo) == FOO ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(StringUtil toUpperCase foo) FOO
 	}
+
+	local assertEquals="TestUtil assertEquals"
+	local assertNull="TestUtil assertNull"
 
 	${@}
 }

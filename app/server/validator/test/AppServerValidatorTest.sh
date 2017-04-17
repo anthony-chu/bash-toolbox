@@ -1,6 +1,7 @@
 include app.server.validator.AppServerValidator
 
 include test.executor.TestExecutor
+include test.util.TestUtil
 
 AppServerValidatorTest(){
 	run(){
@@ -22,92 +23,50 @@ AppServerValidatorTest(){
 	)
 
 	testIsGlassfish(){
-		if [[ $(AppServerValidator isGlassfish appServers) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(AppServerValidator isGlassfish appServers)
 	}
 
 	testIsJboss(){
-		if [[ $(AppServerValidator isJboss appServers) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(AppServerValidator isJboss appServers)
 	}
 
 	testIsJetty(){
-		if [[ $(AppServerValidator isJetty appServers) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(AppServerValidator isJetty appServers)
 	}
 
 	testIsJonas(){
-		if [[ $(AppServerValidator isJonas appServers) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${asserTrue} $(AppServerValidator isJonas appServers)
 	}
 
 	testIsResin(){
-		if [[ $(AppServerValidator isResin appServers) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(AppServerValidator isResin appServers)
 	}
 
 	testIsTcat(){
-		if [[ $(AppServerValidator isTcat appServers) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(AppServerValidator isTcat appServers)
 	}
 
 	testIsTCserver(){
-		if [[ $(AppServerValidator isTCServer appServers) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(AppServerValidator isTCServer appServers)
 	}
 
 	testIsTomcat(){
-		if [[ $(AppServerValidator isTomcat appServers) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(AppServerValidator isTomcat appServers)
 	}
 
 	testIsWeblogic(){
-		if [[ $(AppServerValidator isWeblogic appServers) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(AppServerValidator isWeblogic appServers)
 	}
 
 	testIsWebsphere(){
-		if [[ $(AppServerValidator isWebsphere appServers) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(AppServerValidator isWebsphere appServers)
 	}
 
 	testIsWildfly(){
-		if [[ $(AppServerValidator isWildfly appServers) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(AppServerValidator isWildfly appServers)
 	}
+
+	local assertTrue="TestUtil assertTrue"
 
 	$@
 }

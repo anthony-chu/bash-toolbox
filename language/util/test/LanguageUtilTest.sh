@@ -1,6 +1,7 @@
 include language.util.LanguageUtil
 
 include test.executor.TestExecutor
+include test.util.TestUtil
 
 LanguageUtilTest(){
 	run(){
@@ -8,36 +9,22 @@ LanguageUtilTest(){
 	}
 
 	testToggleArticleVowelForm[false](){
-		if [[ $(LanguageUtil toggleArticleVowelForm cba) == a ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(LanguageUtil toggleArticleVowelForm cba) a
 	}
 
 	testToggleArticleVowelForm[true](){
-		if [[ $(LanguageUtil toggleArticleVowelForm abc) == an ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(LanguageUtil toggleArticleVowelForm abc) a
 	}
 
 	testTogglePlurality[false](){
-		if [[ $(LanguageUtil togglePlurality 1 bar bars) == bar ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(LanguageUtil togglePlurality 1 bar bars) b
 	}
 
 	testTogglePlurality[true](){
-		if [[ $(LanguageUtil togglePlurality 2 bar bars) == bars ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(LanguageUtil togglePlurality 2 bar bars) b
 	}
+
+	local assertEquals="TestUtil assertEquals"
 
 	$@
 }

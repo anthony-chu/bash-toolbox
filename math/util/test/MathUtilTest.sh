@@ -1,6 +1,7 @@
 include math.util.MathUtil
 
 include test.executor.TestExecutor
+include test.util.testUtil
 
 MathUtilTest(){
 	run(){
@@ -8,147 +9,75 @@ MathUtilTest(){
 	}
 
 	testDecrement(){
-		if [[ $(MathUtil decrement 2) == 1 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil decrement 2) 1
 	}
 
 	testDecrement[negative](){
-		if [[ $(MathUtil decrement -1) == -2 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil decrement -1) ==2
 	}
 
 	testDifference(){
-		if [[ $(MathUtil difference 2 1) == 1 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil difference 2 1) 1
 	}
 
 	testFormat[false](){
-		if [[ $(MathUtil format 10) == 10 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil format 10) 1
 	}
 
 	testFormat[true](){
-		if [[ $(MathUtil format 9) == 09 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil format 9) 0
 	}
 
 	testIncrement(){
-		if [[ $(MathUtil increment 1) == 2 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil increment 1) 2
 	}
 
 	testIncrement[negative](){
-		if [[ $(MathUtil increment -1) == 0 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil increment -1) 0
 	}
 
 	testIsDivisible[false](){
-		if [[ ! $(MathUtil isDivisible 3 2) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(MathUtil isDivisible 3 2)
 	}
 
 	testIsDivisible[true](){
-		if [[ $(MathUtil isDivisible 4 2) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(MathUtil isDivisible 4 2)
 	}
 
 	testIsEven[false](){
-		if [[ ! $(MathUtil isEven 3) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(MathUtil isEven 3)
 	}
 
 	testIsEven[true](){
-		if [[ $(MathUtil isEven 4) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(MathUtil isEven 4)
 	}
 
 	testIsOdd[false](){
-		if [[ ! $(MathUtil isOdd 4) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(MathUtil isOdd 4)
 	}
 
 	testIsOdd[true](){
-		if [[ $(MathUtil isOdd 3) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(MathUtil isOdd 3)
 	}
 
 	testModulus(){
-		if [[ $(MathUtil modulus 4 2) == 0 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil modulus 4 2) 0
 	}
 
 	testProduct(){
-		if [[ $(MathUtil product 2 3) == 6 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil product 2 3) 6
 	}
 
 	testProduct[identity](){
-		if [[ $(MathUtil product 1 2) == 2 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil product 1 2) 2
 	}
 
 	testProduct[zero](){
-		if [[ $(MathUtil product 0 3) == 0 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil product 0 3) 0
 	}
 
 	testQuotient(){
-		if [[ $(MathUtil quotient 4 2) == 2 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil quotient 4 2) 2
 	}
 
 	testQuotient[cannot-divide-by-zero](){
@@ -160,20 +89,16 @@ MathUtilTest(){
 	}
 
 	testQuotient[floor](){
-		if [[ $(MathUtil quotient 5 2 ) == 2 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil quotient 5 2 ) 2
 	}
 
 	testSum(){
-		if [[ $(MathUtil sum 1 1) == 2 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(MathUtil sum 1 1) 2
 	}
+
+	local assertEquals="TestUtil assertEquals"
+	local assertNull="TestUtil assertNull"
+	local assertTrue="TestUtil assertTrue"
 
 	$@
 }

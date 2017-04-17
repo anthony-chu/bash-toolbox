@@ -1,6 +1,7 @@
 include string.validator.stringvalidator
 
 include test.executor.TestExecutor
+include test.util.TestUtil
 
 StringValidatorTest(){
 	run(){
@@ -8,244 +9,127 @@ StringValidatorTest(){
 	}
 
 	testBeginsWith[false](){
-		if [[ ! $(StringValidator beginsWith - a) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(StringValidator beginsWith - a)
 	}
 
 	testBeginsWith[true](){
-		if [[ $(StringValidator beginsWith - -a) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator beginsWith - -a)
 	}
 
 	testBeginsWithVowel[a](){
-		if [[ $(StringValidator beginsWithVowel alpha) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator beginsWithVowel alpha)
 	}
 
 	testBeginsWithVowel[A](){
-		if [[ $(StringValidator beginsWithVowel Alpha) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator beginsWithVowel Alpha)
 	}
 
 	testBeginsWithVowel[e](){
-		if [[ $(StringValidator beginsWithVowel epsilon) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator beginsWithVowel epsilon)
 	}
 
 	testBeginsWithVowel[E](){
-		if [[ $(StringValidator beginsWithVowel Epsilon) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator beginsWithVowel Epsilon)
 	}
 
 	testBeginsWithVowel[false](){
-		if [[ ! $(StringValidator beginsWithVowel beta) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(StringValidator beginsWithVowel beta)
 	}
 
 	testBeginsWithVowel[i](){
-		if [[ $(StringValidator beginsWithVowel iota) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator beginsWithVowel iota)
 	}
 
 	testBeginsWithVowel[I](){
-		if [[ $(StringValidator beginsWithVowel Iota) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator beginsWithVowel Iota)
 	}
 
 	testBeginsWithVowel[null](){
-		if [[ ! $(StringValidator beginsWithVowel) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(StringValidator beginsWithVowel)
 	}
 
 	testBeginsWithVowel[o](){
-		if [[ $(StringValidator beginsWithVowel omega) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator beginsWithVowel omega)
 	}
 
 	testBeginsWithVowel[O](){
-		if [[ $(StringValidator beginsWithVowel Omega) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator beginsWithVowel Omega)
 	}
 
 	testBeginsWithVowel[u](){
-		if [[ $(StringValidator beginsWithVowel upsilon) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator beginsWithVowel upsilon)
 	}
 
 	testBeginsWithVowel[U](){
-		if [[ $(StringValidator beginsWithVowel Upsilon) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator beginsWithVowel Upsilon)
 	}
 
 	testIsAlpha[false](){
-		if [[ ! $(StringValidator isAlpha 123) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(StringValidator isAlpha 123)
 	}
 
 	testIsAlpha[space](){
-		if [[ $(StringValidator isAlpha abc def) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator isAlpha abc def)
 	}
 
 	testIsAlpha[true](){
-		if [[ $(StringValidator isAlpha abc) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator isAlpha abc)
 	}
 
 	testIsAlphaNum[false](){
-		if [[ ! $(StringValidator isAlphaNum abc_) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(StringValidator isAlphaNum abc_)
 	}
 
 	testIsAlphaNum[space](){
-		if [[ $(StringValidator isAlphaNum abc 123) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator isAlphaNum abc 123)
 	}
 
 	testIsAlphaNum[true](){
-		if [[ $(StringValidator isAlphaNum abc123) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator isAlphaNum abc123)
 	}
 
 	testIsSubstring[false](){
-		if [[ ! $(StringValidator isSubstring foobar this) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(StringValidator isSubstring foobar this)
 	}
 
 	testIsSubstring[true](){
-		if [[ $(StringValidator isSubstring foobar foo) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator isSubstring foobar foo)
 	}
 
 	testIsNull[false](){
-		if [[ ! $(StringValidator isNull foo) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(StringValidator isNull foo)
 	}
 
 	testIsNull[true](){
-		if [[ $(StringValidator isNull) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator isNull)
 	}
 
 	testIsNum[false](){
-		if [[ ! $(StringValidator isNum abc) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(StringValidator isNum abc)
 	}
 
 	testIsNum[negative](){
-		if [[ $(StringValidator isNum - 123) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator isNum - 123)
 	}
 
 	testIsNum[true](){
-		if [[ $(StringValidator isNum 123) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator isNum 123)
 	}
 
 	testIsOption[alpha](){
-		if [[ $(StringValidator isOption -foo) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator isOption -foo)
 	}
 
 	testIsOption[alphaNum](){
-		if [[ $(StringValidator isOption -foo123) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator isOption -foo123)
 	}
 
 	testIsOption[num](){
-		if [[ $(StringValidator isOption -123) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertTrue} $(StringValidator isOption -123)
 	}
+
+	local assertNull="TestUtil assertNull"
+	local assertTrue="TestUtil assertTrue"
 
 	${@}
 }

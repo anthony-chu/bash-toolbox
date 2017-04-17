@@ -2,6 +2,7 @@ include app.server.version.AppServerVersion
 include app.server.version.constants.AppServerVersionConstants
 
 include test.executor.TestExecutor
+include test.util.TestUtil
 
 AppServerVersionTest(){
 	run(){
@@ -9,260 +10,138 @@ AppServerVersionTest(){
 	}
 
 	test_overrideTomcatVersion[6.1.x](){
-		if [[ $(AppServerVersion
-			_overrideTomcatVersion 6.1.x) == 7.0.40 ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion _overrideTomcatVersion 6.1.x) 7.0.40
 	}
 
 	test_overrideTomcatVersion[6.2.x](){
-		if [[ $(AppServerVersion
-			_overrideTomcatVersion 6.2.x) == 7.0.42 ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion _overrideTomcatVersion 6.2.x) 7.0.42
 	}
 
 	test_overrideTomcatVersion[ee-6.1.30](){
-		if [[ $(AppServerVersion
-			_overrideTomcatVersion 6.1.30) == 7.0.40 ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion _overrideTomcatVersion 6.1.30) 7.0.40
 	}
 
 	test_overrideTomcatVersion[ee-6.2.10](){
-		if [[ $(AppServerVersion
-			_overrideTomcatVersion ee-6.2.10) == 7.0.42 ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			_overrideTomcatVersion ee-6.2.10) 7.0.42
 	}
 
 	test_overrideTomcatVersion[ee-6.2.x](){
-		if [[ $(AppServerVersion
-			_overrideTomcatVersion ee-6.2.x) == 7.0.62 ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			_overrideTomcatVersion ee-6.2.x) 7.0.62
 	}
 
 	test_overrideTomcatVersion[null](){
-		if [[ $(AppServerVersion _overrideTomcatVersion) == 8.0.32 ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion _overrideTomcatVersion) 8.0.32
 	}
 
 	testReturnAppServerVersion[glassfish](){
-		if [[ $(AppServerVersion returnAppServerVersion glassfish) == $(
-			AppServerVersionConstants glassfishVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion returnAppServerVersion glassfish) $(
+			AppServerVersionConstants glassfishVersion)
 	}
 
 	testReturnAppServerVersion[jboss](){
-		if [[ $(AppServerVersion returnAppServerVersion jboss) == $(
-			AppServerVersionConstants jbossVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion returnAppServerVersion jboss) $(
+			AppServerVersionConstants jbossVersion)
 	}
 
 	testReturnAppServerVersion[jetty](){
-		if [[ $(AppServerVersion returnAppServerVersion jetty) == $(
-			AppServerVersionConstants jettyVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion returnAppServerVersion jetty) $(
+			AppServerVersionConstants jettyVersion)
 	}
 
 	testReturnAppServerVersion[jonas](){
-		if [[ $(AppServerVersion returnAppServerVersion jonas) == $(
-			AppServerVersionConstants jonasVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion returnAppServerVersion jonas) $(
+			AppServerVersionConstants jonasVersion)
 	}
 
 	testReturnAppServerVersion[null](){
-		if [[ ! $(AppServerVersion returnAppServerVersion) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertNull} $(AppServerVersion returnAppServerVersion)
 	}
 
 	testReturnAppServerVersion[resin](){
-		if [[ $(AppServerVersion returnAppServerVersion resin) == $(
-			AppServerVersionConstants resinVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion returnAppServerVersion resin) $(
+			AppServerVersionConstants resinVersion)
 	}
 
 	testReturnAppServerVersion[tcat](){
-		if [[ $(AppServerVersion returnAppServerVersion tcat) == $(
-			AppServerVersionConstants tcatVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion returnAppServerVersion tcat) $(
+			AppServerVersionConstants tcatVersion)
 	}
 
 	testReturnAppServerVersion[tcserver](){
-		if [[ $(AppServerVersion returnAppServerVersion tcserver) == $(
-			AppServerVersionConstants tcserverVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion returnAppServerVersion tcserver) $(
+			AppServerVersionConstants tcserverVersion)
 	}
 
 	testReturnAppServerVersion[tomcat,6.1.x](){
-		if [[ $(AppServerVersion
-			returnAppServerVersion tomcat 6.1.x) == 7.0.40 ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion tomcat 6.1.x) 7.0.40
 	}
 
 	testReturnAppServerVersion[tomcat,6.2.x](){
-		if [[ $(AppServerVersion
-			returnAppServerVersion tomcat 6.2.x) == 7.0.42 ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion tomcat 6.2.x) 7.0.42
 	}
 
 	testReturnAppServerVersion[tomcat,7.0.x](){
-		if [[ $(AppServerVersion returnAppServerVersion tomcat 7.0.x) == $(
-			AppServerVersionConstants tomcatVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion tomcat 7.0.x) $(
+				AppServerVersionConstants tomcatVersion)
 	}
 
 	testReturnAppServerVersion[tomcat,ee-6.1.x](){
-		if [[ $(AppServerVersion
-			returnAppServerVersion tomcat ee-6.1.x) == 7.0.40 ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion tomcat ee-6.1.x) 7.0.40
 	}
 
 	testReturnAppServerVersion[tomcat,ee-6.1.30](){
-		if [[ $(AppServerVersion
-			returnAppServerVersion tomcat ee-6.1.30) == 7.0.40 ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion tomcat ee-6.1.30) 7.0.40
 	}
 
 	testReturnAppServerVersion[tomcat,ee-6.2.10](){
-		if [[ $(AppServerVersion
-			returnAppServerVersion tomcat ee-6.2.10) == 7.0.42 ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion tomcat ee-6.2.10) 7.0.42
 	}
 
 	testReturnAppServerVersion[tomcat,ee-6.2.x](){
-		if [[ $(AppServerVersion
-			returnAppServerVersion tomcat ee-6.2.x) == 7.0.62 ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion tomcat ee-6.2.x) 7.0.62
 	}
 
 	testReturnAppServerVersion[tomcat,ee-7.0.x](){
-		if [[ $(AppServerVersion returnAppServerVersion tomcat ee-7.0.x) == $(
-			AppServerVersionConstants tomcatVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion tomcat ee-7.0.x) $(AppServerVersionConstants
+				tomcatVersion)
 	}
 
 	testReturnAppServerVersion[tomcat,master](){
-		if [[ $(AppServerVersion returnAppServerVersion tomcat master) == $(
-			AppServerVersionConstants tomcatVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion tomcat master) $(AppServerVersionConstants
+				tomcatVersion)
 	}
 
 	testReturnAppServerVersion[weblogic](){
-		if [[ $(AppServerVersion returnAppServerVersion weblogic) == $(
-			AppServerVersionConstants weblogicVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion weblogic) $(AppServerVersionConstants
+				weblogicVersion)
 	}
 
 	testReturnAppServerVersion[websphere](){
-		if [[ $(AppServerVersion returnAppServerVersion websphere) == $(
-			AppServerVersionConstants websphereVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion websphere) $(AppServerVersionConstants
+				websphereVersion)
 	}
 
 	testReturnAppServerVersion[wildfly](){
-		if [[ $(AppServerVersion returnAppServerVersion wildfly) == $(
-			AppServerVersionConstants wildflyVersion) ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion wildfly) $(AppServerVersionConstants
+				wildflyVersion)
 	}
+
+	local assertEquals="TestUtil assertEquals"
+	local assertNull="TestUtil assertNull"
 
 	$@
 }
