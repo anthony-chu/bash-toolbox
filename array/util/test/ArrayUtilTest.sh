@@ -1,6 +1,7 @@
 include array.util.ArrayUtil
 
 include test.executor.TestExecutor
+include test.util.TestUtil
 
 ArrayUtilTest(){
 	run(){
@@ -8,153 +9,132 @@ ArrayUtilTest(){
 	}
 
 	test_trim(){
-		local input=({1..7})
-		local output=({1..6})
+		local inputArray=({1..7})
+		local outputArray=({1..6})
+		local result=($(ArrayUtil _trim inputArray))
 
-		if [[ $(ArrayUtil _trim input) == ${output[@]} ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
 
 	testAppendArrayEntry(){
 		local inputArray=(foo foobar)
 		local outputArray=(foo... foobar)
+		local result=($(ArrayUtil appendArrayEntry inputArray))
 
-		if [[ $(ArrayUtil
-			appendArrayEntry inputArray) == ${outputArray[@]} ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
 
 	testBisect[false](){
 		local inputArray=({1..6})
 		local outputArray=(4 5 6)
+		local result=($(ArrayUtil bisect false inputArray))
 
-		if [[ $(ArrayUtil bisect false inputArray) == ${outputArray[@]} ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
 
 	testBisect[true](){
 		local inputArray=({1..6})
 		local outputArray=({1..3})
+		local result=($(ArrayUtil bisect true inputArray))
 
-		if [[ $(ArrayUtil bisect true inputArray) == ${outputArray[@]} ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
 
 	testFlipArray(){
 		local inputArray=(foo bar)
 		local outputArray=(bar foo)
+		local result=($(ArrayUtil flipArray inputArray))
 
-		if [[ $(ArrayUtil flipArray inputArray) == ${outputArray[@]} ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
 
 	testImport(){
 		local inputArray=({a..e})
+		local outputArray=({a..e})
 
-		if [[ $(ArrayUtil import inputArray) == ${inputArray[@]} ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
 
 	testPartition[1-of-3](){
 		local inputArray=({1..6})
 		local outputArray=(1 2)
+		local result=($(ArrayUtil partition 3 1 inputArray))
 
-		if [[ $(ArrayUtil
-			partition 3 1 inputArray) == ${outputArray[@]} ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
 
 	testPartition[2-of-3](){
 		local inputArray=({1..6})
 		local outputArray=(3 4)
+		local result=($(ArrayUtil partition 3 2 inputArray))
 
-		if [[ $(ArrayUtil
-			partition 3 2 inputArray) == ${outputArray[@]} ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
 
 	testPartition[3-of-3](){
 		local inputArray=({1..6})
 		local outputArray=(5 6)
+		local result=($(ArrayUtil partition 3 3 inputArray))
 
-		if [[ $(ArrayUtil
-			partition 3 3 inputArray) == ${outputArray[@]} ]]; then
-
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
 
 	testReturnMaxLength(){
 		local inputArray=(foo foobar)
 		local maxLength=6
 
-		if [[ $(ArrayUtil returnMaxLength inputArray) == ${maxLength} ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} $(ArrayUtil returnMaxLength inputArray) ${maxLength}
 	}
 
 	testStrip(){
 		local inputArray=(foo foo bar bar)
+		local outputArray=(bar bar)
+		local result=($(ArrayUtil strip inputArray foo))
 
-		if [[ $(ArrayUtil strip inputArray foo) == "bar bar" ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
 
 	testTrim[1](){
-		local input=({1..7})
-		local output=({1..6})
+		local inputArray=({1..7})
+		local outputArray=({1..6})
+		local result=($(ArrayUtil trim inputArray 1))
 
-		if [[ $(ArrayUtil trim input 1) == ${output[@]} ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
 
 	testTrim[multiple](){
-		local input=({1..7})
-		local output=({1..4})
+		local inputArray=({1..7})
+		local outputArray=({1..4})
+		local result=($(ArrayUtil trim inputArray 3))
 
-		if [[ $(ArrayUtil trim input 3) == ${output[@]} ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		for (( i=0; i < ${#outputArray[@]}; i++ )); do
+			${assertEquals} ${result[i]} ${outputArray[i]}
+		done
 	}
+
+	local assertEquals="TestUtil assertEquals"
 
 	$@
 }
