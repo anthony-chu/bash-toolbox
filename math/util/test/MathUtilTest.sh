@@ -13,7 +13,7 @@ MathUtilTest(){
 	}
 
 	testDecrement[negative](){
-		${assertEquals} $(MathUtil decrement -1) ==2
+		${assertEquals} $(MathUtil decrement -1) -2
 	}
 
 	testDifference(){
@@ -21,11 +21,11 @@ MathUtilTest(){
 	}
 
 	testFormat[false](){
-		${assertEquals} $(MathUtil format 10) 1
+		${assertEquals} $(MathUtil format 10) 10
 	}
 
 	testFormat[true](){
-		${assertEquals} $(MathUtil format 9) 0
+		${assertEquals} $(MathUtil format 9) 09
 	}
 
 	testIncrement(){

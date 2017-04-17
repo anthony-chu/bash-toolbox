@@ -13,15 +13,15 @@ LanguageUtilTest(){
 	}
 
 	testToggleArticleVowelForm[true](){
-		${assertEquals} $(LanguageUtil toggleArticleVowelForm abc) a
+		${assertEquals} $(LanguageUtil toggleArticleVowelForm abc) an
 	}
 
 	testTogglePlurality[false](){
-		${assertEquals} $(LanguageUtil togglePlurality 1 bar bars) b
+		${assertEquals} $(LanguageUtil togglePlurality 1 bar bars) bar
 	}
 
 	testTogglePlurality[true](){
-		${assertEquals} $(LanguageUtil togglePlurality 2 bar bars) b
+		${assertEquals} $(LanguageUtil togglePlurality 2 bar bars) bars
 	}
 
 	local assertEquals="TestUtil assertEquals"
