@@ -20,6 +20,30 @@ TestUtil(){
 		echo -e "${time} [ $(LoggerUtil _formatLogLevel ${1}) ] ${message}"
 	}
 
+	assertEquals(){
+		if [[ ${1} == ${2} ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	assertNull(){
+		if [[ ${1} == "" ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
+	assertTrue(){
+		if [[ ${1} == true ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	logSuccessMsg(){
 		_getLogMsg info ${1}
 	}
