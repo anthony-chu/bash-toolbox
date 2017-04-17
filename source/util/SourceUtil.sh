@@ -9,7 +9,7 @@ SourceUtil(){
 		if [[ -e ${buildDir}/.gradle/caches ]]; then
 			Logger logProgressMsg "clearing_gradle_cache"
 
-			rm -r ${buildDir}/.gradle/caches
+			git clean -fdq
 
 			Logger logCompletedMsg
 		fi
