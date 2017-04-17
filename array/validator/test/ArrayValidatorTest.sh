@@ -11,7 +11,7 @@ ArrayValidatorTest(){
 	testHasEntry[false](){
 		local inputArray=(foo foo)
 
-		${assertTrue} $(ArrayValidator hasEntry inputArray bar)
+		${assertNull} $(ArrayValidator hasEntry inputArray bar)
 	}
 
 	testHasEntry[true](){
