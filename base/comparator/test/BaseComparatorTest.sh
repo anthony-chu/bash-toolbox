@@ -1,7 +1,7 @@
 include base.comparator.BaseComparator
 
 include test.executor.TestExecutor
-include test.util.Test.Util
+include test.util.TestUtil
 
 BaseComparatorTest(){
 	run(){
