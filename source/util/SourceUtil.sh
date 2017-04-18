@@ -33,9 +33,9 @@ SourceUtil(){
 		${writer} setBuildProps ${branch} lp.source.dir ${buildDir}
 
 		if [[ $(StringValidator isSubstring ${branch} 6.1) ]]; then
-			PropsWriter setBuildProps ${branch} jsp.precompile off
+			${writer} setBuildProps ${branch} jsp.precompile off
 		else
-			PropsWriter setBuildProps ${branch} jsp.precompile on
+			${writer} setBuildProps ${branch} jsp.precompile on
 		fi
 
 		Logger logCompletedMsg
