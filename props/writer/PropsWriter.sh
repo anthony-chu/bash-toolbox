@@ -8,7 +8,7 @@ include props.validator.PropsValidator
 PropsWriter(){
 	_setProps(){
 		if [[ ! -e ${1} ]]; then
-			local propsFile=$(FileUtil makeFile ${1})
+			local file=$(FileUtil makeFile ${1})
 		fi
 
 		if [[ $(PropsValidator propertyExists ${1} ${2}) ]]; then
