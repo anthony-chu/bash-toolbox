@@ -29,7 +29,7 @@ SourceUtil(){
 
 		${writer} setBuildProps ${branch} app.server.parent.dir ${bundleDir}
 		${writer} setBuildProps ${branch} app.server.type ${1}
-		${writer} setBuildProps ${branch} auto.deploy.dir=${bundleDir}/deploy
+		${writer} setBuildProps ${branch} auto.deploy.dir ${bundleDir}/deploy
 		${writer} setBuildProps ${branch} lp.source.dir ${buildDir}
 
 		if [[ $(StringValidator isSubstring ${branch} 6.1) ]]; then
