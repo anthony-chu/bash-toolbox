@@ -88,15 +88,14 @@ ArrayUtil(){
 
 	strip(){
 		local array=($(import ${1}))
-		local newArray=()
 
-		for arrayEntry in ${array[@]}; do
-			if [[ ! $(BaseComparator isEqual ${2} ${arrayEntry}) ]]; then
-				newArray+=(${arrayEntry})
+		for (( i=0; i < ${#array[@]}; i++ )); do
+			if [[ $(BaseComparator isEqual ${2} ${array[i]}) ]]; then
+				array[${i}]=""
 			fi
 		done
 
-		echo ${newArray[@]}
+		echo ${array[@]}
 	}
 
 	trim(){
