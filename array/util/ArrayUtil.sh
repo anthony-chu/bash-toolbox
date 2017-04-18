@@ -12,7 +12,6 @@ ArrayUtil(){
 	appendArrayEntry(){
 		local array=($(import ${1}))
 		local maxLength=$(returnMaxLength array)
-		local newArray=()
 		local placeholder=.
 
 		for (( i=0; i < ${#array[@]}; i++ )); do
