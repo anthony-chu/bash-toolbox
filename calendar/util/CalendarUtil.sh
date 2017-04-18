@@ -22,6 +22,7 @@ CalendarUtil(){
 	getTimestamp(){
 		if [[ ${1} == clock ]]; then
 			local t=$(date +%T%s)
+
 			StringUtil strip t [:]
 		elif [[ ${1} == date ]]; then
 			echo $(getDate -y)$(getDate -m)$(getDate -d)
@@ -29,6 +30,7 @@ CalendarUtil(){
 			echo $(getDate -y)-$(getDate -m)-$(getDate -d) $(date +%H:%M:%S)
 		else
 			local ms=$(date +%S%N)
+
 			date +%H:%M:${ms:0:3}
 		fi
 	}
