@@ -6,7 +6,6 @@ include file.name.util.FileNameUtil
 include props.validator.PropsValidator
 
 PropsWriter(){
-
 	_setProps(){
 		if [[ ! -e ${1} ]]; then
 			local propsFile=$(FileUtil makeFile ${1})
