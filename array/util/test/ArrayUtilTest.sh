@@ -13,9 +13,7 @@ ArrayUtilTest(){
 		local outputArray=({1..6})
 		local result=($(ArrayUtil _trim inputArray))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	testAppendArrayEntry(){
@@ -23,9 +21,7 @@ ArrayUtilTest(){
 		local outputArray=(foo... foobar)
 		local result=($(ArrayUtil appendArrayEntry inputArray))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	testBisect[false](){
@@ -33,9 +29,7 @@ ArrayUtilTest(){
 		local outputArray=(4 5 6)
 		local result=($(ArrayUtil bisect false inputArray))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	testBisect[true](){
@@ -43,9 +37,7 @@ ArrayUtilTest(){
 		local outputArray=({1..3})
 		local result=($(ArrayUtil bisect true inputArray))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	testFlipArray(){
@@ -53,18 +45,15 @@ ArrayUtilTest(){
 		local outputArray=(bar foo)
 		local result=($(ArrayUtil flipArray inputArray))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	testImport(){
 		local inputArray=({a..e})
 		local outputArray=({a..e})
+		local result=($(ArrayUtil import inputArray))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	testPartition[1-of-3](){
@@ -72,9 +61,7 @@ ArrayUtilTest(){
 		local outputArray=(1 2)
 		local result=($(ArrayUtil partition 3 1 inputArray))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	testPartition[2-of-3](){
@@ -82,9 +69,7 @@ ArrayUtilTest(){
 		local outputArray=(3 4)
 		local result=($(ArrayUtil partition 3 2 inputArray))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	testPartition[3-of-3](){
@@ -92,9 +77,7 @@ ArrayUtilTest(){
 		local outputArray=(5 6)
 		local result=($(ArrayUtil partition 3 3 inputArray))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	testReturnMaxLength(){
@@ -109,9 +92,7 @@ ArrayUtilTest(){
 		local outputArray=(bar bar)
 		local result=($(ArrayUtil strip inputArray foo))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	testTrim[1](){
@@ -119,9 +100,7 @@ ArrayUtilTest(){
 		local outputArray=({1..6})
 		local result=($(ArrayUtil trim inputArray 1))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	testTrim[multiple](){
@@ -129,9 +108,7 @@ ArrayUtilTest(){
 		local outputArray=({1..4})
 		local result=($(ArrayUtil trim inputArray 3))
 
-		for (( i=0; i < ${#outputArray[@]}; i++ )); do
-			${assertEquals} ${result[i]} ${outputArray[i]}
-		done
+		${assertEquals} result outputArray
 	}
 
 	local assertEquals="TestUtil assertEquals"
