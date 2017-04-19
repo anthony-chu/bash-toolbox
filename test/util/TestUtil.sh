@@ -1,3 +1,5 @@
+include base.comparator.BaseComparator
+
 include calendar.util.CalendarUtil
 
 include logger.util.LoggerUtil
@@ -37,7 +39,7 @@ TestUtil(){
 	}
 
 	assertNull(){
-		if [[ ${1} == "" ]]; then
+		if [[ $(StringValidator isNull ${1}) ]]; then
 			echo PASS
 		else
 			echo FAIL
@@ -45,7 +47,7 @@ TestUtil(){
 	}
 
 	assertTrue(){
-		if [[ ${1} == true ]]; then
+		if [[ $(BaseComparator isEqual ${1} true) ]]; then
 			echo PASS
 		else
 			echo FAIL
