@@ -29,7 +29,7 @@ TestUtil(){
 	}
 
 	assertEquals(){
-		if [[ ${1} == ${2} ]]; then
+		if [[ $(readvar ${1}) == $(readvar ${2}) ]]; then
 			echo PASS
 		else
 			echo FAIL
