@@ -84,4 +84,5 @@ perfect either.
 
 Some upcoming features of the bash-toolbox project to look forward to:
 
+- [ ] Replace variables with variable names when used as a function parameter
 - [ ] Documentation of the various functions within the bash-toolbox project
