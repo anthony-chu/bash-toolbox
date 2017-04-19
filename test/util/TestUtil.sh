@@ -20,6 +20,14 @@ TestUtil(){
 		echo -e "${time} [ $(LoggerUtil _formatLogLevel ${1}) ] ${message}"
 	}
 
+	assertContains(){
+		if [[ $(readvar ${1}) =~ $(readvar ${2}) ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	assertEquals(){
 		if [[ ${1} == ${2} ]]; then
 			echo PASS
