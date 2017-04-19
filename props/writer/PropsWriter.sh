@@ -1,7 +1,7 @@
 include base.vars.BaseVars
 
 include file.io.util.FileIOUtil
-include file.name.util.FileNameUtil
+include file.util.FileUtil
 
 include props.validator.PropsValidator
 
