@@ -81,11 +81,9 @@ MathUtilTest(){
 	}
 
 	testQuotient[cannot-divide-by-zero](){
-		if [[ $(MathUtil quotient 1 0) =~ "Cannot divide by zero." ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		local quotient="$(MathUtil quotient 1 0)"
+
+		${assertContains} quotient "Cannot divide by zero."
 	}
 
 	testQuotient[floor](){
@@ -96,6 +94,7 @@ MathUtilTest(){
 		${assertEquals} $(MathUtil sum 1 1) 2
 	}
 
+	local assertContains="TestUtil assertContains"
 	local assertEquals="TestUtil assertEquals"
 	local assertNull="TestUtil assertNull"
 	local assertTrue="TestUtil assertTrue"
