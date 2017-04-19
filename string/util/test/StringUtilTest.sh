@@ -27,13 +27,11 @@ StringUtilTest(){
 	}
 
 	testParseMessage(){
-		local message="foo_bar"
+		local input="foo_bar"
+		local output="foo bar"
+		local result="$(StringUtil parseMessage input)"
 
-		if [[ $(StringUtil parseMessage message) == "foo bar" ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} result output
 	}
 
 	testReplace(){
@@ -43,13 +41,11 @@ StringUtilTest(){
 	}
 
 	testReplace[new-space](){
-		local string="foo-bar"
+		local input="foo-bar"
+		local output="foo bar"
+		local result="$(StringUtil replace input - space)"
 
-		if [[ $(StringUtil replace string - space) == "foo bar" ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} result output
 	}
 
 	testReplace[old-space](){
