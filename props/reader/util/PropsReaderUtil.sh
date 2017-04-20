@@ -2,7 +2,7 @@ include array.util.ArrayUtil
 
 include logger.util.LoggerUtil
 
-include props.validator.PropsValidator
+include props.util.PropsUtil
 
 include string.util.StringUtil
 
@@ -37,7 +37,7 @@ PropsReaderUtil(){
 			return
 		fi
 
-		if [[ $(PropsValidator propertyExists ${1} ${2}) ]]; then
+		if [[ $(PropsUtil getProperty ${1} ${2}) ]]; then
 			getValue ${1} ${2}
 		else
 			local message=(

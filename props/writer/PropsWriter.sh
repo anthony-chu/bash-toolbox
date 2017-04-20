@@ -3,7 +3,7 @@ include base.vars.BaseVars
 include file.io.util.FileIOUtil
 include file.util.FileUtil
 
-include props.validator.PropsValidator
+include props.util.Propsutil
 
 PropsWriter(){
 	_setProps(){
@@ -11,7 +11,7 @@ PropsWriter(){
 			local file=$(FileUtil makeFile ${1})
 		fi
 
-		if [[ $(PropsValidator propertyExists ${1} ${2}) ]]; then
+		if [[ $(PropsUtil getProperty ${1} ${2}) ]]; then
 			FileIOUtil replace ${1} ${2}=.* ${2}=${3}
 		else
 			FileIOUtil append ${1} ${2}=${3}
