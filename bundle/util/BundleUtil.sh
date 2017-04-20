@@ -15,6 +15,7 @@ BundleUtil(){
 		local appServerDir=$(AppServerFactory getAppServerDir ${1} ${2})
 
 		Logger logProgressMsg "increasing_memory_limit"
+
 		if [[ $(AppServerValidator isTomcat appServer) ]]; then
 			if [[ ! $(StringValidator isSubstring ${1} 6) ]]; then
 				${replace} ${appServerDir}/bin/setenv.sh Xmx1024m Xmx2048m
@@ -62,7 +63,9 @@ BundleUtil(){
 
 	deleteHomeFolders(){
 		Logger logProgressMsg "deleting_home_folders"
+
 		rm -rf ${bundleDir}{data,logs}
+
 		Logger logCompletedMsg
 	}
 
@@ -70,7 +73,9 @@ BundleUtil(){
 		local appServerDir=$(AppServerFactory getAppServerDir ${1} ${2})
 
 		Logger logProgressMsg "deleting_temporary_directories"
+
 		rm -rf ${appServerDir}/{temp,work}
+
 		Logger logCompletedMsg
 	}
 
