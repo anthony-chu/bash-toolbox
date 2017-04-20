@@ -51,9 +51,7 @@ BundleUtil(){
 
 		Logger logProgressMsg "deleting_remaining_bundle_folders"
 
-		for dir in deploy osgi poshi tools work; do
-			rm -rf ${bundleDir}/${dir}
-		done
+		rm -rf ${bundleDir}/{deploy,osgi,poshi,tools,work}
 
 		Logger logCompletedMsg
 
@@ -64,7 +62,7 @@ BundleUtil(){
 
 	deleteHomeFolders(){
 		Logger logProgressMsg "deleting_home_folders"
-		rm -rf ${bundleDir}/data ${bundleDir}/logs
+		rm -rf ${bundleDir}{data,logs}
 		Logger logCompletedMsg
 	}
 
@@ -72,7 +70,7 @@ BundleUtil(){
 		local appServerDir=$(AppServerFactory getAppServerDir ${1} ${2})
 
 		Logger logProgressMsg "deleting_temporary_directories"
-		rm -rf ${appServerDir}/temp ${appServerDir}/work
+		rm -rf ${appServerDir}/{temp,work}
 		Logger logCompletedMsg
 	}
 
