@@ -30,10 +30,7 @@ StringValidator(){
 	}
 
 	isSubstring(){
-		local str1=${1}
-		local str2=${2}
-
-		if [[ ${str1} =~ ${str2} ]]; then
+		if [[ $(readvar ${1}) =~ $(readvar ${2}) ]]; then
 			echo true
 		fi
 	}
