@@ -41,15 +41,8 @@ BundleUtil(){
 
 			${replace} ${appServerDir}/bin/standalone.conf ${string1} ${string2}
 		fi
+
 		Logger logCompletedMsg
-
-		if [[ $(BaseComparator isEqual ${branch} ee-6.2.x) && $(
-			AppServerValidator isTomcat ${2}) ]]; then
-
-			Logger logProgressMsg "changing_port_for_${branch}"
-			${replace} ${appServerDir}/conf/server.xml "\"8" "\"7"
-			Logger logCompletedMsg
-		fi
 	}
 
 	deleteBundleContent(){
