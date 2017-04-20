@@ -17,7 +17,7 @@ PropsReaderUtil(){
 	}
 
 	getValue(){
-		local output=$(cat ${1} | grep ${2})
+		local output=$(PropsUtil getProperty ${1} ${2})
 
 		local value=($(StringUtil split output =))
 
