@@ -13,7 +13,8 @@ TestUtil(){
 		local time=$(CalendarUtil getTimestamp log)
 
 		if [[ $(StringValidator isSubstring ${2} PASSED) ]]; then
-			local message=$(colorme green $(StringUtil replace _message _ space))
+			local message=$(
+				colorme green $(StringUtil replace _message _ space))
 
 		else
 			local message=$(StringUtil parseMessage _message)
