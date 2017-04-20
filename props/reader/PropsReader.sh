@@ -9,10 +9,6 @@ PropsReader(){
 		${readProps} ${_buildDir}/build.${HOSTNAME}.properties ${2}
 	}
 
-	readFakeProps(){
-		${readProps} ${_buildDir}/fake.${HOSTNAME}.properties ${2}
-	}
-
 	readPortalProps(){
 		${readProps} ${_bundleDir}/portal-ext.properties ${2}
 	}
