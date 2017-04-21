@@ -13,7 +13,7 @@ PropsReaderUtil(){
 
 		local _path=$(ArrayUtil trim propsFile 1)
 
-		echo $(StringUtil replace _path space /) ${propsFile[-1]}
+		echo /$(StringUtil replace _path space /) ${propsFile[-1]}
 	}
 
 	getValue(){
