@@ -17,20 +17,22 @@ BundleUtil(){
 		Logger logProgressMsg "increasing_memory_limit"
 
 		if [[ $(AppServerValidator isTomcat appServer) ]]; then
+			local tomcatReplace="${replace} ${appServerDir}/bin/setenv.sh"
+
 			if [[ ! $(StringValidator isSubstring ${1} 6) ]]; then
-				${replace} ${appServerDir}/bin/setenv.sh Xmx1024m Xmx2048m
+				${tomcatReplace} Xmx1024m Xmx2048m
 
 				local string1=XX:MaxPermSize=[[:digit:]]\+m
 				local string2=Xms1024m
 
-				${replace} ${appServerDir}/bin/setenv.sh ${string1} ${string2}
+				${tomcatReplace} ${string1} ${string2}
 			else
-				${replace} ${appServerDir}/bin/setenv.sh Xmx1024m "Xmx2048m Xms1024m"
+				${tomcatReplace} Xmx1024m "Xmx2048m Xms1024m"
 
 				local string1=XX:MaxPermSize=[[:digit:]]\+m
 				local string2=XX:MaxPermSize=512m
 
-				${replace} ${appServerDir}/bin/setenv.sh ${string1} ${string2}
+				${tomcatReplace} ${string1} ${string2}
 			fi
 		elif [[ $(AppServerValidator isWildfly appServer) ]]; then
 			local d=[[:digit:]]
