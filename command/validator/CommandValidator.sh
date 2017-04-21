@@ -11,7 +11,7 @@ CommandValidator(){
 		local validFunctions=()
 
 		while read line; do
-			if [[ ${line} == *\(\){ ]]; then
+			if [[ ${line} == *\(\){ && ! ${line} =~ @ignore ]]; then
 				validFunctions+=($(StringUtil strip line \(\)\{))
 			fi
 		done < ${file}
