@@ -1,10 +1,14 @@
 include array.util.ArrayUtil
 
+include file.name.util.FileNameUtil
+
 include logger.util.LoggerUtil
 
 include props.util.PropsUtil
 
 include string.util.StringUtil
+
+include system.validator.SystemValidator
 
 PropsReaderUtil(){
 	getPropsFileName(){
@@ -30,7 +34,7 @@ PropsReaderUtil(){
 		if [[ ! -e ${1} ]]; then
 			local message=(
 				property_file_\"${propsFileMap[1]}\"_does_not_exist_in_
-				${propsFileMap[0]}
+				$(FileNameUtil getPath ${env} ${propsFileMap[0]})
 			)
 
 			Logger logErrorMsg "$(StringUtil join message)"
@@ -52,6 +56,12 @@ PropsReaderUtil(){
 
 	local _bundleDir=$(BaseVars returnBundleDir ${2})
 	local _buildDir=$(BaseVars returnBuildDir ${2})
+
+	if [[ $(SystemValidator isWindows) ]]; then
+		local env=win
+	else
+		local env=nix
+	fi
 
 	$@
 }
