@@ -8,7 +8,7 @@ TestExecutor(){
 		local testClassArray=($(StringUtil split classPath [.]))
 
 		for (( i=0; i < ${#testClassArray[@]}; i++ )); do
-			testClassArray[${i}]=$(StringUtil capitalize ${testClassArray[i]})
+			testClassArray[i]=$(StringUtil capitalize ${testClassArray[i]})
 		done
 
 		local testClass=$(StringUtil join testClassArray)
