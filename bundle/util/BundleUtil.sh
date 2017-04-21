@@ -22,17 +22,11 @@ BundleUtil(){
 			if [[ ! $(StringValidator isSubstring ${1} 6) ]]; then
 				${tomcatReplace} Xmx1024m Xmx2048m
 
-				local string1=XX:MaxPermSize=[[:digit:]]\+m
-				local string2=Xms1024m
-
-				${tomcatReplace} ${string1} ${string2}
+				${tomcatReplace} MaxPermSize=[[:digit:]]\+m Xms1024m
 			else
 				${tomcatReplace} Xmx1024m "Xmx2048m Xms1024m"
 
-				local string1=XX:MaxPermSize=[[:digit:]]\+m
-				local string2=XX:MaxPermSize=512m
-
-				${tomcatReplace} ${string1} ${string2}
+				${tomcatReplace} XX:MaxPermSize=[[:digit:]]\+ XX:MaxPermSize=512
 			fi
 		elif [[ $(AppServerValidator isWildfly appServer) ]]; then
 			local d=[[:digit:]]
