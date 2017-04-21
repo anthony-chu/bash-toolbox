@@ -64,7 +64,7 @@ BundleUtil(){
 	deleteHomeFolders(){
 		Logger logProgressMsg "deleting_home_folders"
 
-		rm -rf ${bundleDir}{data,logs}
+		rm -rf ${bundleDir}/{data,logs}
 
 		Logger logCompletedMsg
 	}
