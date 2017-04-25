@@ -12,7 +12,7 @@ FileIOUtil(){
 		local oldStr=${2}
 		local newStr=${3}
 
-		sed -i "s#${oldStr}#${newStr}#g" ${toFile}
+		sed -i "s;${oldStr};${newStr};g" ${toFile}
 	}
 
 	$@
