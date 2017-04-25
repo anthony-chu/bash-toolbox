@@ -3,7 +3,7 @@ include base.vars.BaseVars
 include file.io.util.FileIOUtil
 include file.util.FileUtil
 
-include props.util.Propsutil
+include props.util.PropsUtil
 
 PropsWriter(){
 	_setProps(){
