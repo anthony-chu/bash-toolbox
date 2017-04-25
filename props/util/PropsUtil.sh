@@ -1,6 +1,6 @@
 PropsUtil(){
 	getProperty(){
-		grep -o "${2}=.*" "${1}"
+		cat ${1} | grep ${2}=.*
 	}
 
 	$@
