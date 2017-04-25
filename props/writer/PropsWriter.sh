@@ -5,7 +5,29 @@ include file.util.FileUtil
 
 include props.util.PropsUtil
 
+include string.validator.StringValidator
+
 PropsWriter(){
+	_disableProps(){
+		local property=$(PropsUtil getProperty ${1} ${2})
+
+		if [[ ${property} && ! $(StringValidator
+			beginsWith "#" ${property}) ]]; then
+
+			FileIOUtil replace ${1} ${property} \#${property}
+		fi
+	}
+
+	_enableProps(){
+		local property=$(PropsUtil getProperty ${1} ${2})
+
+		if [[ ${property} && $(StringValidator
+			beginsWith "#" ${property}) ]]; then
+
+			FileIOUtil replace ${1} ${property} ${2}=${3}
+		fi
+	}
+
 	_setProps(){
 		if [[ ! -e ${1} ]]; then
 			local file=$(FileUtil makeFile ${1})
