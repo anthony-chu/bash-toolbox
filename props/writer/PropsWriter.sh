@@ -19,13 +19,7 @@ PropsWriter(){
 	}
 
 	_enableProps(){
-		local property=$(PropsUtil getProperty ${1} ${2})
-
-		if [[ ${property} && $(StringValidator
-			beginsWith "#" ${property}) ]]; then
-
-			FileIOUtil replace ${1} ${property} ${2}=${3}
-		fi
+		FileIOUtil replace ${1} $(PropsUtil getProperty ${1} ${2}) ${2}=${3}
 	}
 
 	_setProps(){
@@ -33,8 +27,14 @@ PropsWriter(){
 			local file=$(FileUtil makeFile ${1})
 		fi
 
-		if [[ $(PropsUtil getProperty ${1} ${2}) ]]; then
-			FileIOUtil replace ${1} ${2}=.* ${2}=${3}
+		local property=$(PropsUtil getProperty ${1} ${2})
+
+		if [[ ${property} ]]; then
+			if [[ $(StringValidator beginsWith "#" ${property}) ]]; then
+				_enableProps ${1} ${2} ${3}
+			else
+				FileIOUtil replace ${1} ${2}=.* ${2}=${3}
+			fi
 		else
 			FileIOUtil append ${1} ${2}=${3}
 		fi
