@@ -13,8 +13,6 @@ GitUtil(){
 	cleanSource(){
 		Logger logProgressMsg "resetting_the_source_directory"
 
-		local buildDir=$(BaseVars returnBuildDir ${@})
-
 		cd ${buildDir}
 
 		git reset --hard -q
@@ -29,7 +27,7 @@ GitUtil(){
 	}
 
 	clearIndexLock(){
-		local lockFile=$(BaseVars returnBuildDir ${1})/.git/index.lock
+		local lockFile=${buildDir}/.git/index.lock
 
 		if [ -e ${lockFile} ]; then
 			Logger logProgressMsg "clearing_index_lock"
@@ -45,20 +43,16 @@ GitUtil(){
 	}
 
 	getOriginSHA(){
-		local branch=${1}
-		local projectDir=$(BaseVars returnBuildDir ${branch})
+		cd ${buildDir}
 
-		cd ${projectDir}
-
-		git --git-dir=${projectDir}/.git rev-parse origin/$(StringUtil
+		git --git-dir=${buildDir}/.git rev-parse origin/$(StringUtil
 			toLowerCase ${branch})
 	}
 
 	getSHA(){
 		local length=${2}
-		local projectDir=${1}
 
-		cd ${projectDir}
+		cd ${buildDir}
 
 		if [[ $(BaseComparator isEqual ${length} long) ]]; then
 			git log --oneline --pretty=format:%H -1
@@ -74,6 +68,9 @@ GitUtil(){
 	pr(){
 		source /d/git-tools/git-pull-request/git-pull-request.sh
 	}
+
+	local branch=$(BaseVars returnBranch ${@})
+	local buildDir=$(BaseVars returnBuildDir ${branch})
 
 	$@
 }
