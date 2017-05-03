@@ -1,3 +1,5 @@
+include array.validator.ArrayValidator
+
 include base.vars.BaseVars
 
 include file.io.util.FileIOUtil
@@ -5,6 +7,7 @@ include file.util.FileUtil
 
 include props.util.PropsUtil
 
+include string.util.StringUtil
 include string.validator.StringValidator
 
 PropsWriter(){
@@ -37,6 +40,23 @@ PropsWriter(){
 			fi
 		else
 			FileIOUtil append ${1} ${2}=${3}
+		fi
+	}
+
+	copyLegacyProperties(){
+		local version=${2}
+
+		if [[ $(StringValidator beginsWith 6. ${version}) ]]; then
+			local minorVersions=(0 1 2)
+
+			if [[ $(ArrayValidator hasEntry minorVersions $(StringUtil
+				strip version 6.)) ]]; then
+
+				local legacyProps=bash-toolbox/resources/portal-legacy-${version}.properties
+				local portalProps=${_bundleDir}/portal-ext.properties
+
+				cat ${legacyProps} >> ${portalProps}
+			fi
 		fi
 	}
 
