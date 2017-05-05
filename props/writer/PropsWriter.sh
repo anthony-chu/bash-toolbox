@@ -52,7 +52,9 @@ PropsWriter(){
 			if [[ $(ArrayValidator hasEntry minorVersions $(StringUtil
 				strip version 6.)) ]]; then
 
-				local legacyProps=bash-toolbox/resources/portal-legacy-${version}.properties
+				local _legacyProps=portal-legacy-${version}.properties
+
+				local legacyProps=bash-toolbox/resources/${_legacyProps}
 				local portalProps=${_bundleDir}/portal-ext.properties
 
 				cat ${legacyProps} >> ${portalProps}
