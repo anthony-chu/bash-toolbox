@@ -5,7 +5,7 @@ include test.util.TestUtil
 
 LanguageUtilTest(){
 	run(){
-		TestExecutor executeTest language.util.test
+		TestExecutor executeTest LanguageUtilTest
 	}
 
 	testToggleArticleVowelForm[false](){

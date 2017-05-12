@@ -5,7 +5,7 @@ include test.util.TestUtil
 
 BaseComparatorTest(){
 	run(){
-		TestExecutor executeTest base.comparator.test
+		TestExecutor executeTest BaseComparatorTest
 	}
 
 	testIsEqual[number](){

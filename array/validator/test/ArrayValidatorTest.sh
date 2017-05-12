@@ -5,7 +5,7 @@ include test.util.TestUtil
 
 ArrayValidatorTest(){
 	run(){
-		TestExecutor executeTest array.validator.test
+		TestExecutor executeTest ArrayValidatorTest
 	}
 
 	testHasEntry[false](){

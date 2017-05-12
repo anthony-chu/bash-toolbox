@@ -5,7 +5,7 @@ include test.util.TestUtil
 
 ArrayUtilTest(){
 	run(){
-		TestExecutor executeTest array.util.test
+		TestExecutor executeTest ArrayUtilTest
 	}
 
 	test_trim(){

@@ -5,7 +5,7 @@ include test.util.TestUtil
 
 LoggerUtilTest(){
 	run(){
-		TestExecutor executeTest logger.util.test
+		TestExecutor executeTest LoggerUtilTest
 	}
 
 	test_formatLogLevel[error](){

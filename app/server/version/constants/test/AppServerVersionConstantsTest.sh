@@ -5,7 +5,7 @@ include test.util.TestUtil
 
 AppServerVersionConstantsTest(){
 	run(){
-		TestExecutor executeTest app.server.version.constants.test
+		TestExecutor executeTest AppServerVersionConstantsTest
 	}
 
 	testGlassfishVersion(){

@@ -6,7 +6,7 @@ include test.util.TestUtil
 
 AppServerVersionTest(){
 	run(){
-		TestExecutor executeTest app.server.version.test
+		TestExecutor executeTest AppServerVersionTest
 	}
 
 	test_overrideTomcatVersion[6.1.x](){

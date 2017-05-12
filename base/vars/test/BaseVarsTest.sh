@@ -9,7 +9,7 @@ include test.util.TestUtil
 
 BaseVarsTest(){
 	run(){
-		TestExecutor executeTest base.vars.test
+		TestExecutor executeTest BaseVarsTest
 	}
 
 	test_returnPrivacyTest[private](){

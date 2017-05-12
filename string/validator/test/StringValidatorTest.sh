@@ -5,7 +5,7 @@ include test.util.TestUtil
 
 StringValidatorTest(){
 	run(){
-		TestExecutor executeTest string.validator.test
+		TestExecutor executeTest StringValidatorTest
 	}
 
 	testBeginsWith[false](){
