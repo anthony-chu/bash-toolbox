@@ -1,26 +1,22 @@
 include command.validator.CommandValidator
 
-include string.util.StringUtil
-
 TestExecutor(){
 	executeTest(){
-		local classPath=${1}
-		local testClassArray=($(StringUtil split classPath [.]))
+		local testClass=${1}
 
-		for (( i=0; i < ${#testClassArray[@]}; i++ )); do
-			testClassArray[i]=$(StringUtil capitalize ${testClassArray[i]})
+		local path=($(echo ${testClass} | sed "s#\([A-Z]\)# \1#g"))
+
+		for p in ${path[@],,}; do
+			local classpath+=/${p}
 		done
 
-		local testClass=$(StringUtil join testClassArray)
-
 		local _tests=(
-			$(CommandValidator getValidFunctions bash-toolbox/$(StringUtil
-				replace classPath [.] /)/${testClass}.sh)
+			$(CommandValidator
+				getValidFunctions bash-toolbox${classpath}/${testClass}.sh)
 		)
 
 		for _test in ${_tests[@]}; do
-			if [[ ${_test} != $(StringUtil
-				join testClass) && ${_test} != run ]]; then
+			if [[ ${_test} != ${testClass} && ${_test} != run ]]; then
 
 				if [[ $(${testClass} ${_test}) == FAIL ]]; then
 					echo ${testClass}\#${_test}
