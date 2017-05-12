@@ -1,3 +1,5 @@
+include base.vars.BaseVars
+
 include props.reader.util.PropsReaderUtil
 
 PropsReader(){
