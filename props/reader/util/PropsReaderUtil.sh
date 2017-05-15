@@ -1,5 +1,7 @@
 include array.util.ArrayUtil
 
+include base.vars.BaseVars
+
 include file.name.util.FileNameUtil
 
 include logger.util.LoggerUtil
