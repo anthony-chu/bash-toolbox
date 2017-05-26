@@ -50,9 +50,9 @@ GitUtil(){
 	}
 
 	getSHA(){
-		local length=${2}
-
 		cd ${buildDir}
+
+		local length=${2}
 
 		if [[ $(BaseComparator isEqual ${length} long) ]]; then
 			git log --oneline --pretty=format:%H -1
