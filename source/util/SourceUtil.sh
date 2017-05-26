@@ -18,9 +18,7 @@ SourceUtil(){
 	config(){
 		Logger logProgressMsg "building_properties"
 
-		local props=(app.server build)
-
-		for prop in ${props[@]}; do
+		for prop in {app.server,build}; do
 			touch ${buildDir}/${prop}.${HOSTNAME}.properties
 		done
 
