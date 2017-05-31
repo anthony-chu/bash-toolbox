@@ -55,6 +55,7 @@ HelpMessage(){
 		local funcList=(
 			build
 			clean
+			deploy
 			pull
 			push
 			run
@@ -63,6 +64,7 @@ HelpMessage(){
 		local helpList=(
 			builds_bundle_on_specified_app_server
 			rebuilds_database_and_prepares_bundle
+			deploys_compiled_files_to_app_server
 			pulls_from_upstream_master
 			pushes_current_branch_to_origin
 			runs_a_bundle_on_specified_app_server
