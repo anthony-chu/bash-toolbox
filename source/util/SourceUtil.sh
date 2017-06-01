@@ -6,7 +6,7 @@ include string.validator.StringValidator
 
 SourceUtil(){
 	clearGradleCache(){
-		if [[ -e ${buildDir}/.gradle/caches ]]; then
+		if [[ -d ${buildDir}/.gradle/caches ]]; then
 			Logger logProgressMsg "clearing_gradle_cache"
 
 			git clean -fdq
