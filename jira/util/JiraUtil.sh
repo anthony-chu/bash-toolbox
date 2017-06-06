@@ -40,15 +40,15 @@ JiraUtil(){
 	local appServer=$(AppServerValidator returnAppServer ${@})
 	local branch=$(BaseVars returnBranch ${@})
 
-	if [[ $(BaseComparator isEqual ${branch} master) ]]; then
-		local branch=$(StringUtil capitalize ${branch})
-	fi
-
 	while [[ $(BaseComparator isEqual ${1} ${branch}) || $(
 		BaseComparator isEqual ${1} ${appServer}) ]]; do
 
 		shift
 	done
+
+	if [[ $(BaseComparator isEqual ${branch} master) ]]; then
+		local branch=$(StringUtil capitalize ${branch})
+	fi
 
 	$@
 	_getEnv ${appServer} ${branch}
