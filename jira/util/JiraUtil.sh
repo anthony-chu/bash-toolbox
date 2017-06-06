@@ -37,9 +37,8 @@ JiraUtil(){
 		echo "*Reproduced on:*"
 	}
 
-	local _args=(${@})
-	local appServer=$(AppServerValidator returnAppServer _args)
-	local branch=$(BaseVars returnBranch ${_args[@]})
+	local appServer=$(AppServerValidator returnAppServer ${@})
+	local branch=$(BaseVars returnBranch ${@})
 
 	if [[ $(BaseComparator isEqual ${branch} master) ]]; then
 		local branch=$(StringUtil capitalize ${branch})
