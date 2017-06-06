@@ -45,6 +45,12 @@ JiraUtil(){
 		local branch=$(StringUtil capitalize ${branch})
 	fi
 
+	while [[ $(BaseComparator isEqual ${1} ${branch}) || $(
+		BaseComparator isEqual ${1} ${appServer}) ]]; do
+
+		shift
+	done
+
 	$@
 	_getEnv ${appServer} ${branch}
 }
