@@ -5,5 +5,7 @@ readvar(){
 		local var=${1}[@]
 
 		echo ${!var}
+	else
+		echo "${@}"
 	fi
 }
