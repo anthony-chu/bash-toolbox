@@ -22,6 +22,7 @@ JiraUtil(){
 		local message=$(StringUtil join environment)
 
 		StringUtil replace message _ space
+		echo "Portal ${branch} GIT ID: $(GitUtil getOriginSHA ${branch})"
 	}
 
 	fixed(){
@@ -44,9 +45,6 @@ JiraUtil(){
 		local branch=$(StringUtil capitalize ${branch})
 	fi
 
-	local gitInfo="Portal ${branch} GIT ID: $(GitUtil getOriginSHA ${branch})"
-
 	$@
 	_getEnv ${appServer} ${branch}
-	echo ${gitInfo}
 }
