@@ -40,6 +40,12 @@ StringUtilTest(){
 		${assertEquals} $(StringUtil replace string - .) foo.bar
 	}
 
+	testReplaceExactChar(){
+		local string="foo.bar"
+
+		${assertEquals} $(StringUtil replace string [.] -) foo-bar
+	}
+
 	testReplace[new-space](){
 		local input="foo-bar"
 		local output="foo bar"
@@ -76,6 +82,12 @@ StringUtilTest(){
 		local input="foo-bar"
 
 		${assertEquals} $(StringUtil strip input -) foobar
+	}
+
+	testStripExactChar(){
+		local input="foo.bar"
+
+		${assertEquals} $(StringUtil strip input [.]) foobar
 	}
 
 	testToLowerCase(){
