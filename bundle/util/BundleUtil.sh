@@ -22,18 +22,18 @@ BundleUtil(){
 			if [[ ! $(StringValidator isSubstring ${1} 6) ]]; then
 				${tomcatReplace} Xmx1024m Xmx2048m
 
-				${tomcatReplace} MaxPermSize=[[:digit:]]\+m Xms1024m
+				${tomcatReplace} MaxPermSize=[[:digit:]]\\\+m Xms1024m
 			else
 				${tomcatReplace} Xmx1024m "Xmx2048m Xms1024m"
 
-				${tomcatReplace} XX:MaxPermSize=[[:digit:]]\+ XX:MaxPermSize=512
+				${tomcatReplace} XX:MaxPermSize=[[:digit:]]\\\+ XX:MaxPermSize=512
 			fi
 		elif [[ $(AppServerValidator isWildfly appServer) ]]; then
 			local d=[[:digit:]]
 
-			${replace} ${appServerDir}/bin/standalone.conf Xmx${d}\+m Xmx2048m
+			${replace} ${appServerDir}/bin/standalone.conf Xmx${d}\\\+m Xmx2048m
 
-			local string1=MaxMetaspaceSize=${d}\+m
+			local string1=MaxMetaspaceSize=${d}\\\+m
 			local string2=MaxMetaspaceSize=1024m
 
 			${replace} ${appServerDir}/bin/standalone.conf ${string1} ${string2}
