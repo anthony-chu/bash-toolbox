@@ -85,6 +85,8 @@ AppServerValidator(){
 	}
 
 	validateAppServer(){
+		local args=(${@})
+
 		local appServers=(
 			glassfish
 			jboss
@@ -100,7 +102,7 @@ AppServerValidator(){
 		)
 
 		for appServer in ${appServers[@]}; do
-			if [[ $(ArrayValidator hasEntry ${1} ${appServer}) ]]; then
+			if [[ $(ArrayValidator hasEntry args ${appServer}) ]]; then
 				echo ${appServer}
 				break
 			fi
