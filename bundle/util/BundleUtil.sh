@@ -85,6 +85,7 @@ BundleUtil(){
 		fi
 	}
 
+	local appServer=$(AppServerValidator returnAppServer $@)
 	local branch=$(BaseVars returnBranch $@)
 	local bundleDir=$(BaseVars returnBundleDir ${branch})
 	local replace="FileIOUtil replace"
