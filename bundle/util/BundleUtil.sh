@@ -19,7 +19,7 @@ BundleUtil(){
 		if [[ $(AppServerValidator isTomcat appServer) ]]; then
 			local tomcatReplace="${replace} ${appServerDir}/bin/setenv.sh"
 
-			if [[ ! $(StringValidator isSubstring ${1} 6) ]]; then
+			if [[ ! $(StringValidator isSubstring branch 6) ]]; then
 				${tomcatReplace} Xmx1024m Xmx2048m
 
 				${tomcatReplace} MaxPermSize=[[:digit:]]\\\+m Xms1024m
