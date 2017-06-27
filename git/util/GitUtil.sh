@@ -11,7 +11,7 @@ include string.util.StringUtil
 
 GitUtil(){
 	cleanSource(){
-		Logger logProgressMsg "resetting_the_source_directory"
+		Logger logProgressMsg "resetting_the_${branch}_source_directory"
 
 		cd ${buildDir}
 
