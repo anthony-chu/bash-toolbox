@@ -24,7 +24,7 @@ BundleUtil(){
 
 				${tomcatReplace} MaxPermSize=[[:digit:]]\\\+m Xms1024m
 			else
-				${tomcatReplace} Xmx1024m "Xmx2048m Xms1024m"
+				${tomcatReplace} Xmx1024m "Xmx2048m -Xms1024m"
 
 				${tomcatReplace} XX:MaxPermSize=[[:digit:]]\\\+ XX:MaxPermSize=512
 			fi
