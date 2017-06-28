@@ -25,7 +25,7 @@ SourceUtil(){
 		done
 
 		${writer} setAppServerProps ${branch} app.server.parent.dir ${bundleDir}
-		${writer} setAppServerProps ${branch} app.server.type ${1}
+		${writer} setAppServerProps ${branch} app.server.type ${appServer}
 
 		${writer} setBuildProps ${branch} app.server.parent.dir ${bundleDir}
 		${writer} setBuildProps ${branch} app.server.type ${1}
@@ -41,6 +41,7 @@ SourceUtil(){
 		Logger logCompletedMsg
 	}
 
+	local appServer=$(AppServerValidator returnAppServer $@)
 	local branch=$(BaseVars returnBranch $@)
 	local buildDir=$(BaseVars returnBuildDir ${branch})
 	local bundleDir=$(BaseVars returnBundleDir ${branch})
