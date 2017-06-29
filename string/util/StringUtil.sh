@@ -36,7 +36,7 @@ StringUtil(){
 	}
 
 	replace(){
-		local input=${!1}
+		local input=$(readvar ${1})
 		local new=${3}
 		local old=${2}
 
