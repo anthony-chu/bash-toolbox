@@ -1,110 +1,49 @@
 include array.util.ArrayUtil
 
+include math.util.MathUtil
+
 include string.util.StringUtil
 
 HelpMessage(){
-	_printHelpMessage(){
-		local funcList=($(ArrayUtil appendArrayEntry ${1}))
-		local helpList=($(ArrayUtil import ${2}))
+	parseFile(){
+		local descriptionMap=()
+		local file=${1}
+		local functionMap=()
+		local lineNumber=1
+
+		while read line; do
+			if [[ ${line} == @description* ]]; then
+				descriptionMap+=($(StringUtil strip line @description))
+
+				local funLineNumber=$(MathUtil increment ${lineNumber})
+
+				local funLine=$(sed "${funLineNumber}q;d" ${file})
+
+				functionMap+=($(StringUtil strip funLine [\(\){]))
+			fi
+
+			local lineNumber=$(MathUtil increment ${lineNumber})
+		done < ${file}
+
+		echo ${descriptionMap[@]}
+		echo ${functionMap[@]}
+	}
+
+	printHelpMessage(){
+		local _file=${1}
+		local map=($(parseFile ${_file}))
+
+		local descriptionMap=($(ArrayUtil bisect true map))
+		local functionMap=($(ArrayUtil bisect false map))
+
+		local functionMap=($(ArrayUtil appendArrayEntry functionMap))
 
 		echo "Commands:"
-		for (( i=0; i<${#funcList[@]}; i++ )); do
-			local helpMessage=$(StringUtil capitalize ${helpList[i]})
+		for (( i=0; i<${#descriptionMap[@]}; i++ )); do
+			local description=$(StringUtil parseMessage ${descriptionMap[i]})
 
-			local helpListEntry=$(StringUtil parseMessage helpMessage)
-
-			echo -e "\t${funcList[i]}................${helpListEntry}"
+			echo -e "\t${functionMap[i]}................${description}"
 		done
-	}
-
-	branchHelpMessage(){
-		local funcList=(
-			changes
-			current
-			delete
-			dev
-			jira
-			list
-			log
-			new
-			rebase
-			rename
-			reset
-			switch
-		)
-
-		local helpList=(
-			displays_all_changes_made_to_the_current_branch
-			displays_the_current_branch
-			deletes_the_branch
-			fetches_a_developer\'s_branch
-			prints_a_formatted_jira_message
-			displays_all_local_branches
-			shows_the_log_for_the_current_branch
-			creates_and_switches_to_a_new_branch
-			provides_options_for_interactive_rebase
-			renames_the_current_branch
-			restores_source_to_designated_commit
-			changes_to_a_different_local_branch
-		)
-
-		_printHelpMessage funcList helpList
-	}
-
-	buildHelpMessage(){
-		local funcList=(
-			build
-			clean
-			deploy
-			pull
-			push
-			run
-		)
-
-		local helpList=(
-			builds_bundle_on_specified_app_server
-			rebuilds_database_and_prepares_bundle
-			deploys_compiled_files_to_app_server
-			pulls_from_upstream_master
-			pushes_current_branch_to_origin
-			runs_a_bundle_on_specified_app_server
-		)
-
-		_printHelpMessage funcList helpList
-	}
-
-	buildTestHelpMessage(){
-		local funcList=(run-unit-tests)
-
-		local helpList=(runs_all_unit_tests_in_/test_directory)
-
-		_printHelpMessage funcList helpList
-	}
-
-	formatHelpMessage(){
-		local funcList=([empty])
-
-		local helpList=(validates_all_script_files_using_formatting_rules)
-
-		_printHelpMessage funcList helpList
-	}
-
-	testHelpMessage(){
-		local funcList=(
-			pr
-			sf
-			test
-			validate
-		)
-
-		local helpList=(
-			submits_a_pull_request
-			formats_source_files
-			executes_a_frontend_test
-			runs_poshi_validation
-		)
-
-		_printHelpMessage funcList helpList
 	}
 
 	$@
