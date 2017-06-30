@@ -4,7 +4,7 @@ include math.util.MathUtil
 
 ArrayUtil(){
 	_trim(){
-		local array=($(import ${1}))
+		local array=($(readvar ${1}))
 
 		unset 'array[${#array[@]}-1]'
 
@@ -12,7 +12,7 @@ ArrayUtil(){
 	}
 
 	appendArrayEntry(){
-		local array=($(import ${1}))
+		local array=($(readvar ${1}))
 		local maxLength=$(returnMaxLength array)
 		local placeholder=.
 
@@ -26,7 +26,7 @@ ArrayUtil(){
 	}
 
 	bisect(){
-		local array=($(import ${2}))
+		local array=($(readvar ${2}))
 		local state=${1}
 
 		if [[ $(BaseComparator isEqual ${state} true) ]]; then
@@ -37,7 +37,7 @@ ArrayUtil(){
 	}
 
 	flipArray(){
-		local inputArray=($(import ${1}))
+		local inputArray=($(readvar ${1}))
 		local newArray=()
 
 		for (( i=${#inputArray[@]}; i>=0; i-- )); do
@@ -48,7 +48,7 @@ ArrayUtil(){
 	}
 
 	partition(){
-		local array=($(import ${3}))
+		local array=($(readvar ${3}))
 		local numOfParitions=${1}
 		local partition=${2}
 
@@ -67,7 +67,7 @@ ArrayUtil(){
 	}
 
 	returnMaxLength(){
-		local array=($(import ${1}))
+		local array=($(readvar ${1}))
 		local maxLength=0
 
 		for a in ${array[@]}; do
@@ -80,7 +80,7 @@ ArrayUtil(){
 	}
 
 	strip(){
-		local array=($(import ${1}))
+		local array=($(readvar ${1}))
 
 		for (( i=0; i < ${#array[@]}; i++ )); do
 			if [[ $(BaseComparator isEqual ${2} ${array[i]}) ]]; then
@@ -92,7 +92,7 @@ ArrayUtil(){
 	}
 
 	trim(){
-		local array=($(import ${1}))
+		local array=($(readvar ${1}))
 		local i=0
 
 		while [[ ${i} < ${2} ]]; do
