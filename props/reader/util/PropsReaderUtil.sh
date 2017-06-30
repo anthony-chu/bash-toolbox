@@ -51,7 +51,7 @@ PropsReaderUtil(){
 				${propsFileMap[1]}
 			)
 
-			Logger logErrorMsg $(StringUtil join message)
+			Logger logErrorMsg "$(StringUtil join message)"
 			return
 		fi
 	}
