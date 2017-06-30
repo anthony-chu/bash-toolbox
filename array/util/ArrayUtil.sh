@@ -47,13 +47,6 @@ ArrayUtil(){
 		echo ${newArray[@]}
 	}
 
-	import(){
-		local __array=${1}
-		local _array=${__array}[@]
-
-		echo ${!_array}
-	}
-
 	partition(){
 		local array=($(import ${3}))
 		local numOfParitions=${1}
