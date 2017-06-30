@@ -38,11 +38,16 @@ HelpMessage(){
 
 		local functionMap=($(ArrayUtil appendArrayEntry functionMap))
 
-		echo "Commands:"
-		for (( i=0; i<${#descriptionMap[@]}; i++ )); do
-			local description=$(StringUtil parseMessage ${descriptionMap[i]})
+		local message=("Commands:")
 
-			echo -e "\t${functionMap[i]}................${description}"
+		for (( i=0; i<${#descriptionMap[@]}; i++ )); do
+			message+=("\t${functionMap[i]}................${descriptionMap[i]}")
+		done
+
+		for (( i=0; i<${#message[@]}; i++ )); do
+			local _message=$(StringUtil parseMessage ${message[i]})
+
+			echo -e "${_message}"
 		done
 	}
 
