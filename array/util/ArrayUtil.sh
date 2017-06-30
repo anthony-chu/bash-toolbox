@@ -1,5 +1,7 @@
 include base.comparator.BaseComparator
 
+include math.util.MathUtil
+
 ArrayUtil(){
 	_trim(){
 		local array=($(import ${1}))
@@ -53,24 +55,22 @@ ArrayUtil(){
 	}
 
 	partition(){
-		local _partitions=${1}
 		local array=($(import ${3}))
-		local partitions=$((${_partitions}-1))
+		local numOfParitions=${1}
+		local partition=${2}
 
-		local divisor=$((${partitions}+1))
-		local group=$((${2}-1))
-		local size=${#array[@]}
-		local length=$((${size}/${_partitions}))
+		local _length=${#array[@]}
 
-		for (( i=0; i<=${partitions}; i++ )); do
-			local init=$((${i}*${size}/${divisor}))
+		local end=$(MathUtil quotient ${_length} ${numOfParitions})
+		local init=$(MathUtil product $(MathUtil decrement ${partition}) ${end})
 
-			eval "subArray${i}=(${array[@]:${init}:${length}})"
+		local subArray=()
+
+		for (( i=0; i<${end}; i++ )); do
+			subArray+=(${array[${init}+i]})
 		done
 
-		local subArray=subArray${group}[@]
-
-		echo ${!subArray}
+		echo ${subArray[@]}
 	}
 
 	returnMaxLength(){
