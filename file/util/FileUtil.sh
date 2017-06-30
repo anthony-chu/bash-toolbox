@@ -21,7 +21,7 @@ FileUtil(){
 			cd ${dir}
 		done
 
-		echo /$(StringUtil replace directories[@] space /)
+		echo /$(StringUtil replace directories space /)
 	}
 
 	getContent(){
@@ -45,7 +45,7 @@ FileUtil(){
 		local _fileNameArray=($(StringUtil split fileName /))
 		local fileNameArray=($(ArrayUtil trim _fileNameArray 1))
 		local filePath=$(
-			construct /$(StringUtil replace fileNameArray[@] space /))
+			construct /$(StringUtil replace fileNameArray space /))
 
 		for cmd in {touch,echo}; do
 			${cmd} ${filePath}/${_fileNameArray[-1]}
