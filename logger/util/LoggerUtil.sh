@@ -21,9 +21,7 @@ LoggerUtil(){
 	}
 
 	_returnArrayMaxLength(){
-		local __array=${1}
-		local _array=${__array}[@]
-		local array=(${!_array})
+		local array=$(import ${1})
 		local maxLength=0
 
 		for a in ${array[@]}; do
