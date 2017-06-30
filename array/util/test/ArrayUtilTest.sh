@@ -51,7 +51,7 @@ ArrayUtilTest(){
 	testImport(){
 		local inputArray=({a..e})
 		local outputArray=({a..e})
-		local result=($(ArrayUtil import inputArray))
+		local result=($(readvar inputArray))
 
 		${assertEquals} result outputArray
 	}
