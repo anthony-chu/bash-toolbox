@@ -48,14 +48,6 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
-	testImport(){
-		local inputArray=({a..e})
-		local outputArray=({a..e})
-		local result=($(readvar inputArray))
-
-		${assertEquals} result outputArray
-	}
-
 	testPartition[1-of-3](){
 		local inputArray=({1..6})
 		local outputArray=(1 2)
