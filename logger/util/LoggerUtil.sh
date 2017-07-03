@@ -21,7 +21,7 @@ LoggerUtil(){
 	}
 
 	_returnArrayMaxLength(){
-		local array=$(import ${1})
+		local array=$(readvar ${1})
 		local maxLength=0
 
 		for a in ${array[@]}; do
