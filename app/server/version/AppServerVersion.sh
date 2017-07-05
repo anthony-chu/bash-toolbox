@@ -17,7 +17,7 @@ AppServerVersion(){
 			echo 7.0.40
 		elif [[ $(StringValidator isSubstring ${branch} ee-6.0) ]]; then
 			echo 6.0.32
-		elif [[ $(StringValidator isSubString ${branch} 6.0) ]]; then
+		elif [[ $(StringValidator isSubstring ${branch} 6.0) ]]; then
 			echo 6.0.29
 		else
 			AppServerVersionConstants tomcatVersion
