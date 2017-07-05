@@ -74,6 +74,16 @@ AppServerVersionTest(){
 			AppServerVersionConstants tcserverVersion)
 	}
 
+	testReturnAppServerVersion[tomcat,6.0.6](){
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion tomcat 6.0.6) 6.0.29
+	}
+
+	testReturnAppServerVersion[tomcat,6.0.12](){
+		${assertEquals} $(AppServerVersion
+			returnAppServerVersion tomcat 6.0.12) 6.0.32
+	}
+
 	testReturnAppServerVersion[tomcat,6.1.x](){
 		${assertEquals} $(AppServerVersion
 			returnAppServerVersion tomcat 6.1.x) 7.0.40
