@@ -8,21 +8,6 @@ include string.util.StringUtil
 include string.Validator.StringValidator
 
 TestUtil(){
-	_getLogMsg(){
-		local _message=$(StringUtil capitalize ${2})
-		local time=$(CalendarUtil getTimestamp log)
-
-		if [[ $(StringValidator isSubstring ${2} PASSED) ]]; then
-			local message=$(
-				colorme green $(StringUtil replace _message _ space))
-
-		else
-			local message=$(StringUtil parseMessage _message)
-		fi
-
-		echo -e "${time} [ $(LoggerUtil _formatLogLevel ${1}) ] ${message}"
-	}
-
 	assertContains(){
 		if [[ $(readvar ${1}) =~ $(readvar ${2}) ]]; then
 			echo PASS
@@ -56,7 +41,13 @@ TestUtil(){
 	}
 
 	logSuccessMsg(){
-		_getLogMsg info ${1}
+		if [[ $(StringValidator isSubstring ${1} PASSED) ]]; then
+			local message=$(colorme green ${1})
+		else
+			local message=${1}
+		fi
+
+		LoggerUtil getLogMsg info ${message}
 	}
 
 	$@
