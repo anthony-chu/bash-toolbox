@@ -75,8 +75,8 @@ PropsWriter(){
 		_disableProps ${_buildDir}/test.${HOSTNAME}.properties ${2}
 	}
 
-	local _bundleDir=$(BaseVars returnBundleDir ${2})
 	local _buildDir=$(BaseVars returnBuildDir ${2})
+	local _bundleDir=$(BaseVars returnBundleDir ${2})
 
 	$@
 }
