@@ -78,6 +78,22 @@ PropsWriter(){
 		_setProps ${_buildDir}/test.${HOSTNAME}.properties ${2} ${3}
 	}
 
+	unsetAppServerProps(){
+		_disableProps ${_buildDir}/app.server.${HOSTNAME}.properties ${2}
+	}
+
+	unsetBuildProps(){
+		_disableProps ${_buildDir}/build.${HOSTNAME}.properties ${2}
+	}
+
+	unsetPortalProps(){
+		_disableProps ${_bundleDir}/portal-ext.properties ${2}
+	}
+
+	unsetTestProps(){
+		_disableProps ${_buildDir}/test.${HOSTNAME}.properties ${2}
+	}
+
 	local _bundleDir=$(BaseVars returnBundleDir ${2})
 	local _buildDir=$(BaseVars returnBuildDir ${2})
 
