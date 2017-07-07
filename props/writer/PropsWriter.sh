@@ -43,25 +43,6 @@ PropsWriter(){
 		fi
 	}
 
-	copyLegacyProperties(){
-		local version=${2}
-
-		if [[ $(StringValidator beginsWith 6. ${version}) ]]; then
-			local minorVersions=(0 1 2)
-
-			if [[ $(ArrayValidator hasEntry minorVersions $(StringUtil
-				strip version 6.)) ]]; then
-
-				local _legacyProps=portal-legacy-${version}.properties
-
-				local legacyProps=bash-toolbox/resources/${_legacyProps}
-				local portalProps=${_bundleDir}/portal-ext.properties
-
-				cat ${legacyProps} >> ${portalProps}
-			fi
-		fi
-	}
-
 	setAppServerProps(){
 		_setProps ${_buildDir}/app.server.${HOSTNAME}.properties ${2} ${3}
 	}
