@@ -1,5 +1,7 @@
 include array.util.ArrayUtil
 
+include file.util.FileUtil
+
 include math.util.MathUtil
 
 include string.util.StringUtil
@@ -7,7 +9,7 @@ include string.util.StringUtil
 HelpMessage(){
 	parseFile(){
 		local descriptionMap=()
-		local file=${1}
+		local file=$(FileUtil getCurFile true)
 		local functionMap=()
 		local lineNumber=1
 
