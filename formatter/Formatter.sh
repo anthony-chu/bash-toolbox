@@ -1,7 +1,7 @@
 include base.comparator.BaseComparator
 
-include file.io.util.FileIOUtil
 include file.util.FileUtil
+include file.writer.FileWriter
 
 include logger.Logger
 
@@ -12,7 +12,7 @@ include string.validator.StringValidator
 
 Formatter(){
 	applyUnixLineEndings(){
-		FileIOUtil replace ${1} "\r\n" "\n"
+		FileWriter replace ${1} "\r\n" "\n"
 	}
 
 	convertSpacesToTabs(){

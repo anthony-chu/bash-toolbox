@@ -4,7 +4,7 @@ include app.server.validator.AppServerValidator
 include base.comparator.BaseComparator
 include base.vars.BaseVars
 
-include file.io.util.FileIOUtil
+include file.writer.FileWriter
 
 include logger.Logger
 
@@ -88,7 +88,7 @@ BundleUtil(){
 	local appServer=$(AppServerValidator returnAppServer $@)
 	local branch=$(BaseVars returnBranch $@)
 	local bundleDir=$(BaseVars returnBundleDir ${branch})
-	local replace="FileIOUtil replace"
+	local replace="FileWriter replace"
 
 	$@
 }

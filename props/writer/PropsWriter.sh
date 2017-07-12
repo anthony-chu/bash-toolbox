@@ -2,8 +2,8 @@ include array.validator.ArrayValidator
 
 include base.vars.BaseVars
 
-include file.io.util.FileIOUtil
 include file.util.FileUtil
+include file.writer.FileWriter
 
 include props.util.PropsUtil
 
@@ -17,12 +17,12 @@ PropsWriter(){
 		if [[ ${property} && ! $(StringValidator
 			beginsWith "#" ${property}) ]]; then
 
-			FileIOUtil replace ${1} ${property} \#${property}
+			FileWriter replace ${1} ${property} \#${property}
 		fi
 	}
 
 	_enableProps(){
-		FileIOUtil replace ${1} $(PropsUtil getProperty ${1} ${2}) ${2}=${3}
+		FileWriter replace ${1} $(PropsUtil getProperty ${1} ${2}) ${2}=${3}
 	}
 
 	_setProps(){
@@ -36,10 +36,10 @@ PropsWriter(){
 			if [[ $(StringValidator beginsWith "#" ${property}) ]]; then
 				_enableProps ${1} ${2} ${3}
 			else
-				FileIOUtil replace ${1} ${2}=.* ${2}=${3}
+				FileWriter replace ${1} ${2}=.* ${2}=${3}
 			fi
 		else
-			FileIOUtil append ${1} ${2}=${3}
+			FileWriter append ${1} ${2}=${3}
 		fi
 	}
 
