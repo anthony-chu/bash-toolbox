@@ -22,9 +22,7 @@ TestExecutor(){
 				StringValidator isSubstring ignorableCommands _test)
 
 			if [[ ! ${isIgnorable} ]]; then
-				if [[ $(${testClass} ${_test}) == FAIL ]]; then
-					echo ${testClass}\#${_test}
-				fi
+				echo ${testClass}\#${_test} $(${testClass} ${_test})ED
 			fi
 		done
 	}
