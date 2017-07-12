@@ -1,4 +1,4 @@
-FileIOUtil(){
+FileWriter(){
 	append(){
 		local toFile=${1}
 		shift
