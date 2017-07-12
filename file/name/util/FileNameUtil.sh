@@ -4,6 +4,8 @@ include string.util.StringUtil
 include string.validator.StringValidator
 
 FileNameUtil(){
+
+	@private
 	_getPathUnix(){
 		local path=${1}
 
@@ -16,6 +18,7 @@ FileNameUtil(){
 		echo ${path}
 	}
 
+	@private
 	_getPathWin(){
 		local path=${1}
 
