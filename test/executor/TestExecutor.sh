@@ -15,9 +15,13 @@ TestExecutor(){
 				getValidFunctions bash-toolbox${classpath}/${testClass}.sh)
 		)
 
-		for _test in ${_tests[@]}; do
-			if [[ ${_test} != ${testClass} && ${_test} != run ]]; then
+		local ignorableCommands="${testClass} run setUp tearDown"
 
+		for _test in ${_tests[@]}; do
+			local isIgnorable=$(
+				StringValidator isSubstring ignorableCommands _test)
+
+			if [[ ! ${isIgnorable} ]]; then
 				if [[ $(${testClass} ${_test}) == FAIL ]]; then
 					echo ${testClass}\#${_test}
 				fi
