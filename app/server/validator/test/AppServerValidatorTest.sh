@@ -35,7 +35,7 @@ AppServerValidatorTest(){
 	}
 
 	testIsJonas(){
-		${asserTrue} $(AppServerValidator isJonas appServers)
+		${assertTrue} $(AppServerValidator isJonas appServers)
 	}
 
 	testIsResin(){
