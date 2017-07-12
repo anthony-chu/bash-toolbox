@@ -14,7 +14,7 @@ FileWriterTest(){
 	}
 
 	setUp(){
-		_testFile=$(FileUtil makeFile ${testFile})
+		local _testFile=$(FileUtil makeFile ${testFile})
 	}
 
 	tearDown(){
