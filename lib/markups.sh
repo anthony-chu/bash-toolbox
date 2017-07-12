@@ -5,3 +5,7 @@
 @ignore(){
 	echo -n ""
 }
+
+@private(){
+	echo -n ""
+}
