@@ -14,8 +14,8 @@ PropsWriter(){
 	_disableProps(){
 		local property=$(PropsUtil getProperty ${1} ${2})
 
-		if [[ ${property} && ! $(StringValidator
-			beginsWith "#" ${property}) ]]; then
+		if [[ ${property} &&
+			! $(StringValidator beginsWith "#" ${property}) ]]; then
 
 			FileWriter replace ${1} ${property} \#${property}
 		fi

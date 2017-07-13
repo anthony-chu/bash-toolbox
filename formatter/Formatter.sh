@@ -88,8 +88,8 @@ Formatter(){
 	}
 
 	verifyNoIncludesInBase(){
-		if [[ $(StringValidator isSubstring ${1} Base) && ! $(StringValidator
-			isSubstring ${1} Test) ]]; then
+		if [[ $(StringValidator isSubstring ${1} Base) &&
+			! $(StringValidator isSubstring ${1} Test) ]]; then
 
 			if [[ $(FileUtil getContent ${1}) =~ include ]]; then
 				Logger logErrorMsg "illegal_include:_${1}"
