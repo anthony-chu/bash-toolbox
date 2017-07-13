@@ -21,6 +21,25 @@ FileWriterTest(){
 		rm -rf ${testDir}
 	}
 
+	testAppendCreateFile(){
+		local isNotFile=$(${assertDoesNotExist} testFile)
+
+		local content="this is a string"
+
+		FileWriter append ${testFile} "${content}"
+
+		local fileContent=$(FileUtil getContent ${testFile})
+
+		if [[ ${isNotFile} == PASS &&
+			$(${assertExists} testFile) &&
+			$(${assertEquals} content fileContent) ]]; then
+
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	testAppendExistingFile(){
 		local testFile=$(FileUtil makeFile ${testFile})
 
@@ -42,7 +61,9 @@ FileWriterTest(){
 		${assertEquals} content fileContent
 	}
 
+	local assertDoesNotExist="TestUtil assertDoesNotExist"
 	local assertEquals="TestUtil assertEquals"
+	local assertExists="TestUtil assertExists"
 	local testDir=$(pwd)/bash-toolbox/test/dependencies
 	local testFile=$(pwd)/bash-toolbox/test/dependencies/test.txt
 
