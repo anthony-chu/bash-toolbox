@@ -14,16 +14,10 @@ FileWriterTest(){
 	}
 
 	setUp(){
-		local _testFile=$(FileUtil makeFile ${testFile})
+		local _testDir=$(FileUtil construct ${testDir})
 	}
 
 	tearDown(){
-		local testDir=($(StringUtil split testFile /))
-
-		local testDir=($(ArrayUtil trim testDir 1))
-
-		local testDir=$(StringUtil replace testDir space /)
-
 		rm -rf /${testDir}
 	}
 
@@ -47,6 +41,7 @@ FileWriterTest(){
 	}
 
 	local assertEquals="TestUtil assertEquals"
+	local testDir=$(pwd)/bash-toolbox/test/dependencies
 	local testFile=$(pwd)/bash-toolbox/test/dependencies/test.txt
 
 	setUp
