@@ -1,5 +1,7 @@
 include command.validator.CommandValidator
 
+include string.validator.StringValidator
+
 TestExecutor(){
 	executeTest(){
 		local testClass=${1}
@@ -22,7 +24,15 @@ TestExecutor(){
 				StringValidator isSubstring ignorableCommands _test)
 
 			if [[ ! ${isIgnorable} ]]; then
-				echo ${testClass}\#${_test} $(${testClass} ${_test})ED
+				local status=$(${testClass} ${_test})ED
+
+				if [[ $(StringValidator isSubstring status PASS) ]]; then
+					local status=$(colorme green ${status})
+				elif [[ $(StringValidator isSubstring status FAIL) ]]; then
+					local status=$(colorme red ${status})
+				fi
+
+				echo -e ${testClass}\#${_test} ${status}
 			fi
 		done
 	}
