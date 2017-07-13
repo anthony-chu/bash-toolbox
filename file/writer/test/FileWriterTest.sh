@@ -27,7 +27,7 @@ FileWriterTest(){
 		rm -rf /${testDir}
 	}
 
-	testAppend(){
+	testAppendExistingFile(){
 		FileWriter append ${testFile} "this is a string"
 
 		local content="this is a string"
