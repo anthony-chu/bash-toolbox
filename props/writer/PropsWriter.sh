@@ -44,39 +44,43 @@ PropsWriter(){
 	}
 
 	setAppServerProps(){
-		_setProps ${_buildDir}/app.server.${HOSTNAME}.properties ${2} ${3}
+		_setProps ${appServerProps} ${2} ${3}
 	}
 
 	setBuildProps(){
-		_setProps ${_buildDir}/build.${HOSTNAME}.properties ${2} ${3}
+		_setProps ${buildProps} ${2} ${3}
 	}
 
 	setPortalProps(){
-		_setProps ${_bundleDir}/portal-ext.properties ${2} ${3}
+		_setProps ${portalProps} ${2} ${3}
 	}
 
 	setTestProps(){
-		_setProps ${_buildDir}/test.${HOSTNAME}.properties ${2} ${3}
+		_setProps ${testProps} ${2} ${3}
 	}
 
 	unsetAppServerProps(){
-		_disableProps ${_buildDir}/app.server.${HOSTNAME}.properties ${2}
+		_disableProps ${appServerProps} ${2}
 	}
 
 	unsetBuildProps(){
-		_disableProps ${_buildDir}/build.${HOSTNAME}.properties ${2}
+		_disableProps ${buildProps} ${2}
 	}
 
 	unsetPortalProps(){
-		_disableProps ${_bundleDir}/portal-ext.properties ${2}
+		_disableProps ${portalProps} ${2}
 	}
 
 	unsetTestProps(){
-		_disableProps ${_buildDir}/test.${HOSTNAME}.properties ${2}
+		_disableProps ${testProps} ${2}
 	}
 
 	local _buildDir=$(BaseVars returnBuildDir ${2})
 	local _bundleDir=$(BaseVars returnBundleDir ${2})
+	local appServerProps=${_buildDir}/app.server.${HOSTNAME}.properties
+	local buildProps=${_buildDir}/build.${HOSTNAME}.proeprties
+	local portalProps=${_bundleDir}/portal-ext.properties
+	local testProps=${_buildDir}/test.${HOSTNAME}.properties
 
 	$@
 }
