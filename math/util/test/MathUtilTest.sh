@@ -72,6 +72,18 @@ MathUtilTest(){
 		${assertEquals} $(MathUtil product 1 2) 2
 	}
 
+	testPowerBaseTwoExponentThree(){
+		${assertEquals} $(MathUtil power 2 3) 8
+	}
+
+	testPowerExponentZero(){
+		${assertEquals} $(MathUtil power 2 0) 1
+	}
+
+	testPowerIdentity(){
+		${assertEquals} $(MathUtil power 2 1) 2
+	}
+
 	testProduct[zero](){
 		${assertEquals} $(MathUtil product 0 3) 0
 	}
