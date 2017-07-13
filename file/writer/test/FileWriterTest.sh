@@ -18,7 +18,7 @@ FileWriterTest(){
 	}
 
 	tearDown(){
-		rm -rf /${testDir}
+		rm -rf ${testDir}
 	}
 
 	testAppendExistingFile(){
