@@ -47,6 +47,13 @@ MathUtil(){
 		echo $((${var}%${2}))
 	}
 
+	power(){
+		local base=${1}
+		local exponent=${2}
+
+		echo $((${1}**${2}))
+	}
+
 	product(){
 		echo $((${1}*${2}))
 	}
