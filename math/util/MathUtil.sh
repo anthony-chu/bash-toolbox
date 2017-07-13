@@ -1,7 +1,5 @@
 include base.comparator.BaseComparator
 
-include math.exception.MathException
-
 include string.validator.StringValidator
 
 MathUtil(){
@@ -54,25 +52,12 @@ MathUtil(){
 	}
 
 	quotient(){
-		if [[ $(BaseComparator isEqual ${2} 0) ]]; then
-			MathException divideByZeroException
-			return
-		fi
-
 		echo $((${1}/${2}))
 	}
 
 	sum(){
 		echo $((${1}+${2}))
 	}
-
-	if [[ ! $(StringValidator isNum ${2}) ]]; then
-		MathException notANumberException ${2}
-	fi
-
-	if [[ ! $(StringValidator isNum ${3}) ]]; then
-		MathException notANumberException ${3}
-	fi
 
 	$@
 }

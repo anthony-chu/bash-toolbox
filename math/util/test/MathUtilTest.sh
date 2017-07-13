@@ -80,12 +80,6 @@ MathUtilTest(){
 		${assertEquals} $(MathUtil quotient 4 2) 2
 	}
 
-	testQuotient[cannot-divide-by-zero](){
-		local quotient="$(MathUtil quotient 1 0)"
-
-		${assertContains} quotient "Cannot divide by zero."
-	}
-
 	testQuotient[floor](){
 		${assertEquals} $(MathUtil quotient 5 2 ) 2
 	}
