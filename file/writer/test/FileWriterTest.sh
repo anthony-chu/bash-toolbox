@@ -22,6 +22,8 @@ FileWriterTest(){
 	}
 
 	testAppendExistingFile(){
+		local testFile=$(FileUtil makeFile ${testFile})
+
 		FileWriter append ${testFile} "this is a string"
 
 		local content="this is a string"
