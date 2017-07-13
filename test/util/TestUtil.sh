@@ -24,6 +24,24 @@ TestUtil(){
 		fi
 	}
 
+	assertDoesNotExist(){
+		local path=$(readvar ${1})
+
+		if [[ $(StringValidator isSubstring path ".") ]]; then
+			if [[ ! -e ${path} ]]; then
+				echo PASS
+			else
+				echo FAIL
+			fi
+		else
+			if [[ ! -d ${path} ]]; then
+				echo PASS
+			else
+				echo FAIL
+			fi
+		fi
+	}
+
 	assertExists(){
 		local path=$(readvar ${1})
 
