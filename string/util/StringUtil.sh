@@ -1,5 +1,7 @@
 include base.comparator.BaseComparator
 
+include math.util.MathUtil
+
 include string.validator.StringValidator
 
 StringUtil(){
@@ -11,6 +13,19 @@ StringUtil(){
 		local str=${@}
 
 		echo ${str^}
+	}
+
+	escape(){
+		local level=$(MathUtil decrement ${2})
+		local str=${1}
+
+		if [[ ! $(BaseComparator isLessThan ${level} 0) ]]; then
+			for (( i=0; i<$(MathUtil power 2 ${level}); i++ )); do
+				local str="\\"${str}
+			done
+		fi
+
+		echo ${str}
 	}
 
 	join(){
