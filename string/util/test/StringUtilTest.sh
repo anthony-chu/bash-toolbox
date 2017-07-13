@@ -16,6 +16,18 @@ StringUtilTest(){
 		${assertEquals} $(StringUtil capitalize foo) Foo
 	}
 
+	testEscape[none](){
+		${assertEquals} $(StringUtil escape "'" 0) "'"
+	}
+
+	testEscape[once](){
+		${assertEquals} $(StringUtil escape "'" 1) "\\\'"
+	}
+
+	testEscape[twice](){
+		${assertEquals} $(StringUtil escape "'" 2)  "\\\\\\\\'"
+	}
+
 	testJoin(){
 		local array=(foo bar)
 
