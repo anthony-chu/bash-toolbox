@@ -56,9 +56,6 @@ PropsReaderUtil(){
 		fi
 	}
 
-	local _bundleDir=$(BaseVars returnBundleDir ${2})
-	local _buildDir=$(BaseVars returnBuildDir ${2})
-
 	if [[ $(SystemValidator isWindows) ]]; then
 		local env=win
 	else
