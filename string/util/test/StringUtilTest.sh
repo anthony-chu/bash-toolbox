@@ -39,17 +39,14 @@ StringUtilTest(){
 	}
 
 	testParseMessage(){
-		local input="foo_bar"
 		local output="foo bar"
-		local result="$(StringUtil parseMessage input)"
+		local result="$(StringUtil parseMessage foo_bar)"
 
 		${assertEquals} result output
 	}
 
 	testReplace(){
-		local string="foo-bar"
-
-		${assertEquals} $(StringUtil replace string - .) foo.bar
+		${assertEquals} $(StringUtil replace foo-bar - .) foo.bar
 	}
 
 	testReplaceExactChar(){
@@ -59,9 +56,8 @@ StringUtilTest(){
 	}
 
 	testReplace[new-space](){
-		local input="foo-bar"
 		local output="foo bar"
-		local result="$(StringUtil replace input - space)"
+		local result="$(StringUtil replace foo-bar - space)"
 
 		${assertEquals} result output
 	}
@@ -81,25 +77,18 @@ StringUtilTest(){
 	}
 
 	testSplit(){
-		local input="foo-bar"
+		local output="$(StringUtil split foo-bar -)"
+		local result="foo bar"
 
-		if [[ $(StringUtil split input -) == "foo bar" ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
+		${assertEquals} output result
 	}
 
 	testStrip(){
-		local input="foo-bar"
-
-		${assertEquals} $(StringUtil strip input -) foobar
+		${assertEquals} $(StringUtil strip foo-bar -) foobar
 	}
 
 	testStripExactChar(){
-		local input="foo.bar"
-
-		${assertEquals} $(StringUtil strip input [.]) foobar
+		${assertEquals} $(StringUtil strip foo.bar [.]) foobar
 	}
 
 	testToLowerCase(){
