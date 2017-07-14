@@ -16,6 +16,14 @@ TestUtil(){
 		fi
 	}
 
+	assertDoesNotContain(){
+		if [[ $(readvar ${1}) != *$(readvar ${2})* ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	assertDoesNotExist(){
 		local path=$(readvar ${1})
 
