@@ -34,6 +34,12 @@ PropsReaderUtil(){
 		local propsFileMap=($(getPropsFileName ${1}))
 
 		if [[ ! -e ${1} ]]; then
+			if [[ $(SystemValidator isWindows) ]]; then
+				local env=win
+			else
+				local env=nix
+			fi
+
 			local message=(
 				property_file_\"${propsFileMap[1]}\"_does_not_exist_in_
 				$(FileNameUtil getPath ${env} ${propsFileMap[0]})
@@ -55,12 +61,6 @@ PropsReaderUtil(){
 			return
 		fi
 	}
-
-	if [[ $(SystemValidator isWindows) ]]; then
-		local env=win
-	else
-		local env=nix
-	fi
 
 	$@
 }
