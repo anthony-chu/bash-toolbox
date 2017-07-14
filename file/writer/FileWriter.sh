@@ -4,7 +4,7 @@ FileWriter(){
 		shift
 		local string=$@
 
-		echo -e "\n${string}" >> ${toFile}
+		echo -e "${string}" >> ${toFile}
 	}
 
 	replace(){
