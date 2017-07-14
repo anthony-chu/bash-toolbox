@@ -16,14 +16,6 @@ TestUtil(){
 		fi
 	}
 
-	assertEquals(){
-		if [[ $(readvar ${1}) == $(readvar ${2}) ]]; then
-			echo PASS
-		else
-			echo FAIL
-		fi
-	}
-
 	assertDoesNotExist(){
 		local path=$(readvar ${1})
 
@@ -39,6 +31,14 @@ TestUtil(){
 			else
 				echo FAIL
 			fi
+		fi
+	}
+
+	assertEquals(){
+		if [[ $(readvar ${1}) == $(readvar ${2}) ]]; then
+			echo PASS
+		else
+			echo FAIL
 		fi
 	}
 
