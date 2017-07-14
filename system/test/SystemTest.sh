@@ -24,8 +24,6 @@ SystemTest(){
 		${assertDoesNotContain} ANT_OPTS -XX:MaxPermSize=1024m
 	}
 
-
-
 	local ant_opts=${ANT_OPTS}
 	local assertContains="TestUtil assertContains"
 	local assertDoesNotContain="TestUtil assertDoesNotContain"
