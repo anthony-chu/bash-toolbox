@@ -29,7 +29,7 @@ PropsWriterUtil(){
 
 		if [[ ${property} ]]; then
 			if [[ $(StringValidator beginsWith "#" ${property}) ]]; then
-				_enableProps ${1} ${2} ${3}
+				enableProps ${1} ${2} ${3}
 			else
 				FileWriter replace ${1} ${2}=.* ${2}=${3}
 			fi
