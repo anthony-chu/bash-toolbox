@@ -8,39 +8,39 @@ BaseComparatorTest(){
 		TestExecutor executeTest BaseComparatorTest
 	}
 
-	testIsEqual[number](){
+	testIsEqual[number][true](){
 		${assertTrue} $(BaseComparator isEqual 123 123)
 	}
 
-	testIsEqual[string](){
+	testIsEqual[string][true](){
 		${assertTrue} $(BaseComparator isEqual foo foo)
 	}
 
-	testIsEqualIgnoreCase(){
+	testIsEqualIgnoreCase[true](){
 		${assertTrue} $(BaseComparator isEqualIgnoreCase FOO foo)
 	}
 
-	testIsLessThan[case](){
+	testIsLessThan[case][true](){
 		${assertTrue} $(BaseComparator isLessThan foo FOO)
 	}
 
-	testIsLessThan[number](){
+	testIsLessThan[number][true](){
 		${assertTrue} $(BaseComparator isLessThan 1 2)
 	}
 
-	testIsLessThan[string](){
+	testIsLessThan[string][true](){
 		${assertTrue} $(BaseComparator isLessThan bar foo)
 	}
 
-	testIsGreaterThan[case](){
+	testIsGreaterThan[case][true](){
 		${assertTrue} $(BaseComparator isGreaterThan FOO foo)
 	}
 
-	testIsGreaterThan[number](){
+	testIsGreaterThan[number][true](){
 		${assertTrue} $(BaseComparator isGreaterThan 2 1)
 	}
 
-	testIsGreaterThan[string](){
+	testIsGreaterThan[string][true](){
 		${assertTrue} $(BaseComparator isGreaterThan foo bar)
 	}
 
