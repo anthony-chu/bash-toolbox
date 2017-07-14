@@ -25,7 +25,7 @@ StringUtilTest(){
 	}
 
 	testEscape[twice](){
-		${assertEquals} $(StringUtil escape "'" 2)  "\\\\\\\\'"
+		${assertEquals} $(StringUtil escape "'" 2) "\\\\\\\\'"
 	}
 
 	testJoin(){
