@@ -53,129 +53,93 @@ BaseVarsTest(){
 	}
 
 	testReturnBuildDir[6.1.x](){
-		local _expectedDir=/d/public/6.1.x-portal
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBuildDir 6.1.x) expectedDir
+		${assertEquals} $(BaseVars returnBuildDir 6.1.x) $(FileNameUtil
+			getPath ${_env} /d/public/6.1.x-portal)
 	}
 
 	testReturnBuildDir[6.2.x](){
-		local _expectedDir=/d/public/6.2.x-portal
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBuildDir 6.2.x) expectedDir
+		${assertEquals} $(BaseVars returnBuildDir 6.2.x) $(FileNameUtil
+			getPath ${_env} /d/public/6.2.x-portal)
 	}
 
 	testReturnBuildDir[7.0.x](){
-		local _expectedDir=/d/public/7.0.x-portal
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBuildDir 7.0.x) expectedDir
+		${assertEquals} $(BaseVars returnBuildDir 7.0.x) $(FileNameUtil
+			getPath ${_env} /d/public/7.0.x-portal)
 	}
 
 	testReturnBuildDir[default](){
-		local _expectedDir=/d/public/master-portal
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBuildDir default) expectedDir
+		${assertEquals} $(BaseVars returnBuildDir default) $(FileNameUtil
+			getPath ${_env} /d/public/master-portal)
 	}
 
 	testReturnBuildDir[ee-6.1.x](){
-		local _expectedDir=/d/private/ee-6.1.x-portal
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBuildDir ee-6.1.x) expectedDir
+		${assertEquals} $(BaseVars returnBuildDir ee-6.1.x) $(FileNameUtil
+			getPath ${_env} /d/private/ee-6.1.x-portal)
 	}
 
 	testReturnBuildDir[ee-6.2.x](){
-		local _expectedDir=/d/private/ee-6.2.x-portal
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBuildDir ee-6.2.x) expectedDir
+		${assertEquals} $(BaseVars returnBuildDir ee-6.2.x) $(FileNameUtil
+			getPath ${_env} /d/private/ee-6.2.x-portal)
 	}
 
 	testReturnBuildDir[ee-6.2.10](){
-		local _expectedDir=/d/private/ee-6.2.10-portal
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBuildDir ee-6.2.10) expectedDir
+		${assertEquals} $(BaseVars returnBuildDir ee-6.2.10) $(FileNameUtil
+			getPath ${_env} /d/private/ee-6.2.10-portal)
 	}
 
 	testReturnBuildDir[ee-7.0.x](){
-		local _expectedDir=/d/private/ee-7.0.x-portal
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBuildDir ee-7.0.x) expectedDir
+		${assertEquals} $(BaseVars returnBuildDir ee-7.0.x) $(FileNameUtil
+			getPath ${_env} /d/private/ee-7.0.x-portal)
 	}
 
 	testReturnBuildDir[master](){
-		local _expectedDir=/d/public/master-portal
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBuildDir master) expectedDir
+		${assertEquals} $(BaseVars returnBuildDir master) $(FileNameUtil
+			getPath ${_env} /d/public/master-portal)
 	}
 
 	testReturnBundleDir[6.1.x](){
-		local _expectedDir=/d/public/6.1.x-bundles
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBundleDir 6.1.x) expectedDir
+		${assertEquals} $(BaseVars returnBundleDir 6.1.x) $(FileNameUtil
+			getPath ${_env} /d/public/6.1.x-bundles)
 	}
 
 	testReturnBundleDir[6.2.x](){
-		local _expectedDir=/d/public/6.2.x-bundles
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBundleDir 6.2.x) expectedDir
+		${assertEquals} $(BaseVars returnBundleDir 6.2.x) $(FileNameUtil
+			getPath ${_env} /d/public/6.2.x-bundles)
 	}
 
 	testReturnBundleDir[7.0.x](){
-		local _expectedDir=/d/public/7.0.x-bundles
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBundleDir 7.0.x) expectedDir
+		${assertEquals} $(BaseVars returnBundleDir 7.0.x) $(FileNameUtil
+			getPath ${_env} /d/public/7.0.x-bundles)
 	}
 
 	testReturnBundleDir[default](){
-		local _expectedDir=/d/public/master-bundles
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBundleDir default) expectedDir
+		${assertEquals} $(BaseVars returnBundleDir default) $(FileNameUtil
+			getPath ${_env} /d/public/master-bundles)
 	}
 
 	testReturnBundleDir[ee-6.1.x](){
-		local _expectedDir=/d/private/ee-6.1.x-bundles
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBundleDir ee-6.1.x) expectedDir
+		${assertEquals} $(BaseVars returnBundleDir ee-6.1.x) $(FileNameUtil
+			getPath ${_env} /d/private/ee-6.1.x-bundles)
 	}
 
 	testReturnBundleDir[ee-6.2.x](){
-		local _expectedDir=/d/private/ee-6.2.x-bundles
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBundleDir ee-6.2.x) expectedDir
+		${assertEquals} $(BaseVars returnBundleDir ee-6.2.x) $(FileNameUtil
+			getPath ${_env} /d/private/ee-6.2.x-bundles)
 	}
 
 	testReturnBundleDir[ee-6.2.10](){
-		local _expectedDir=/d/private/ee-6.2.10-bundles
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBundleDir ee-6.2.10) expectedDir
+		${assertEquals} $(BaseVars returnBundleDir ee-6.2.10) $(FileNameUtil
+			getPath ${_env} /d/private/ee-6.2.10-bundles)
 	}
 
 	testReturnBundleDir[ee-7.0.x](){
-		local _expectedDir=/d/private/ee-7.0.x-bundles
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBundleDir ee-7.0.x) expectedDir
+		${assertEquals} $(BaseVars returnBundleDir ee-7.0.x) $(FileNameUtil
+			getPath ${_env} /d/private/ee-7.0.x-bundles)
 	}
 
 	testReturnBundleDir[master](){
-		local _expectedDir=/d/public/master-bundles
-		local expectedDir=$(FileNameUtil getPath ${_env} ${_expectedDir})
-
-		${assertEquals} $(BaseVars returnBundleDir master) expectedDir
+		${assertEquals} $(BaseVars returnBundleDir master) $(FileNameUtil
+			getPath ${_env} /d/public/master-bundles)
 	}
 
 	local assertEquals="TestUtil assertEquals"

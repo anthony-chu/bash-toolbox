@@ -50,9 +50,7 @@ StringUtilTest(){
 	}
 
 	testReplaceExactChar(){
-		local string="foo.bar"
-
-		${assertEquals} $(StringUtil replace string [.] -) foo-bar
+		${assertEquals} $(StringUtil replace foo.bar [.] -) foo-bar
 	}
 
 	testReplace[new-space](){
