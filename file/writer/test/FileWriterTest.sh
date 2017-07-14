@@ -65,7 +65,7 @@ FileWriterTest(){
 	local assertEquals="TestUtil assertEquals"
 	local assertExists="TestUtil assertExists"
 	local testDir=$(pwd)/bash-toolbox/test/dependencies
-	local testFile=$(pwd)/bash-toolbox/test/dependencies/test.txt
+	local testFile=${testDir}/test.txt
 
 	setUp
 
