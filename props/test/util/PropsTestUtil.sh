@@ -4,7 +4,7 @@ include file.writer.FileWriter
 PropsTestUtil(){
 	writePropsFile(){
 		local _propsFile=$(FileUtil makeFile ${propsFile})
-		FileWriter append ${propsFile} test.enabled=true
+		FileWriter append ${_propsFile} test.enabled=true
 	}
 
 	$@
