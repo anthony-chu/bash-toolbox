@@ -1,6 +1,6 @@
 include base.vars.BaseVars
 
-include props.writer.util
+include props.writer.util.PropsWriterUtil
 
 PropsWriter(){
 	setAppServerProps(){
