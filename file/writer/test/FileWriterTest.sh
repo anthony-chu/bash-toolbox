@@ -31,8 +31,8 @@ FileWriterTest(){
 		local fileContent=$(FileUtil getContent ${testFile})
 
 		if [[ ${isNotFile} == PASS &&
-			$(${assertExists} testFile) &&
-			$(${assertEquals} content fileContent) ]]; then
+			$(${assertExists} testFile) == PASS &&
+			$(${assertEquals} content fileContent) == PASS ]]; then
 
 			echo PASS
 		else
