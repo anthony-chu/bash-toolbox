@@ -22,7 +22,7 @@ JiraUtil(){
 		local message=$(StringUtil join environment)
 
 		StringUtil replace message _ space
-		echo "Portal ${branch} GIT ID: $(GitUtil getOriginSHA ${branch})"
+		echo "Portal _${branch}_ GIT ID: $(GitUtil getOriginSHA ${branch})"
 	}
 
 	fixed(){
