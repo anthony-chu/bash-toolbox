@@ -19,9 +19,7 @@ JiraUtil(){
 			+_MySQL_5.7
 		)
 
-		local message=$(StringUtil join environment)
-
-		StringUtil replace message _ space
+		StringUtil replace $(StringUtil join environment) _ space
 		echo "Portal _${branch}_ GIT ID: $(GitUtil getOriginSHA ${branch})"
 	}
 
