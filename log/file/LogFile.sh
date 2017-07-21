@@ -27,7 +27,7 @@ LogFile(){
 	write(){
 		local logFile=$(readvar ${1})
 		shift
-		local cmd=$(readvar ${2})
+		local cmd=$(readvar ${2})}
 
 		${cmd} |& tee -a ${logFile}
 	}
