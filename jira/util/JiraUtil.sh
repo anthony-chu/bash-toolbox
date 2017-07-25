@@ -35,6 +35,10 @@ JiraUtil(){
 		echo "*Reproduced on:*"
 	}
 
+	tested(){
+		echo "*Tested on:*"
+	}
+
 	local appServer=$(AppServerValidator returnAppServer ${@})
 	local branch=$(BaseVars returnBranch ${@})
 
