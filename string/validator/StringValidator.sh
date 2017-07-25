@@ -20,13 +20,13 @@ StringValidator(){
 	isAlpha(){
 		local str=${@}
 
-		isNull ${str//[a-zA-Z ]/}
+		isNull ${str//[a-zA-Z]/}
 	}
 
 	isAlphaNum(){
 		local str=${@}
 
-		isNull ${str//[0-9a-zA-Z ]/}
+		isNull ${str//[0-9a-zA-Z]/}
 	}
 
 	isSubstring(){
@@ -36,7 +36,7 @@ StringValidator(){
 	}
 
 	isNull(){
-		if [[ ${@} == "" ]]; then
+		if [[ ! ${1} ]]; then
 			echo true
 		fi
 	}
