@@ -96,12 +96,22 @@ StringValidatorTest(){
 		${assertTrue} $(StringValidator isSubstring foobar foo)
 	}
 
+	testIsNull[empty-variable](){
+		local this=""
+
+		${assertTrue} $(StringValidator isNull ${this})
+	}
+
 	testIsNull[false](){
 		${assertNull} $(StringValidator isNull foo)
 	}
 
 	testIsNull[true](){
 		${assertTrue} $(StringValidator isNull)
+	}
+
+	testIsNull[undefined-variable](){
+		${assertTrue} $(StringValidator isNull ${this})
 	}
 
 	testIsNum[false](){
