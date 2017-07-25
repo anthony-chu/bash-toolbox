@@ -20,7 +20,7 @@ JiraUtil(){
 		)
 
 		StringUtil replace $(StringUtil join environment) _ space
-		echo "Portal _${branch}_ GIT ID: $(GitUtil getOriginSHA ${branch})"
+		echo "Portal *${branch}* GIT ID: $(GitUtil getOriginSHA ${branch})"
 	}
 
 	fixed(){
