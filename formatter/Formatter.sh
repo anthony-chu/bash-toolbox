@@ -24,7 +24,16 @@ Formatter(){
 		if [[ $(StringValidator isSubstring ${1} bash-toolbox) ]]; then
 			local n=1
 
-			local localVariableExceptions=("export" "for" "git" "local"	"+")
+			local localVariableExceptions=(
+				"assert"
+				"export"
+				"for"
+				"git"
+				"grep"
+				"local"
+				"Writer"
+				"+"
+			)
 
 			while read line; do
 				if [[ ${line} =~ [a-zA-Z]+= ]]; then
