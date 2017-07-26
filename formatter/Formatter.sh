@@ -21,44 +21,42 @@ Formatter(){
 	}
 
 	enforceBashToolboxLocalVariables(){
-		if [[ $(StringValidator isSubstring ${1} bash-toolbox) ]]; then
-			local n=1
+		local n=1
 
-			local localVariableExceptions=(
-				"assert"
-				"export"
-				"for"
-				"git"
-				"grep"
-				"local"
-				"Writer"
-				"+"
-			)
+		local localVariableExceptions=(
+			"assert"
+			"export"
+			"for"
+			"git"
+			"grep"
+			"local"
+			"Writer"
+			"+"
+		)
 
-			while read line; do
-				if [[ ${line} =~ [a-zA-Z]+= ]]; then
-					local doIgnore=""
+		while read line; do
+			if [[ ${line} =~ [a-zA-Z]+= ]]; then
+				local doIgnore=""
 
-					for exception in ${localVariableExceptions[@]}; do
-						if [[ ${line} == *${exception}* ]]; then
-							local doIgnore=true
-							break
-						fi
-					done
-
-					if [[ ! ${doIgnore} ]]; then
-						local _message=(
-							set_variable_scope_to_local:_
-							${1}:${n}
-						)
-
-						Logger logErrorMsg "$(StringUtil join _message)"
+				for exception in ${localVariableExceptions[@]}; do
+					if [[ ${line} == *${exception}* ]]; then
+						local doIgnore=true
+						break
 					fi
-				fi
+				done
 
-				local n=$(MathUtil increment ${n})
-			done < ${1}
-		fi
+				if [[ ! ${doIgnore} ]]; then
+					local _message=(
+						set_variable_scope_to_local:_
+						${1}:${n}
+					)
+
+					Logger logErrorMsg "$(StringUtil join _message)"
+				fi
+			fi
+
+			local n=$(MathUtil increment ${n})
+		done < ${1}
 	}
 
 	enforceLoggerMessageQuotes(){
