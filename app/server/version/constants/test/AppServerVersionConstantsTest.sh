@@ -33,7 +33,7 @@ AppServerVersionConstantsTest(){
 	}
 
 	testTcserverVersion(){
-		${assertEquals} $(AppServerVersionConstants tcserverVersion) 3.1.2
+		${assertEquals} $(AppServerVersionConstants tcserverVersion) 3.2.5
 	}
 
 	testTomcatVersion(){
