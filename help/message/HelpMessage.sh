@@ -32,8 +32,7 @@ HelpMessage(){
 	}
 
 	printHelpMessage(){
-		local _file=${1}
-		local map=($(parseFile ${_file}))
+		local map=($(parseFile)
 
 		local descriptionMap=($(ArrayUtil bisect true map))
 		local functionMap=($(ArrayUtil bisect false map))
