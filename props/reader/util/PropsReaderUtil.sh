@@ -23,9 +23,9 @@ PropsReaderUtil(){
 	}
 
 	getValue(){
-		local output=$(PropsUtil getProperty ${1} ${2})
+		local output=($(PropsUtil getProperty ${1} ${2}))
 
-		local value=($(StringUtil split output =))
+		local value=($(StringUtil split ${output[0]} =))
 
 		echo ${value[-1]}
 	}
