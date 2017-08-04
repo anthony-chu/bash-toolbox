@@ -38,13 +38,12 @@ ArrayUtil(){
 
 	flipArray(){
 		local inputArray=($(readvar ${1}))
-		local newArray=()
 
-		for (( i=${#inputArray[@]}; i>=0; i-- )); do
-			newArray+=(${inputArray[i]})
-		done
-
-		echo ${newArray[@]}
+		echo $(
+			for element in ${inputArray[@]}; do
+				echo -e ${element}
+			done | tac
+		)
 	}
 
 	partition(){
