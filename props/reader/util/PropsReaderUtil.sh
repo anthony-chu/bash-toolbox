@@ -9,6 +9,7 @@ include logger.util.LoggerUtil
 include props.util.PropsUtil
 
 include string.util.StringUtil
+include string.validator.StringValidator
 
 include system.validator.SystemValidator
 
@@ -24,6 +25,12 @@ PropsReaderUtil(){
 
 	getValue(){
 		local output=($(PropsUtil getProperty ${1} ${2}))
+
+		for (( i=0; i<${#output[@]}; i++ )); do
+			if [[ $(StringValidator beginsWith "#" ${output[i]}) ]]; then
+				output[i]=""
+			fi
+		done
 
 		local value=($(StringUtil split ${output[0]} =))
 
