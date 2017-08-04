@@ -40,14 +40,6 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
-	testFlipArray(){
-		local inputArray=(foo bar)
-		local outputArray=(bar foo)
-		local result=($(ArrayUtil flipArray inputArray))
-
-		${assertEquals} result outputArray
-	}
-
 	testPartition[1-of-3](){
 		local inputArray=({1..6})
 		local outputArray=(1 2)
@@ -77,6 +69,14 @@ ArrayUtilTest(){
 		local maxLength=6
 
 		${assertEquals} $(ArrayUtil returnMaxLength inputArray) ${maxLength}
+	}
+
+	testReverse(){
+		local inputArray=(foo bar)
+		local outputArray=(bar foo)
+		local result=($(ArrayUtil reverse inputArray))
+
+		${assertEquals} result outputArray
 	}
 
 	testStrip(){

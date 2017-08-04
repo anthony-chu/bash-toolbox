@@ -36,16 +36,6 @@ ArrayUtil(){
 		fi
 	}
 
-	flipArray(){
-		local inputArray=($(readvar ${1}))
-
-		echo $(
-			for element in ${inputArray[@]}; do
-				echo -e ${element}
-			done | tac
-		)
-	}
-
 	partition(){
 		local array=($(readvar ${3}))
 		local numOfParitions=${1}
@@ -76,6 +66,14 @@ ArrayUtil(){
 		done
 
 		echo ${maxLength}
+	}
+
+	reverse(){
+		echo $(
+			for element in $(readvar ${1}); do
+				echo -e ${element}
+			done | tac
+		)
 	}
 
 	strip(){
