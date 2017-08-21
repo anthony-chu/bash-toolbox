@@ -50,5 +50,9 @@ BaseVars(){
 		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)-bundles
 	}
 
+	returnPrivateBuildDir(){
+		_getPath /d/$(_returnPrivacy $@)/$(returnBranch ${@})-private
+	}
+
 	$@
 }
