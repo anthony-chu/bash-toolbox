@@ -22,7 +22,7 @@ BaseVars(){
 	}
 
 	isPrivate(){
-		if [[ $@ == *ee-* ]]; then
+		if [[ $@ == *ee-* || $@ == *-private* ]]; then
 			echo true
 		fi
 	}
