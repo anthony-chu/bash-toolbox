@@ -36,12 +36,12 @@ BaseVars(){
 
 	@private
 	_returnPrivateBuildDir(){
-		_getPath /d/$(_returnPrivacy $@)/$(returnPrivateBranch $@)/portal
+		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)/portal
 	}
 
 	@private
 	_returnPrivateBundleDir(){
-		_getPath /d/$(_returnPrivacy $@)/$(returnPrivateBranch $@)/bundles
+		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)/bundles
 	}
 
 	isPrivate(){
@@ -80,14 +80,6 @@ BaseVars(){
 		else
 			_returnBundleDir $@
 		fi
-	}
-
-	returnPrivateBranch(){
-		case ${@} in
-			*7.0.x-private*) echo 7.0.x-private;;
-			*master-private*) echo master-private;;
-			*) echo 7.0.x-private;;
-		esac
 	}
 
 	$@
