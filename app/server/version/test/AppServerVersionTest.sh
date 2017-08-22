@@ -120,12 +120,6 @@ AppServerVersionTest(){
 			returnAppServerVersion tomcat ee-6.2.x) 7.0.62
 	}
 
-	testReturnAppServerVersion[tomcat,ee-7.0.x](){
-		${assertEquals} $(AppServerVersion
-			returnAppServerVersion tomcat ee-7.0.x) $(AppServerVersionConstants
-				tomcatVersion)
-	}
-
 	testReturnAppServerVersion[tomcat,master](){
 		${assertEquals} $(AppServerVersion
 			returnAppServerVersion tomcat master) $(AppServerVersionConstants

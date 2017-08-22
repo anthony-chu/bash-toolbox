@@ -40,10 +40,6 @@ BaseVarsTest(){
 		${assertEquals} $(BaseVars returnBranch ee-6.2.10) ee-6.2.10
 	}
 
-	testReturnBranch[ee-7.0.x](){
-		${assertEquals} $(BaseVars returnBranch ee-7.0.x) ee-7.0.x
-	}
-
 	testReturnBranch[default](){
 		${assertEquals} $(BaseVars returnBranch default) master
 	}
@@ -87,11 +83,6 @@ BaseVarsTest(){
 			getPath ${_env} /d/private/ee-6.2.10-portal)
 	}
 
-	testReturnBuildDir[ee-7.0.x](){
-		${assertEquals} $(BaseVars returnBuildDir ee-7.0.x) $(FileNameUtil
-			getPath ${_env} /d/private/ee-7.0.x-portal)
-	}
-
 	testReturnBuildDir[master](){
 		${assertEquals} $(BaseVars returnBuildDir master) $(FileNameUtil
 			getPath ${_env} /d/public/master-portal)
@@ -130,11 +121,6 @@ BaseVarsTest(){
 	testReturnBundleDir[ee-6.2.10](){
 		${assertEquals} $(BaseVars returnBundleDir ee-6.2.10) $(FileNameUtil
 			getPath ${_env} /d/private/ee-6.2.10-bundles)
-	}
-
-	testReturnBundleDir[ee-7.0.x](){
-		${assertEquals} $(BaseVars returnBundleDir ee-7.0.x) $(FileNameUtil
-			getPath ${_env} /d/private/ee-7.0.x-bundles)
 	}
 
 	testReturnBundleDir[master](){
