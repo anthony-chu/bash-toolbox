@@ -65,6 +65,22 @@ BaseVars(){
 		esac
 	}
 
+	returnBuildDir(){
+		if [[ $@ =~ private ]]; then
+			_returnPrivateBuildDir $@
+		else
+			_returnBuildDir $@
+		fi
+	}
+
+	returnBundleDir(){
+		if [[ $@ =~ private ]]; then
+			_returnPrivateBundleDir $@
+		else
+			_returnBundleDir $@
+		fi
+	}
+
 	returnPrivateBranch(){
 		case ${@} in
 			*7.0.x-private*) echo 7.0.x-private;;
