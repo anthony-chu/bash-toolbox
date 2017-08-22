@@ -17,7 +17,7 @@ GitUtil(){
 
 		git reset --hard -q
 
-		git clean -fdq
+		git clean -fdqx
 
 		Logger logCompletedMsg
 	}
