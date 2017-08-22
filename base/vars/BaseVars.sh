@@ -50,8 +50,20 @@ BaseVars(){
 		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)-bundles
 	}
 
+	returnPrivateBranch(){
+		case ${@} in
+			*7.0.x-private*) echo 7.0.x-private;;
+			*master-private*) echo master-private;;
+			*) echo 7.0.x-private;;
+		esac
+	}
+
 	returnPrivateBuildDir(){
-		_getPath /d/$(_returnPrivacy $@)/$(returnBranch ${@})-private
+		_getPath /d/$(_returnPrivacy $@)/$(returnPrivateBranch $@)/portal
+	}
+
+	returnPrivateBundleDir(){
+		_getPath /d/$(_returnPrivacy $@)/$(returnPrivateBranch $@)/bundles
 	}
 
 	$@
