@@ -1,4 +1,6 @@
 BaseVars(){
+
+	@private
 	_getPath(){
 		local path=${1}
 
@@ -13,12 +15,33 @@ BaseVars(){
 		fi
 	}
 
+	@private
+	_returnBuildDir(){
+		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)-portal
+	}
+
+	@private
+	_returnBundleDir(){
+		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)-bundles
+	}
+
+	@private
 	_returnPrivacy(){
 		if [[ $(isPrivate $@) ]]; then
 			echo private
 		else
 			echo public
 		fi
+	}
+
+	@private
+	_returnPrivateBuildDir(){
+		_getPath /d/$(_returnPrivacy $@)/$(returnPrivateBranch $@)/portal
+	}
+
+	@private
+	_returnPrivateBundleDir(){
+		_getPath /d/$(_returnPrivacy $@)/$(returnPrivateBranch $@)/bundles
 	}
 
 	isPrivate(){
@@ -42,28 +65,12 @@ BaseVars(){
 		esac
 	}
 
-	returnBuildDir(){
-		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)-portal
-	}
-
-	returnBundleDir(){
-		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)-bundles
-	}
-
 	returnPrivateBranch(){
 		case ${@} in
 			*7.0.x-private*) echo 7.0.x-private;;
 			*master-private*) echo master-private;;
 			*) echo 7.0.x-private;;
 		esac
-	}
-
-	returnPrivateBuildDir(){
-		_getPath /d/$(_returnPrivacy $@)/$(returnPrivateBranch $@)/portal
-	}
-
-	returnPrivateBundleDir(){
-		_getPath /d/$(_returnPrivacy $@)/$(returnPrivateBranch $@)/bundles
 	}
 
 	$@
