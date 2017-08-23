@@ -12,8 +12,12 @@ BaseVarsTest(){
 		TestExecutor executeTest BaseVarsTest
 	}
 
-	test_returnPrivacyTest[private](){
+	test_returnPrivacyTest[ee-private](){
 		${assertEquals} $(BaseVars _returnPrivacy ee-) private
+	}
+
+	test_returnPrivacyTest[private-private](){
+		${assertEquals} $(BaseVars _returnPrivacy -private) private
 	}
 
 	test_returnPrivacyTest[public](){
@@ -48,6 +52,10 @@ BaseVarsTest(){
 		${assertEquals} $(BaseVars returnBranch master) master
 	}
 
+	testReturnBranch[master-private](){
+		${assertEquals} $(BaseVars returnBranch master-private) master-private
+	}
+
 	testReturnBuildDir[6.1.x](){
 		${assertEquals} $(BaseVars returnBuildDir 6.1.x) $(FileNameUtil
 			getPath ${_env} /d/public/6.1.x-portal)
@@ -60,7 +68,12 @@ BaseVarsTest(){
 
 	testReturnBuildDir[7.0.x](){
 		${assertEquals} $(BaseVars returnBuildDir 7.0.x) $(FileNameUtil
-			getPath ${_env} /d/public/7.0.x-portal)
+			getPath ${_env} /d/private/7.0.x-portal)
+	}
+
+	testReturnBuildDir[7.0.x-private](){
+		${assertEquals} $(BaseVars returnBuildDir 7.0.x-private) $(FileNameUtil
+			getPath ${_env} /d/private/7.0.x-private/portal)
 	}
 
 	testReturnBuildDir[default](){
@@ -103,6 +116,11 @@ BaseVarsTest(){
 			getPath ${_env} /d/public/7.0.x-bundles)
 	}
 
+	testReturnBundleDir[7.0.x-private](){
+		${assertEquals} $(BaseVars returnBundleDir 7.0.x-private) $(FileNameUtil
+			getPath ${_env} /d/private/7.0.x-private/bundles)
+	}
+
 	testReturnBundleDir[default](){
 		${assertEquals} $(BaseVars returnBundleDir default) $(FileNameUtil
 			getPath ${_env} /d/public/master-bundles)
@@ -126,6 +144,11 @@ BaseVarsTest(){
 	testReturnBundleDir[master](){
 		${assertEquals} $(BaseVars returnBundleDir master) $(FileNameUtil
 			getPath ${_env} /d/public/master-bundles)
+	}
+
+	testReturnBundleDir[master-private](){
+		${assertEquals} $(BaseVars returnBundleDir master-private) $(
+			FileNameUtil getPath ${_env} /d/private/master-private/bundles)
 	}
 
 	local assertEquals="TestUtil assertEquals"
