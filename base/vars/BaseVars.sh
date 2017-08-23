@@ -17,7 +17,13 @@ BaseVars(){
 
 	@private
 	_returnBuildDir(){
-		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)-portal
+		local branch=$(returnBranch $@)
+
+		if [[ ${branch} == 7.0.x ]]; then
+			_getPath /d/private/${branch}-portal
+		else
+			_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)-portal
+		fi
 	}
 
 	@private
