@@ -60,7 +60,7 @@ ArrayUtil(){
 		local maxLength=0
 
 		for a in ${array[@]}; do
-			if [[ ${#a} > ${maxLength} ]]; then
+			if [ ${#a} -gt ${maxLength} ]; then
 				local maxLength=${#a}
 			fi
 		done
@@ -92,7 +92,7 @@ ArrayUtil(){
 		local array=($(readvar ${1}))
 		local i=0
 
-		while [[ ${i} < ${2} ]]; do
+		while [ ${i} -lt ${2} ]; do
 			local array=($(_trim array))
 
 			local i=$((i+1))
