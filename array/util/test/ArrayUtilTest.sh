@@ -71,6 +71,13 @@ ArrayUtilTest(){
 		${assertEquals} $(ArrayUtil returnMaxLength inputArray) ${maxLength}
 	}
 
+	testReturnMaxLength[greater-than-10](){
+		local inputArray=(foo foobar foofoobarbar)
+		local maxLength=12
+
+		${assertEquals} $(ArrayUtil returnMaxLength inputArray) ${maxLength}
+	}
+
 	testReverse(){
 		local inputArray=(foo bar)
 		local outputArray=(bar foo)
