@@ -58,17 +58,17 @@ BaseVarsTest(){
 
 	testReturnBuildDir[6.1.x](){
 		${assertEquals} $(BaseVars returnBuildDir 6.1.x) $(FileNameUtil
-			getPath ${_env} /d/public/6.1.x-portal)
+			getPath ${_env} /d/public/6.1.x/portal)
 	}
 
 	testReturnBuildDir[6.2.x](){
 		${assertEquals} $(BaseVars returnBuildDir 6.2.x) $(FileNameUtil
-			getPath ${_env} /d/public/6.2.x-portal)
+			getPath ${_env} /d/public/6.2.x/portal)
 	}
 
 	testReturnBuildDir[7.0.x](){
 		${assertEquals} $(BaseVars returnBuildDir 7.0.x) $(FileNameUtil
-			getPath ${_env} /d/private/7.0.x-portal)
+			getPath ${_env} /d/private/7.0.x/portal)
 	}
 
 	testReturnBuildDir[7.0.x-private](){
@@ -78,42 +78,42 @@ BaseVarsTest(){
 
 	testReturnBuildDir[default](){
 		${assertEquals} $(BaseVars returnBuildDir default) $(FileNameUtil
-			getPath ${_env} /d/public/master-portal)
+			getPath ${_env} /d/public/master/portal)
 	}
 
 	testReturnBuildDir[ee-6.1.x](){
 		${assertEquals} $(BaseVars returnBuildDir ee-6.1.x) $(FileNameUtil
-			getPath ${_env} /d/private/ee-6.1.x-portal)
+			getPath ${_env} /d/private/ee-6.1.x/portal)
 	}
 
 	testReturnBuildDir[ee-6.2.x](){
 		${assertEquals} $(BaseVars returnBuildDir ee-6.2.x) $(FileNameUtil
-			getPath ${_env} /d/private/ee-6.2.x-portal)
+			getPath ${_env} /d/private/ee-6.2.x/portal)
 	}
 
 	testReturnBuildDir[ee-6.2.10](){
 		${assertEquals} $(BaseVars returnBuildDir ee-6.2.10) $(FileNameUtil
-			getPath ${_env} /d/private/ee-6.2.10-portal)
+			getPath ${_env} /d/private/ee-6.2.10/portal)
 	}
 
 	testReturnBuildDir[master](){
 		${assertEquals} $(BaseVars returnBuildDir master) $(FileNameUtil
-			getPath ${_env} /d/public/master-portal)
+			getPath ${_env} /d/public/master/portal)
 	}
 
 	testReturnBundleDir[6.1.x](){
 		${assertEquals} $(BaseVars returnBundleDir 6.1.x) $(FileNameUtil
-			getPath ${_env} /d/public/6.1.x-bundles)
+			getPath ${_env} /d/public/6.1.x/bundles)
 	}
 
 	testReturnBundleDir[6.2.x](){
 		${assertEquals} $(BaseVars returnBundleDir 6.2.x) $(FileNameUtil
-			getPath ${_env} /d/public/6.2.x-bundles)
+			getPath ${_env} /d/public/6.2.x/bundles)
 	}
 
 	testReturnBundleDir[7.0.x](){
 		${assertEquals} $(BaseVars returnBundleDir 7.0.x) $(FileNameUtil
-			getPath ${_env} /d/public/7.0.x-bundles)
+			getPath ${_env} /d/private/7.0.x/bundles)
 	}
 
 	testReturnBundleDir[7.0.x-private](){
@@ -123,27 +123,27 @@ BaseVarsTest(){
 
 	testReturnBundleDir[default](){
 		${assertEquals} $(BaseVars returnBundleDir default) $(FileNameUtil
-			getPath ${_env} /d/public/master-bundles)
+			getPath ${_env} /d/public/master/bundles)
 	}
 
 	testReturnBundleDir[ee-6.1.x](){
 		${assertEquals} $(BaseVars returnBundleDir ee-6.1.x) $(FileNameUtil
-			getPath ${_env} /d/private/ee-6.1.x-bundles)
+			getPath ${_env} /d/private/ee-6.1.x/bundles)
 	}
 
 	testReturnBundleDir[ee-6.2.x](){
 		${assertEquals} $(BaseVars returnBundleDir ee-6.2.x) $(FileNameUtil
-			getPath ${_env} /d/private/ee-6.2.x-bundles)
+			getPath ${_env} /d/private/ee-6.2.x/bundles)
 	}
 
 	testReturnBundleDir[ee-6.2.10](){
 		${assertEquals} $(BaseVars returnBundleDir ee-6.2.10) $(FileNameUtil
-			getPath ${_env} /d/private/ee-6.2.10-bundles)
+			getPath ${_env} /d/private/ee-6.2.10/bundles)
 	}
 
 	testReturnBundleDir[master](){
 		${assertEquals} $(BaseVars returnBundleDir master) $(FileNameUtil
-			getPath ${_env} /d/public/master-bundles)
+			getPath ${_env} /d/public/master/bundles)
 	}
 
 	testReturnBundleDir[master-private](){
