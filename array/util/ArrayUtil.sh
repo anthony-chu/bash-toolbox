@@ -95,7 +95,7 @@ ArrayUtil(){
 		while [ ${i} -lt ${2} ]; do
 			local array=($(_trim array))
 
-			local i=$((i+1))
+			local i=$(MathUtil increment ${i})
 		done
 
 		echo ${array[@]}
