@@ -32,7 +32,7 @@ AppServerVersionTest(){
 	}
 
 	test_overrideTomcatVersion[null](){
-		${assertEquals} $(AppServerVersion _overrideTomcatVersion) 8.0.32
+		${assertEquals} $(AppServerVersion _overrideTomcatVersion) 8.5.20
 	}
 
 	testReturnAppServerVersion[glassfish](){
@@ -96,8 +96,7 @@ AppServerVersionTest(){
 
 	testReturnAppServerVersion[tomcat,7.0.x](){
 		${assertEquals} $(AppServerVersion
-			returnAppServerVersion tomcat 7.0.x) $(
-				AppServerVersionConstants tomcatVersion)
+			returnAppServerVersion tomcat 7.0.x) 8.0.32
 	}
 
 	testReturnAppServerVersion[tomcat,ee-6.1.x](){
