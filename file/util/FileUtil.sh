@@ -9,8 +9,9 @@ include string.validator.StringValidator
 FileUtil(){
 	construct(){
 		local _path=$(FileNameUtil getPath nix ${1})
+		local directories=($(StringUtil replace _path / space))
 
-		for directory in $(StringUtil replace _path / space); do
+		for directory in ${directories[@]}; do
 			local dir=${dir}/${directory}
 
 			if [ ! -e ${dir} ]; then
@@ -20,11 +21,13 @@ FileUtil(){
 			cd ${dir}
 		done
 
-		echo ${_path}
+		echo /$(StringUtil replace directories space /)
 	}
 
 	getContent(){
-		cat ${1}
+		local file=${1}
+
+		cat ${file}
 	}
 
 	getCurFile(){
