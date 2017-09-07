@@ -28,7 +28,7 @@ AppServerVersionConstants(){
 	}
 
 	tomcatVersion(){
-		echo "8.5.16"
+		echo "8.0.32"
 	}
 
 	weblogicVersion(){

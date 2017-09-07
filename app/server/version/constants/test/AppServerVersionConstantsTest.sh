@@ -37,7 +37,7 @@ AppServerVersionConstantsTest(){
 	}
 
 	testTomcatVersion(){
-		${assertEquals} $(AppServerVersionConstants tomcatVersion) 8.5.16
+		${assertEquals} $(AppServerVersionConstants tomcatVersion) 8.0.32
 	}
 
 	testWeblogicVersion(){
