@@ -34,6 +34,12 @@ StringUtilTest(){
 		${assertEquals} $(StringUtil join array) foobar
 	}
 
+	testJoinWithSeparator(){
+		local array=(foo foo bar bar)
+
+		${assertEquals} $(StringUtil join array ,) foo,foo,bar,bar
+	}
+
 	testLength(){
 		${assertEquals} $(StringUtil length foo) 3
 	}
