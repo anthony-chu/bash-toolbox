@@ -33,8 +33,14 @@ StringUtil(){
 		local _array=${__array}[@]
 		local array=(${!_array})
 
+		local separator=${2}
+
 		for _string in ${array[@]}; do
-			local string=$(append ${string} ${_string})
+			if [[ ${string} ]]; then
+				local string=$(append $(append ${string} ${separator}) ${_string})
+			else
+				local string=${_string}
+			fi
 		done
 
 		echo ${string}
