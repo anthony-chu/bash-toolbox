@@ -1,8 +1,10 @@
-include array.validator.ArrayValidator
-
-include string.validator.StringValidator
-
 AppServerValidator(){
+	local packages=(
+		array.validator.ArrayValidator
+
+		string.validator.StringValidator
+	)
+
 	isGlassfish(){
 		if [[ $(ArrayValidator hasEntry ${1} glassfish) ]]; then
 			echo true
@@ -109,5 +111,9 @@ AppServerValidator(){
 		done
 	}
 
+	packages ${packages[@]}
+
 	$@
+
+	excludes ${packages[@]}
 }

@@ -1,9 +1,11 @@
-include language.util.LanguageUtil
-
-include test.executor.TestExecutor
-include test.util.TestUtil
-
 LanguageUtilTest(){
+	local packages=(
+		language.util.LanguageUtil
+
+		test.executor.TestExecutor
+		test.util.TestUtil
+	)
+
 	run(){
 		TestExecutor executeTest LanguageUtilTest
 	}
@@ -26,5 +28,9 @@ LanguageUtilTest(){
 
 	local assertEquals="TestUtil assertEquals"
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

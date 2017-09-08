@@ -1,6 +1,8 @@
-include string.util.StringUtil
-
 CalendarUtil(){
+	local packages=(
+		string.util.StringUtil
+	)
+
 	getDate(){
 		if [[ ${1} == -d ]]; then
 			date +%d
@@ -35,5 +37,9 @@ CalendarUtil(){
 		fi
 	}
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

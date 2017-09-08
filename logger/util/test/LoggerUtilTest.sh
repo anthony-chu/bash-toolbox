@@ -1,9 +1,11 @@
-include logger.util.LoggerUtil
-
-include test.executor.TestExecutor
-include test.util.TestUtil
-
 LoggerUtilTest(){
+	local packages=(
+		logger.util.LoggerUtil
+
+		test.executor.TestExecutor
+		test.util.TestUtil
+	)
+
 	run(){
 		TestExecutor executeTest LoggerUtilTest
 	}
@@ -18,5 +20,9 @@ LoggerUtilTest(){
 
 	local assertEquals="TestUtil assertEquals"
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

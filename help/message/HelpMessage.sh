@@ -1,12 +1,14 @@
-include array.util.ArrayUtil
-
-include file.util.FileUtil
-
-include math.util.MathUtil
-
-include string.util.StringUtil
-
 HelpMessage(){
+	local packages=(
+		array.util.ArrayUtil
+
+		file.util.FileUtil
+
+		math.util.MathUtil
+
+		string.util.StringUtil
+	)
+
 	parseFile(){
 		local descriptionMap=()
 		local file=$(FileUtil getCurFile true)
@@ -52,5 +54,9 @@ HelpMessage(){
 		done
 	}
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

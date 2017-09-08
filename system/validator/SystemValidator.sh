@@ -1,6 +1,8 @@
-include system.System
-
 SystemValidator(){
+	local packages=(
+		system.System
+	)
+
 	isLinux(){
 		if [[ $(System getOS) =~ Linux ]]; then
 			echo true
@@ -13,5 +15,9 @@ SystemValidator(){
 		fi
 	}
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

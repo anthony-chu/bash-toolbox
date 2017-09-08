@@ -1,6 +1,8 @@
-include logger.util.LoggerUtil
-
 Logger(){
+	local packages=(
+		logger.util.LoggerUtil
+	)
+
 	logCompletedMsg(){
 		logInfoMsg completed
 	}
@@ -21,5 +23,9 @@ Logger(){
 		LoggerUtil getLogMsg info ${1}:
 	}
 
-	${@}
+	include ${packages[@]}
+
+	$@
+
+	exclude ${packages[@]}
 }

@@ -1,8 +1,10 @@
-include base.comparator.BaseComparator
-
-include string.validator.StringValidator
-
 LanguageUtil(){
+	local packages=(
+		base.comparator.BaseComparator
+
+		string.validator.StringValidator
+	)
+
 	toggleArticleVowelForm(){
 		local word=${1}
 
@@ -25,5 +27,9 @@ LanguageUtil(){
 		fi
 	}
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

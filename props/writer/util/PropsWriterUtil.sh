@@ -1,11 +1,13 @@
-include file.util.FileUtil
-include file.writer.FileWriter
-
-include props.util.PropsUtil
-
-include string.validator.StringValidator
-
 PropsWriterUtil(){
+	local packages=(
+		file.util.FileUtil
+		file.writer.FileWriter
+
+		props.util.PropsUtil
+
+		string.validator.StringValidator
+	)
+
 	disableProps(){
 		local property=$(PropsUtil getProperty ${1} ${2})
 
@@ -38,5 +40,9 @@ PropsWriterUtil(){
 		fi
 	}
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

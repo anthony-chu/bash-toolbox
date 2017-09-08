@@ -1,9 +1,11 @@
-include string.validator.stringvalidator
-
-include test.executor.TestExecutor
-include test.util.TestUtil
-
 StringValidatorTest(){
+	local packages=(
+		string.validator.stringvalidator
+
+		test.executor.TestExecutor
+		test.util.TestUtil
+	)
+
 	run(){
 		TestExecutor executeTest StringValidatorTest
 	}
@@ -141,5 +143,9 @@ StringValidatorTest(){
 	local assertNull="TestUtil assertNull"
 	local assertTrue="TestUtil assertTrue"
 
+	include ${packages[@]}
+
 	${@}
+
+	exclude ${packages[@]}
 }

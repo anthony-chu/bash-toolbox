@@ -1,9 +1,11 @@
-include app.server.validator.AppServerValidator
-
-include test.executor.TestExecutor
-include test.util.TestUtil
-
 AppServerValidatorTest(){
+	local packages=(
+		app.server.validator.AppServerValidator
+
+		test.executor.TestExecutor
+		test.util.TestUtil
+	)
+
 	run(){
 		TestExecutor executeTest AppServerValidatorTest
 	}
@@ -68,5 +70,9 @@ AppServerValidatorTest(){
 
 	local assertTrue="TestUtil assertTrue"
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

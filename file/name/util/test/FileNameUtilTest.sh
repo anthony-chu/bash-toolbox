@@ -1,9 +1,11 @@
-include file.name.util.FileNameUtil
-
-include test.executor.TestExecutor
-include test.util.TestUtil
-
 FileNameUtilTest(){
+	local packages=(
+		file.name.util.FileNameUtil
+
+		test.executor.TestExecutor
+		test.util.TestUtil
+	)
+
 	run(){
 		TestExecutor executeTest FileNameUtilTest
 	}
@@ -34,5 +36,9 @@ FileNameUtilTest(){
 
 	local assertEquals="TestUtil assertEquals"
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

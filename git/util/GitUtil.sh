@@ -1,15 +1,17 @@
-include base.comparator.BaseComparator
-include base.vars.BaseVars
-
-include calendar.util.CalendarUtil
-
-include logger.Logger
-
-include math.util.MathUtil
-
-include string.util.StringUtil
-
 GitUtil(){
+	local packages=(
+		base.comparator.BaseComparator
+		base.vars.BaseVars
+
+		calendar.util.CalendarUtil
+
+		logger.Logger
+
+		math.util.MathUtil
+
+		string.util.StringUtil
+	)
+
 	cleanSource(){
 		Logger logProgressMsg "resetting_the_${branch}_source_directory"
 
@@ -68,5 +70,9 @@ GitUtil(){
 	local branch=$(BaseVars returnBranch ${@})
 	local buildDir=$(BaseVars returnBuildDir ${branch})
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

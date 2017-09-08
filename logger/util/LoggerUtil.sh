@@ -1,10 +1,12 @@
-include base.comparator.BaseComparator
-
-include calendar.util.CalendarUtil
-
-include string.util.StringUtil
-
 LoggerUtil(){
+	local packages=(
+		base.comparator.BaseComparator
+
+		calendar.util.CalendarUtil
+
+		string.util.StringUtil
+	)
+
 	_formatLogLevel(){
 		local logLevel=${1}
 		local validLogLevels=(info error)
@@ -46,5 +48,9 @@ LoggerUtil(){
 		echo -e "${time} [ $(_formatLogLevel ${1}) ] ${message}"
 	}
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

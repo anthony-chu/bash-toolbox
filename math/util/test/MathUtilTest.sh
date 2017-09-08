@@ -1,9 +1,11 @@
-include math.util.MathUtil
-
-include test.executor.TestExecutor
-include test.util.testUtil
-
 MathUtilTest(){
+	local packages=(
+		math.util.MathUtil
+
+		test.executor.TestExecutor
+		test.util.testUtil
+	)
+
 	run(){
 		TestExecutor executeTest MathUtilTest
 	}
@@ -105,5 +107,9 @@ MathUtilTest(){
 	local assertNull="TestUtil assertNull"
 	local assertTrue="TestUtil assertTrue"
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

@@ -1,10 +1,12 @@
-include file.util.FileUtil
-include file.writer.FileWriter
-
-include test.executor.TestExecutor
-include test.util.TestUtil
-
 FileWriterTest(){
+	local packages=(
+		file.util.FileUtil
+		file.writer.FileWriter
+
+		test.executor.TestExecutor
+		test.util.TestUtil
+	)
+
 	run(){
 		TestExecutor executeTest FileWriterTest
 	}
@@ -63,9 +65,13 @@ FileWriterTest(){
 	local testDir=$(pwd)/bash-toolbox/test/dependencies
 	local testFile=${testDir}/test.txt
 
+	include ${packages[@]}
+
 	setUp
 
 	$@
 
 	tearDown
+
+	exclude ${packages[@]}
 }

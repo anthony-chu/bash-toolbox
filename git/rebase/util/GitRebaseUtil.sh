@@ -1,15 +1,17 @@
-include base.vars.BaseVars
-
-include git.util.GitUtil
-
-include language.util.LanguageUtil
-
-include logger.Logger
-
-include string.util.StringUtil
-include string.validator.StringValidator
-
 GitRebaseUtil(){
+	local packages=(
+		base.vars.BaseVars
+
+		git.util.GitUtil
+
+		language.util.LanguageUtil
+
+		logger.Logger
+
+		string.util.StringUtil
+		string.validator.StringValidator
+	)
+
 	abort(){
 		Logger logProgressMsg "terminating_previous_rebase_process"
 
@@ -72,5 +74,9 @@ GitRebaseUtil(){
 	local branch=$(BaseVars returnBranch ${@})
 	local buildDir=$(BaseVars returnBuildDir ${branch})
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

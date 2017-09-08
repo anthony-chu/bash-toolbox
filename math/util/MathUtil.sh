@@ -1,8 +1,10 @@
-include base.comparator.BaseComparator
-
-include string.validator.StringValidator
-
 MathUtil(){
+	local packages=(
+		base.comparator.BaseComparator
+
+		string.validator.StringValidator
+	)
+
 	decrement(){
 		difference ${1} 1
 	}
@@ -66,5 +68,9 @@ MathUtil(){
 		echo $((${1}+${2}))
 	}
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

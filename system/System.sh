@@ -1,8 +1,10 @@
-include calendar.util.CalendarUtil
-
-include logger.Logger
-
 System(){
+	local packages=(
+		calendar.util.CalendarUtil
+
+		logger.Logger
+	)
+
 	extendAntOpts(){
 		if [[ ${1} =~ 6. ]]; then
 			Logger logProgressMsg "configuring_ANT_OPTS_JVM"
@@ -29,5 +31,9 @@ System(){
 		fi
 	}
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

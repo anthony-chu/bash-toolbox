@@ -1,10 +1,12 @@
-include props.test.util.PropsTestUtil
-include props.util.PropsUtil
-
-include test.executor.TestExecutor
-include test.util.TestUtil
-
 PropsUtilTest(){
+	local packages=(
+		props.test.util.PropsTestUtil
+		props.util.PropsUtil
+
+		test.executor.TestExecutor
+		test.util.TestUtil
+	)
+
 	run(){
 		TestExecutor executeTest PropsUtilTest
 	}
@@ -26,9 +28,13 @@ PropsUtilTest(){
 	local propsDir=$(pwd)/bash-toolbox/test/dependencies
 	local propsFile=${propsDir}/test.properties
 
+	include ${packages[@]}
+
 	setUp
 
 	$@
 
 	tearDown
+
+	exclude ${packages[@]}
 }

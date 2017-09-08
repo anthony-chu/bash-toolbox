@@ -1,11 +1,13 @@
-include base.comparator.BaseComparator
-
-include logger.util.LoggerUtil
-
-include string.util.StringUtil
-include string.Validator.StringValidator
-
 TestUtil(){
+	local packages=(
+		base.comparator.BaseComparator
+
+		logger.util.LoggerUtil
+
+		string.util.StringUtil
+		string.Validator.StringValidator
+	)
+
 	assertContains(){
 		if [[ $(readvar ${1}) =~ $(readvar ${2}) ]]; then
 			echo PASS
@@ -92,5 +94,9 @@ TestUtil(){
 		LoggerUtil getLogMsg info ${message}
 	}
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

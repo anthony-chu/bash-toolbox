@@ -1,8 +1,10 @@
-include base.vars.BaseVars
-
-include props.reader.util.PropsReaderUtil
-
 PropsReader(){
+	local packages=(
+		base.vars.BaseVars
+
+		props.reader.util.PropsReaderUtil
+	)
+
 	readAppServerProps(){
 		${readProps} ${buildDir}/app.server.${HOSTNAME}.properties ${2}
 	}
@@ -23,5 +25,9 @@ PropsReader(){
 	local buildDir=$(BaseVars returnBuildDir ${2})
 	local readProps="PropsReaderUtil readProps"
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

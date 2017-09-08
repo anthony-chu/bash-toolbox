@@ -1,10 +1,12 @@
-include base.comparator.BaseComparator
-
-include math.util.MathUtil
-
-include string.validator.StringValidator
-
 StringUtil(){
+	local packages=(
+		base.comparator.BaseComparator
+
+		math.util.MathUtil
+
+		string.validator.StringValidator
+	)
+
 	append(){
 		echo ${1}${2}
 	}
@@ -102,5 +104,9 @@ StringUtil(){
 		echo ${str^^}
 	}
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }

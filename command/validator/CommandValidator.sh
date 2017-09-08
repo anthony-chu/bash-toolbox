@@ -1,10 +1,12 @@
-include array.validator.ArrayValidator
-
-include command.exception.CommandException
-
-include string.util.StringUtil
-
 CommandValidator(){
+	local packages=(
+		array.validator.ArrayValidator
+
+		command.exception.CommandException
+
+		string.util.StringUtil
+	)
+
 	getValidFunctions(){
 		local lineNumber=1
 		local file=${1}
@@ -40,5 +42,9 @@ CommandValidator(){
 		fi
 	}
 
+	include ${packages[@]}
+
 	$@
+
+	exclude ${packages[@]}
 }
