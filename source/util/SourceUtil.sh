@@ -1,12 +1,10 @@
+include logger.Logger
+
+include props.writer.PropsWriter
+
+include string.validator.StringValidator
+
 SourceUtil(){
-	local packages=(
-		logger.Logger
-
-		props.writer.PropsWriter
-
-		string.validator.StringValidator
-	)
-
 	clearGradleCache(){
 		if [ -d ${buildDir}/.gradle/caches/ ]; then
 			Logger logProgressMsg "clearing_gradle_cache"
@@ -54,9 +52,5 @@ SourceUtil(){
 	local bundleDir=$(BaseVars returnBundleDir ${branch})
 	local writer=PropsWriter
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

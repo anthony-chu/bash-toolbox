@@ -1,10 +1,8 @@
+include base.vars.BaseVars
+
+include props.writer.util.PropsWriterUtil
+
 PropsWriter(){
-	local packages=(
-		base.vars.BaseVars
-
-		props.writer.util.PropsWriterUtil
-	)
-
 	setAppServerProps(){
 		${setProps} ${appServerProps} ${2} ${3}
 	}
@@ -46,9 +44,5 @@ PropsWriter(){
 	local setProps="PropsWriterUtil setProps"
 	local testProps=${_buildDir}/test.${HOSTNAME}.properties
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

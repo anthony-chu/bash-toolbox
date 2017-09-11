@@ -1,10 +1,8 @@
+include base.comparator.BaseComparator
+
+include math.util.MathUtil
+
 ArrayValidator(){
-	local packages=(
-		base.comparator.BaseComparator
-
-		math.util.MathUtil
-	)
-
 	hasEntry(){
 		local array=($(readvar ${1}))
 		local entry=${2}
@@ -34,9 +32,5 @@ ArrayValidator(){
 		fi
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

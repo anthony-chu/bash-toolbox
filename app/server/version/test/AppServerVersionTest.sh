@@ -1,12 +1,10 @@
+include app.server.version.AppServerVersion
+include app.server.version.constants.AppServerVersionConstants
+
+include test.executor.TestExecutor
+include test.util.TestUtil
+
 AppServerVersionTest(){
-	local packages=(
-		app.server.version.AppServerVersion
-		app.server.version.constants.AppServerVersionConstants
-
-		test.executor.TestExecutor
-		test.util.TestUtil
-	)
-
 	run(){
 		TestExecutor executeTest AppServerVersionTest
 	}
@@ -149,9 +147,5 @@ AppServerVersionTest(){
 	local assertEquals="TestUtil assertEquals"
 	local assertNull="TestUtil assertNull"
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

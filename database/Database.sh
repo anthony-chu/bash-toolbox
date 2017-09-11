@@ -1,14 +1,12 @@
+include base.comparator.BaseComparator
+
+include database.util.DatabaseUtil
+
+include logger.Logger
+
+include string.validator.StringValidator
+
 Database(){
-	local packages=(
-		base.comparator.BaseComparator
-
-		database.util.DatabaseUtil
-
-		logger.Logger
-
-		string.validator.StringValidator
-	)
-
 	create(){
 		if [[ $(StringValidator isNull ${2}) ]]; then
 			local cmd="create database ${1};"
@@ -38,9 +36,5 @@ Database(){
 		create ${1} ${2}
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

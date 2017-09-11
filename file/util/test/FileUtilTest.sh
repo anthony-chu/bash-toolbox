@@ -1,12 +1,10 @@
+include file.util.FileUtil
+include file.writer.FileWriter
+
+include test.executor.TestExecutor
+include test.util.TestUtil
+
 FileUtilTest(){
-	local packages=(
-		file.util.FileUtil
-		file.writer.FileWriter
-
-		test.executor.TestExecutor
-		test.util.TestUtil
-	)
-
 	run(){
 		TestExecutor executeTest FileUtilTest
 	}
@@ -44,13 +42,9 @@ FileUtilTest(){
 	local assertExists="TestUtil assertExists"
 	local testDir=~/test
 
-	include ${packages[@]}
-
 	setUp
 
 	$@
 
 	tearDown
-
-	exclude ${packages[@]}
 }

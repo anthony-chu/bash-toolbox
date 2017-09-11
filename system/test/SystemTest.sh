@@ -1,11 +1,9 @@
+include system.System
+
+include test.executor.TestExecutor
+include test.util.TestUtil
+
 SystemTest(){
-	local packages=(
-		system.System
-
-		test.executor.TestExecutor
-		test.util.TestUtil
-	)
-
 	run(){
 		TestExecutor executeTest SystemTest
 	}
@@ -31,11 +29,7 @@ SystemTest(){
 	local assertDoesNotContain="TestUtil assertDoesNotContain"
 	local java_home=${JAVA_HOME}
 
-	include ${packages[@]}
-
 	$@
 
 	tearDown
-
-	exclude ${packages[@]}
 }

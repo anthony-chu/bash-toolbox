@@ -1,11 +1,9 @@
+include app.server.validator.AppServerValidator
+include app.server.version.constants.AppServerVersionConstants
+
+include string.validator.StringValidator
+
 AppServerVersion(){
-	local packages=(
-		app.server.validator.AppServerValidator
-		app.server.version.constants.AppServerVersionConstants
-
-		string.validator.StringValidator
-	)
-
 	_overrideTomcatVersion(){
 		local branch=${1}
 
@@ -41,9 +39,5 @@ AppServerVersion(){
 		fi
 	}
 
-	packages ${packages[@]}
-
 	$@
-
-	excludes ${packages[@]}
 }

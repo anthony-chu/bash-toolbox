@@ -1,10 +1,8 @@
+include command.validator.CommandValidator
+
+include string.validator.StringValidator
+
 TestExecutor(){
-	local packages=(
-		command.validator.CommandValidator
-
-		string.validator.StringValidator
-	)
-
 	executeTest(){
 		local testClass=${1}
 
@@ -39,9 +37,5 @@ TestExecutor(){
 		done
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

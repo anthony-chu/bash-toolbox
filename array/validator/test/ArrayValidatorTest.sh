@@ -1,11 +1,9 @@
+include array.validator.ArrayValidator
+
+include test.executor.TestExecutor
+include test.util.TestUtil
+
 ArrayValidatorTest(){
-	local packages=(
-		array.validator.ArrayValidator
-
-		test.executor.TestExecutor
-		test.util.TestUtil
-	)
-
 	run(){
 		TestExecutor executeTest ArrayValidatorTest
 	}
@@ -37,9 +35,5 @@ ArrayValidatorTest(){
 	local assertNull="TestUtil assertNull"
 	local assertTrue="TestUtil assertTrue"
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

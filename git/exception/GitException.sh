@@ -1,8 +1,6 @@
-GitException(){
-	local packages=(
-		logger.Logger
-	)
+include logger.Logger
 
+GitException(){
 	curBranchException(){
 		Logger logErrorMsg "cannot_${1}_${2}_because_${2}_is_the_current_branch"
 	}
@@ -15,9 +13,5 @@ GitException(){
 		Logger logErrorMsg "cannot_${1}_${2}_because_${2}_does_not_exist"
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

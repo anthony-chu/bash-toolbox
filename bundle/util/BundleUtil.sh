@@ -1,18 +1,16 @@
+include app.server.factory.AppServerFactory
+include app.server.validator.AppServerValidator
+
+include base.comparator.BaseComparator
+include base.vars.BaseVars
+
+include file.writer.FileWriter
+
+include logger.Logger
+
+include string.util.StringUtil
+
 BundleUtil(){
-	local packages=(
-		app.server.factory.AppServerFactory
-		app.server.validator.AppServerValidator
-
-		base.comparator.BaseComparator
-		base.vars.BaseVars
-
-		file.writer.FileWriter
-
-		logger.Logger
-
-		string.util.StringUtil
-	)
-
 	configure(){
 		local appServerDir=$(AppServerFactory getAppServerDir ${1} ${2})
 
@@ -92,9 +90,5 @@ BundleUtil(){
 	local bundleDir=$(BaseVars returnBundleDir ${branch})
 	local replace="FileWriter replace"
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

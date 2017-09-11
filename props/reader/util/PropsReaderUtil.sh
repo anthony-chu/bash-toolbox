@@ -1,21 +1,19 @@
+include array.util.ArrayUtil
+
+include base.vars.BaseVars
+
+include file.name.util.FileNameUtil
+
+include logger.util.LoggerUtil
+
+include props.util.PropsUtil
+
+include string.util.StringUtil
+include string.validator.StringValidator
+
+include system.validator.SystemValidator
+
 PropsReaderUtil(){
-	local packages=(
-		array.util.ArrayUtil
-
-		base.vars.BaseVars
-
-		file.name.util.FileNameUtil
-
-		logger.util.LoggerUtil
-
-		props.util.PropsUtil
-
-		string.util.StringUtil
-		string.validator.StringValidator
-
-		system.validator.SystemValidator
-	)
-
 	getPropsFileName(){
 		local _propsFile=${1}
 		local propsFile=($(StringUtil split _propsFile /))
@@ -71,9 +69,5 @@ PropsReaderUtil(){
 		fi
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

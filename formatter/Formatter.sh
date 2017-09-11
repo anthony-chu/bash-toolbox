@@ -1,18 +1,16 @@
+include base.comparator.BaseComparator
+
+include file.util.FileUtil
+include file.writer.FileWriter
+
+include logger.Logger
+
+include math.util.MathUtil
+
+include string.util.StringUtil
+include string.validator.StringValidator
+
 Formatter(){
-	local packages=(
-		base.comparator.BaseComparator
-
-		file.util.FileUtil
-		file.writer.FileWriter
-
-		logger.Logger
-
-		math.util.MathUtil
-
-		string.util.StringUtil
-		string.validator.StringValidator
-	)
-
 	applyUnixLineEndings(){
 		FileWriter replace ${1} "\r\n" "\n"
 	}
@@ -96,19 +94,15 @@ Formatter(){
 		fi
 	}
 
-	verifyNopackagesInBase(){
+	verifyNoIncludesInBase(){
 		if [[ $(StringValidator isSubstring ${1} Base) &&
 			! $(StringValidator isSubstring ${1} Test) ]]; then
 
-			if [[ $(FileUtil getContent ${1}) =~ ]]; then
+			if [[ $(FileUtil getContent ${1}) =~ include ]]; then
 				Logger logErrorMsg "illegal_include:_${1}"
 			fi
 		fi
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

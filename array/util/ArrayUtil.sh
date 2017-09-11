@@ -1,10 +1,8 @@
+include base.comparator.BaseComparator
+
+include math.util.MathUtil
+
 ArrayUtil(){
-	local packages=(
-		base.comparator.BaseComparator
-
-		math.util.MathUtil
-	)
-
 	_trim(){
 		local array=($(readvar ${1}))
 
@@ -103,9 +101,5 @@ ArrayUtil(){
 		echo ${array[@]}
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

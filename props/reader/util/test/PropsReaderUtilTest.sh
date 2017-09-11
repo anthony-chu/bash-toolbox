@@ -1,14 +1,12 @@
+include props.reader.util.PropsReaderUtil
+include props.test.util.PropsTestUtil
+
+include string.util.StringUtil
+
+include test.executor.TestExecutor
+include test.util.TestUtil
+
 PropsReaderUtilTest(){
-	local packages=(
-		props.reader.util.PropsReaderUtil
-		props.test.util.PropsTestUtil
-
-		string.util.StringUtil
-
-		test.executor.TestExecutor
-		test.util.TestUtil
-	)
-
 	run(){
 		TestExecutor executeTest PropsReaderUtilTest
 	}
@@ -64,13 +62,9 @@ PropsReaderUtilTest(){
 	local propsDir=$(pwd)/bash-toolbox/test/dependencies
 	local propsFile=${propsDir}/test.properties
 
-	include ${packages[@]}
-
 	setUp
 
 	$@
 
 	tearDown
-
-	exclude ${packages[@]}
 }

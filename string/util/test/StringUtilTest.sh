@@ -1,11 +1,9 @@
+include string.util.StringUtil
+
+include test.executor.TestExecutor
+include test.util.TestUtil
+
 StringUtilTest(){
-	local packages=(
-		string.util.StringUtil
-
-		test.executor.TestExecutor
-		test.util.TestUtil
-	)
-
 	run(){
 		TestExecutor executeTest StringUtilTest
 	}
@@ -108,9 +106,5 @@ StringUtilTest(){
 	local assertEquals="TestUtil assertEquals"
 	local assertNull="TestUtil assertNull"
 
-	include ${packages[@]}
-
 	${@}
-
-	exclude ${packages[@]}
 }

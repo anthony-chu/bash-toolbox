@@ -1,10 +1,9 @@
-FileNameUtil(){
-	local packages=(
-		base.comparator.BaseComparator
+include base.comparator.BaseComparator
 
-		string.util.StringUtil
-		string.validator.StringValidator
-)
+include string.util.StringUtil
+include string.validator.StringValidator
+
+FileNameUtil(){
 
 	@private
 	_getPathUnix(){
@@ -44,9 +43,5 @@ FileNameUtil(){
 		fi
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

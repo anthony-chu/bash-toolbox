@@ -1,11 +1,9 @@
+include array.util.ArrayUtil
+
+include test.executor.TestExecutor
+include test.util.TestUtil
+
 ArrayUtilTest(){
-	local packages=(
-		array.util.ArrayUtil
-
-		test.executor.TestExecutor
-		test.util.TestUtil
-	)
-
 	run(){
 		TestExecutor executeTest ArrayUtilTest
 	}
@@ -114,9 +112,5 @@ ArrayUtilTest(){
 
 	local assertEquals="TestUtil assertEquals"
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

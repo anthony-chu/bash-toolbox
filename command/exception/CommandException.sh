@@ -1,16 +1,10 @@
-CommandException(){
-	local packages=(
-		logger.Logger
-	)
+include logger.Logger
 
+CommandException(){
 	noSuchCommandException(){
 		Logger logErrorMsg "\"${1}\"_is_not_a_valid_command"
 		exit
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

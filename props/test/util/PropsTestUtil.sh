@@ -1,16 +1,10 @@
-PropsTestUtil(){
-	local packages=(
-		file.util.FileUtil
-		file.writer.FileWriter
-	)
+include file.util.FileUtil
+include file.writer.FileWriter
 
+PropsTestUtil(){
 	writePropsFile(){
 		FileWriter append $(FileUtil makeFile ${propsFile}) test.enabled=true
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

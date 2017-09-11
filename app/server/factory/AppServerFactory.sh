@@ -1,11 +1,11 @@
-AppServerFactory(){
-	local packages=(
-		app.server.validator.AppServerValidator
-		app.server.version.AppServerVersion
-		base.vars.BaseVars
-		string.util.StringUtil
-	)
+include app.server.validator.AppServerValidator
+include app.server.version.AppServerVersion
 
+include base.vars.BaseVars
+
+include string.util.StringUtil
+
+AppServerFactory(){
 	getAppServerDir(){
 		local appServer=$(AppServerValidator returnAppServer ${2})
 		local _appServerDir=(
@@ -18,9 +18,5 @@ AppServerFactory(){
 		StringUtil join _appServerDir
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

@@ -1,14 +1,12 @@
+include array.util.ArrayUtil
+include array.validator.ArrayValidator
+
+include file.name.util.FileNameUtil
+
+include string.util.StringUtil
+include string.validator.StringValidator
+
 FileUtil(){
-	local packages=(
-		array.util.ArrayUtil
-		array.validator.ArrayValidator
-
-		file.name.util.FileNameUtil
-
-		string.util.StringUtil
-		string.validator.StringValidator
-	)
-
 	construct(){
 		local _path=$(FileNameUtil getPath nix ${1})
 
@@ -50,9 +48,5 @@ FileUtil(){
 		done
 	}
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

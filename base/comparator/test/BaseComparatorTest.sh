@@ -1,11 +1,9 @@
+include base.comparator.BaseComparator
+
+include test.executor.TestExecutor
+include test.util.TestUtil
+
 BaseComparatorTest(){
-	local packages=(
-		base.comparator.BaseComparator
-
-		test.executor.TestExecutor
-		test.util.TestUtil
-	)
-
 	run(){
 		TestExecutor executeTest BaseComparatorTest
 	}
@@ -85,9 +83,5 @@ BaseComparatorTest(){
 	local assertNull="TestUtil assertNull"
 	local assertTrue="TestUtil assertTrue"
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

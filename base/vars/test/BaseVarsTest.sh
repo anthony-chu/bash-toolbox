@@ -1,15 +1,13 @@
+include base.vars.BaseVars
+
+include file.name.util.FileNameUtil
+
+include system.validator.SystemValidator
+
+include test.executor.TestExecutor
+include test.util.TestUtil
+
 BaseVarsTest(){
-	local packages=(
-		base.vars.BaseVars
-
-		file.name.util.FileNameUtil
-
-		system.validator.SystemValidator
-
-		test.executor.TestExecutor
-		test.util.TestUtil
-	)
-
 	run(){
 		TestExecutor executeTest BaseVarsTest
 	}
@@ -161,9 +159,5 @@ BaseVarsTest(){
 		local _env="nix"
 	fi
 
-	include ${packages[@]}
-
 	$@
-
-	exclude ${packages[@]}
 }

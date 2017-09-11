@@ -1,16 +1,14 @@
+include app.server.validator.AppServerValidator
+include app.server.version.AppServerVersion
+
+include base.comparator.BaseComparator
+include base.vars.BaseVars
+
+include git.util.GitUtil
+
+include string.util.StringUtil
+
 JiraUtil(){
-	local packages=(
-		app.server.validator.AppServerValidator
-		app.server.version.AppServerVersion
-
-		base.comparator.BaseComparator
-		base.vars.BaseVars
-
-		git.util.GitUtil
-
-		string.util.StringUtil
-	)
-
 	_getEnv(){
 		local appServerVersion=$(AppServerVersion
 			returnAppServerVersion ${1} ${2})
@@ -54,10 +52,6 @@ JiraUtil(){
 		local branch=$(StringUtil capitalize ${branch})
 	fi
 
-	include ${packages[@]}
-
 	$@
 	_getEnv ${appServer} ${branch}
-
-	exclude ${packages[@]}
 }
