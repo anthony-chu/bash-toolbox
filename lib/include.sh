@@ -1,5 +1,3 @@
 include(){
-	for path in ${@}; do
-		source ${projectDir}bash-toolbox/${path//\./\/}.sh
-	done
+	source ${projectDir}bash-toolbox/${1//\./\/}.sh
 }
