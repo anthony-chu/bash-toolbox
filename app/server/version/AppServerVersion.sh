@@ -41,9 +41,9 @@ AppServerVersion(){
 		fi
 	}
 
-	packages ${packages[@]}
+	include ${packages[@]}
 
 	$@
 
-	excludes ${packages[@]}
+	exclude ${packages[@]}
 }
