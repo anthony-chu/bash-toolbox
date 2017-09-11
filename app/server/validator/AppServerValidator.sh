@@ -111,9 +111,9 @@ AppServerValidator(){
 		done
 	}
 
-	include ${packages[@]}
+	packages ${packages[@]}
 
 	$@
 
-	exclude ${packages[@]}
+	excludes ${packages[@]}
 }
