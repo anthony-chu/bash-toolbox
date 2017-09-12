@@ -6,6 +6,8 @@ include file.name.util.FileNameUtil
 include string.util.StringUtil
 include string.validator.StringValidator
 
+include system.validator.SystemValidator
+
 FileUtil(){
 	construct(){
 		local _path=$(FileNameUtil getPath nix ${1})
@@ -46,6 +48,16 @@ FileUtil(){
 		for cmd in {touch,echo}; do
 			${cmd} ${filePath}/${_fileNameArray[-1]}
 		done
+	}
+
+	open(){
+		if [[ $(SystemValidator isLinux) ]]; then
+			local cmd=open
+		elif [[ $(SystemValidator isWindows) ]]; then
+			local cmd=start
+		fi
+
+		${cmd} ${1}
 	}
 
 	$@
