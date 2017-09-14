@@ -37,15 +37,16 @@ LoggerUtil(){
 		local _message=$(StringUtil capitalize ${2})
 		local time=$(CalendarUtil getTimestamp log)
 
+		local color=null
+
 		if [[ $(BaseComparator isEqualIgnoreCase ${1} error) ]]; then
-			local message=$(colorme red $(StringUtil parseMessage _message))
+			local color=red
 		elif [[ $(BaseComparator isEqualIgnoreCase ${1} debug) ]]; then
-			local message=$(colorme yellow $(StringUtil parseMessage _message))
-		else
-			local message=$(StringUtil parseMessage _message)
+			local color=yellow
 		fi
 
-		echo -e "${time} [ $(_formatLogLevel ${1}) ] ${message}"
+		echo -e "${time} [ $(_formatLogLevel ${1}) ] $(
+			colorme ${color} $(StringUtil parseMessage _message))"
 	}
 
 	$@
