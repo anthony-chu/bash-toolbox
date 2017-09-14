@@ -39,6 +39,8 @@ LoggerUtil(){
 
 		if [[ $(BaseComparator isEqualIgnoreCase ${1} error) ]]; then
 			local message=$(colorme red $(StringUtil parseMessage _message))
+		elif [[ $(BaseComparator isEqualIgnoreCase ${1} debug) ]]; then
+			local message=$(colorme yellow $(StringUtil parseMessage _message))
 		else
 			local message=$(StringUtil parseMessage _message)
 		fi
