@@ -5,6 +5,10 @@ Logger(){
 		logInfoMsg completed
 	}
 
+	logDebugMsg(){
+		LoggerUtil getLogMsg debug ${1}.
+	}
+
 	logErrorMsg(){
 		LoggerUtil getLogMsg error ${1}.
 	}
