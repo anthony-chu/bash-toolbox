@@ -35,8 +35,6 @@ LoggerUtil(){
 
 	getLogMsg(){
 		local _message=$(StringUtil capitalize ${2})
-		local time=$(CalendarUtil getTimestamp log)
-
 		local color=null
 
 		if [[ $(BaseComparator isEqualIgnoreCase ${1} error) ]]; then
@@ -45,7 +43,7 @@ LoggerUtil(){
 			local color=yellow
 		fi
 
-		echo -e "${time} [ $(_formatLogLevel ${1}) ] $(
+		echo -e "$(CalendarUtil getTimestamp log) [ $(_formatLogLevel ${1}) ] $(
 			colorme ${color} $(StringUtil parseMessage _message))"
 	}
 
