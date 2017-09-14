@@ -1,6 +1,7 @@
 include math.util.MathUtil
 
 include string.util.StringUtil
+include string.validator.StringValidator
 
 CalendarUtil(){
 	getDate(){
@@ -68,7 +69,7 @@ CalendarUtil(){
 			if [[ ${this_month} == 01 ]]; then
 				local prev_month=12
 				local prev_year=$(MathUtil decrement ${this_year})
-			elif [[ ${this_month} == 0* ]]; then
+			elif [[ $(StringValidator beginsWith 0 ${this_month}) ]]; then
 				local prev_month=$(
 					MathUtil decrement $(StringUtil strip this_month 0))
 			else
@@ -78,7 +79,7 @@ CalendarUtil(){
 			if [[ ${#prev_month} == 1 ]]; then
 				local prev_month=0${prev_month}
 			fi
-		elif [[ ${this_day} == 0* ]]; then
+		elif [[ $(StringValidator beginsWith 0 ${this_day}) ]]; then
 			local prev_day=$(MathUtil decrement $(StringUtil strip this_day 0))
 		else
 			local prev_day=$(MathUtil decrement ${this_day})
