@@ -3,7 +3,7 @@ package(){
 		local files=($(find ${projectDir}bash-toolbox/${1//./\/} -type f -iname "*.sh"))
 
 		if [ ${#files[@]} -lt 3 ]; then
-			echo -e "[ ERROR ] \033[0;31m"The package \"${1}\" is not large enough to source using package."\033[0m"
+			echo -e "[ ERROR ] \033[0;31m"The package \"${1}\" is not large enough to import using package."\033[0m"
 			echo -e "[ ERROR ] \033[0;31m"Please use \"include\" instead on files from ${1}."\033[0m"
 			exit
 		fi
