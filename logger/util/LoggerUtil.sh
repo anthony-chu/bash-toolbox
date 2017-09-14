@@ -7,7 +7,7 @@ include string.util.StringUtil
 LoggerUtil(){
 	_formatLogLevel(){
 		local logLevel=${1}
-		local validLogLevels=(info error)
+		local validLogLevels=(error info)
 
 		local maxLength=$(_returnArrayMaxLength validLogLevels)
 
