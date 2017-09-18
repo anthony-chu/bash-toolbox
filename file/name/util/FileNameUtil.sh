@@ -26,11 +26,10 @@ FileNameUtil(){
 			local drive=$(StringUtil capitalize ${path:1:1})
 			local headlessPath=${path/\/[a-z]/}
 
-			echo ${drive}:${headlessPath}
-			return
+			local path=${drive}:${headlessPath}
 		fi
 
-		echo ${path}
+		StringUtil replace ${path} [/] \\\\
 	}
 
 	getPath(){
