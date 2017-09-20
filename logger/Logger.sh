@@ -6,15 +6,15 @@ Logger(){
 	}
 
 	logDebugMsg(){
-		LoggerUtil getLogMsg debug ${1}.
+		LoggerUtil getLogMsg debug ${1}
 	}
 
 	logErrorMsg(){
-		LoggerUtil getLogMsg error ${1}.
+		LoggerUtil getLogMsg error ${1}
 	}
 
 	logInfoMsg(){
-		LoggerUtil getLogMsg info ${1}.
+		LoggerUtil getLogMsg info ${1}
 	}
 
 	logProgressMsg(){
