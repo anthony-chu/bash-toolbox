@@ -18,7 +18,7 @@ Logger(){
 	}
 
 	logProgressMsg(){
-		logInfoMsg ${1}..
+		logInfoMsg ${1}...
 	}
 
 	logRequestMsg(){
