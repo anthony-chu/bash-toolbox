@@ -1,5 +1,6 @@
 include base.comparator.BaseComparator
 
+include string.util.StringUtil
 include string.validator.StringValidator
 
 MathUtil(){
