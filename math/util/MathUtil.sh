@@ -1,6 +1,5 @@
 include base.comparator.BaseComparator
 
-include string.util.StringUtil
 include string.validator.StringValidator
 
 MathUtil(){
@@ -14,7 +13,7 @@ MathUtil(){
 
 	format(){
 		if [[ ${1} -le 9 ]]; then
-			StringUtil append 0 ${1}
+			echo 0${1}
 		else
 			echo ${1}
 		fi
