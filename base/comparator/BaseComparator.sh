@@ -1,7 +1,9 @@
 BaseComparator(){
 	isEqual(){
 		if [[ ! ${1//[0-9-]/} && ! ${2//[0-9-]} ]]; then
-			echo true
+			if [ ${1} -eq ${2} ]; then
+				echo true
+			fi
 		else
 			if [[ ${1} == ${2} ]]; then
 				echo true
