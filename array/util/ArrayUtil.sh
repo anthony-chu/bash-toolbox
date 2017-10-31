@@ -68,6 +68,19 @@ ArrayUtil(){
 		echo ${maxLength}
 	}
 
+	returnUniqueArray(){
+		local array=($(readvar ${1}))
+		local unique=()
+
+		for a in ${array[@]}; do
+			if [[ ! ${unique[@]} =~ ${a} ]]; then
+				unique+=(${a})
+			fi
+		done
+
+		echo ${unique[@]}
+	}
+
 	reverse(){
 		echo $(
 			for element in $(readvar ${1}); do
