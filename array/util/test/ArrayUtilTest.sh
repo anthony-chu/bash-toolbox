@@ -78,6 +78,14 @@ ArrayUtilTest(){
 		${assertEquals} $(ArrayUtil returnMaxLength inputArray) ${maxLength}
 	}
 
+	testReturnUniqueArray(){
+		local inputArray=(foo foo bar foobar)
+		local outputArray=(foo bar foobar)
+		local result=($(ArrayUtil returnUniqueArray inputArray))
+
+		${assertEquals} result outputArray
+	}
+
 	testReverse(){
 		local inputArray=(foo bar)
 		local outputArray=(bar foo)
