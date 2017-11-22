@@ -47,7 +47,7 @@ MathUtil(){
 		echo $((${var}%${2}))
 	}
 
-	power(){
+	exp(){
 		local base=${1}
 		local exponent=${2}
 

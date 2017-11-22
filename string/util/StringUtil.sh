@@ -20,7 +20,7 @@ StringUtil(){
 		local str=${1}
 
 		if [[ ! $(BaseComparator isLessThan ${level} 0) ]]; then
-			for (( i=0; i<$(MathUtil power 2 ${level}); i++ )); do
+			for (( i=0; i<$(MathUtil exp 2 ${level}); i++ )); do
 				local str="\\"${str}
 			done
 		fi
