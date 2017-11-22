@@ -73,15 +73,15 @@ MathUtilTest(){
 	}
 
 	testExpBaseTwoExponentThree(){
-		${assertEquals} $(MathUtil power 2 3) 8
+		${assertEquals} $(MathUtil exp 2 3) 8
 	}
 
 	testExpExponentZero(){
-		${assertEquals} $(MathUtil power 2 0) 1
+		${assertEquals} $(MathUtil exp 2 0) 1
 	}
 
 	testExpIdentity(){
-		${assertEquals} $(MathUtil power 2 1) 2
+		${assertEquals} $(MathUtil exp 2 1) 2
 	}
 
 	testProduct[zero](){
