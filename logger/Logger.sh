@@ -25,5 +25,9 @@ Logger(){
 		LoggerUtil getLogMsg info ${1}:
 	}
 
+	logSuccessMsg(){
+		LoggerUtil getLogMsg success ${1}
+	}
+
 	${@}
 }
