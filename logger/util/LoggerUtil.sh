@@ -4,6 +4,8 @@ include base.comparator.BaseComparator
 
 include calendar.util.CalendarUtil
 
+include math.util.MathUtil
+
 include string.util.StringUtil
 
 LoggerUtil(){
@@ -16,7 +18,11 @@ LoggerUtil(){
 		while [[ $(BaseComparator isLessThan $(StringUtil
 			length ${logLevel}) ${maxLength}) ]]; do
 
-			local logLevel=$(StringUtil append ${logLevel} _)
+			if [[ $(MathUtil isEven $(StringUtil length ${logLevel})) ]]; then
+				local logLevel=$(StringUtil append _ ${logLevel})
+			else
+				local logLevel=$(StringUtil append ${logLevel} _)
+			fi
 		done
 
 		StringUtil toUpperCase ${logLevel}
