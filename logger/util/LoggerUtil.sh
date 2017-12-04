@@ -9,7 +9,7 @@ include string.util.StringUtil
 LoggerUtil(){
 	_formatLogLevel(){
 		local logLevel=${1}
-		local validLogLevels=(debug error info)
+		local validLogLevels=(debug error info success)
 
 		local maxLength=$(ArrayUtil returnMaxLength validLogLevels)
 
@@ -30,6 +30,8 @@ LoggerUtil(){
 			local color=red
 		elif [[ $(BaseComparator isEqualIgnoreCase ${1} debug) ]]; then
 			local color=yellow
+		elif [[ $(BaseComparator isEqualIgnoreCase ${1} success) ]]; then
+			local color=green
 		fi
 
 		echo -e "$(CalendarUtil getTimestamp log) [ $(_formatLogLevel ${1}) ] $(
