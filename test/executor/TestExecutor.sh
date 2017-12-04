@@ -1,5 +1,7 @@
 include command.validator.CommandValidator
 
+include logger.Logger
+
 include string.validator.StringValidator
 
 TestExecutor(){
@@ -27,12 +29,12 @@ TestExecutor(){
 				local status=$(${testClass} ${_test})ED
 
 				if [[ $(StringValidator isSubstring status PASS) ]]; then
-					local status=$(colorme green ${status})
+					local logLevel=Success
 				elif [[ $(StringValidator isSubstring status FAIL) ]]; then
-					local status=$(colorme red ${status})
+					local logLevel=Error
 				fi
 
-				echo -e ${testClass}\#${_test} ${status}
+				Logger log${logLevel}Msg "${testClass}#${_test}_${status}"
 			fi
 		done
 	}
