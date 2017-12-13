@@ -5,6 +5,29 @@ include command.exception.CommandException
 include string.util.StringUtil
 
 CommandValidator(){
+	getCommandsByAnnotation(){
+		local annotation=${2}
+		local lineNumber=1
+		local file=${1}
+		local validFunctions=()
+
+		while read line; do
+			if [[ ${line} == *\(\){ ]]; then
+				local prevLineNumber=$((${lineNumber}-1))
+
+				local prevLineContent=$(sed "${prevLineNumber}q;d" ${file})
+
+				if [[ ${prevLineContent} =~ ${annotation} ]]; then
+					validFunctions+=($(StringUtil strip line \(\)\{))
+				fi
+			fi
+
+			local lineNumber=$((${lineNumber}+1))
+		done < ${file}
+
+		echo ${validFunctions[@]}
+	}
+
 	getValidFunctions(){
 		local lineNumber=1
 		local file=${1}
@@ -30,25 +53,7 @@ CommandValidator(){
 	}
 
 	getTestCommands(){
-		local lineNumber=1
-		local file=${1}
-		local validFunctions=()
-
-		while read line; do
-			if [[ ${line} == *\(\){ ]]; then
-				local prevLineNumber=$((${lineNumber}-1))
-
-				local prevLineContent=$(sed "${prevLineNumber}q;d" ${file})
-
-				if [[ ${prevLineContent} =~ @test ]]; then
-					validFunctions+=($(StringUtil strip line \(\)\{))
-				fi
-			fi
-
-			local lineNumber=$((${lineNumber}+1))
-		done < ${file}
-
-		echo ${validFunctions[@]}
+		getCommandsByAnnotation ${1} @test
 	}
 
 	validateCommand(){
