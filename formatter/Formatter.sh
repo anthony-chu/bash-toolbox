@@ -20,7 +20,7 @@ Formatter(){
 		sed -i "s/[ ][ ][ ][ ]/\t/g" ${1}
 	}
 
-	enforceBashToolboxLocalVariables(){
+	enforceLocalVariables(){
 		local n=1
 
 		local localVariableExceptions=(
