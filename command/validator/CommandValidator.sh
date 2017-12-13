@@ -8,7 +8,6 @@ CommandValidator(){
 	getValidFunctions(){
 		local lineNumber=1
 		local file=${1}
-
 		local validFunctions=()
 
 		while read line; do
