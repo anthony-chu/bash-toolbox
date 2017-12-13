@@ -20,35 +20,28 @@ TestExecutor(){
 
 		local _tests=(
 			$(CommandValidator
-				getValidFunctions bash-toolbox${classpath}/${testClass}.sh)
+				getTestCommands bash-toolbox${classpath}/${testClass}.sh)
 		)
 
-		local ignorableCommands="${testClass} run setUp tearDown"
-
 		for _test in ${_tests[@]}; do
-			local isIgnorable=$(
-				StringValidator isSubstring ignorableCommands _test)
+			local status=$(${testClass} ${_test})ED
 
-			if [[ ! ${isIgnorable} ]]; then
-				local status=$(${testClass} ${_test})ED
+			if [[ $(StringValidator isSubstring status PASS) ]]; then
+				local logLevel=Success
 
-				if [[ $(StringValidator isSubstring status PASS) ]]; then
-					local logLevel=Success
+				results_pass+=(${_test})
+			elif [[ $(StringValidator isSubstring status FAIL) ]]; then
+				local logLevel=Error
 
-					results_pass+=(${_test})
-				elif [[ $(StringValidator isSubstring status FAIL) ]]; then
-					local logLevel=Error
+				results_fail+=(${_test})
+			else
+				local logLevel=Debug
+				local status=SKIPPED
 
-					results_fail+=(${_test})
-				else
-					local logLevel=Debug
-					local status=SKIPPED
-
-					results_debug+=(${_test})
-				fi
-
-				Logger log${logLevel}Msg "${testClass}#${_test}_${status}"
+				results_debug+=(${_test})
 			fi
+
+			Logger log${logLevel}Msg "${testClass}#${_test}_${status}"
 		done
 
 		local total=$((
