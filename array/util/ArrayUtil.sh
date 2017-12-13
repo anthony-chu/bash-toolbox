@@ -3,6 +3,7 @@ include base.comparator.BaseComparator
 include math.util.MathUtil
 
 ArrayUtil(){
+	@private
 	_trim(){
 		local array=($(readvar ${1}))
 

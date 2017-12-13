@@ -9,6 +9,7 @@ include math.util.MathUtil
 include string.util.StringUtil
 
 LoggerUtil(){
+	@private
 	_formatLogLevel(){
 		local logLevel=${1}
 		local validLogLevels=(debug error info success)

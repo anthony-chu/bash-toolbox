@@ -9,6 +9,7 @@ include git.util.GitUtil
 include string.util.StringUtil
 
 JiraUtil(){
+	@private
 	_getEnv(){
 		local appServerVersion=$(AppServerVersion
 			returnAppServerVersion ${1} ${2})
