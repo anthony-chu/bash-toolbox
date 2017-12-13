@@ -40,9 +40,7 @@ CommandValidator(){
 
 				local prevLineContent=$(sed "${prevLineNumber}q;d" ${file})
 
-				if [[ ! ${prevLineContent} =~ @ignore &&
-					! ${prevLineContent} =~ @private ]]; then
-
+				if [[ ${previousLineContent} =~ @test ]]; then
 					validFunctions+=($(StringUtil strip line \(\)\{))
 				fi
 			fi
