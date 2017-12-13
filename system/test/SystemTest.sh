@@ -12,12 +12,14 @@ SystemTest(){
 		export ANT_OPTS=${ant_opts}
 	}
 
+	@test
 	testExtendAntOpts[6.x](){
 		System extendAntOpts 6.x > /dev/null
 
 		${assertContains} ANT_OPTS -XX:MaxPermSize=1024m
 	}
 
+	@test
 	testExtendAntOpts[7.x](){
 		System extendAntOpts 7.x > /dev/null
 

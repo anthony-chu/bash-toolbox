@@ -17,6 +17,7 @@ FileWriterTest(){
 		rm -rf ${testDir}
 	}
 
+	@test
 	testAppendCreateFile(){
 		local isNotFile=$(${assertDoesNotExist} testFile)
 
@@ -36,6 +37,7 @@ FileWriterTest(){
 		fi
 	}
 
+	@test
 	testAppendExistingFile(){
 		local testFile=$(FileUtil makeFile ${testFile})
 
@@ -47,6 +49,7 @@ FileWriterTest(){
 		${assertEquals} content fileContent
 	}
 
+	@test
 	testReplace(){
 		FileWriter append ${testFile} "this is a string"
 		FileWriter replace ${testFile} this that

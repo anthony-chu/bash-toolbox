@@ -8,6 +8,7 @@ CalendarUtilTest(){
 		TestExecutor executeTest CalendarUtilTest
 	}
 
+	@test
 	testReturnYesterdayTimestampGetLeapYear(){
 		local prev_timestamp=20160229
 		local this_timestamp=20160301
@@ -16,6 +17,7 @@ CalendarUtilTest(){
 			returnYesterdayTimestamp ${this_timestamp}) ${prev_timestamp}
 	}
 
+	@test
 	testReturnYesterdayTimestampGetPreviousDayBothLeadingZero(){
 		local prev_timestamp=20170901
 		local this_timestamp=20170902
@@ -24,6 +26,7 @@ CalendarUtilTest(){
 			returnYesterdayTimestamp ${this_timestamp}) ${prev_timestamp}
 	}
 
+	@test
 	testReturnYesterdayTimestampGetPreviousDayNoLeadingZero(){
 		local prev_timestamp=20170911
 		local this_timestamp=20170912
@@ -32,6 +35,7 @@ CalendarUtilTest(){
 			returnYesterdayTimestamp ${this_timestamp}) ${prev_timestamp}
 	}
 
+	@test
 	testReturnYesterdayTimestampGetPreviousDayThisLeadingZero(){
 		local prev_timestamp=20170909
 		local this_timestamp=20170910
@@ -40,6 +44,7 @@ CalendarUtilTest(){
 			returnYesterdayTimestamp ${this_timestamp}) ${prev_timestamp}
 	}
 
+	@test
 	testReturnYesterdayTimestampGetPreviousMonthBothLeadingZero(){
 		local prev_timestamp=20170831
 		local this_timestamp=20170901
@@ -48,6 +53,7 @@ CalendarUtilTest(){
 			returnYesterdayTimestamp ${this_timestamp}) ${prev_timestamp}
 	}
 
+	@test
 	testReturnYesterdayTimestampGetPreviousMonthNoLeadingZero(){
 		local prev_timestamp=20170731
 		local this_timestamp=20170801
@@ -56,6 +62,7 @@ CalendarUtilTest(){
 			returnYesterdayTimestamp ${this_timestamp}) ${prev_timestamp}
 	}
 
+	@test
 	testReturnYesterdayTimestampGetPreviousMonthPreviousLeadingZero(){
 		local prev_timestamp=20170930
 		local this_timestamp=20171001
@@ -64,6 +71,7 @@ CalendarUtilTest(){
 			returnYesterdayTimestamp ${this_timestamp}) ${prev_timestamp}
 	}
 
+	@test
 	testReturnYesterdayTimestampGetPreviousYear(){
 		local prev_timestamp=20161231
 		local this_timestamp=20170101
@@ -72,6 +80,7 @@ CalendarUtilTest(){
 			returnYesterdayTimestamp ${this_timestamp}) ${prev_timestamp}
 	}
 
+	@test
 	testReturnYesterdayTimestampIgnoreLeapYear(){
 		local prev_timestamp=20170228
 		local this_timestamp=20170301

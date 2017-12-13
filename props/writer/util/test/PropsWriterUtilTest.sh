@@ -19,6 +19,7 @@ PropsWriterUtilTest(){
 		rm -rf ${propsDir}
 	}
 
+	@test
 	testDisableProps(){
 		local isEnabled=$(${assertEquals} $(PropsUtil
 			getProperty ${propsFile} test.enabled) test.enabled=true)
@@ -35,6 +36,7 @@ PropsWriterUtilTest(){
 		fi
 	}
 
+	@test
 	testEnableProps(){
 		PropsWriterUtil disableProps ${propsFile} test.enabled
 
@@ -53,6 +55,7 @@ PropsWriterUtilTest(){
 		fi
 	}
 
+	@test
 	testSetPropsDisabledProp(){
 		PropsWriterUtil disableProps ${propsFile} test.enabled
 
@@ -71,6 +74,7 @@ PropsWriterUtilTest(){
 		fi
 	}
 
+	@test
 	testSetPropsEditPropsValue(){
 		local isTrue=$(${assertEquals} $(
 			PropsReaderUtil getValue ${propsFile} test.enabled) true)
@@ -87,6 +91,7 @@ PropsWriterUtilTest(){
 		fi
 	}
 
+	@test
 	testSetPropsNewPropsFile(){
 		local _propsFile=${propsDir}/temp.properties
 

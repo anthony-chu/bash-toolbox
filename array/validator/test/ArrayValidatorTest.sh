@@ -8,24 +8,28 @@ ArrayValidatorTest(){
 		TestExecutor executeTest ArrayValidatorTest
 	}
 
+	@test
 	testHasEntry[false](){
 		local inputArray=(foo foo)
 
 		${assertNull} $(ArrayValidator hasEntry inputArray bar)
 	}
 
+	@test
 	testHasEntry[true](){
 		local inputArray=(foo bar)
 
 		${assertTrue} $(ArrayValidator hasEntry inputArray foo)
 	}
 
+	@test
 	testHasUniqueEntry[false](){
 		local inputArray=(foo foo bar)
 
 		${assertNull} $(ArrayValidator hasUniqueEntry inputArray foo)
 	}
 
+	@test
 	testHasUniqueEntry[true](){
 		local inputArray=(foo foo bar)
 

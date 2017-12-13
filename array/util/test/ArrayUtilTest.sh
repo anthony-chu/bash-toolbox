@@ -8,6 +8,7 @@ ArrayUtilTest(){
 		TestExecutor executeTest ArrayUtilTest
 	}
 
+	@test
 	test_trim(){
 		local inputArray=({1..7})
 		local outputArray=({1..6})
@@ -16,6 +17,7 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
+	@test
 	testAppendArrayEntry(){
 		local inputArray=(foo foobar)
 		local outputArray=(foo... foobar)
@@ -24,6 +26,7 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
+	@test
 	testBisect[false](){
 		local inputArray=({1..6})
 		local outputArray=(4 5 6)
@@ -32,6 +35,7 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
+	@test
 	testBisect[true](){
 		local inputArray=({1..6})
 		local outputArray=({1..3})
@@ -40,6 +44,7 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
+	@test
 	testPartition[1-of-3](){
 		local inputArray=({1..6})
 		local outputArray=(1 2)
@@ -48,6 +53,7 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
+	@test
 	testPartition[2-of-3](){
 		local inputArray=({1..6})
 		local outputArray=(3 4)
@@ -56,6 +62,7 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
+	@test
 	testPartition[3-of-3](){
 		local inputArray=({1..6})
 		local outputArray=(5 6)
@@ -64,6 +71,7 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
+	@test
 	testReturnMaxLength(){
 		local inputArray=(foo foobar)
 		local maxLength=6
@@ -71,6 +79,7 @@ ArrayUtilTest(){
 		${assertEquals} $(ArrayUtil returnMaxLength inputArray) ${maxLength}
 	}
 
+	@test
 	testReturnMaxLength[greater-than-10](){
 		local inputArray=(foo foobar foofoobarbar)
 		local maxLength=12
@@ -78,6 +87,7 @@ ArrayUtilTest(){
 		${assertEquals} $(ArrayUtil returnMaxLength inputArray) ${maxLength}
 	}
 
+	@test
 	testReturnUniqueArray(){
 		local inputArray=(foo foo bar foobar)
 		local outputArray=(foo bar foobar)
@@ -86,6 +96,7 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
+	@test
 	testReverse(){
 		local inputArray=(foo bar)
 		local outputArray=(bar foo)
@@ -94,6 +105,7 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
+	@test
 	testStrip(){
 		local inputArray=(foo foo bar bar)
 		local outputArray=(bar bar)
@@ -102,6 +114,7 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
+	@test
 	testTrim[1](){
 		local inputArray=({1..7})
 		local outputArray=({1..6})
@@ -110,6 +123,7 @@ ArrayUtilTest(){
 		${assertEquals} result outputArray
 	}
 
+	@test
 	testTrim[multiple](){
 		local inputArray=({1..7})
 		local outputArray=({1..4})

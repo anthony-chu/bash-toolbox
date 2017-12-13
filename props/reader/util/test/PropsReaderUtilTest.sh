@@ -19,6 +19,7 @@ PropsReaderUtilTest(){
 		rm -rf ${propsDir}
 	}
 
+	@test
 	testGetPropsFileName(){
 		local propsFileMap=($(PropsReaderUtil getPropsFileName ${propsFile}))
 
@@ -33,11 +34,13 @@ PropsReaderUtilTest(){
 		fi
 	}
 
+	@test
 	testGetValue(){
 		${assertEquals} $(
 			PropsReaderUtil getValue ${propsFile} test.enabled) true
 	}
 
+	@test
 	testReadPropsFileDoesNotExist(){
 		local _propsDir=$(StringUtil strip propsDir dependencies)test.properties
 		local message=$(PropsReaderUtil readProps ${_propsDir})
@@ -45,11 +48,13 @@ PropsReaderUtilTest(){
 		${assertContains} message ERROR
 	}
 
+	@test
 	testReadProps(){
 		${assertEquals} $(PropsReaderUtil
 			readProps ${propsFile} test.enabled) true
 	}
 
+	@test
 	testReadPropsPropertyDoesNotExist(){
 		local _propsDir=$(StringUtil strip propsDir dependencies)test.properties
 		local message=$(PropsReaderUtil readProps ${_propsDir} some.prop)

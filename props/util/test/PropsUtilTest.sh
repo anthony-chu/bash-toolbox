@@ -17,6 +17,7 @@ PropsUtilTest(){
 		rm -rf ${propsDir}
 	}
 
+	@test
 	testGetProperty(){
 		${assertEquals} $(PropsUtil
 			getProperty ${propsFile} test.enabled) test.enabled=true

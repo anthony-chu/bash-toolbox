@@ -19,10 +19,12 @@ FileUtilTest(){
 		rm -rf ${testDir}
 	}
 
+	@test
 	testConstruct(){
 		${assertExists} $(FileUtil construct ${testDir}/foo)
 	}
 
+	@test
 	testGetContent(){
 		local content="this is a string"
 		local file=$(FileUtil makeFile ${testDir}/test.txt)
@@ -34,6 +36,7 @@ FileUtilTest(){
 		${assertEquals} content fileContent
 	}
 
+	@test
 	testMakeFile(){
 		${assertExists} $(FileUtil makeFile ${testDir}/test.txt)
 	}
