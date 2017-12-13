@@ -29,25 +29,18 @@ CommandValidator(){
 	}
 
 	getValidFunctions(){
-		local lineNumber=1
 		local file=${1}
 		local validFunctions=()
 
-		while read line; do
-			if [[ ${line} == *\(\){ ]]; then
-				local prevLineNumber=$((${lineNumber}-1))
+		local all=($(getCommandsByAnnotation ${file}))
+		local ignore=($(getCommandsByAnnotation ${file} @ignore))
+		local private=($(getCommandsByAnnotation ${file} @private))
 
-				local prevLineContent=$(sed "${prevLineNumber}q;d" ${file})
-
-				if [[ ! ${prevLineContent} =~ @ignore &&
-					! ${prevLineContent} =~ @private ]]; then
-
-					validFunctions+=($(StringUtil strip line \(\)\{))
-				fi
+		for a in ${all[@]}; do
+			if [[ ! "${ignore[@]} ${private[@]}" =~ ${a} ]]; then
+				validFunctions+=(${a})
 			fi
-
-			local lineNumber=$((${lineNumber}+1))
-		done < ${file}
+		done
 
 		echo ${validFunctions[@]}
 	}
