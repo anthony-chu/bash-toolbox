@@ -9,3 +9,7 @@
 @private(){
 	echo -n ""
 }
+
+@test(){
+	echo -n ""
+}
