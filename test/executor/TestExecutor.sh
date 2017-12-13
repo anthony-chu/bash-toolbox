@@ -32,6 +32,9 @@ TestExecutor(){
 					local logLevel=Success
 				elif [[ $(StringValidator isSubstring status FAIL) ]]; then
 					local logLevel=Error
+				else
+					local logLevel=Debug
+					local status=SKIPPED
 				fi
 
 				Logger log${logLevel}Msg "${testClass}#${_test}_${status}"
