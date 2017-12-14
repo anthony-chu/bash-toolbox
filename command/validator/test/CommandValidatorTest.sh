@@ -19,6 +19,12 @@ CommandValidatorTest(){
 	}
 
 	@test
+	testGetCommandsByAnnotation[@class](){
+		${assertEquals} $(CommandValidator
+			getCommandsByAnnotation ${testFile} @class) Test
+	}
+
+	@test
 	testGetCommandsByAnnotation[@ignore](){
 		${assertEquals} $(CommandValidator
 			getCommandsByAnnotation ${testFile} @ignore) alpha
