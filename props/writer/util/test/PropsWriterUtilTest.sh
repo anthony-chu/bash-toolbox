@@ -19,12 +19,12 @@ PropsWriterUtilTest(){
 	@test
 	testDisableProps(){
 		local isEnabled=$(${assertEquals} $(PropsUtil
-			getProperty ${propsFile} test.enabled) test.enabled=true)
+			getProperty ${testFile} test.enabled) test.enabled=true)
 
-		PropsWriterUtil disableProps ${propsFile} test.enabled
+		PropsWriterUtil disableProps ${testFile} test.enabled
 
 		local isDisabled=$(${assertEquals} $(PropsUtil
-			getProperty ${propsFile} test.enabled) \#test.enabled=true)
+			getProperty ${testFile} test.enabled) \#test.enabled=true)
 
 		if [[ ${isEnabled} == PASS && ${isDisabled} == PASS ]]; then
 			echo PASS
@@ -35,15 +35,15 @@ PropsWriterUtilTest(){
 
 	@test
 	testEnableProps(){
-		PropsWriterUtil disableProps ${propsFile} test.enabled
+		PropsWriterUtil disableProps ${testFile} test.enabled
 
 		local isDisabled=$(${assertEquals} $(PropsUtil
-			getProperty ${propsFile} test.enabled) \#test.enabled=true)
+			getProperty ${testFile} test.enabled) \#test.enabled=true)
 
-		PropsWriterUtil enableProps ${propsFile} test.enabled true
+		PropsWriterUtil enableProps ${testFile} test.enabled true
 
 		local isEnabled=$(${assertEquals} $(PropsUtil
-			getProperty ${propsFile} test.enabled) test.enabled=true)
+			getProperty ${testFile} test.enabled) test.enabled=true)
 
 		if [[ ${isEnabled} == PASS && ${isDisabled} == PASS ]]; then
 			echo PASS
@@ -54,15 +54,15 @@ PropsWriterUtilTest(){
 
 	@test
 	testSetPropsDisabledProp(){
-		PropsWriterUtil disableProps ${propsFile} test.enabled
+		PropsWriterUtil disableProps ${testFile} test.enabled
 
 		local isDisabled=$(${assertEquals} $(PropsUtil
-			getProperty ${propsFile} test.enabled) \#test.enabled=true)
+			getProperty ${testFile} test.enabled) \#test.enabled=true)
 
-		PropsWriterUtil setProps ${propsFile} test.enabled true
+		PropsWriterUtil setProps ${testFile} test.enabled true
 
 		local isEnabled=$(${assertEquals} $(PropsUtil
-			getProperty ${propsFile} test.enabled) test.enabled=true)
+			getProperty ${testFile} test.enabled) test.enabled=true)
 
 		if [[ ${isEnabled} == PASS && ${isDisabled} == PASS ]]; then
 			echo PASS
@@ -74,12 +74,12 @@ PropsWriterUtilTest(){
 	@test
 	testSetPropsEditPropsValue(){
 		local isTrue=$(${assertEquals} $(
-			PropsReaderUtil getValue ${propsFile} test.enabled) true)
+			PropsReaderUtil getValue ${testFile} test.enabled) true)
 
-		PropsWriterUtil setProps ${propsFile} test.enabled false
+		PropsWriterUtil setProps ${testFile} test.enabled false
 
 		local isFalse=$(${assertEquals} $(
-			PropsReaderUtil getValue ${propsFile} test.enabled) false)
+			PropsReaderUtil getValue ${testFile} test.enabled) false)
 
 		if [[ ${isTrue} == PASS && ${isFalse} == PASS ]]; then
 			echo PASS
@@ -90,7 +90,7 @@ PropsWriterUtilTest(){
 
 	@test
 	testSetPropsNewPropsFile(){
-		local _propsFile=${propsDir}/temp.properties
+		local _propsFile=${testDir}/temp.properties
 
 		local isNotFile=$(${assertDoesNotExist} ${_propsFile})
 
@@ -114,7 +114,7 @@ PropsWriterUtilTest(){
 	local assertEquals="TestUtil assertEquals"
 	local assertExists="TestUtil assertExists"
 	local testDir=$(TestUtil setupTestDir)
-	local propsFile=${propsDir}/test.properties
+	local testFile=${testDir}/test.properties
 
 	setUp
 

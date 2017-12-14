@@ -17,12 +17,12 @@ PropsUtilTest(){
 	@test
 	testGetProperty(){
 		${assertEquals} $(PropsUtil
-			getProperty ${propsFile} test.enabled) test.enabled=true
+			getProperty ${testFile} test.enabled) test.enabled=true
 	}
 
 	local assertEquals="TestUtil assertEquals"
 	local testDir=$(TestUtil setupTestDir)
-	local propsFile=${propsDir}/test.properties
+	local testFile=${testDir}/test.properties
 
 	setUp
 
