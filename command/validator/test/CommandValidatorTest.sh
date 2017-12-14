@@ -50,6 +50,12 @@ CommandValidatorTest(){
 			getCommandsByAnnotation ${testFile} @test) kappa
 	}
 
+	@test
+	testGetValidFunctions(){
+		${assertEquals} $(CommandValidator
+			getValidFunctions ${testFile}) kappa
+	}
+
 	local assertEquals="TestUtil assertEquals"
 	local testDir=$(pwd)/bash-toolbox/test/dependencies
 	local testFile=${testDir}/Test.sh
