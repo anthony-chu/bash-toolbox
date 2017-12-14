@@ -1,3 +1,7 @@
+@class(){
+	echo -n ""
+}
+
 @description(){
 	echo -n ""
 }
