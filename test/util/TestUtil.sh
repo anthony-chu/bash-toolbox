@@ -2,6 +2,8 @@ include base.comparator.BaseComparator
 
 include calendar.util.CalendarUtil
 
+include file.util.FileUtil
+
 include logger.util.LoggerUtil
 
 include string.util.StringUtil
@@ -93,6 +95,14 @@ TestUtil(){
 		fi
 
 		LoggerUtil getLogMsg info ${message}
+	}
+
+	setupTestDir(){
+		FileUtil construct $(pwd)/bash-toolbox/test/dependencies
+	}
+
+	tearDown(){
+		rm -rf $(pwd)/bash-toolbox/test/dependencies
 	}
 
 	$@

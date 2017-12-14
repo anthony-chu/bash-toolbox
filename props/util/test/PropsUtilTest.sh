@@ -11,11 +11,7 @@ PropsUtilTest(){
 	}
 
 	setUp(){
-		PropsTestUtil writePropsFile
-	}
-
-	tearDown(){
-		rm -rf ${propsDir}
+		PropsTestUtil writePropsFile ${testFile}
 	}
 
 	@test
@@ -25,12 +21,12 @@ PropsUtilTest(){
 	}
 
 	local assertEquals="TestUtil assertEquals"
-	local propsDir=$(pwd)/bash-toolbox/test/dependencies
+	local testDir=$(TestUtil setupTestDir)
 	local propsFile=${propsDir}/test.properties
 
 	setUp
 
 	$@
 
-	tearDown
+	TestUtil tearDown
 }

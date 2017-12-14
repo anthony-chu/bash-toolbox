@@ -16,10 +16,6 @@ PropsReaderUtilTest(){
 		PropsTestUtil writePropsFile ${testFile}
 	}
 
-	tearDown(){
-		rm -rf ${testDir}
-	}
-
 	@test
 	testGetPropsFileName(){
 		local propsFileMap=($(PropsReaderUtil getPropsFileName ${testFile}))
@@ -65,12 +61,12 @@ PropsReaderUtilTest(){
 
 	local assertContains="TestUtil assertContains"
 	local assertEquals="TestUtil assertEquals"
-	local testDir=$(pwd)/bash-toolbox/test/dependencies
+	local testDir=$(TestUtil setupTestDir)
 	local testFile=${testDir}/test.properties
 
 	setUp
 
 	$@
 
-	tearDown
+	TestUtil tearDown
 }

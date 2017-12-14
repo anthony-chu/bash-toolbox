@@ -13,11 +13,7 @@ PropsWriterUtilTest(){
 	}
 
 	setUp(){
-		PropsTestUtil writePropsFile
-	}
-
-	tearDown(){
-		rm -rf ${propsDir}
+		PropsTestUtil writePropsFile ${testFile}
 	}
 
 	@test
@@ -117,12 +113,12 @@ PropsWriterUtilTest(){
 	local assertDoesNotExist="TestUtil assertDoesNotExist"
 	local assertEquals="TestUtil assertEquals"
 	local assertExists="TestUtil assertExists"
-	local propsDir=$(pwd)/bash-toolbox/test/dependencies
+	local testDir=$(TestUtil setupTestDir)
 	local propsFile=${propsDir}/test.properties
 
 	setUp
 
 	$@
 
-	tearDown
+	TestUtil tearDown
 }

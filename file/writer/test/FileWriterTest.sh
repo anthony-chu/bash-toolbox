@@ -10,14 +10,6 @@ FileWriterTest(){
 		TestExecutor executeTest FileWriterTest
 	}
 
-	setUp(){
-		local _testDir=$(FileUtil construct ${testDir})
-	}
-
-	tearDown(){
-		rm -rf ${testDir}
-	}
-
 	@test
 	testAppendCreateFile(){
 		local isNotFile=$(${assertDoesNotExist} testFile)
@@ -64,12 +56,10 @@ FileWriterTest(){
 	local assertDoesNotExist="TestUtil assertDoesNotExist"
 	local assertEquals="TestUtil assertEquals"
 	local assertExists="TestUtil assertExists"
-	local testDir=$(pwd)/bash-toolbox/test/dependencies
+	local testDir=$(TestUtil setupTestDir)
 	local testFile=${testDir}/test.txt
-
-	setUp
 
 	$@
 
-	tearDown
+	TestUtil tearDown
 }

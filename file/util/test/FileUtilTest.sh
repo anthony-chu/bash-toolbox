@@ -10,16 +10,6 @@ FileUtilTest(){
 		TestExecutor executeTest FileUtilTest
 	}
 
-	setUp(){
-		if [ ! -d ${testDir} ]; then
-			mkdir ${testDir}
-		fi
-	}
-
-	tearDown(){
-		rm -rf ${testDir}
-	}
-
 	@test
 	testConstruct(){
 		${assertExists} $(FileUtil construct ${testDir}/foo)
@@ -44,11 +34,9 @@ FileUtilTest(){
 
 	local assertEquals="TestUtil assertEquals"
 	local assertExists="TestUtil assertExists"
-	local testDir=~/test
-
-	setUp
+	local testDir=$(TestUtil setupTestDir)
 
 	$@
 
-	tearDown
+	TestUtil tearDown
 }

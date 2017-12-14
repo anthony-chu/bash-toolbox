@@ -14,10 +14,6 @@ CommandValidatorTest(){
 		CommandValidatorTestUtil writeBashFile ${testFile}
 	}
 
-	tearDown(){
-		rm -rf ${testDir}
-	}
-
 	@test
 	testGetCommandsByAnnotation[@class](){
 		${assertEquals} $(CommandValidator
@@ -57,12 +53,12 @@ CommandValidatorTest(){
 	}
 
 	local assertEquals="TestUtil assertEquals"
-	local testDir=$(pwd)/bash-toolbox/test/dependencies
+	local testDir=$(TestUtil setupTestDir)
 	local testFile=${testDir}/Test.sh
 
 	setUp
 
 	$@
 
-	tearDown
+	TestUtil tearDown
 }
