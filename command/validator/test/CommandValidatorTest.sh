@@ -23,13 +23,13 @@ CommandValidatorTest(){
 	@test
 	testGetCommandsByAnnotation[@ignore](){
 		${assertEquals} $(CommandValidator
-			getCommandsByAnnotation ${testFile} @ignore) alpha
+			getCommandsByAnnotation ${testFile} @ignore) beta
 	}
 
 	@test
 	testGetCommandsByAnnotation[null](){
 		local output=$(CommandValidator getCommandsByAnnotation ${testFile})
-		local result=(Test alpha beta kappa)
+		local result=(Test alpha beta kappa delta)
 
 		${assertEquals} output result
 	}
@@ -37,19 +37,21 @@ CommandValidatorTest(){
 	@test
 	testGetCommandsByAnnotation[@private](){
 		${assertEquals} $(CommandValidator
-			getCommandsByAnnotation ${testFile} @private) beta
+			getCommandsByAnnotation ${testFile} @private) kappa
 	}
 
 	@test
 	testGetCommandsByAnnotation[@test](){
 		${assertEquals} $(CommandValidator
-			getCommandsByAnnotation ${testFile} @test) kappa
+			getCommandsByAnnotation ${testFile} @test) delta
 	}
 
 	@test
 	testGetValidFunctions(){
-		${assertEquals} $(CommandValidator
-			getValidFunctions ${testFile}) kappa
+		local output=($(CommandValidator getValidFunctions ${testFile}))
+		local result=(alpha delta)
+
+		${assertEquals} output result
 	}
 
 	local assertEquals="TestUtil assertEquals"
