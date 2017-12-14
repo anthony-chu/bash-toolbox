@@ -8,6 +8,7 @@ include git.util.GitUtil
 
 include string.util.StringUtil
 
+@class
 JiraUtil(){
 	@private
 	_getEnv(){

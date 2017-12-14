@@ -5,6 +5,7 @@ include logger.Logger
 include string.util.StringUtil
 include string.validator.StringValidator
 
+@class
 TestExecutor(){
 	executeTest(){
 		local results_debug=()

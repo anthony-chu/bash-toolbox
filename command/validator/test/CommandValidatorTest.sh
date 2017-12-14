@@ -4,6 +4,7 @@ include command.validator.test.util.CommandValidatorTestUtil
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 CommandValidatorTest(){
 	run(){
 		TestExecutor executeTest CommandValidatorTest

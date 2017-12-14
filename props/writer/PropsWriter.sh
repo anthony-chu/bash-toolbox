@@ -2,6 +2,7 @@ include base.vars.BaseVars
 
 include props.writer.util.PropsWriterUtil
 
+@class
 PropsWriter(){
 	setAppServerProps(){
 		${setProps} ${appServerProps} ${2} ${3}

@@ -6,6 +6,7 @@ include string.util.StringUtil
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 PropsReaderUtilTest(){
 	run(){
 		TestExecutor executeTest PropsReaderUtilTest

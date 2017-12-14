@@ -3,6 +3,7 @@ include string.util.StringUtil
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 StringUtilTest(){
 	run(){
 		TestExecutor executeTest StringUtilTest

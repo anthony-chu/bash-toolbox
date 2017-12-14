@@ -3,6 +3,7 @@ include system.System
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 SystemTest(){
 	run(){
 		TestExecutor executeTest SystemTest

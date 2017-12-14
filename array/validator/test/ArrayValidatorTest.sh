@@ -3,6 +3,7 @@ include array.validator.ArrayValidator
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 ArrayValidatorTest(){
 	run(){
 		TestExecutor executeTest ArrayValidatorTest

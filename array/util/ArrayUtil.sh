@@ -2,6 +2,7 @@ include base.comparator.BaseComparator
 
 include math.util.MathUtil
 
+@class
 ArrayUtil(){
 	@private
 	_trim(){

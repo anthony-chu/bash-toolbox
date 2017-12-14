@@ -8,6 +8,7 @@ include math.util.MathUtil
 
 include string.util.StringUtil
 
+@class
 LoggerUtil(){
 	@private
 	_formatLogLevel(){

@@ -2,6 +2,7 @@ include base.comparator.BaseComparator
 
 include string.validator.StringValidator
 
+@class
 MathUtil(){
 	decrement(){
 		difference ${1} 1

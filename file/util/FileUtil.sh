@@ -8,6 +8,7 @@ include string.validator.StringValidator
 
 include system.validator.SystemValidator
 
+@class
 FileUtil(){
 	construct(){
 		local _path=$(FileNameUtil getPath nix ${1})

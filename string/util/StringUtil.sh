@@ -4,6 +4,7 @@ include math.util.MathUtil
 
 include string.validator.StringValidator
 
+@class
 StringUtil(){
 	append(){
 		echo ${1}${2}

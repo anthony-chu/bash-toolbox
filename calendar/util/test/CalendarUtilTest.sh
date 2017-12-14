@@ -3,6 +3,7 @@ include calendar.util.CalendarUtil
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 CalendarUtilTest(){
 	run(){
 		TestExecutor executeTest CalendarUtilTest

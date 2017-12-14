@@ -2,6 +2,7 @@ include base.vars.BaseVars
 
 include props.reader.util.PropsReaderUtil
 
+@class
 PropsReader(){
 	readAppServerProps(){
 		${readProps} ${buildDir}/app.server.${HOSTNAME}.properties ${2}

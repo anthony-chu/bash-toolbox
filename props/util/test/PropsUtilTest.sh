@@ -4,6 +4,7 @@ include props.util.PropsUtil
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 PropsUtilTest(){
 	run(){
 		TestExecutor executeTest PropsUtilTest

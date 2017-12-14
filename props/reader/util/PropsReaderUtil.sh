@@ -13,6 +13,7 @@ include string.validator.StringValidator
 
 include system.validator.SystemValidator
 
+@class
 PropsReaderUtil(){
 	getPropsFileName(){
 		local _propsFile=${1}

@@ -10,6 +10,7 @@ include math.util.MathUtil
 include string.util.StringUtil
 include string.validator.StringValidator
 
+@class
 Formatter(){
 	applyUnixLineEndings(){
 		FileWriter replace ${1} "\r\n" "\n"

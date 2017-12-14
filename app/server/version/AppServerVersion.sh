@@ -3,6 +3,7 @@ include app.server.version.constants.AppServerVersionConstants
 
 include string.validator.StringValidator
 
+@class
 AppServerVersion(){
 	@private
 	_overrideTomcatVersion(){

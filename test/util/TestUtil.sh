@@ -7,6 +7,7 @@ include logger.util.LoggerUtil
 include string.util.StringUtil
 include string.Validator.StringValidator
 
+@class
 TestUtil(){
 	assertContains(){
 		if [[ $(readvar ${1}) =~ $(readvar ${2}) ]]; then

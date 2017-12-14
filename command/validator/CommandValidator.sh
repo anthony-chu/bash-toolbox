@@ -6,6 +6,7 @@ include command.exception.CommandException
 
 include string.util.StringUtil
 
+@class
 CommandValidator(){
 	getCommandsByAnnotation(){
 		local annotation=${2}

@@ -2,6 +2,7 @@ include base.comparator.BaseComparator
 
 include string.validator.StringValidator
 
+@class
 LanguageUtil(){
 	toggleArticleVowelForm(){
 		local word=${1}

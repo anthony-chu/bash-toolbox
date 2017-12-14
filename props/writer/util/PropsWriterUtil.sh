@@ -5,6 +5,7 @@ include props.util.PropsUtil
 
 include string.validator.StringValidator
 
+@class
 PropsWriterUtil(){
 	disableProps(){
 		local property=$(PropsUtil getProperty ${1} ${2})

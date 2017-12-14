@@ -9,6 +9,7 @@ include logger.Logger
 include string.util.StringUtil
 include string.validator.StringValidator
 
+@class
 GitRebaseUtil(){
 	abort(){
 		Logger logProgressMsg "terminating_previous_rebase_process"

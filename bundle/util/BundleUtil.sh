@@ -10,6 +10,7 @@ include logger.Logger
 
 include string.util.StringUtil
 
+@class
 BundleUtil(){
 	configure(){
 		local appServerDir=$(AppServerFactory getAppServerDir ${1} ${2})

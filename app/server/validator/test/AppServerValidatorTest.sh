@@ -3,6 +3,7 @@ include app.server.validator.AppServerValidator
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 AppServerValidatorTest(){
 	run(){
 		TestExecutor executeTest AppServerValidatorTest

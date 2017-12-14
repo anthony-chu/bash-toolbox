@@ -1,5 +1,6 @@
 include logger.util.LoggerUtil
 
+@class
 Logger(){
 	logCompletedMsg(){
 		logInfoMsg completed

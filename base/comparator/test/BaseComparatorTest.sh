@@ -3,6 +3,7 @@ include base.comparator.BaseComparator
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 BaseComparatorTest(){
 	run(){
 		TestExecutor executeTest BaseComparatorTest

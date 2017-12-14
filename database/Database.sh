@@ -6,6 +6,7 @@ include logger.Logger
 
 include string.validator.StringValidator
 
+@class
 Database(){
 	create(){
 		if [[ $(StringValidator isNull ${2}) ]]; then

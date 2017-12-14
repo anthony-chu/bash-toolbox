@@ -3,6 +3,7 @@ include string.validator.stringvalidator
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 StringValidatorTest(){
 	run(){
 		TestExecutor executeTest StringValidatorTest

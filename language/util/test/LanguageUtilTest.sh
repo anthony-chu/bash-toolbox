@@ -3,6 +3,7 @@ include language.util.LanguageUtil
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 LanguageUtilTest(){
 	run(){
 		TestExecutor executeTest LanguageUtilTest

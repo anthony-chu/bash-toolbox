@@ -1,5 +1,6 @@
 include system.System
 
+@class
 SystemValidator(){
 	isLinux(){
 		if [[ $(System getOS) =~ Linux ]]; then

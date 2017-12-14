@@ -2,6 +2,7 @@ include array.validator.ArrayValidator
 
 include string.validator.StringValidator
 
+@class
 AppServerValidator(){
 	isGlassfish(){
 		if [[ $(ArrayValidator hasEntry ${1} glassfish) ]]; then

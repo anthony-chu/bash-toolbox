@@ -4,6 +4,7 @@ include file.writer.FileWriter
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 FileWriterTest(){
 	run(){
 		TestExecutor executeTest FileWriterTest

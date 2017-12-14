@@ -2,6 +2,7 @@ include calendar.util.CalendarUtil
 
 include logger.Logger
 
+@class
 System(){
 	extendAntOpts(){
 		if [[ ${1} =~ 6. ]]; then

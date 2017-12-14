@@ -3,6 +3,7 @@ include math.util.MathUtil
 include string.util.StringUtil
 include string.validator.StringValidator
 
+@class
 CalendarUtil(){
 	getDate(){
 		if [[ ${1} == -d ]]; then

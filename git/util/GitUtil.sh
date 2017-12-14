@@ -9,6 +9,7 @@ include math.util.MathUtil
 
 include string.util.StringUtil
 
+@class
 GitUtil(){
 	cleanSource(){
 		Logger logProgressMsg "resetting_the_${branch}_source_directory"

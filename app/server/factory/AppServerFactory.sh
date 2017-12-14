@@ -5,6 +5,7 @@ include base.vars.BaseVars
 
 include string.util.StringUtil
 
+@class
 AppServerFactory(){
 	getAppServerDir(){
 		local appServer=$(AppServerValidator returnAppServer ${2})

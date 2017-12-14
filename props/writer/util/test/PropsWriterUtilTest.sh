@@ -6,6 +6,7 @@ include props.writer.util.PropsWriterUtil
 include test.executor.TestExecutor
 include test.util.TestUtil
 
+@class
 PropsWriterUtilTest(){
 	run(){
 		TestExecutor executeTest PropsWriterUtilTest

@@ -4,6 +4,7 @@ include props.writer.PropsWriter
 
 include string.validator.StringValidator
 
+@class
 SourceUtil(){
 	clearGradleCache(){
 		if [ -d ${buildDir}/.gradle/caches/ ]; then

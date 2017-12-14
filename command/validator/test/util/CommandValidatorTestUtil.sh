@@ -3,6 +3,7 @@ include file.writer.FileWriter
 
 include string.util.StringUtil
 
+@class
 CommandValidatorTestUtil(){
 	writeBashFile(){
 		local content=(
