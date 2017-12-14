@@ -114,6 +114,30 @@ StringUtilTest(){
 	}
 
 	@test
+	testTrimLeadingChars(){
+		local input=123456789
+		local output=789
+
+		${assertEquals} $(StringUtil trim input 456 -1) output
+	}
+
+	@test
+	testTrimStripChars(){
+		local input=123456789
+		local output=123789
+
+		${assertEquals} $(StringUtil trim input 456 0) output
+	}
+
+	@test
+	testTrimTrailingChars(){
+		local input=123456789
+		local output=123
+
+		${assertEquals} $(StringUtil trim input 456 1) output
+	}
+
+	@test
 	testToLowerCase(){
 		${assertEquals} $(StringUtil toLowerCase FOO) foo
 	}
