@@ -40,11 +40,12 @@ CommandValidator(){
 		local validFunctions=()
 
 		local all=($(getCommandsByAnnotation ${file}))
+		local class=($(getCommandsByAnnotation ${file} @class))
 		local ignore=($(getCommandsByAnnotation ${file} @ignore))
 		local private=($(getCommandsByAnnotation ${file} @private))
 
 		for a in ${all[@]}; do
-			if [[ ! "${ignore[@]} ${private[@]}" =~ ${a} ]]; then
+			if [[ ! "${class[@]} ${ignore[@]} ${private[@]}" =~ ${a} ]]; then
 				validFunctions+=(${a})
 			fi
 		done
