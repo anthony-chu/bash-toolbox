@@ -12,20 +12,20 @@ PropsReaderUtilTest(){
 	}
 
 	setUp(){
-		PropsTestUtil writePropsFile
+		PropsTestUtil writePropsFile ${testFile}
 	}
 
 	tearDown(){
-		rm -rf ${propsDir}
+		rm -rf ${testDir}
 	}
 
 	@test
 	testGetPropsFileName(){
-		local propsFileMap=($(PropsReaderUtil getPropsFileName ${propsFile}))
+		local propsFileMap=($(PropsReaderUtil getPropsFileName ${testFile}))
 
-		local isPropsDir=$(${assertEquals} ${propsFileMap[0]} propsDir)
+		local isPropsDir=$(${assertEquals} ${propsFileMap[0]} testDir)
 		local isPropsFile=$(
-			${assertEquals} ${propsFileMap[1]} ${propsFile/*\//})
+			${assertEquals} ${propsFileMap[1]} ${testFile/*\//})
 
 		if [[ ${isPropsDir} == PASS && ${isPropsFile} == PASS ]]; then
 			echo PASS
@@ -37,12 +37,12 @@ PropsReaderUtilTest(){
 	@test
 	testGetValue(){
 		${assertEquals} $(
-			PropsReaderUtil getValue ${propsFile} test.enabled) true
+			PropsReaderUtil getValue ${testFile} test.enabled) true
 	}
 
 	@test
 	testReadPropsFileDoesNotExist(){
-		local _propsDir=$(StringUtil strip propsDir dependencies)test.properties
+		local _propsDir=$(StringUtil strip testDir dependencies)test.properties
 		local message=$(PropsReaderUtil readProps ${_propsDir})
 
 		${assertContains} message ERROR
@@ -51,12 +51,12 @@ PropsReaderUtilTest(){
 	@test
 	testReadProps(){
 		${assertEquals} $(PropsReaderUtil
-			readProps ${propsFile} test.enabled) true
+			readProps ${testFile} test.enabled) true
 	}
 
 	@test
 	testReadPropsPropertyDoesNotExist(){
-		local _propsDir=$(StringUtil strip propsDir dependencies)test.properties
+		local _propsDir=$(StringUtil strip testDir dependencies)test.properties
 		local message=$(PropsReaderUtil readProps ${_propsDir} some.prop)
 
 		${assertContains} message ERROR
@@ -64,8 +64,8 @@ PropsReaderUtilTest(){
 
 	local assertContains="TestUtil assertContains"
 	local assertEquals="TestUtil assertEquals"
-	local propsDir=$(pwd)/bash-toolbox/test/dependencies
-	local propsFile=${propsDir}/test.properties
+	local testDir=$(pwd)/bash-toolbox/test/dependencies
+	local testFile=${testDir}/test.properties
 
 	setUp
 
