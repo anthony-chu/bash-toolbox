@@ -15,12 +15,12 @@ JiraUtil(){
 			returnAppServerVersion ${1} ${2})
 
 		local environment=(
-			$(StringUtil capitalize ${1})_
-			${appServerVersion}_
+			$(StringUtil capitalize ${1})
+			${appServerVersion}
 			+_MySQL_5.7
 		)
 
-		StringUtil replace $(StringUtil join environment) _ space
+		StringUtil replace $(StringUtil join environment _) _ space
 		echo "Portal *${branch}* GIT ID: $(GitUtil getOriginSHA ${branch})"
 	}
 

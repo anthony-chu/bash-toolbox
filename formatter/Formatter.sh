@@ -47,11 +47,11 @@ Formatter(){
 
 				if [[ ! ${doIgnore} ]]; then
 					local _message=(
-						set_variable_scope_to_local:_
+						set_variable_scope_to_local:
 						${1}:${n}
 					)
 
-					Logger logErrorMsg "$(StringUtil join _message)"
+					Logger logErrorMsg "$(StringUtil join _message _)"
 				fi
 			fi
 

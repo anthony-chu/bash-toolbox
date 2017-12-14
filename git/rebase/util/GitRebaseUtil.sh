@@ -56,11 +56,11 @@ GitRebaseUtil(){
 		local value=$(StringUtil returnOption ${1})
 
 		local _message=(
-			rebasing_the_last_${value}_
+			rebasing_the_last_${value}
 			$(LanguageUtil togglePlurality ${value} commit commits)
 		)
 
-		Logger logProgressMsg "$(StringUtil join _message)"
+		Logger logProgressMsg "$(StringUtil join _message _)"
 
 		cd ${buildDir}
 

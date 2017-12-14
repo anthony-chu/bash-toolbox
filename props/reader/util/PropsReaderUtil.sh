@@ -48,11 +48,11 @@ PropsReaderUtil(){
 			fi
 
 			local message=(
-				property_file_\"${propsFileMap[1]}\"_does_not_exist_in_
+				property_file_\"${propsFileMap[1]}\"_does_not_exist_in
 				$(FileNameUtil getPath ${env} ${propsFileMap[0]})
 			)
 
-			Logger logErrorMsg "$(StringUtil join message)"
+			Logger logErrorMsg "$(StringUtil join message _)"
 			return
 		fi
 
@@ -60,11 +60,11 @@ PropsReaderUtil(){
 			getValue ${1} ${2}
 		else
 			local message=(
-				property_\"${2}\"_does_not_exist_in_
+				property_\"${2}\"_does_not_exist_in
 				${propsFileMap[1]}
 			)
 
-			Logger logErrorMsg "$(StringUtil join message)"
+			Logger logErrorMsg "$(StringUtil join message _)"
 			return
 		fi
 	}
