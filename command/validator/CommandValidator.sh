@@ -1,5 +1,7 @@
 include array.validator.ArrayValidator
 
+include base.comparator.BaseComparator
+
 include command.exception.CommandException
 
 include string.util.StringUtil
@@ -15,7 +17,11 @@ CommandValidator(){
 			if [[ ${line} == *\(\){ ]]; then
 				local prevLineNumber=$((${lineNumber}-1))
 
-				local prevLineContent=$(sed "${prevLineNumber}q;d" ${file})
+				if [[ $(BaseComparator isEqual ${prevLineNumber} 0) ]]; then
+					local prevLineContent=""
+				else
+					local prevLineContent=$(sed "${prevLineNumber}q;d" ${file})
+				fi
 
 				if [[ ${prevLineContent} =~ ${annotation} ]]; then
 					validFunctions+=($(StringUtil strip line \(\)\{))
