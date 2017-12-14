@@ -103,5 +103,18 @@ StringUtil(){
 		echo ${str^^}
 	}
 
+	trim(){
+		local mode=${3}
+		local string=$(readvar ${1})
+		local substring=$(readvar ${2})
+
+		case ${mode} in
+			0) strip string ${substring} ;;
+			1) echo ${string%$substring*} ;;
+			-1) echo ${string#*$substring} ;;
+			*) strip string ${substring} ;;
+		esac
+	}
+
 	$@
 }
