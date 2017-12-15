@@ -77,6 +77,17 @@ Formatter(){
 		done < ${1}
 	}
 
+	verifyBashToolboxClassAnnotation(){
+		if [[ $(StringValidator isSubstring ${1} bash-toolbox) &&
+			! $(StringValidator isSubstring ${1} init.sh) &&
+			! $(StringValidator isSubstring ${1} lib) ]]; then
+
+			if [[ $(cat ${1}) != include* && $(cat ${1}) != @class* ]]; then
+				Logger logErrorMsg "missing_@class_anootation:_${1}"
+			fi
+		fi
+	}
+
 	verifyCharacterLimitPerLine(){
 		local lineNumber=1
 
