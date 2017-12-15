@@ -1,3 +1,4 @@
+@class
 StringValidator(){
 	beginsWith(){
 		local char=${1}

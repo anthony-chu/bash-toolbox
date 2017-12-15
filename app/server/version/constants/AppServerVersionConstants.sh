@@ -1,3 +1,4 @@
+@class
 AppServerVersionConstants(){
 	glassfishVersion(){
 		echo "3.1.2.2"

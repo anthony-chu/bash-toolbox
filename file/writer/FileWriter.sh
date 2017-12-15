@@ -1,3 +1,4 @@
+@class
 FileWriter(){
 	append(){
 		local toFile=${1}
