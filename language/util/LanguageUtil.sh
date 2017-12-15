@@ -8,9 +8,9 @@ LanguageUtil(){
 		local word=${1}
 
 		if [[ $(StringValidator beginsWithVowel ${word}) ]]; then
-			echo an
+			echo an ${word}
 		else
-			echo a
+			echo a ${word}
 		fi
 	}
 
@@ -20,9 +20,9 @@ LanguageUtil(){
 		local value=${1}
 
 		if [[ $(BaseComparator isGreaterThan ${value} 1) ]]; then
-			echo ${pluralForm}
+			echo ${value} ${pluralForm}
 		else
-			echo ${singularForm}
+			echo ${value} ${singularForm}
 		fi
 	}
 
