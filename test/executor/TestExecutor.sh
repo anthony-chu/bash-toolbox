@@ -1,5 +1,7 @@
 include command.validator.CommandValidator
 
+include language.util.LanguageUtil
+
 include logger.Logger
 
 include string.util.StringUtil
@@ -49,11 +51,19 @@ TestExecutor(){
 			${#results_debug[@]}+${#results_fail[@]}+${#results_pass[@]}
 		))
 
+		local results_debug_msg=($(LanguageUtil
+			togglePlurality ${#results_debug[@]} test tests))
+		local results_fail_msg=($(LanguageUtil
+			togglePlurality ${#results_fail[@]} test tests))
+		local results_pass_msg=($(LanguageUtil
+			togglePlurality ${#results_pass[@]} test tests))
+		local total_msg=($(LanguageUtil togglePlurality ${total} test tests))
+
 		local message=(
-			${total}_tests_found,
-			${#results_pass[@]}_tests_passed,
-			${#results_fail[@]}_tests_failed,
-			${#results_debug[@]}_tests_skipped
+			$(StringUtil join total_msg _)_found,
+			$(StringUtil join results_pass_msg _)_passed,
+			$(StringUtil join results_fail_msg _)_failed,
+			$(StringUtil join results_debug_msg _)_skipped
 		)
 
 		Logger logInfoMsg "$(StringUtil join message _)"
