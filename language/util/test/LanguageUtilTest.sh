@@ -11,22 +11,34 @@ LanguageUtilTest(){
 
 	@test
 	testToggleArticleVowelForm[false](){
-		${assertEquals} $(LanguageUtil toggleArticleVowelForm cba) a
+		local output=($(LanguageUtil toggleArticleVowelForm cba))
+		local result=(a cba)
+
+		${assertEquals} output result
 	}
 
 	@test
 	testToggleArticleVowelForm[true](){
-		${assertEquals} $(LanguageUtil toggleArticleVowelForm abc) an
+		local output=($(LanguageUtil toggleArticleVowelForm abc))
+		local result=(an abc)
+
+		${assertEquals} output result
 	}
 
 	@test
-	testTogglePlurality[false](){
-		${assertEquals} $(LanguageUtil togglePlurality 1 bar bars) bar
+	testTogglePlurality[singular](){
+		local output=($(LanguageUtil togglePlurality 1 bar bars))
+		local result=(1 bar)
+
+		${assertEquals} output result
 	}
 
 	@test
-	testTogglePlurality[true](){
-		${assertEquals} $(LanguageUtil togglePlurality 2 bar bars) bars
+	testTogglePlurality[multiple,plural](){
+		local output=($(LanguageUtil togglePlurality 2 bar bars))
+		local result=(2 bars)
+
+		${assertEquals} output result
 	}
 
 	local assertEquals="TestUtil assertEquals"
