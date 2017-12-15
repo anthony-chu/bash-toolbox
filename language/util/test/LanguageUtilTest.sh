@@ -41,6 +41,13 @@ LanguageUtilTest(){
 		${assertEquals} output result
 	}
 
+	@test
+	testTogglePlurality[multiple,plural](){
+		local output=($(LanguageUtil togglePlurality 0 bar bars))
+		local result=(0 bars)
+
+		${assertEquals} output result
+
 	local assertEquals="TestUtil assertEquals"
 
 	$@
