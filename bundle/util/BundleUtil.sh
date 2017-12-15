@@ -1,7 +1,6 @@
 include app.server.factory.AppServerFactory
 include app.server.validator.AppServerValidator
 
-include base.comparator.BaseComparator
 include base.vars.BaseVars
 
 include file.writer.FileWriter
@@ -9,6 +8,7 @@ include file.writer.FileWriter
 include logger.Logger
 
 include string.util.StringUtil
+include string.validator.StringValidator
 
 @class
 BundleUtil(){

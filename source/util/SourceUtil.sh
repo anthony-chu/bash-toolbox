@@ -1,3 +1,7 @@
+include app.server.validator.AppServerValidator
+
+include base.vars.BaseVars
+
 include logger.Logger
 
 include props.writer.PropsWriter
