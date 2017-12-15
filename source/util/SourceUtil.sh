@@ -43,14 +43,6 @@ SourceUtil(){
 		Logger logCompletedMsg
 	}
 
-	deep_clean(){
-		if [[ ${1} == 1 ]]; then
-			cd ${buildDir}
-
-			git clean -fdqx
-		fi
-	}
-
 	local appServer=$(AppServerValidator returnAppServer $@)
 	local branch=$(BaseVars returnBranch $@)
 	local buildDir=$(BaseVars returnBuildDir ${branch})
