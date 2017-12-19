@@ -29,20 +29,18 @@ TestExecutor(){
 		for _test in ${_tests[@]}; do
 			local status=$(${testClass} ${_test})ED
 
-			if [[ $(StringValidator isSubstring status PASS) ]]; then
-				local logLevel=Success
-
-				results_pass+=(${_test})
-			elif [[ $(StringValidator isSubstring status FAIL) ]]; then
-				local logLevel=Error
-
-				results_fail+=(${_test})
-			else
-				local logLevel=Debug
-				local status=SKIPPED
-
-				results_debug+=(${_test})
-			fi
+			case ${status} in
+				*PASS*)
+					local logLevel=Success;
+					results_pass+=(${_test});;
+				*FAIL*)
+					local logLevel=Error;
+					results_fail+=(${_test});;
+				*)
+					local logLevel=Debug;
+					local status=SKIPPED;
+					results_debug+=(${_test});;
+			esac
 
 			Logger log${logLevel}Msg "${testClass}#${_test}_${status}"
 		done
