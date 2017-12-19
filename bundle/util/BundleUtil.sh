@@ -31,14 +31,12 @@ BundleUtil(){
 			fi
 		elif [[ $(AppServerValidator isWildfly appServer) || $(
 				AppServerValidator isJboss appServer) ]]; then
-			local d=[[:digit:]]
 
-			${replace} ${appServerDir}/bin/standalone.conf Xmx${d}\\\+m Xmx2048m
+			local file=${appServerDir}/bin/standalone.conf
 
-			local string1=MaxMetaspaceSize=${d}\\\+m
-			local string2=MaxMetaspaceSize=1024m
-
-			${replace} ${appServerDir}/bin/standalone.conf ${string1} ${string2}
+			${replace} ${file} MaxMetaspaceSize=512m MaxMetaspaceSize=1024m
+			${replace} ${file} timeout=480 timeout=6000
+			${replace} ${file} Xmx1024m Xmx2048m
 		fi
 
 		Logger logCompletedMsg
