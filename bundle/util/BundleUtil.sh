@@ -29,7 +29,8 @@ BundleUtil(){
 
 				${tomcatReplace} MaxPermSize=[[:digit:]]\\\+ MaxPermSize=512
 			fi
-		elif [[ $(AppServerValidator isWildfly appServer) ]]; then
+		elif [[ $(AppServerValidator isWildfly appServer) || $(
+				AppServerValidator isJboss appServer) ]]; then
 			local d=[[:digit:]]
 
 			${replace} ${appServerDir}/bin/standalone.conf Xmx${d}\\\+m Xmx2048m
