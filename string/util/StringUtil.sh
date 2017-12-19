@@ -55,7 +55,7 @@ StringUtil(){
 	}
 
 	parseMessage(){
-		replace ${@} _ space
+		replace ${1} _ space
 	}
 
 	replace(){
@@ -90,6 +90,17 @@ StringUtil(){
 
 	strip(){
 		replace ${@} null
+	}
+
+	toArray(){
+		local array=()
+		local string=$(readvar ${1})
+
+		for (( i=0; i<${#string}; i++ )); do
+			array+=(${string:i:1})
+		done
+
+		echo ${array[@]}
 	}
 
 	toLowerCase(){
