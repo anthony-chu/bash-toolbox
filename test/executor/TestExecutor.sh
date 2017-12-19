@@ -30,12 +30,12 @@ TestExecutor(){
 			local status=$(${testClass} ${_test})ED
 
 			case ${status} in
-				*PASS*)
-					local logLevel=Success;
-					results_pass+=(${_test});;
 				*FAIL*)
 					local logLevel=Error;
 					results_fail+=(${_test});;
+				*PASS*)
+					local logLevel=Success;
+					results_pass+=(${_test});;
 				*)
 					local logLevel=Debug;
 					local status=SKIPPED;
