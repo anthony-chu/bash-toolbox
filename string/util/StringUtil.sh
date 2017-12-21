@@ -22,7 +22,7 @@ StringUtil(){
 
 		if [[ ! $(BaseComparator isLessThan ${level} 0) ]]; then
 			for (( i=0; i<$(MathUtil exp 2 ${level}); i++ )); do
-				local str="\\"${str}
+				local str=$(append \\ ${str})
 			done
 		fi
 
@@ -96,7 +96,7 @@ StringUtil(){
 		local array=()
 		local string=$(readvar ${1})
 
-		for (( i=0; i<${#string}; i++ )); do
+		for (( i=0; i<$(length ${string}); i++ )); do
 			array+=(${string:i:1})
 		done
 
