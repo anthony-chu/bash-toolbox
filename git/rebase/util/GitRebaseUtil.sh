@@ -57,7 +57,7 @@ GitRebaseUtil(){
 		local value=$(StringUtil returnOption ${1})
 
 		local _message=(
-			rebasing_the_last_${value}
+			rebasing_the_last
 			$(LanguageUtil togglePlurality ${value} commit commits)
 		)
 
