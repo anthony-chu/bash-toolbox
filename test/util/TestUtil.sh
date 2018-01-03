@@ -4,7 +4,7 @@ include calendar.util.CalendarUtil
 
 include file.util.FileUtil
 
-include logger.util.LoggerUtil
+include logger.Logger
 
 include string.util.StringUtil
 include string.Validator.StringValidator
@@ -94,7 +94,7 @@ TestUtil(){
 			local message=${1}
 		fi
 
-		LoggerUtil getLogMsg info ${message}
+		Logger logInfoMsg ${message}
 	}
 
 	setupTestDir(){
