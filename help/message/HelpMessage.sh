@@ -68,11 +68,27 @@ HelpMessage(){
 
 	printHelpMessage(){
 		local _map=($(parseFile))
+		local _paramMap=($(getParam))
 
 		local descriptionMap=($(ArrayUtil bisect true _map))
 		local functionMap=($(ArrayUtil bisect false _map))
 
 		local functionMap=($(ArrayUtil appendArrayEntry functionMap))
+		local paramDescriptionMap=($(ArrayUtil bisect true _paramMap))
+
+		local message=()
+
+		if [[ ${paramDescriptionMap[@]} ]]; then
+			local paramMap=($(ArrayUtil bisect false _paramMap))
+
+			local paramMap=($(ArrayUtil appendArrayEntry paramMap))
+
+			local message+=("Parameters:")
+
+			for (( i=0; i<${#paramDescriptionMap[@]}; i++ )); do
+				message+=("\t${paramMap[i]}..........${paramDescriptionMap[i]}")
+			done
+		fi
 
 		message+=("Commands:")
 
