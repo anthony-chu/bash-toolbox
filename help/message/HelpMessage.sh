@@ -8,6 +8,40 @@ include string.util.StringUtil
 
 @class
 HelpMessage(){
+	getParam(){
+		local annotation="@param"
+		local descriptionMap=()
+		local file=$(FileUtil getCurFile true)
+		local lineNumber=1
+		local paramMap=()
+
+		while read line; do
+			if [[ ${line} == ${annotation}* ]]; then
+				descriptionMap+=(${line//${annotation}/})
+
+				local nextLineNumber=$((lineNumber+1))
+
+				local nextLineContent=$(sed "${nextLineNumber}q;d" ${file})
+
+				local substring1="="
+				local substring2="local"
+
+				local nextLineContent=$(
+					StringUtil trim nextLineContent substring1 1)
+
+				local nextLineContent=$(
+					StringUtil trim nextLineContent substring2 -1)
+
+				paramMap+=(${nextLineContent})
+			fi
+
+			local lineNumber=$((lineNumber+1))
+		done < ${file}
+
+		echo ${descriptionMap[@]}
+		echo ${paramMap[@]}
+	}
+
 	parseFile(){
 		local descriptionMap=()
 		local file=$(FileUtil getCurFile true)
