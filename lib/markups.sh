@@ -10,6 +10,10 @@
 	echo -n ""
 }
 
+@param(){
+	echo -n ""
+}
+
 @private(){
 	echo -n ""
 }
