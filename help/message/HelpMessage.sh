@@ -74,7 +74,7 @@ HelpMessage(){
 
 		local functionMap=($(ArrayUtil appendArrayEntry functionMap))
 
-		local message=("Commands:")
+		message+=("Commands:")
 
 		for (( i=0; i<${#descriptionMap[@]}; i++ )); do
 			message+=("\t${functionMap[i]}................${descriptionMap[i]}")
