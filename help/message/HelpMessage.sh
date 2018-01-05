@@ -67,10 +67,10 @@ HelpMessage(){
 	}
 
 	printHelpMessage(){
-		local map=($(parseFile))
+		local _map=($(parseFile))
 
-		local descriptionMap=($(ArrayUtil bisect true map))
-		local functionMap=($(ArrayUtil bisect false map))
+		local descriptionMap=($(ArrayUtil bisect true _map))
+		local functionMap=($(ArrayUtil bisect false _map))
 
 		local functionMap=($(ArrayUtil appendArrayEntry functionMap))
 
