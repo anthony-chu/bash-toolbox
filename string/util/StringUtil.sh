@@ -37,15 +37,14 @@ StringUtil(){
 		local separator=${2}
 
 		for _string in ${array[@]}; do
-			if [[ ${string} ]]; then
-				local string=$(append $(
-					append ${string} ${separator}) ${_string})
+			if [[ ${str} ]]; then
+				local str=$(append $(append ${str} ${separator}) ${_string})
 			else
-				local string=${_string}
+				local str=${_string}
 			fi
 		done
 
-		echo ${string}
+		echo ${str}
 	}
 
 	length(){
