@@ -28,7 +28,7 @@ AppServerVersionTest(){
 	@test
 	test_overrideTomcatVersion[ee-6.2.10](){
 		${assertEquals} $(AppServerVersion
-			_overrideTomcatVersion ee-6.2.10) 7.0.42
+			_overrideTomcatVersion ee-6.2.10) 7.0.62
 	}
 
 	@test
