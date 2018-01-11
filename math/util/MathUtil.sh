@@ -21,7 +21,11 @@ MathUtil(){
 	}
 
 	increment(){
-		sum ${1} 1
+		if [[ ! ${1} ]]; then
+			echo $((+1))
+		else
+			sum ${1} 1
+		fi
 	}
 
 	isDivisible(){
