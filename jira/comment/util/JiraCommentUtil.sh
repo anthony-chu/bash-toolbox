@@ -9,7 +9,7 @@ include git.util.GitUtil
 include string.util.StringUtil
 
 @class
-JiraUtil(){
+JiraCommentUtil(){
 	@private
 	_getEnv(){
 		local appServerVersion=$(AppServerVersion
