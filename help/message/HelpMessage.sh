@@ -83,7 +83,7 @@ HelpMessage(){
 
 			local paramMap=($(ArrayUtil appendArrayEntry paramMap))
 
-			message+=("Parameters:")
+			local message=("Parameters:")
 
 			for (( i=0; i<${#paramDescriptionMap[@]}; i++ )); do
 				message+=("\t${paramMap[i]}..........${paramDescriptionMap[i]}")
