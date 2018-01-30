@@ -1,7 +1,7 @@
 include math.util.MathUtil
 
 include test.executor.TestExecutor
-include test.util.testUtil
+include test.util.TestUtil
 
 @class
 MathUtilTest(){

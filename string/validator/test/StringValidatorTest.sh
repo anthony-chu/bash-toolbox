@@ -1,4 +1,4 @@
-include string.validator.stringvalidator
+include string.validator.StringValidator
 
 include test.executor.TestExecutor
 include test.util.TestUtil
