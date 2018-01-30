@@ -1,6 +1,6 @@
 include app.server.version.constants.AppServerVersionConstants
 
-include test.executor.Testexecutor
+include test.executor.TestExecutor
 include test.util.TestUtil
 
 @class

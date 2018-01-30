@@ -7,7 +7,7 @@ include file.util.FileUtil
 include logger.Logger
 
 include string.util.StringUtil
-include string.Validator.StringValidator
+include string.validator.StringValidator
 
 @class
 TestUtil(){
