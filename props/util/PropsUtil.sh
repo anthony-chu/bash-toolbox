@@ -1,7 +1,9 @@
 @class
 PropsUtil(){
 	getProperty(){
-		cat ${1} | grep ${2}=.*
+		if [[ -e ${1} ]]; then
+			cat ${1} | grep ${2}=.*
+		fi
 	}
 
 	$@
