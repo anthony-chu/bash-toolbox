@@ -15,7 +15,7 @@ CommandValidator(){
 		local validFunctions=()
 
 		while read line; do
-			if [[ ${line} == *\(\){ ]]; then
+			if [[ ${line} == *\(\)*{ ]]; then
 				local prevLineNumber=$((${lineNumber}-1))
 
 				if [[ $(BaseComparator isEqual ${prevLineNumber} 0) ]]; then
