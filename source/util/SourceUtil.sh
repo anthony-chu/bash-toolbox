@@ -43,6 +43,24 @@ SourceUtil(){
 		Logger logCompletedMsg
 	}
 
+	setupSDK(){
+		if [[ $(StringValidator isSubstring ${branch} master) || $(
+				StringValidator isSubstring ${branch} 7.0.x) ]]; then
+
+			local lib="tools/sdk/dependencies/com.liferay.source.formatter/lib"
+
+			if [ ! -e ${buildDir}/${lib} ]; then
+				Logger logProgressMsg "building_SDK_directory"
+
+				cd ${buildDir}
+
+				ant setup-sdk
+
+				Logger logCompletedMsg
+			fi
+		fi
+	}
+
 	local appServer=$(AppServerValidator returnAppServer $@)
 	local branch=$(BaseVars returnBranch $@)
 	local buildDir=$(BaseVars returnBuildDir ${branch})
