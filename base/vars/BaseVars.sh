@@ -10,10 +10,10 @@ BaseVars(){
 			local drive=${_drive^}
 			local headlessPath=${path/\/[a-z]/}
 
-			echo ${drive}:${headlessPath}
-		else
-			echo ${path}
+			local path=${drive}:${headlessPath}
 		fi
+
+		echo ${path}
 	}
 
 	@private
