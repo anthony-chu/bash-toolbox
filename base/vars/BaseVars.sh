@@ -2,6 +2,19 @@
 BaseVars(){
 
 	@private
+	_getBaseDir(){
+		local propsFile=$(pwd)/base.properties
+
+		local _baseDir=$(_getProperty ${propsFile} base.dir)
+
+		if [[ ! ${_baseDir} ]]; then
+			echo "/d"
+		else
+			echo ${_baseDir//*=/}
+		fi
+	}
+
+	@private
 	_getPath(){
 		local path=${1}
 
@@ -14,6 +27,13 @@ BaseVars(){
 		fi
 
 		echo ${path}
+	}
+
+	@private
+	_getProperty(){
+		if [[ -e ${1} ]]; then
+			cat ${1} | grep ${2}=.*
+		fi
 	}
 
 	@private
@@ -48,11 +68,11 @@ BaseVars(){
 	}
 
 	returnBuildDir(){
-		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)/portal
+		_getPath $(_getBaseDir)/$(_returnPrivacy $@)/$(returnBranch $@)/portal
 	}
 
 	returnBundleDir(){
-		_getPath /d/$(_returnPrivacy $@)/$(returnBranch $@)/bundles
+		_getPath $(_getBaseDir)/$(_returnPrivacy $@)/$(returnBranch $@)/bundles
 	}
 
 	$@
