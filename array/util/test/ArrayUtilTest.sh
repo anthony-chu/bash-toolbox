@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 ArrayUtilTest(){
-	run(){
-		TestExecutor executeTest ArrayUtilTest
-	}
-
 	@test
 	test_trim(){
 		local inputArray=({1..7})

@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 AppServerVersionConstantsTest(){
-	run(){
-		TestExecutor executeTest AppServerVersionConstantsTest
-	}
-
 	@test
 	testGlassfishVersion(){
 		${assertEquals} $(AppServerVersionConstants glassfishVersion) 3.1.2.2

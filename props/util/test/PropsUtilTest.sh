@@ -6,10 +6,6 @@ include test.util.TestUtil
 
 @class
 PropsUtilTest(){
-	run(){
-		TestExecutor executeTest PropsUtilTest
-	}
-
 	setUp(){
 		PropsTestUtil writePropsFile ${testFile}
 	}

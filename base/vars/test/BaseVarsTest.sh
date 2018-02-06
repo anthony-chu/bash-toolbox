@@ -9,10 +9,6 @@ include test.util.TestUtil
 
 @class
 BaseVarsTest(){
-	run(){
-		TestExecutor executeTest BaseVarsTest
-	}
-
 	@test
 	test_returnPrivacyTest[ee-private](){
 		${assertEquals} $(BaseVars _returnPrivacy ee-) private

@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 LoggerUtilTest(){
-	run(){
-		TestExecutor executeTest LoggerUtilTest
-	}
-
 	@test
 	test_formatLogLevel[debug](){
 		${assertEquals} $(LoggerUtil _formatLogLevel debug) _DEBUG_

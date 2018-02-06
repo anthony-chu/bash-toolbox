@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 BaseComparatorTest(){
-	run(){
-		TestExecutor executeTest BaseComparatorTest
-	}
-
 	@test
 	testIsEqual[number][false](){
 		${assertNull} $(BaseComparator isEqual 123 321)

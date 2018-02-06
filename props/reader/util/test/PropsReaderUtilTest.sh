@@ -8,10 +8,6 @@ include test.util.TestUtil
 
 @class
 PropsReaderUtilTest(){
-	run(){
-		TestExecutor executeTest PropsReaderUtilTest
-	}
-
 	setUp(){
 		PropsTestUtil writePropsFile ${testFile}
 	}

@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 StringUtilTest(){
-	run(){
-		TestExecutor executeTest StringUtilTest
-	}
-
 	@test
 	testAppend(){
 		${assertEquals} $(StringUtil append foo bar) foobar

@@ -6,10 +6,6 @@ include test.util.TestUtil
 
 @class
 FileUtilTest(){
-	run(){
-		TestExecutor executeTest FileUtilTest
-	}
-
 	@test
 	testConstruct(){
 		${assertExists} $(FileUtil construct ${testDir}/foo)

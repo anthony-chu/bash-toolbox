@@ -6,10 +6,6 @@ include test.util.TestUtil
 
 @class
 AppServerVersionTest(){
-	run(){
-		TestExecutor executeTest AppServerVersionTest
-	}
-
 	@test
 	test_overrideTomcatVersion[6.1.x](){
 		${assertEquals} $(AppServerVersion _overrideTomcatVersion 6.1.x) 7.0.40

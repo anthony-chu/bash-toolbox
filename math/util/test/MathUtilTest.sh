@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 MathUtilTest(){
-	run(){
-		TestExecutor executeTest MathUtilTest
-	}
-
 	@test
 	testDecrement(){
 		${assertEquals} $(MathUtil decrement 2) 1

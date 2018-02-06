@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 LanguageUtilTest(){
-	run(){
-		TestExecutor executeTest LanguageUtilTest
-	}
-
 	@test
 	testToggleArticleVowelForm[false](){
 		local output=($(LanguageUtil toggleArticleVowelForm cba))

@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 CalendarUtilTest(){
-	run(){
-		TestExecutor executeTest CalendarUtilTest
-	}
-
 	@test
 	testReturnYesterdayTimestampGetLeapYear(){
 		local prev_timestamp=20160229

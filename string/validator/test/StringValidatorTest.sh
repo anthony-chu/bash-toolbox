@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 StringValidatorTest(){
-	run(){
-		TestExecutor executeTest StringValidatorTest
-	}
-
 	@test
 	testBeginsWith[false](){
 		${assertNull} $(StringValidator beginsWith - a)

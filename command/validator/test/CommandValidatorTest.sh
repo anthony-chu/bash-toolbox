@@ -6,10 +6,6 @@ include test.util.TestUtil
 
 @class
 CommandValidatorTest(){
-	run(){
-		TestExecutor executeTest CommandValidatorTest
-	}
-
 	setUp(){
 		CommandValidatorTestUtil writeBashFile ${testFile}
 	}

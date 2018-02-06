@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 SystemTest(){
-	run(){
-		TestExecutor executeTest SystemTest
-	}
-
 	tearDown(){
 		export ANT_OPTS=${ant_opts}
 	}

@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 FileNameUtilTest(){
-	run(){
-		TestExecutor executeTest FileNameUtilTest
-	}
-
 	@test
 	testGetPathConvertToNixPath(){
 		local path="D:/foo/bar"

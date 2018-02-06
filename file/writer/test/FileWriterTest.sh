@@ -6,10 +6,6 @@ include test.util.TestUtil
 
 @class
 FileWriterTest(){
-	run(){
-		TestExecutor executeTest FileWriterTest
-	}
-
 	@test
 	testAppendCreateFile(){
 		local isNotFile=$(${assertDoesNotExist} testFile)

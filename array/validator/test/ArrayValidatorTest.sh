@@ -5,10 +5,6 @@ include test.util.TestUtil
 
 @class
 ArrayValidatorTest(){
-	run(){
-		TestExecutor executeTest ArrayValidatorTest
-	}
-
 	@test
 	testHasEntry[false](){
 		local inputArray=(foo foo)
