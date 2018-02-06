@@ -1,5 +1,11 @@
-source ${projectDir}bash-toolbox/lib/colorme.sh
-source ${projectDir}bash-toolbox/lib/include.sh
-source ${projectDir}bash-toolbox/lib/markups.sh
-source ${projectDir}bash-toolbox/lib/package.sh
-source ${projectDir}bash-toolbox/lib/readvar.sh
+__files=(
+	colorme.sh
+	include.sh
+	markups.sh
+	package.sh
+	readvar.sh
+)
+
+for file in ${__files[@]}; do
+	source ${projectDir}bash-toolbox/lib/${file}
+done
