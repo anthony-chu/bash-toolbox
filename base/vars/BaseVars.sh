@@ -20,13 +20,12 @@ BaseVars(){
 
 		if [[ $(uname) =~ NT ]]; then
 			local _drive=${path:1:1}
-			local drive=${_drive^}
 			local headlessPath=${path/\/[a-z]/}
 
-			local path=${drive}:${headlessPath}
+			local path=${_drive^^}:${headlessPath}
 		fi
 
-		echo ${path}
+		echo ${path//\//\\}
 	}
 
 	@private
