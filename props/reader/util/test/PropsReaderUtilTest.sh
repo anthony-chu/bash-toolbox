@@ -3,7 +3,6 @@ include props.test.util.PropsTestUtil
 
 include string.util.StringUtil
 
-include test.executor.TestExecutor
 include test.util.TestUtil
 
 @class

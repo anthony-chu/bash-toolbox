@@ -1,6 +1,5 @@
 include array.util.ArrayUtil
 
-include test.executor.TestExecutor
 include test.util.TestUtil
 
 @class

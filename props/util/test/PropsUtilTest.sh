@@ -1,7 +1,6 @@
 include props.test.util.PropsTestUtil
 include props.util.PropsUtil
 
-include test.executor.TestExecutor
 include test.util.TestUtil
 
 @class

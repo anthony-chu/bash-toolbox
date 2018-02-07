@@ -1,7 +1,6 @@
 include command.validator.CommandValidator
 include command.validator.test.util.CommandValidatorTestUtil
 
-include test.executor.TestExecutor
 include test.util.TestUtil
 
 @class

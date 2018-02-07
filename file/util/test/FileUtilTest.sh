@@ -1,7 +1,6 @@
 include file.util.FileUtil
 include file.writer.FileWriter
 
-include test.executor.TestExecutor
 include test.util.TestUtil
 
 @class
