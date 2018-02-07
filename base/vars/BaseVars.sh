@@ -63,6 +63,8 @@ BaseVars(){
 			*master*) echo master;;
 			*7.0.x-private*) echo 7.0.x-private;;
 			*7.0.x*) echo 7.0.x;;
+			*7.1.x-private*) echo 7.1.x-private;;
+			*7.1.x*) echo 7.1.x;;
 			*) echo master;;
 		esac
 	}
