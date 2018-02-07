@@ -35,6 +35,26 @@ BaseVarsTest(){
 	}
 
 	@test
+	testReturnBranch[7.0.x](){
+		${assertEquals} $(BaseVars returnBranch 7.0.x) 7.0.x
+	}
+
+	@test
+	testReturnBranch[7.0.x-private](){
+		${assertEquals} $(BaseVars returnBranch 7.0.x-private) 7.0.x-private
+	}
+
+	@test
+	testReturnBranch[7.1.x](){
+		${assertEquals} $(BaseVars returnBranch 7.1.x) 7.1.x
+	}
+
+	@test
+	testReturnBranch[7.1.x-private](){
+		${assertEquals} $(BaseVars returnBranch 7.1.x-private) 7.1.x-private
+	}
+
+	@test
 	testReturnBranch[ee-6.1.x](){
 		${assertEquals} $(BaseVars returnBranch ee-6.1.x) ee-6.1.x
 	}
@@ -89,6 +109,18 @@ BaseVarsTest(){
 	}
 
 	@test
+	testReturnBuildDir[7.1.x](){
+		${assertEquals} $(BaseVars returnBuildDir 7.1.x) $(FileNameUtil
+			getPath ${_env} /d/public/7.1.x/portal)
+	}
+
+	@test
+	testReturnBuildDir[7.1.x-private](){
+		${assertEquals} $(BaseVars returnBuildDir 7.1.x-private) $(FileNameUtil
+			getPath ${_env} /d/private/7.1.x-private/portal)
+	}
+
+	@test
 	testReturnBuildDir[default](){
 		${assertEquals} $(BaseVars returnBuildDir default) $(FileNameUtil
 			getPath ${_env} /d/public/master/portal)
@@ -140,6 +172,18 @@ BaseVarsTest(){
 	testReturnBundleDir[7.0.x-private](){
 		${assertEquals} $(BaseVars returnBundleDir 7.0.x-private) $(FileNameUtil
 			getPath ${_env} /d/private/7.0.x-private/bundles)
+	}
+
+	@test
+	testReturnBundleDir[7.1.x](){
+		${assertEquals} $(BaseVars returnBundleDir 7.1.x) $(FileNameUtil
+			getPath ${_env} /d/public/7.1.x/bundles)
+	}
+
+	@test
+	testReturnBUndleDir[7.1.x-private](){
+		${assertEquals} $(BaseVars returnBundleDir 7.1.x-private) $(FileNameUtil
+			getPath ${_env} /d/private/7.1.x-private/bundles)
 	}
 
 	@test
