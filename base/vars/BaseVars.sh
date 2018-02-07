@@ -25,7 +25,7 @@ BaseVars(){
 			local path=${_drive^^}:${headlessPath}
 		fi
 
-		echo ${path//\//\\}
+		echo ${path}
 	}
 
 	@private

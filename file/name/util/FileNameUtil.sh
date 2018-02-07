@@ -30,7 +30,7 @@ FileNameUtil(){
 			local path=${drive}:${headlessPath}
 		fi
 
-		StringUtil replace ${path} [/] \\\\
+		echo ${path}
 	}
 
 	getPath(){
