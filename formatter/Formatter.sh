@@ -1,3 +1,5 @@
+include base.comparator.BaseComparator
+
 include file.util.FileUtil
 include file.writer.FileWriter
 
@@ -112,6 +114,24 @@ Formatter(){
 				Logger logErrorMsg "illegal_include:_${1}"
 			fi
 		fi
+	}
+
+	verifyNoUnusedDependencies(){
+		local includes=()
+
+		while read line; do
+			if [[ ${line} == include* ]]; then
+				includes+=(${line//*./})
+			fi
+		done < ${1}
+
+		for include in ${includes[@]}; do
+			local count=$(grep -o ${include} ${1} | wc -w)
+
+			if [[ $(BaseComparator isEqual ${count} 1) ]]; then
+				Logger logErrorMsg "unused_include_${include}:_${1}"
+			fi
+		done
 	}
 
 	$@
