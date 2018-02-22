@@ -7,7 +7,6 @@ include file.writer.FileWriter
 
 include logger.Logger
 
-include string.util.StringUtil
 include string.validator.StringValidator
 
 @class
