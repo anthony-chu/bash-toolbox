@@ -1,5 +1,5 @@
 main(){
-	__files=(
+	local __files=(
 		colorme.sh
 		include.sh
 		markups.sh
