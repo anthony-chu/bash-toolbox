@@ -91,7 +91,7 @@ TestUtil(){
 			local message=${1}
 		fi
 
-		Logger logInfoMsg ${message}
+		Logger logInfoMsg "${message}"
 	}
 
 	setupTestDir(){
