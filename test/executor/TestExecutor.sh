@@ -4,6 +4,8 @@ include language.util.LanguageUtil
 
 include logger.Logger
 
+include math.util.MathUtil
+
 include string.util.StringUtil
 include string.validator.StringValidator
 
@@ -47,9 +49,8 @@ TestExecutor(){
 			Logger log${logLevel}Msg "${testClass}#${_test}_${status}"
 		done
 
-		local total=$((
-			${#results_debug[@]}+${#results_fail[@]}+${#results_pass[@]}
-		))
+		local total=$(MathUtil
+			sum ${#results_debug[@]} ${results_fail[@]} ${#results_pass[@]})
 
 		local results_debug_msg=($(LanguageUtil
 			togglePlurality ${#results_debug[@]} test tests))
