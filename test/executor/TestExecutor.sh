@@ -5,6 +5,7 @@ include language.util.LanguageUtil
 include logger.Logger
 
 include string.util.StringUtil
+include string.validator.StringValidator
 
 @class
 TestExecutor(){
@@ -28,18 +29,20 @@ TestExecutor(){
 		for _test in ${_tests[@]}; do
 			local status=$(${testClass} ${_test})ED
 
-			case ${status} in
-				*FAIL*)
-					local logLevel=Error;
-					results_fail+=(${_test});;
-				*PASS*)
-					local logLevel=Success;
-					results_pass+=(${_test});;
-				*)
-					local logLevel=Debug;
-					local status=SKIPPED;
-					results_debug+=(${_test});;
-			esac
+			if [[ $(StringValidator isSubstring status FAIL) ]]; then
+				local logLevel=Error
+
+				results_fail+=(${_test})
+			elif [[ $(StringValidator isSubstring status PASS) ]]; then
+				local logLevel=Success;
+
+				results_pass+=(${_test})
+			else
+				local logLevel=Debug
+				local status=SKIPPED
+
+				results_debug+=(${_test})
+			fi
 
 			Logger log${logLevel}Msg "${testClass}#${_test}_${status}"
 		done
