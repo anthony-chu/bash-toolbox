@@ -68,7 +68,15 @@ MathUtil(){
 	}
 
 	sum(){
-		echo $((${1}+${2}))
+		local _sum=0
+
+		while [[ $@ ]]; do
+			local _sum=$((_sum+${1}))
+
+			shift
+		done
+
+		echo ${_sum}
 	}
 
 	$@
