@@ -100,6 +100,11 @@ MathUtilTest(){
 	}
 
 	@test
+	testProduct[multiple](){
+		${assertEquals} $(MathUtil product 1 2 3 4 5) 120
+	}
+
+	@test
 	testProduct[zero](){
 		${assertEquals} $(MathUtil product 0 3) 0
 	}
@@ -117,6 +122,11 @@ MathUtilTest(){
 	@test
 	testSum(){
 		${assertEquals} $(MathUtil sum 1 1) 2
+	}
+
+	@test
+	testSum[multiple](){
+		${assertEquals} $(MathUtil sum 1 2 3 4) 10
 	}
 
 	local assertContains="TestUtil assertContains"
