@@ -60,7 +60,15 @@ MathUtil(){
 	}
 
 	product(){
-		echo $((${1}*${2}))
+		local _product=1
+
+		while [[ $@ ]]; do
+			local _product=$((_product*${1}))
+
+			shift
+		done
+
+		echo ${_product}
 	}
 
 	quotient(){
