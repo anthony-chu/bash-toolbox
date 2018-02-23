@@ -20,6 +20,21 @@ MathUtilTest(){
 	}
 
 	@test
+	testExpBaseTwoExponentThree(){
+		${assertEquals} $(MathUtil exp 2 3) 8
+	}
+
+	@test
+	testExpExponentZero(){
+		${assertEquals} $(MathUtil exp 2 0) 1
+	}
+
+	@test
+	testExpIdentity(){
+		${assertEquals} $(MathUtil exp 2 1) 2
+	}
+
+	@test
 	testFormat[false](){
 		${assertEquals} $(MathUtil format 10) 10
 	}
@@ -82,21 +97,6 @@ MathUtilTest(){
 	@test
 	testProduct[identity](){
 		${assertEquals} $(MathUtil product 1 2) 2
-	}
-
-	@test
-	testExpBaseTwoExponentThree(){
-		${assertEquals} $(MathUtil exp 2 3) 8
-	}
-
-	@test
-	testExpExponentZero(){
-		${assertEquals} $(MathUtil exp 2 0) 1
-	}
-
-	@test
-	testExpIdentity(){
-		${assertEquals} $(MathUtil exp 2 1) 2
 	}
 
 	@test
