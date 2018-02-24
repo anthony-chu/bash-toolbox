@@ -51,21 +51,20 @@ BaseVars(){
 	}
 
 	returnBranch(){
-		case $@ in
-			*ee-6.1.30*) echo ee-6.1.30;;
-			*ee-6.1.x*) echo ee-6.1.x;;
-			*ee-6.2.x*) echo ee-6.2.x;;
-			*ee-6.2.10*) echo ee-6.2.10;;
-			*6.1.x*) echo 6.1.x;;
-			*6.2.x*) echo 6.2.x;;
-			*master-private*) echo master-private;;
-			*master*) echo master;;
-			*7.0.x-private*) echo 7.0.x-private;;
-			*7.0.x*) echo 7.0.x;;
-			*7.1.x-private*) echo 7.1.x-private;;
-			*7.1.x*) echo 7.1.x;;
-			*) echo master;;
-		esac
+		local branches=(
+			ee-6.1.30 ee-6.1.x ee-6.2.x ee-6.2.10 6.1.x 6.2.x
+			master-private master 7.0.x-private 7.0.x 7.1.x-private 7.1.x
+		)
+
+		for branch in ${branches[@]}; do
+			if [[ $@ == *${branch}* ]]; then
+				echo ${branch}
+
+				return
+			fi
+		done
+
+		echo master
 	}
 
 	returnBuildDir(){
