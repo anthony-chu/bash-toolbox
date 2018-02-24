@@ -13,9 +13,9 @@ StringValidator(){
 	beginsWithVowel(){
 		local string=${@}
 
-		case "${string}" in
-			[aeiouAEIOU]*) echo true;;
-		esac
+		if [[ ${string} == [aeiouAEIOU]* ]]; then
+			echo true
+		fi
 	}
 
 	isAlpha(){
