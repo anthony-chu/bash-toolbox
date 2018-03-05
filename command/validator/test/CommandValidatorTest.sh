@@ -17,7 +17,7 @@ CommandValidatorTest(){
 
 	@test
 	testGetCommandsByAnnotation[@description](){
-		${assertEquals} $(CommandValidatorTest
+		${assertEquals} $(CommandValidator
 			getCommandsByAnnotation ${testFile} @description) alpha
 	}
 
