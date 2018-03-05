@@ -50,7 +50,7 @@ TestExecutor(){
 		done
 
 		local total=$(MathUtil
-			sum ${#results_debug[@]} ${results_fail[@]} ${#results_pass[@]})
+			sum ${#results_debug[@]} ${#results_fail[@]} ${#results_pass[@]})
 
 		local results_debug_msg=($(LanguageUtil
 			togglePlurality ${#results_debug[@]} test tests))
