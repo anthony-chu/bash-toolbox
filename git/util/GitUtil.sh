@@ -1,12 +1,34 @@
+include array.util.ArrayUtil
+
 include base.comparator.BaseComparator
 include base.vars.BaseVars
 
 include logger.Logger
 
 include string.util.StringUtil
+include string.validator.StringValidator
 
 @class
 GitUtil(){
+	@private
+	_getChangeLog(){
+		cd ${buildDir}
+
+		local commits=($(git log --oneline upstream/${branch}..HEAD))
+
+		local changeLog=()
+
+		for string in ${commits[@]}; do
+			if [[ $(StringValidator isSubstring string LRQA) ||
+					$(StringValidator isSubstring string LPS) ]]; then
+
+				changeLog+=(${string})
+			fi
+		done
+
+		ArrayUtil returnUniqueArray changeLog
+	}
+
 	cleanSource(){
 		Logger logProgressMsg "resetting_the_${branch}_source_directory"
 
