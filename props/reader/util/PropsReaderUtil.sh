@@ -46,7 +46,7 @@ PropsReaderUtil(){
 
 			local message=(
 				property_file_\"${propsFileMap[1]}\"_does_not_exist_in
-				$(FileNameUtil getPath ${env} ${propsFileMap[0]})
+				$(FileNameUtil getPath ${propsFileMap[0]})
 			)
 
 			Logger logErrorMsg "$(StringUtil join message _)"

@@ -9,7 +9,7 @@ include system.validator.SystemValidator
 @class
 FileUtil(){
 	construct(){
-		local _path=$(FileNameUtil getPath nix ${1})
+		local _path=$(FileNameUtil getPath ${1})
 
 		for directory in $(StringUtil replace _path / space); do
 			local dir=${dir}/${directory}
@@ -39,7 +39,7 @@ FileUtil(){
 	}
 
 	makeFile(){
-		local fileName=$(FileNameUtil getPath nix ${1})
+		local fileName=$(FileNameUtil getPath ${1})
 		local _fileNameArray=($(StringUtil split fileName /))
 		local fileNameArray=($(ArrayUtil trim _fileNameArray 1))
 		local filePath=$(construct /$(StringUtil replace fileNameArray space /))
