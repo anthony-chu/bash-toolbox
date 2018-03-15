@@ -2,6 +2,8 @@ include app.server.validator.AppServerValidator
 
 include base.vars.BaseVars
 
+include file.name.util.FileNameUtil
+
 include logger.Logger
 
 include props.writer.PropsWriter
@@ -32,6 +34,9 @@ SourceUtil(){
 		${writer} setAppServerProps ${branch} app.server.parent.dir ${bundleDir}
 		${writer} setAppServerProps ${branch} app.server.type ${appServer}
 
+		local cacheDir=$(FileNameUtil getPath /d/liferay-binaries-cache-2017)
+
+		${writer} setBuildProps ${branch} build.binaries.cache.dir ${cacheDir}
 		${writer} setBuildProps ${branch} lp.source.dir ${buildDir}
 
 		if [[ $(StringValidator isSubstring ${branch} 6.1) ]]; then
