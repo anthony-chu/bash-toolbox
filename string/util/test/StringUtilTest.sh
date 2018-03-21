@@ -110,6 +110,20 @@ StringUtilTest(){
 	}
 
 	@test
+	testSubstringExplicitNonZeroInit(){
+		local input=foofoobarbar
+
+		${assertEquals} $(StringUtil substring input 3 6) foobar
+	}
+
+	@test
+	testSubstringImplicitInit(){
+		local input=foofoobarbar
+
+		${assertEquals} $(StringUtil substring input 3) foo
+	}
+
+	@test
 	testTrimLeadingChars(){
 		local input=123456789
 		local output=789
