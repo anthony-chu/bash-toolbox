@@ -91,6 +91,20 @@ StringUtil(){
 		replace ${@} null
 	}
 
+	substring(){
+		if [[ $(BaseComparator isEqual $# 3) ]]; then
+			local init=${2}
+			local length=${3}
+			local string=$(readvar ${1})
+		elif [[ $(BaseComparator isEqual $# 2) ]]; then
+			local init=0
+			local length=${2}
+			local string=$(readvar ${1})
+		fi
+
+		echo ${string:${init}:${length}}
+	}
+
 	toArray(){
 		local array=()
 		local string=$(readvar ${1})
