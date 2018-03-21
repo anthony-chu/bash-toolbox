@@ -1,7 +1,7 @@
+include base.comparator.BaseComparator
+
 include string.util.StringUtil
 include string.validator.StringValidator
-
-include system.validator.SystemValidator
 
 @class
 FileNameUtil(){
@@ -34,8 +34,9 @@ FileNameUtil(){
 	}
 
 	getPath(){
-		if [[ $(SystemValidator isWindows) ]]; then
-			_getPathWin ${1}
+		if [[ $(BaseComparator isEqual $# 2) &&
+			$(BaseComparator isEqual ${1} 1) ]]; then
+			_getPathWin ${2}
 		else
 			_getPathUnix ${1}
 		fi
