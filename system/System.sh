@@ -1,9 +1,11 @@
 include logger.Logger
 
+include string.validator.StringValidator
+
 @class
 System(){
 	extendAntOpts(){
-		if [[ ${1} =~ 6. ]]; then
+		if [[ $(StringValidator beginsWith 6 ${1}) ]]; then
 			Logger logProgressMsg "configuring_ANT_OPTS_JVM"
 			export ANT_OPTS="${ANT_OPTS} -XX:MaxPermSize=1024m"
 			Logger logCompletedMsg
@@ -15,7 +17,7 @@ System(){
 	}
 
 	setJavaHome(){
-		if [[ ${1} =~ 6. ]]; then
+		if [[ $(StringValidator beginsWith 6 ${1}) ]]; then
 			Logger logProgressMsg "configuring_Liferay_to_use_JDK7"
 
 			if [[ $(getOS) =~ NT ]]; then
