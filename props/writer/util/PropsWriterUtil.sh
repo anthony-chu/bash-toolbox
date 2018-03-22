@@ -8,17 +8,17 @@ include string.validator.StringValidator
 @class
 PropsWriterUtil(){
 	disableProps(){
-		local property=$(PropsUtil getProperty ${1} ${2})
+		local property=$(${getProps} ${1} ${2})
 
 		if [[ ${property} &&
 			! $(StringValidator beginsWith "#" ${property}) ]]; then
 
-			FileWriter replace ${1} ${property} \#${property}
+			${replace} ${1} ${property} \#${property}
 		fi
 	}
 
 	enableProps(){
-		FileWriter replace ${1} $(PropsUtil getProperty ${1} ${2}) ${2}=${3}
+		${replace} ${1} $(${getProps} ${1} ${2}) ${2}=${3}
 	}
 
 	setProps(){
@@ -26,18 +26,21 @@ PropsWriterUtil(){
 			local file=$(FileUtil makeFile ${1})
 		fi
 
-		local property=$(PropsUtil getProperty ${1} ${2})
+		local property=$(${getProps} ${1} ${2})
 
 		if [[ ${property} ]]; then
 			if [[ $(StringValidator beginsWith "#" ${property}) ]]; then
 				enableProps ${1} ${2} ${3}
 			else
-				FileWriter replace ${1} ${2}=.* ${2}=${3}
+				${replace} ${1} ${2}=.* ${2}=${3}
 			fi
 		else
 			FileWriter append ${1} ${2}=${3}
 		fi
 	}
+
+	local getProps="PropsUtil getProperty"
+	local replace="FileWriter replace"
 
 	$@
 }
