@@ -6,7 +6,6 @@ include test.util.TestUtil
 MatcherTest(){
 	@test
 	testMatcherMatchesPattern(){
-		local _pattern='[0-9]\+[a-zA-Z]\+[0-9]\+'
 		local _string=123abc123
 
 		TestUtil assertTrue $(Matcher matches _pattern _string)
@@ -14,11 +13,12 @@ MatcherTest(){
 
 	@test
 	testMatcherDoesNotMatchPattern(){
-		local _pattern='[0-9]\+[a-z]\+[0-9]\+'
 		local _string=abc123abc
 
 		TestUtil assertNull $(Matcher matches _pattern _string)
 	}
+
+	local _pattern='[0-9]\+[a-zA-Z]\+[0-9]\+'
 
 	$@
 }
