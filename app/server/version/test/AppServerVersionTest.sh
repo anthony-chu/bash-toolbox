@@ -6,38 +6,6 @@ include test.util.TestUtil
 @class
 AppServerVersionTest(){
 	@test
-	test_overrideTomcatVersion[6.1.x](){
-		${assertEquals} $(AppServerVersion _overrideTomcatVersion 6.1.x) 7.0.40
-	}
-
-	@test
-	test_overrideTomcatVersion[6.2.x](){
-		${assertEquals} $(AppServerVersion _overrideTomcatVersion 6.2.x) 7.0.42
-	}
-
-	@test
-	test_overrideTomcatVersion[ee-6.1.30](){
-		${assertEquals} $(AppServerVersion _overrideTomcatVersion 6.1.30) 7.0.40
-	}
-
-	@test
-	test_overrideTomcatVersion[ee-6.2.10](){
-		${assertEquals} $(AppServerVersion
-			_overrideTomcatVersion ee-6.2.10) 7.0.62
-	}
-
-	@test
-	test_overrideTomcatVersion[ee-6.2.x](){
-		${assertEquals} $(AppServerVersion
-			_overrideTomcatVersion ee-6.2.x) 7.0.62
-	}
-
-	@test
-	test_overrideTomcatVersion[null](){
-		${assertEquals} $(AppServerVersion _overrideTomcatVersion) 8.0.32
-	}
-
-	@test
 	testReturnAppServerVersion[glassfish](){
 		${assertEquals} $(AppServerVersion returnAppServerVersion glassfish) $(
 			AppServerVersionConstants glassfishVersion)
