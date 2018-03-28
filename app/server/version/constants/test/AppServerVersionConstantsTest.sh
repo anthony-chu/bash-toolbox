@@ -41,7 +41,7 @@ AppServerVersionConstantsTest(){
 
 	@test
 	testTomcatVersion(){
-		${assertEquals} $(AppServerVersionConstants tomcatVersion) 8.0.32
+		${assertEquals} $(AppServerVersionConstants tomcatVersion) 8.5.29
 	}
 
 	@test
