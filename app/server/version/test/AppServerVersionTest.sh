@@ -123,7 +123,7 @@ AppServerVersionTest(){
 
 	local assertEquals="TestUtil assertEquals"
 	local assertNull="TestUtil assertNull"
-	local returnAppServerVersion="AppServerVersion returnAppServerVersion"
+	local returnAppServerVersion="AppServerVersion getAppServerVersion"
 
 	$@
 }

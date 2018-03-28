@@ -12,7 +12,7 @@ AppServerFactory(){
 		local _appServerDir=(
 			$(BaseVars returnBundleDir ${1})/
 			${appServer}-
-			$(AppServerVersion returnAppServerVersion ${appServer} $(BaseVars
+			$(AppServerVersion getAppServerVersion ${appServer} $(BaseVars
 				returnBranch ${1}))
 		)
 

@@ -5,7 +5,7 @@ include string.validator.StringValidator
 
 @class
 AppServerVersion(){
-	returnAppServerVersion(){
+	getAppServerVersion(){
 		if [[ ! $(StringValidator isNull ${@}) ]]; then
 			local appServer=${1}
 			local branch=${2}
