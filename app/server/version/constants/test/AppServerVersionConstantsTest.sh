@@ -6,57 +6,57 @@ include test.util.TestUtil
 AppServerVersionConstantsTest(){
 	@test
 	testGlassfishVersion(){
-		${assertEquals} $(AppServerVersionConstants glassfishVersion) 3.1.2.2
+		${assertEquals} $(AppServerVersionConstants GLASSFISH_VERSION) 3.1.2.2
 	}
 
 	@test
 	testJbossVersion(){
-		${assertEquals} $(AppServerVersionConstants jbossVersion) eap-7.0.0
+		${assertEquals} $(AppServerVersionConstants JBOSS_VERSION) eap-7.0.0
 	}
 
 	@test
 	testJettyVersion(){
-		${assertEquals} $(AppServerVersionConstants jettyVersion) 8.1.10
+		${assertEquals} $(AppServerVersionConstants JETTY_VERSION) 8.1.10
 	}
 
 	@test
 	testJonasVersion(){
-		${assertEquals} $(AppServerVersionConstants jonasVersion) 5.2.3
+		${assertEquals} $(AppServerVersionConstants JONAS_VERSION) 5.2.3
 	}
 
 	@test
 	testResinVersion(){
-		${assertEquals} $(AppServerVersionConstants resinVersion) 4.0.44
+		${assertEquals} $(AppServerVersionConstants RESIN_VERSION) 4.0.44
 	}
 
 	@test
 	testTcatVersion(){
-		${assertEquals} $(AppServerVersionConstants tcatVersion) 7.0.2
+		${assertEquals} $(AppServerVersionConstants TCAT_VERSION) 7.0.2
 	}
 
 	@test
 	testTcserverVersion(){
-		${assertEquals} $(AppServerVersionConstants tcserverVersion) 3.2.5
+		${assertEquals} $(AppServerVersionConstants TCSERVER_VERSION) 3.2.5
 	}
 
 	@test
 	testTomcatVersion(){
-		${assertEquals} $(AppServerVersionConstants tomcatVersion) 8.5.29
+		${assertEquals} $(AppServerVersionConstants TOMCAT_VERSION) 8.5.29
 	}
 
 	@test
 	testWeblogicVersion(){
-		${assertEquals} $(AppServerVersionConstants weblogicVersion) 12.2.1
+		${assertEquals} $(AppServerVersionConstants WEBLOGIC_VERSION) 12.2.1
 	}
 
 	@test
 	testWebsphereVersion(){
-		${assertEquals} $(AppServerVersionConstants websphereVersion) 8.5.5.0
+		${assertEquals} $(AppServerVersionConstants WEBSPHERE_VERSION) 8.5.5.0
 	}
 
 	@test
 	testWildflyVersion(){
-		${assertEquals} $(AppServerVersionConstants wildflyVersion) 10.0.0
+		${assertEquals} $(AppServerVersionConstants WILDFLY_VERSION) 10.0.0
 	}
 
 	local assertEquals="TestUtil assertEquals"

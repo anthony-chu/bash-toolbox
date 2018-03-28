@@ -1,5 +1,6 @@
 package app.server
 
+include string.util.StringUtil
 include string.validator.StringValidator
 
 @class
@@ -12,9 +13,10 @@ AppServerVersion(){
 			if [[ $(AppServerValidator isTomcat appServer) ]]; then
 				AppServerVersionOverride getTomcatVersion ${branch}
 			elif [[ $(AppServerValidator isTCServer appServer) ]]; then
-				AppServerVersionConstants tcserverVersion
+				AppServerVersionConstants TCSERVER_VERSION
 			else
-				AppServerVersionConstants ${appServer}Version
+				AppServerVersionConstants $(
+					StringUtil toUpperCase ${appServer})_VERSION
 			fi
 		fi
 	}

@@ -1,46 +1,46 @@
 @class
 AppServerVersionConstants(){
-	glassfishVersion(){
+	GLASSFISH_VERSION(){
 		echo "3.1.2.2"
 	}
 
-	jbossVersion(){
+	JBOSS_VERSION(){
 		echo "eap-7.0.0"
 	}
 
-	jettyVersion(){
+	JETTY_VERSION(){
 		echo "8.1.10"
 	}
 
-	jonasVersion(){
+	JONAS_VERSION(){
 		echo "5.2.3"
 	}
 
-	resinVersion(){
+	RESIN_VERSION(){
 		echo "4.0.44"
 	}
 
-	tcatVersion(){
+	TCAT_VERSION(){
 		echo "7.0.2"
 	}
 
-	tcserverVersion(){
+	TCSERVER_VERSION(){
 		echo "3.2.5"
 	}
 
-	tomcatVersion(){
+	TOCMAT_VERSION(){
 		echo "8.5.29"
 	}
 
-	weblogicVersion(){
+	WEBLOGIC_VERSION(){
 		echo "12.2.1"
 	}
 
-	websphereVersion(){
+	WEBSPHERE_VERSION(){
 		echo "8.5.5.0"
 	}
 
-	wildflyVersion(){
+	WILDFLY_VERSION(){
 		echo "10.0.0"
 	}
 

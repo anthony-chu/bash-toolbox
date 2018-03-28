@@ -8,25 +8,25 @@ AppServerVersionTest(){
 	@test
 	testReturnAppServerVersion[glassfish](){
 		${assertEquals} $(${returnAppServerVersion} glassfish) $(
-			AppServerVersionConstants glassfishVersion)
+			AppServerVersionConstants GLASSFISH_VERSION)
 	}
 
 	@test
 	testReturnAppServerVersion[jboss](){
 		${assertEquals} $(${returnAppServerVersion} jboss) $(
-			AppServerVersionConstants jbossVersion)
+			AppServerVersionConstants JBOSS_VERSION)
 	}
 
 	@test
 	testReturnAppServerVersion[jetty](){
 		${assertEquals} $(${returnAppServerVersion} jetty) $(
-			AppServerVersionConstants jettyVersion)
+			AppServerVersionConstants JETTY_VERSION)
 	}
 
 	@test
 	testReturnAppServerVersion[jonas](){
 		${assertEquals} $(${returnAppServerVersion} jonas) $(
-			AppServerVersionConstants jonasVersion)
+			AppServerVersionConstants JONAS_VERSION)
 	}
 
 	@test
@@ -37,19 +37,19 @@ AppServerVersionTest(){
 	@test
 	testReturnAppServerVersion[resin](){
 		${assertEquals} $(${returnAppServerVersion} resin) $(
-			AppServerVersionConstants resinVersion)
+			AppServerVersionConstants RESIN_VERSION)
 	}
 
 	@test
 	testReturnAppServerVersion[tcat](){
 		${assertEquals} $(${returnAppServerVersion} tcat) $(
-			AppServerVersionConstants tcatVersion)
+			AppServerVersionConstants TCAT_VERSION)
 	}
 
 	@test
 	testReturnAppServerVersion[tcserver](){
 		${assertEquals} $(${returnAppServerVersion} tcserver) $(
-			AppServerVersionConstants tcserverVersion)
+			AppServerVersionConstants TCSERVER_VERSION)
 	}
 
 	@test
@@ -100,25 +100,25 @@ AppServerVersionTest(){
 	@test
 	testReturnAppServerVersion[tomcat,master](){
 		${assertEquals} $(${returnAppServerVersion} tomcat master) $(
-			AppServerVersionConstants tomcatVersion)
+			AppServerVersionConstants TOMCAT_VERSION)
 	}
 
 	@test
 	testReturnAppServerVersion[weblogic](){
 		${assertEquals} $(${returnAppServerVersion} weblogic) $(
-			AppServerVersionConstants weblogicVersion)
+			AppServerVersionConstants WEBLOGIC_VERSION)
 	}
 
 	@test
 	testReturnAppServerVersion[websphere](){
 		${assertEquals} $(${returnAppServerVersion} websphere) $(
-			AppServerVersionConstants websphereVersion)
+			AppServerVersionConstants WEBSPHERE_VERSION)
 	}
 
 	@test
 	testReturnAppServerVersion[wildfly](){
 		${assertEquals} $(${returnAppServerVersion} wildfly) $(
-			AppServerVersionConstants wildflyVersion)
+			AppServerVersionConstants WILDFLY_VERSION)
 	}
 
 	local assertEquals="TestUtil assertEquals"

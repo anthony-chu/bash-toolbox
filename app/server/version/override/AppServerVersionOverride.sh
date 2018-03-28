@@ -8,7 +8,7 @@ include string.validator.StringValidator
 AppServerVersionOverride(){
 	getTomcatVersion(){
 		if [[ $(StringValidator isNull ${branch}) ]]; then
-			AppServerVersionConstants tomcatVersion
+			AppServerVersionConstants TOMCAT_VERSION
 		elif [[ $(StringValidator isSubstring ${branch} 7.0) ]]; then
 			echo 8.0.32
 		elif [[ $(StringValidator isSubstring ${branch} ee-6.2) ]]; then
@@ -22,7 +22,7 @@ AppServerVersionOverride(){
 		elif [[ $(StringValidator isSubstring ${branch} 6.0.6) ]]; then
 			echo 6.0.29
 		else
-			AppServerVersionConstants tomcatVersion
+			AppServerVersionConstants TOMCAT_VERSION
 		fi
 	}
 
