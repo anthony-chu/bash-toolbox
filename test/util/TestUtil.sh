@@ -1,6 +1,7 @@
 include base.comparator.BaseComparator
 
 include file.util.FileUtil
+include file.validator.FileValidator
 
 include logger.Logger
 
@@ -27,13 +28,13 @@ TestUtil(){
 	assertDoesNotExist(){
 		local path=$(readvar ${1})
 
-		if [[ $(StringValidator isSubstring path ".") ]]; then
+		if [[ $(FileValidator isFile path) ]]; then
 			if [[ ! -e ${path} ]]; then
 				echo PASS
 			else
 				echo FAIL
 			fi
-		else
+		elif [[ $(FileValidator isPath path) ]]; then
 			if [[ ! -d ${path} ]]; then
 				echo PASS
 			else
@@ -53,13 +54,13 @@ TestUtil(){
 	assertExists(){
 		local path=$(readvar ${1})
 
-		if [[ $(StringValidator isSubstring path ".") ]]; then
+		if [[ $(FileValidator isFile path) ]]; then
 			if [[ -e ${path} ]]; then
 				echo PASS
 			else
 				echo FAIL
 			fi
-		else
+		elif [[ $(FileValidator isPath path) ]]; then
 			if [[ -d ${path} ]]; then
 				echo PASS
 			else
