@@ -34,7 +34,7 @@ FileUtil(){
 		if [[ ${1} == true ]]; then
 			echo ${thisFile}
 		elif [[ ${1} == false ]]; then
-			StringUtil strip thisFile .sh
+			StringUtil trim thisFile . 1
 		fi
 	}
 
