@@ -28,7 +28,7 @@ AppServerVersionConstants(){
 		echo "3.2.5"
 	}
 
-	TOCMAT_VERSION(){
+	TOMCAT_VERSION(){
 		echo "8.5.29"
 	}
 
