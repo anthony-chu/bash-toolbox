@@ -74,8 +74,7 @@ AppServerVersionTest(){
 
 	@test
 	testReturnAppServerVersion[tomcat,7.0.x](){
-		${assertEquals} $(${returnAppServerVersion} tomcat 7.0.x) $(
-				AppServerVersionConstants tomcatVersion)
+		${assertEquals} $(${returnAppServerVersion} tomcat 7.0.x) 8.0.32
 	}
 
 	@test
