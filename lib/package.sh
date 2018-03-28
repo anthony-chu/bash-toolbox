@@ -17,6 +17,7 @@ package(){
 				fi
 
 				source ${file}
+			fi
 		done
 	else
 		echo -e "[ ERROR ] \033[0;31m"Cannot import an empty package."\033[0m"
