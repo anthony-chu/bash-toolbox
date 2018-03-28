@@ -15,6 +15,11 @@ AppServerVersionOverrideTest(){
 	}
 
 	@test
+	testGetTomcatVersion[7.0.x](){
+		${assertEquals} $(${getTomcatVersion} 7.0.x) 8.0.32
+	}
+
+	@test
 	testGetTomcatVersion[ee-6.1.30](){
 		${assertEquals} $(${getTomcatVersion} ee-6.1.30) 7.0.40
 	}
