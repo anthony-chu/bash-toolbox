@@ -8,6 +8,12 @@ package(){
 			exit
 		fi
 
+		if [[ ${files[@]} =~ ${BASH_SOURCE[1]} ]]; then
+			echo -e "[ _ERROR_ ]] \033[0;31m"The package \"${1}\" contains the current file."\033[0m"
+			echo -e "[ _ERROR_ ]] \033\0;31m"Please use \"include\" instead to import the desired files."\033[0m"
+			exit
+		fi
+
 		for file in ${files[@]}; do
 			if [[ ${file} != *lib* ]]; then
 				if [[ ${file} == *test* && ${file} == *Test* ]]; then
