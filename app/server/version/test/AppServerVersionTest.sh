@@ -6,124 +6,124 @@ include test.util.TestUtil
 @class
 AppServerVersionTest(){
 	@test
-	testReturnAppServerVersion[glassfish](){
-		${assertEquals} $(${returnAppServerVersion} glassfish) $(
+	testGetAppServerVersion[glassfish](){
+		${assertEquals} $(${getAppServerVersion} glassfish) $(
 			AppServerVersionConstants GLASSFISH_VERSION)
 	}
 
 	@test
-	testReturnAppServerVersion[jboss](){
-		${assertEquals} $(${returnAppServerVersion} jboss) $(
+	testGetAppServerVersion[jboss](){
+		${assertEquals} $(${getAppServerVersion} jboss) $(
 			AppServerVersionConstants JBOSS_VERSION)
 	}
 
 	@test
-	testReturnAppServerVersion[jetty](){
-		${assertEquals} $(${returnAppServerVersion} jetty) $(
+	testGetAppServerVersion[jetty](){
+		${assertEquals} $(${getAppServerVersion} jetty) $(
 			AppServerVersionConstants JETTY_VERSION)
 	}
 
 	@test
-	testReturnAppServerVersion[jonas](){
-		${assertEquals} $(${returnAppServerVersion} jonas) $(
+	testGetAppServerVersion[jonas](){
+		${assertEquals} $(${getAppServerVersion} jonas) $(
 			AppServerVersionConstants JONAS_VERSION)
 	}
 
 	@test
-	testReturnAppServerVersion[null](){
-		${assertNull} $(${returnAppServerVersion})
+	testGetAppServerVersion[null](){
+		${assertNull} $(${getAppServerVersion})
 	}
 
 	@test
-	testReturnAppServerVersion[resin](){
-		${assertEquals} $(${returnAppServerVersion} resin) $(
+	testGetAppServerVersion[resin](){
+		${assertEquals} $(${getAppServerVersion} resin) $(
 			AppServerVersionConstants RESIN_VERSION)
 	}
 
 	@test
-	testReturnAppServerVersion[tcat](){
-		${assertEquals} $(${returnAppServerVersion} tcat) $(
+	testGetAppServerVersion[tcat](){
+		${assertEquals} $(${getAppServerVersion} tcat) $(
 			AppServerVersionConstants TCAT_VERSION)
 	}
 
 	@test
-	testReturnAppServerVersion[tcserver](){
-		${assertEquals} $(${returnAppServerVersion} tcserver) $(
+	testGetAppServerVersion[tcserver](){
+		${assertEquals} $(${getAppServerVersion} tcserver) $(
 			AppServerVersionConstants TCSERVER_VERSION)
 	}
 
 	@test
-	testReturnAppServerVersion[tomcat,6.0.6](){
-		${assertEquals} $(${returnAppServerVersion} tomcat 6.0.6) 6.0.29
+	testGetAppServerVersion[tomcat,6.0.6](){
+		${assertEquals} $(${getAppServerVersion} tomcat 6.0.6) 6.0.29
 	}
 
 	@test
-	testReturnAppServerVersion[tomcat,6.0.12](){
-		${assertEquals} $(${returnAppServerVersion} tomcat 6.0.12) 6.0.32
+	testGetAppServerVersion[tomcat,6.0.12](){
+		${assertEquals} $(${getAppServerVersion} tomcat 6.0.12) 6.0.32
 	}
 
 	@test
-	testReturnAppServerVersion[tomcat,6.1.x](){
-		${assertEquals} $(${returnAppServerVersion} tomcat 6.1.x) 7.0.40
+	testGetAppServerVersion[tomcat,6.1.x](){
+		${assertEquals} $(${getAppServerVersion} tomcat 6.1.x) 7.0.40
 	}
 
 	@test
-	testReturnAppServerVersion[tomcat,6.2.x](){
-		${assertEquals} $(${returnAppServerVersion} tomcat 6.2.x) 7.0.42
+	testGetAppServerVersion[tomcat,6.2.x](){
+		${assertEquals} $(${getAppServerVersion} tomcat 6.2.x) 7.0.42
 	}
 
 	@test
-	testReturnAppServerVersion[tomcat,7.0.x](){
-		${assertEquals} $(${returnAppServerVersion} tomcat 7.0.x) 8.0.32
+	testGetAppServerVersion[tomcat,7.0.x](){
+		${assertEquals} $(${getAppServerVersion} tomcat 7.0.x) 8.0.32
 	}
 
 	@test
-	testReturnAppServerVersion[tomcat,ee-6.1.x](){
-		${assertEquals} $(${returnAppServerVersion} tomcat ee-6.1.x) 7.0.40
+	testGetAppServerVersion[tomcat,ee-6.1.x](){
+		${assertEquals} $(${getAppServerVersion} tomcat ee-6.1.x) 7.0.40
 	}
 
 	@test
-	testReturnAppServerVersion[tomcat,ee-6.1.30](){
-		${assertEquals} $(${returnAppServerVersion} tomcat ee-6.1.30) 7.0.40
+	testGetAppServerVersion[tomcat,ee-6.1.30](){
+		${assertEquals} $(${getAppServerVersion} tomcat ee-6.1.30) 7.0.40
 	}
 
 	@test
-	testReturnAppServerVersion[tomcat,ee-6.2.10](){
-		${assertEquals} $(${returnAppServerVersion} tomcat ee-6.2.10) 7.0.42
+	testGetAppServerVersion[tomcat,ee-6.2.10](){
+		${assertEquals} $(${getAppServerVersion} tomcat ee-6.2.10) 7.0.42
 	}
 
 	@test
-	testReturnAppServerVersion[tomcat,ee-6.2.x](){
-		${assertEquals} $(${returnAppServerVersion} tomcat ee-6.2.x) 7.0.62
+	testGetAppServerVersion[tomcat,ee-6.2.x](){
+		${assertEquals} $(${getAppServerVersion} tomcat ee-6.2.x) 7.0.62
 	}
 
 	@test
-	testReturnAppServerVersion[tomcat,master](){
-		${assertEquals} $(${returnAppServerVersion} tomcat master) $(
+	testGetAppServerVersion[tomcat,master](){
+		${assertEquals} $(${getAppServerVersion} tomcat master) $(
 			AppServerVersionConstants TOMCAT_VERSION)
 	}
 
 	@test
-	testReturnAppServerVersion[weblogic](){
-		${assertEquals} $(${returnAppServerVersion} weblogic) $(
+	testGetAppServerVersion[weblogic](){
+		${assertEquals} $(${getAppServerVersion} weblogic) $(
 			AppServerVersionConstants WEBLOGIC_VERSION)
 	}
 
 	@test
-	testReturnAppServerVersion[websphere](){
-		${assertEquals} $(${returnAppServerVersion} websphere) $(
+	testGetAppServerVersion[websphere](){
+		${assertEquals} $(${getAppServerVersion} websphere) $(
 			AppServerVersionConstants WEBSPHERE_VERSION)
 	}
 
 	@test
-	testReturnAppServerVersion[wildfly](){
-		${assertEquals} $(${returnAppServerVersion} wildfly) $(
+	testGetAppServerVersion[wildfly](){
+		${assertEquals} $(${getAppServerVersion} wildfly) $(
 			AppServerVersionConstants WILDFLY_VERSION)
 	}
 
 	local assertEquals="TestUtil assertEquals"
 	local assertNull="TestUtil assertNull"
-	local returnAppServerVersion="AppServerVersion getAppServerVersion"
+	local getAppServerVersion="AppServerVersion getAppServerVersion"
 
 	$@
 }
