@@ -1,3 +1,5 @@
+include string.util.StringUtil
+
 @class
 AppServerVersionConstants(){
 	GLASSFISH_VERSION(){
@@ -43,6 +45,12 @@ AppServerVersionConstants(){
 	WILDFLY_VERSION(){
 		echo "10.0.0"
 	}
+
+	if [[ ${1} == *Version ]]; then
+		$(StringUtil toUpperCase ${1//Version/}_VERSION)
+
+		shift
+	fi
 
 	$@
 }
