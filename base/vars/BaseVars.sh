@@ -45,9 +45,9 @@ BaseVars(){
 	}
 
 	isPrivate(){
-		if [[ $@ == *ee-* || $@ == *-private* || $@ == *7.0.x* ]]; then
-			echo true
-		fi
+		case $@ in
+			*ee-* | *-private* | *7.0.x* ) echo true ;;
+		esac
 	}
 
 	returnBranch(){
