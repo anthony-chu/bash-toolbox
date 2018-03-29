@@ -17,12 +17,9 @@ FileValidator(){
 
 	isPath(){
 		local filePath=$(readvar ${1})
+		local pattern='\(/[a-zA-Z\]\+\)\+'
 
-		if [[ ! $(StringValidator isSubstring filePath [.]) ]]; then
-			local pattern='\(/[a-zA-Z\]\+\)\+'
-
-			Matcher matches pattern filePath
-		fi
+		Matcher matches pattern filePath
 	}
 
 	$@
