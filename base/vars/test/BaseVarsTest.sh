@@ -2,8 +2,6 @@ include base.vars.BaseVars
 
 include file.name.util.FileNameUtil
 
-include system.validator.SystemValidator
-
 include test.util.TestUtil
 
 @class
@@ -222,12 +220,6 @@ BaseVarsTest(){
 	}
 
 	local assertEquals="TestUtil assertEquals"
-
-	if [[ $(SystemValidator isWindows) ]]; then
-		local _env="win"
-	else
-		local _env="nix"
-	fi
 
 	$@
 }
