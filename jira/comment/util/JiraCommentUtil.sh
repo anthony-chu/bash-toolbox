@@ -42,7 +42,7 @@ JiraCommentUtil(){
 	}
 
 	local appServer=$(AppServerValidator returnAppServer ${@})
-	local branch=$(BaseVars returnBranch ${@})
+	local branch=$(BaseVars getBranch ${@})
 
 	while [[ $(BaseComparator isEqual ${1} ${branch}) || $(
 		BaseComparator isEqual ${1} ${appServer}) ]]; do

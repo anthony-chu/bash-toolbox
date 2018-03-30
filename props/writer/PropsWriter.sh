@@ -36,8 +36,8 @@ PropsWriter(){
 		${disableProps} ${testProps} ${2}
 	}
 
-	local _buildDir=$(BaseVars returnBuildDir ${2})
-	local _bundleDir=$(BaseVars returnBundleDir ${2})
+	local _buildDir=$(BaseVars getBuildDir ${2})
+	local _bundleDir=$(BaseVars getBundleDir ${2})
 	local appServerProps=${_buildDir}/app.server.${HOSTNAME}.properties
 	local buildProps=${_buildDir}/build.${HOSTNAME}.properties
 	local disableProps="PropsWriterUtil disableProps"

@@ -10,10 +10,10 @@ AppServerFactory(){
 	getAppServerDir(){
 		local appServer=$(AppServerValidator returnAppServer ${2})
 		local _appServerDir=(
-			$(BaseVars returnBundleDir ${1})/
+			$(BaseVars getBundleDir ${1})/
 			${appServer}-
 			$(AppServerVersion getAppServerVersion ${appServer} $(BaseVars
-				returnBranch ${1}))
+				getBranch ${1}))
 		)
 
 		StringUtil join _appServerDir

@@ -84,8 +84,8 @@ GitUtil(){
 		source /d/git-tools/git-pull-request/git-pull-request.sh
 	}
 
-	local branch=$(BaseVars returnBranch ${@})
-	local buildDir=$(BaseVars returnBuildDir ${branch})
+	local branch=$(BaseVars getBranch ${@})
+	local buildDir=$(BaseVars getBuildDir ${branch})
 
 	$@
 }

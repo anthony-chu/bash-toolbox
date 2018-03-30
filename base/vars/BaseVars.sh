@@ -36,7 +36,7 @@ BaseVars(){
 	}
 
 	@private
-	_returnPrivacy(){
+	_getPrivacy(){
 		if [[ $(isPrivate $@) ]]; then
 			echo private
 		else
@@ -50,7 +50,7 @@ BaseVars(){
 		esac
 	}
 
-	returnBranch(){
+	getBranch(){
 		local branches=(
 			ee-6.1.30 ee-6.1.x ee-6.2.x ee-6.2.10 6.1.x 6.2.x
 			master-private master 7.0.x-private 7.0.x 7.1.x-private 7.1.x
@@ -67,12 +67,12 @@ BaseVars(){
 		echo master
 	}
 
-	returnBuildDir(){
-		_getPath $(_getBaseDir)/$(_returnPrivacy $@)/$(returnBranch $@)/portal
+	getBuildDir(){
+		_getPath $(_getBaseDir)/$(_getPrivacy $@)/$(getBranch $@)/portal
 	}
 
-	returnBundleDir(){
-		_getPath $(_getBaseDir)/$(_returnPrivacy $@)/$(returnBranch $@)/bundles
+	getBundleDir(){
+		_getPath $(_getBaseDir)/$(_getPrivacy $@)/$(getBranch $@)/bundles
 	}
 
 	$@

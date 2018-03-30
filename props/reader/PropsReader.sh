@@ -20,8 +20,8 @@ PropsReader(){
 		${readProps} ${buildDir}/test.${HOSTNAME}.properties ${2}
 	}
 
-	local bundleDir=$(BaseVars returnBundleDir ${2})
-	local buildDir=$(BaseVars returnBuildDir ${2})
+	local bundleDir=$(BaseVars getBundleDir ${2})
+	local buildDir=$(BaseVars getBuildDir ${2})
 	local readProps="PropsReaderUtil readProps"
 
 	$@

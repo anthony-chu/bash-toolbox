@@ -67,12 +67,12 @@ SourceUtil(){
 	}
 
 	local appServer=$(AppServerValidator returnAppServer $@)
-	local branch=$(FileNameUtil getPath 1 $(BaseVars returnBranch $@))
+	local branch=$(FileNameUtil getPath 1 $(BaseVars getBranch $@))
 	local buildDir=$(FileNameUtil getPath 1 $(
-		BaseVars returnBuildDir ${branch}))
+		BaseVars getBuildDir ${branch}))
 
 	local bundleDir=$(FileNameUtil getPath 1 $(
-		BaseVars returnBundleDir ${branch}))
+		BaseVars getBundleDir ${branch}))
 
 	local writer=PropsWriter
 

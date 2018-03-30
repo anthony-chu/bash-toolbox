@@ -85,8 +85,8 @@ BundleUtil(){
 	}
 
 	local appServer=$(AppServerValidator returnAppServer $@)
-	local branch=$(BaseVars returnBranch $@)
-	local bundleDir=$(BaseVars returnBundleDir ${branch})
+	local branch=$(BaseVars getBranch $@)
+	local bundleDir=$(BaseVars getBundleDir ${branch})
 	local replace="FileWriter replace"
 
 	$@
