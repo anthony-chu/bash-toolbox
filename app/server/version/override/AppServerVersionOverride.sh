@@ -7,6 +7,8 @@ include string.validator.StringValidator
 @class
 AppServerVersionOverride(){
 	getTomcatVersion(){
+		local branch=${1}
+
 		if [[ $(StringValidator isNull ${branch}) ]]; then
 			AppServerVersionConstants TOMCAT_VERSION
 		elif [[ $(StringValidator isSubstring ${branch} 7.0) ]]; then
@@ -25,8 +27,6 @@ AppServerVersionOverride(){
 			AppServerVersionConstants TOMCAT_VERSION
 		fi
 	}
-
-	local branch=$(BaseVars returnBranch $@)
 
 	$@
 }
