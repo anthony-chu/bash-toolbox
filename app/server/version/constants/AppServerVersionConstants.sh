@@ -31,7 +31,7 @@ AppServerVersionConstants(){
 	}
 
 	TOMCAT_VERSION(){
-		echo "8.5.29"
+		echo "9.0.6"
 	}
 
 	WEBLOGIC_VERSION(){
