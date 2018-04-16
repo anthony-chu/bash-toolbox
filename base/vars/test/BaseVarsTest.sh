@@ -178,7 +178,7 @@ BaseVarsTest(){
 	}
 
 	@test
-	testReturnBUndleDir[7.1.x-private](){
+	testGetBundleDir[7.1.x-private](){
 		${assertEquals} $(BaseVars getBundleDir 7.1.x-private) $(FileNameUtil
 			getPath /d/private/7.1.x-private/bundles)
 	}
