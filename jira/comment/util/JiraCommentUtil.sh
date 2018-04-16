@@ -13,7 +13,7 @@ JiraCommentUtil(){
 	@private
 	_getEnv(){
 		local appServerVersion=$(AppServerVersion
-			returnAppServerVersion ${1} ${2})
+			getAppServerVersion ${1} ${2})
 
 		local environment=(
 			$(StringUtil capitalize ${1})
