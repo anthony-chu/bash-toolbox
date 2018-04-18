@@ -1,7 +1,5 @@
 include app.server.version.constants.AppServerVersionConstants
 
-include base.vars.BaseVars
-
 include string.validator.StringValidator
 
 @class
