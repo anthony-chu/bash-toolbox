@@ -18,6 +18,16 @@ StringValidator(){
 		fi
 	}
 
+	endsWith(){
+		local end=${1}
+		shift
+		local string=$@
+
+		if [[ ${string} == *${end} ]]; then
+			echo true
+		fi
+	}
+
 	isAlpha(){
 		local str=${@}
 
