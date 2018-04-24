@@ -1,11 +1,11 @@
 @class
 StringValidator(){
 	beginsWith(){
-		local char=${1}
+		local beginning=${1}
 		shift
 		local string=${@}
 
-		if [[ ${string} == ${char}* ]]; then
+		if [[ ${string} == ${beginning}* ]]; then
 			echo true
 		fi
 	}
