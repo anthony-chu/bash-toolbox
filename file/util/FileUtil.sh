@@ -59,5 +59,13 @@ FileUtil(){
 		${cmd} ${1}
 	}
 
+	replace(){
+		local file=${1}
+		local pattern=$(readvar ${2})
+		local replace=$(readvar ${3})
+
+		sed -i "s;${pattern};${replace};g" ${file}
+	}
+
 	$@
 }
