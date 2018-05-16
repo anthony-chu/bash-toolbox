@@ -1,5 +1,6 @@
 include array.validator.ArrayValidator
 
+include app.server.factory.AppServerFactory
 include app.server.validator.AppServerValidator
 include app.server.version.AppServerVersion
 
@@ -7,6 +8,8 @@ include base.comparator.BaseComparator
 include base.vars.BaseVars
 
 include git.util.GitUtil
+
+include matcher.Matcher
 
 include string.util.StringUtil
 
@@ -24,6 +27,19 @@ JiraCommentUtil(){
 		)
 
 		local gitId=$(GitUtil getOriginSHA ${branch})
+
+		if [[ ${nightly} ]]; then
+			local appServerDir=$(AppServerFactory
+				getAppServerDir ${branch} ${appServer})
+
+			local jspFile=${appServerDir}/webapps/ROOT/html/common/themes/bottom-test.jsp
+
+			local pattern='.*>\([a-z0-9]\+\)<.*'
+			local replace='\1'
+			local string=$(cat ${jspFile})
+
+			local gitId=$(Matcher replace pattern string replace)
+		fi
 
 		StringUtil replace $(StringUtil join environment _) _ space
 		echo "Portal *${branch}* GIT ID: ${gitId}"
