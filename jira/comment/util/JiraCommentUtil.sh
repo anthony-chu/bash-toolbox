@@ -23,8 +23,10 @@ JiraCommentUtil(){
 			+_MySQL_5.7
 		)
 
+		local gitId=$(GitUtil getOriginSHA ${branch})
+
 		StringUtil replace $(StringUtil join environment _) _ space
-		echo "Portal *${branch}* GIT ID: $(GitUtil getOriginSHA ${branch})"
+		echo "Portal *${branch}* GIT ID: ${gitId}"
 	}
 
 	fixed(){
