@@ -1,3 +1,5 @@
+include array.validator.ArrayValidator
+
 include app.server.validator.AppServerValidator
 include app.server.version.AppServerVersion
 
@@ -41,11 +43,17 @@ JiraCommentUtil(){
 		echo "*Tested on:*"
 	}
 
-	local appServer=$(AppServerValidator returnAppServer ${@})
-	local branch=$(BaseVars getBranch ${@})
+	local args=($@)
+	local appServer=$(AppServerValidator returnAppServer ${args[@]})
+	local branch=$(BaseVars getBranch ${args[@]})
+
+	if [[ $(ArrayValidator hasEntry args nightly) ]]; then
+		local nightly=true
+	fi
 
 	while [[ $(BaseComparator isEqual ${1} ${branch}) || $(
-		BaseComparator isEqual ${1} ${appServer}) ]]; do
+		BaseComparator isEqual ${1} ${appServer}) || $(
+		BaseComparator isEqual ${1} nightly) ]]; do
 
 		shift
 	done
