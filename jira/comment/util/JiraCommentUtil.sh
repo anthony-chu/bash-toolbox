@@ -29,7 +29,9 @@ JiraCommentUtil(){
 			local bundleDir=$(BaseVars getBundleDir ${branch})
 			local gitHashFile=${bundleDir}/.githash
 
-			local gitId=$(cat ${gitHashFile})
+			if [[ -e ${gitHashFile} ]]; then
+				local gitId=$(cat ${gitHashFile})
+			fi
 		fi
 
 		StringUtil replace $(StringUtil join environment _) _ space
