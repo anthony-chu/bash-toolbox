@@ -8,6 +8,8 @@ include base.vars.BaseVars
 
 include git.util.GitUtil
 
+include logger.Logger
+
 include string.util.StringUtil
 
 @class
@@ -31,6 +33,11 @@ JiraCommentUtil(){
 
 			if [[ -e ${gitHashFile} ]]; then
 				local gitId=$(cat ${gitHashFile})
+			else
+				Logger logErrorMsg "the_current_bundle_is_not_a_nightly_bundle"
+				Logger logErrorMsg "please_remove_'nightly'_as_an_argument"
+
+				exit
 			fi
 		fi
 
