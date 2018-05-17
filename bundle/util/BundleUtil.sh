@@ -47,7 +47,7 @@ BundleUtil(){
 
 		Logger logProgressMsg "deleting_remaining_bundle_folders"
 
-		rm -rf ${bundleDir}/{deploy,osgi,poshi,tools,work}
+		rm -rf ${bundleDir}/{.githash,deploy,osgi,poshi,tools,work}
 
 		Logger logCompletedMsg
 
