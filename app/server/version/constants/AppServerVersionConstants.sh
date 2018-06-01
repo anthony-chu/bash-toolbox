@@ -43,7 +43,7 @@ AppServerVersionConstants(){
 	}
 
 	WILDFLY_VERSION(){
-		echo "10.0.0"
+		echo "11.0.0"
 	}
 
 	if [[ ${1} == *Version ]]; then
