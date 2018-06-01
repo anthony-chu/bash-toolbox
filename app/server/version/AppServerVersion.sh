@@ -14,6 +14,8 @@ AppServerVersion(){
 
 			if [[ $(AppServerValidator isTomcat appServer) ]]; then
 				AppServerVersionOverride getTomcatVersion ${branch}
+			elif [[ $(AppServerValidator isWildfly appServer) ]]; then
+				AppServerVersionOverride getWildflyVersion ${branch}
 			elif [[ $(AppServerValidator isTCServer appServer) ]]; then
 				AppServerVersionConstants TCSERVER_VERSION
 			else

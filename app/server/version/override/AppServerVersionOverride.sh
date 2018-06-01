@@ -24,6 +24,14 @@ AppServerVersionOverride(){
 		fi
 	}
 
+	getWildflyVersion(){
+		if [[ $(StringValidator isSubstring ${branch} 7.0) ]]; then
+			echo 10.0.0
+		else
+			AppServerVersionConstants WILDFLY_VERSION
+		fi
+	}
+
 	local branch=$(BaseVars getBranch $@)
 
 	$@
