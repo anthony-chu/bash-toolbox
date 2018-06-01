@@ -56,7 +56,7 @@ AppServerVersionConstantsTest(){
 
 	@test
 	testWildflyVersion(){
-		${assertEquals} $(AppServerVersionConstants WILDFLY_VERSION) 10.0.0
+		${assertEquals} $(AppServerVersionConstants WILDFLY_VERSION) 11.0.0
 	}
 
 	local assertEquals="TestUtil assertEquals"

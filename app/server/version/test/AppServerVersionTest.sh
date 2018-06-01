@@ -121,6 +121,17 @@ AppServerVersionTest(){
 			AppServerVersionConstants WILDFLY_VERSION)
 	}
 
+	@test
+	testGetAppServerVersion[wildfly,7.0.x](){
+		${assertEquals} $(${getAppServerVersion} wildfly 7.0.x) 10.0.0
+	}
+
+	@test
+	testGetAppServerVersion[wildfly,master](){
+		${assertEquals} $(${getAppServerVersion} wildfly master) $(
+			AppServerVersionConstants WILDFLY_VERSION)
+	}
+
 	local assertEquals="TestUtil assertEquals"
 	local assertNull="TestUtil assertNull"
 	local getAppServerVersion="AppServerVersion getAppServerVersion"
