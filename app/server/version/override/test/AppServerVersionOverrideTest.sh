@@ -36,7 +36,7 @@ AppServerVersionOverrideTest(){
 
 	@test
 	testGetTomcatVersion[null](){
-		${assertEquals} $(${getTomcatVersion}) 8.5.29
+		${assertEquals} $(${getTomcatVersion}) 9.0.6
 	}
 
 	local assertEquals="TestUtil assertEquals"
