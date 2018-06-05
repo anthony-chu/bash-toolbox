@@ -10,17 +10,13 @@ include string.validator.StringValidator
 @class
 AppServerVersion(){
 	getAppServerVersion(){
-		if [[ ! $(StringValidator isNull ${@}) ]]; then
-			if [[ $(AppServerValidator isTomcat appServer) ]]; then
-				AppServerVersionOverride getTomcatVersion ${branch}
-			elif [[ $(AppServerValidator isWildfly appServer) ]]; then
-				AppServerVersionOverride getWildflyVersion ${branch}
-			elif [[ $(AppServerValidator isTCServer appServer) ]]; then
-				AppServerVersionConstants TCSERVER_VERSION
-			else
-				AppServerVersionConstants $(
-					StringUtil toUpperCase ${appServer})_VERSION
-			fi
+		if [[ $(AppServerValidator isTomcat appServer) ]]; then
+			AppServerVersionOverride getTomcatVersion ${branch}
+		elif [[ $(AppServerValidator isTCServer appServer) ]]; then
+			AppServerVersionConstants TCSERVER_VERSION
+		else
+			AppServerVersionConstants $(
+				StringUtil toUpperCase ${appServer})_VERSION
 		fi
 	}
 
