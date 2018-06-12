@@ -22,11 +22,11 @@ BundleUtil(){
 			if [[ ! $(StringValidator isSubstring branch 6) ]]; then
 				${tomcatReplace} Xmx1024m Xmx2048m
 
-				${tomcatReplace} XX:MaxPermSize=[[:digit:]]\\\+m Xms1024m
+				${tomcatReplace} XX:MaxPermSize=[0-9]\+m Xms1024m
 			else
 				${tomcatReplace} Xmx1024m "Xmx2048m -Xms1024m"
 
-				${tomcatReplace} MaxPermSize=[[:digit:]]\\\+ MaxPermSize=512
+				${tomcatReplace} MaxPermSize=[0-9]\+ MaxPermSize=512
 			fi
 		elif [[ $(AppServerValidator isWildfly appServer) || $(
 				AppServerValidator isJboss appServer) ]]; then
