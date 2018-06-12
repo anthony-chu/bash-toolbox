@@ -20,7 +20,7 @@ AppServerVersion(){
 		fi
 	}
 
-	local appServer=$(AppServerValidator returnAppServerValidator $@)
+	local appServer=$(AppServerValidator returnAppServer $@)
 	local branch=$(BaseVars getBranch $@)
 
 	$@
