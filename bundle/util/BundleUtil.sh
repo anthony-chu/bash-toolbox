@@ -34,7 +34,7 @@ BundleUtil(){
 			local file=${appServerDir}/bin/standalone.conf
 
 			${replace} ${file} MaxMetaspaceSize=512m MaxMetaspaceSize=1024m
-			${replace} ${file} timeout=480 timeout=6000
+			${replace} ${file} timeout=[0-9]\+ timeout=6000
 			${replace} ${file} Xmx1024m Xmx2048m
 
 			local s=${appServerDir}/standalone/configuration/standalone.xml
