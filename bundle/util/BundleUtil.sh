@@ -20,22 +20,22 @@ BundleUtil(){
 			local tomcatReplace="${replace} ${appServerDir}/bin/setenv.sh"
 
 			if [[ ! $(StringValidator isSubstring branch 6) ]]; then
-				${tomcatReplace} Xmx=[0-9]\+m Xmx2048m
+				${tomcatReplace} Xmx[0-9]\+m Xmx2048m
 
 				${tomcatReplace} XX:MaxPermSize=[0-9]\+m Xms1024m
 			else
-				${tomcatReplace} Xmx[0-9]\+m "Xmx2048m -Xms1024m"
+				${tomcatReplace} Xmx[0-9]\+m 'Xmx2048m -Xms1024m'
 
-				${tomcatReplace} MaxPermSize=[0-9]\+ MaxPermSize=512
+				${tomcatReplace} \(MaxPermSize\)=[0-9]\+ \1=512
 			fi
 		elif [[ $(AppServerValidator isWildfly appServer) || $(
 				AppServerValidator isJboss appServer) ]]; then
 
 			local file=${appServerDir}/bin/standalone.conf
 
-			${replace} ${file} MaxMetaspaceSize=[0-9]\+m MaxMetaspaceSize=1024m
-			${replace} ${file} timeout=[0-9]\+ timeout=6000
-			${replace} ${file} Xmx[0-9]\+m Xmx2048m
+			${replace} ${file} \(MaxMetaspaceSize\)=[0-9]\+m \1=1024m
+			${replace} ${file} \(timeout\)=[0-9]\+ \1=6000
+			${replace} ${file} Xmx[0-9]\+m 'Xmx2048m -Xms1024m'
 
 			local s=${appServerDir}/standalone/configuration/standalone.xml
 
