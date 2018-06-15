@@ -12,8 +12,6 @@ include string.validator.StringValidator
 @class
 BundleUtil(){
 	configure(){
-		local appServerDir=$(AppServerFactory getAppServerDir ${1} ${2})
-
 		Logger logProgressMsg "increasing_memory_limit"
 
 		if [[ $(AppServerValidator isTomcat appServer) ]]; then
@@ -56,7 +54,7 @@ BundleUtil(){
 		Logger logCompletedMsg
 
 		Logger logProgressMsg "deleting_app_server_directory"
-		rm -rf $(AppServerFactory getAppServerDir ${1} ${2})
+		rm -rf ${appServerDir}
 		Logger logCompletedMsg
 	}
 
@@ -69,8 +67,6 @@ BundleUtil(){
 	}
 
 	deleteTempFiles(){
-		local appServerDir=$(AppServerFactory getAppServerDir ${1} ${2})
-
 		Logger logProgressMsg "deleting_temporary_directories"
 
 		rm -rf ${appServerDir}/{temp,work}
@@ -90,6 +86,9 @@ BundleUtil(){
 
 	local appServer=$(AppServerValidator returnAppServer $@)
 	local branch=$(BaseVars getBranch $@)
+
+	local appServerDir=$(
+			AppServerFactory getAppServerDir ${appServer} ${branch})
 	local bundleDir=$(BaseVars getBundleDir ${branch})
 	local replace="FileWriter replace"
 
