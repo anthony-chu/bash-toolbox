@@ -27,7 +27,9 @@ AppServerVersionOverride(){
 	getWildflyVersion(){
 		if [[ $(StringValidator isSubstring ${branch} 7.0) ]]; then
 			echo 10.0.0
-		else
+		elif [[ $(StringValidator isSubstring ${branch} master) ||
+				$(StringValidator isSubstring ${branch} 7.1) ]]; then
+
 			AppServerVersionConstants WILDFLY_VERSION
 		fi
 	}
