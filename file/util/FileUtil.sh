@@ -24,6 +24,12 @@ FileUtil(){
 		echo ${_path}
 	}
 
+	deleteIfExists(){
+		if [[ -e ${1} || -d ${1} ]]; then
+			rm -rf ${1}
+		fi
+	}
+
 	getContent(){
 		cat ${1}
 	}
