@@ -46,7 +46,7 @@ BaseVars(){
 
 	isPrivate(){
 		case $@ in
-			*ee-* | *-private* | *7.0.x* ) echo true ;;
+			*ee-* | *-private* | *7.*.x* ) echo true ;;
 		esac
 	}
 
