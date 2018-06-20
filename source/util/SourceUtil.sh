@@ -36,7 +36,6 @@ SourceUtil(){
 
 		local cacheDir=$(FileNameUtil getPath 1 /d/liferay-binaries-cache-2017)
 
-		${writer} setBuildProps ${branch} build.binaries.cache.dir ${cacheDir}
 		${writer} setBuildProps ${branch} lp.source.dir ${buildDir}
 
 		if [[ $(StringValidator isSubstring ${branch} 6.1) ]]; then
