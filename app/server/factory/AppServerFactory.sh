@@ -8,16 +8,17 @@ include string.util.StringUtil
 @class
 AppServerFactory(){
 	getAppServerDir(){
-		local appServer=$(AppServerValidator returnAppServer ${2})
 		local _appServerDir=(
-			$(BaseVars getBundleDir ${1})/
+			$(BaseVars getBundleDir ${branch})/
 			${appServer}-
-			$(AppServerVersion getAppServerVersion ${appServer} $(BaseVars
-				getBranch ${1}))
+			$(AppServerVersion getAppServerVersion ${appServer} ${branch})
 		)
 
 		StringUtil join _appServerDir
 	}
+
+	local appServer=$(AppServerValidator returnAppServer $@)
+	local branch=$(BaseVars getBranch $@)
 
 	$@
 }
