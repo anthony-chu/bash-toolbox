@@ -44,6 +44,10 @@ SourceUtil(){
 			${writer} setBuildProps ${branch} jsp.precompile on
 		fi
 
+		if [[ $(StringValidator isSubstring ${branch} 6.2) ]]; then
+			${writer} setBuildProps ${branch} javac.compiler modern
+		fi
+
 		Logger logCompletedMsg
 	}
 
