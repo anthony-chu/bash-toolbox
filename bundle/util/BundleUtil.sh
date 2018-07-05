@@ -34,10 +34,6 @@ BundleUtil(){
 			${replace} ${file} '\(MaxMetaspaceSize\)=[0-9]\+m' '\1=1024m'
 			${replace} ${file} '\(timeout\)=[0-9]\+' '\1=6000'
 			${replace} ${file} 'Xmx[0-9]\+m' 'Xmx2048m -Xms1024m'
-
-			local s=${appServerDir}/standalone/configuration/standalone.xml
-
-			${replace} ${s} "\(deployment-timeout\)=\"[0-9]+\"" "\1=\"60000\""
 		fi
 
 		Logger logCompletedMsg
