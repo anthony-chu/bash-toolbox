@@ -42,6 +42,7 @@ LanguageUtilTest(){
 		local result=(0 bars)
 
 		${assertEquals} output result
+	}
 
 	local assertEquals="TestUtil assertEquals"
 
