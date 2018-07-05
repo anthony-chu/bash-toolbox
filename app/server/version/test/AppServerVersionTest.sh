@@ -31,7 +31,7 @@ AppServerVersionTest(){
 
 	@test
 	testGetAppServerVersion[null](){
-		${assertNull} $(${getAppServerVersion})
+		${assertEquals} $(${getAppServerVersion} tomcat)
 	}
 
 	@test
@@ -133,7 +133,6 @@ AppServerVersionTest(){
 	}
 
 	local assertEquals="TestUtil assertEquals"
-	local assertNull="TestUtil assertNull"
 	local getAppServerVersion="AppServerVersion getAppServerVersion"
 
 	$@
