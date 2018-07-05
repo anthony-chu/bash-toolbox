@@ -54,7 +54,17 @@ CommandValidator(){
 	}
 
 	getTestCommands(){
-		getCommandsByAnnotation ${1} @test
+		local ignore=($(getCommandsByAnnotation ${1} @ignore))
+		local testCommands=()
+		local tests=($(getCommandsByAnnotation ${1} @test))
+
+		for t in ${tests[@]}; do
+			if [[ ! ${ignore[@]} =~ ${t} ]]; then
+				testCommands+=(${t})
+			fi
+		done
+
+		echo ${testCommands[@]}
 	}
 
 	validateCommand(){
