@@ -34,7 +34,7 @@ AppServerVersionOverride(){
 		fi
 	}
 
-	local branch=$(BaseVars getBranch $@)
+	local branch=${2}
 
 	$@
 }
