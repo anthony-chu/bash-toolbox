@@ -4,7 +4,7 @@ include test.util.TestUtil
 
 @class
 JiraUtilTest(){
-	@test
+	@ignore @test
 	testGetTicketReturnErrorMessage(){
 		local exception="LPS-0 is not a valid JIRA issue key"
 		local response=$(JiraUtil getTicket LPS-0)
