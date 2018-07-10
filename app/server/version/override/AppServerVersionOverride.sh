@@ -24,6 +24,16 @@ AppServerVersionOverride(){
 		fi
 	}
 
+	getWebsphereVersion(){
+		if [[ $(StringValidator isSubstring ${branch} 7.1) || $(
+				StringValidator isSubstring ${branch} master) ]]; then
+
+			AppServerVersionConstants WEBSPHERE_VERSION
+		elif [[ $(StringValidator isSubstring ${branch} 7.0) ]]; then
+			echo 8.5.5.0
+		fi
+	}
+
 	getWildflyVersion(){
 		if [[ $(StringValidator isSubstring ${branch} 7.0) ]]; then
 			echo 10.0.0
