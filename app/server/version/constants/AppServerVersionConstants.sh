@@ -39,7 +39,7 @@ AppServerVersionConstants(){
 	}
 
 	WEBSPHERE_VERSION(){
-		echo "8.5.5.0"
+		echo "9.0.0.0"
 	}
 
 	WILDFLY_VERSION(){
