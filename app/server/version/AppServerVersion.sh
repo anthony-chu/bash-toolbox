@@ -10,7 +10,8 @@ include string.validator.StringValidator
 @class
 AppServerVersion(){
 	getAppServerVersion(){
-		if [[ $(AppServerValidator isTomcat appServer) || 
+		if [[ $(AppServerValidator isTomcat appServer) ||
+				$(AppServerValidator isWebsphere appServer) ||
 				$(AppServerValidator isWildfly appServer) ]]; then
 
 			local _appServer=$(StringUtil capitalize ${appServer})
