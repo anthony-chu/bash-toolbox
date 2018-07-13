@@ -116,6 +116,11 @@ AppServerVersionTest(){
 	}
 
 	@test
+	testGetAppServerVersion[websphere,7.0.x](){
+		${assertEquals} $(${getAppServerVersion} websphere 7.0.x) 8.5.5.0
+	}
+
+	@test
 	testGetAppServerVersion[wildfly](){
 		${assertEquals} $(${getAppServerVersion} wildfly) $(
 			AppServerVersionConstants WILDFLY_VERSION)
