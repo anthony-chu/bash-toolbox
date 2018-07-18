@@ -6,6 +6,10 @@
 	echo -n ""
 }
 
+@deprecated(){
+	echo -n ""
+}
+
 @ignore(){
 	echo -n ""
 }
