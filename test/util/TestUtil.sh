@@ -92,7 +92,7 @@ TestUtil(){
 			local message=${1}
 		fi
 
-		Logger logInfoMsg "${message}"
+		_log info "${message}"
 	}
 
 	setupTestDir(){
@@ -102,6 +102,8 @@ TestUtil(){
 	tearDown(){
 		rm -rf $(pwd)/bash-toolbox/test/dependencies
 	}
+
+	local _log="Logger log"
 
 	$@
 }

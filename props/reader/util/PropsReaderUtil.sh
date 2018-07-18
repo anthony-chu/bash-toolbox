@@ -49,7 +49,7 @@ PropsReaderUtil(){
 				$(FileNameUtil getPath ${propsFileMap[0]})
 			)
 
-			Logger logErrorMsg "$(StringUtil join message _)"
+			_log error "$(StringUtil join message _)"
 			return
 		fi
 
@@ -61,10 +61,12 @@ PropsReaderUtil(){
 				${propsFileMap[1]}
 			)
 
-			Logger logErrorMsg "$(StringUtil join message _)"
+			_log error "$(StringUtil join message _)"
 			return
 		fi
 	}
+
+	local _log="Logger log"
 
 	$@
 }

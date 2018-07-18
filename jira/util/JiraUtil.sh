@@ -9,9 +9,11 @@ JiraUtil(){
 
 		case $(CurlUtil getHTTPResponse ${ticket}) in
 			200 | 302 ) start ${ticket} ;;
-			* ) Logger logErrorMsg "_${1}_is_not_a_valid_JIRA_issue_key" ;;
+			* ) _log error "_${1}_is_not_a_valid_JIRA_issue_key" ;;
 		esac
 	}
+
+	local _log="Logger log"
 
 	$@
 }

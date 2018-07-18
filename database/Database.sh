@@ -15,27 +15,29 @@ Database(){
 			local cmd="create database ${1} char set ${2};"
 		fi
 
-		Logger logProgressMsg "creating_database_${1}"
+		_log info "creating_database_${1}..."
 
 		DatabaseUtil getMysqlCmd ${cmd}
 
-		Logger logCompletedMsg
+		_log info "completed"
 	}
 
 	drop(){
 		local cmd="drop database if exists ${1};"
 
-		Logger logProgressMsg "deleting_database_${1}"
+		_log info "deleting_database_${1}..."
 
 		DatabaseUtil getMysqlCmd ${cmd}
 
-		Logger logCompletedMsg
+		_log info "completed"
 	}
 
 	rebuild(){
 		drop ${1}
 		create ${1} ${2}
 	}
+
+	local _log="Logger log"
 
 	$@
 }

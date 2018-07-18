@@ -32,21 +32,21 @@ TestExecutor(){
 			local status=$(${testClass} ${_test})ED
 
 			if [[ $(StringValidator isSubstring status FAIL) ]]; then
-				local logLevel=Error
+				local logLevel=error
 
 				results_fail+=(${_test})
 			elif [[ $(StringValidator isSubstring status PASS) ]]; then
-				local logLevel=Success;
+				local logLevel=success;
 
 				results_pass+=(${_test})
 			else
-				local logLevel=Debug
+				local logLevel=debug
 				local status=SKIPPED
 
 				results_debug+=(${_test})
 			fi
 
-			Logger log${logLevel}Msg "${testClass}#${_test}_${status}"
+			_log ${logLevel} "${testClass}#${_test}_${status}"
 		done
 
 		local total=$(MathUtil
@@ -67,8 +67,10 @@ TestExecutor(){
 			$(StringUtil join results_debug_msg _)_skipped
 		)
 
-		Logger logInfoMsg "$(StringUtil join message _)"
+		_log info "$(StringUtil join message _)"
 	}
+
+	local _log="Logger log"
 
 	$@
 }

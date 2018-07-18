@@ -11,33 +11,33 @@ include string.util.StringUtil
 @class
 GitRebaseUtil(){
 	abort(){
-		Logger logProgressMsg "terminating_previous_rebase_process"
+		_log info "terminating_previous_rebase_process..."
 
 		cd ${buildDir}
 
 		git rebase --abort
 
-		Logger logCompletedMsg
+		_log info "completed"
 	}
 
 	amend(){
-		Logger logProgressMsg "amending_the_previous_commit"
+		_log info "amending_the_previous_commit..."
 
 		cd ${buildDir}
 
 		git commit --amend
 
-		Logger logCompletedMsg
+		_log info "completed"
 	}
 
 	cont(){
-		Logger logProgressMsg "continuing_the_current_rebase_process"
+		_log info "continuing_the_current_rebase_process..."
 
 		cd ${buildDir}
 
 		git rebase --continue
 
-		Logger logCompletedMsg
+		_log info "completed"
 	}
 
 	default(){
@@ -45,11 +45,11 @@ GitRebaseUtil(){
 
 		local curBranch=$(GitUtil getCurBranch)
 
-		Logger logProgressMsg "rebasing_${curBranch}_against_${branch}_HEAD"
+		_log info "rebasing_${curBranch}_against_${branch}_HEAD..."
 
 		git pull --rebase upstream ${branch}
 
-		Logger logCompletedMsg
+		_log info "completed"
 	}
 
 	start(){
@@ -60,14 +60,16 @@ GitRebaseUtil(){
 			$(LanguageUtil togglePlurality ${value} commit commits)
 		)
 
-		Logger logProgressMsg "$(StringUtil join _message _)"
+		_log info "$(StringUtil join _message _)..."
 
 		cd ${buildDir}
 
 		git rebase -i head~${value}
 
-		Logger logCompletedMsg
+		_log info "completed"
 	}
+
+	local _log="Logger log"
 
 	local branch=$(BaseVars getBranch ${@})
 	local buildDir=$(BaseVars getBuildDir ${branch})
