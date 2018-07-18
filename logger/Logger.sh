@@ -13,31 +13,31 @@ Logger(){
 	}
 
 	logCompletedMsg(){
-		logInfoMsg completed
+		log completed ${1}
 	}
 
 	logDebugMsg(){
-		LoggerUtil getLogMsg debug ${1}
+		log debug ${1}
 	}
 
 	logErrorMsg(){
-		LoggerUtil getLogMsg error ${1}
+		log error ${1}
 	}
 
 	logInfoMsg(){
-		LoggerUtil getLogMsg info ${1}
+		log info ${1}
 	}
 
 	logProgressMsg(){
-		logInfoMsg ${1}...
+		log info ${1}...
 	}
 
 	logRequestMsg(){
-		LoggerUtil getLogMsg info ${1}:
+		log info ${1}:
 	}
 
 	logSuccessMsg(){
-		LoggerUtil getLogMsg success ${1}
+		log success ${1}
 	}
 
 	${@}
