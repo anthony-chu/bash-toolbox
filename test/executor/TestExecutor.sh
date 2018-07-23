@@ -46,7 +46,7 @@ TestExecutor(){
 				results_debug+=(${_test})
 			fi
 
-			_log ${logLevel} "${testClass}#${_test}_${status}"
+			${_log} ${logLevel} "${testClass}#${_test}_${status}"
 		done
 
 		local total=$(MathUtil
@@ -67,7 +67,7 @@ TestExecutor(){
 			$(StringUtil join results_debug_msg _)_skipped
 		)
 
-		_log info "$(StringUtil join message _)"
+		${_log} info "$(StringUtil join message _)"
 	}
 
 	local _log="Logger log"

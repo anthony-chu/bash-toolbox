@@ -34,8 +34,8 @@ JiraCommentUtil(){
 			if [[ -e ${gitHashFile} ]]; then
 				local gitId=$(cat ${gitHashFile})
 			else
-				_log error "the_current_bundle_is_not_a_nightly_bundle"
-				_log error "please_remove_'nightly'_as_an_argument"
+				${_log} error "the_current_bundle_is_not_a_nightly_bundle"
+				${_log} error "please_remove_'nightly'_as_an_argument"
 
 				exit
 			fi

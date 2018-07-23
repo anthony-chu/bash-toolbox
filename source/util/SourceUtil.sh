@@ -14,18 +14,18 @@ include string.validator.StringValidator
 SourceUtil(){
 	clearGradleCache(){
 		if [ -d ${buildDir}/.gradle/caches/ ]; then
-			_log info "clearing_gradle_cache..."
+			${_log} info "clearing_gradle_cache..."
 
 			cd ${buildDir}/.gradle/caches/
 
 			git clean -fdq
 
-			_log info "completed"
+			${_log} info "completed"
 		fi
 	}
 
 	config(){
-		_log info "building_properties..."
+		${_log} info "building_properties..."
 
 		for prop in {app.server,build}; do
 			touch ${buildDir}/${prop}.${HOSTNAME}.properties
@@ -48,7 +48,7 @@ SourceUtil(){
 			${writer} setBuildProps ${branch} javac.compiler modern
 		fi
 
-		_log info "completed"
+		${_log} info "completed"
 	}
 
 	setupSDK(){
@@ -58,13 +58,13 @@ SourceUtil(){
 			local lib="tools/sdk/dependencies/com.liferay.source.formatter/lib"
 
 			if [ ! -e ${buildDir}/${lib} ]; then
-				_log info "building_SDK_directory..."
+				${_log} info "building_SDK_directory..."
 
 				cd ${buildDir}
 
 				ant setup-sdk
 
-				_log info "completed"
+				${_log} info "completed"
 			fi
 		fi
 	}

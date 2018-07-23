@@ -6,9 +6,9 @@ include string.validator.StringValidator
 System(){
 	extendAntOpts(){
 		if [[ $(StringValidator beginsWith 6 ${1}) ]]; then
-			_log info "configuring_ANT_OPTS_JVM..."
+			${_log} info "configuring_ANT_OPTS_JVM..."
 			export ANT_OPTS="${ANT_OPTS} -XX:MaxPermSize=1024m"
-			_log info "completed"
+			${_log} info "completed"
 		fi
 	}
 
@@ -18,7 +18,7 @@ System(){
 
 	setJavaHome(){
 		if [[ $(StringValidator beginsWith 6 ${1}) ]]; then
-			_log info "configuring_Liferay_to_use_JDK7..."
+			${_log} info "configuring_Liferay_to_use_JDK7..."
 
 			if [[ $(getOS) =~ NT ]]; then
 				export JAVA_HOME="C:\Program Files\Java\jdk1.7.0_80"
@@ -26,7 +26,7 @@ System(){
 				export JAVA_HOME="/usr/java/jdk1.7.0_80"
 			fi
 
-			_log info "completed"
+			${_log} info "completed"
 		fi
 	}
 

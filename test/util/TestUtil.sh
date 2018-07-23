@@ -92,7 +92,7 @@ TestUtil(){
 			local message=${1}
 		fi
 
-		_log info "${message}"
+		${_log} info "${message}"
 	}
 
 	setupTestDir(){

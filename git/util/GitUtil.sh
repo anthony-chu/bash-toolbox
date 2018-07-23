@@ -30,7 +30,7 @@ GitUtil(){
 	}
 
 	cleanSource(){
-		_log info "resetting_the_${branch}_source_directory..."
+		${_log} info "resetting_the_${branch}_source_directory..."
 
 		cd ${buildDir}
 
@@ -38,18 +38,18 @@ GitUtil(){
 
 		git clean -fdqx
 
-		_log info "completed"
+		${_log} info "completed"
 	}
 
 	clearIndexLock(){
 		local lockFile=${buildDir}/.git/index.lock
 
 		if [ -e ${lockFile} ]; then
-			_log info "clearing_index_lock..."
+			${_log} info "clearing_index_lock..."
 
 			rm -rf ${lockFile}
 
-			_log info "completed"
+			${_log} info "completed"
 		fi
 	}
 

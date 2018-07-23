@@ -15,21 +15,21 @@ Database(){
 			local cmd="create database ${1} char set ${2};"
 		fi
 
-		_log info "creating_database_${1}..."
+		${_log} info "creating_database_${1}..."
 
 		DatabaseUtil getMysqlCmd ${cmd}
 
-		_log info "completed"
+		${_log} info "completed"
 	}
 
 	drop(){
 		local cmd="drop database if exists ${1};"
 
-		_log info "deleting_database_${1}..."
+		${_log} info "deleting_database_${1}..."
 
 		DatabaseUtil getMysqlCmd ${cmd}
 
-		_log info "completed"
+		${_log} info "completed"
 	}
 
 	rebuild(){

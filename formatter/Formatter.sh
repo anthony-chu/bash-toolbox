@@ -52,7 +52,7 @@ Formatter(){
 						${1}:${n}
 					)
 
-					_log error "$(StringUtil join _message _)"
+					${_log} error "$(StringUtil join _message _)"
 				fi
 			fi
 
@@ -69,7 +69,7 @@ Formatter(){
 				if [[ ${line} != *\"* && ${line} == *log*Msg* ]]; then
 					local n=${lineNumber}
 
-					_log error "unquoted_log_message:_${1}:${n}"
+					${_log} error "unquoted_log_message:_${1}:${n}"
 				fi
 			fi
 
@@ -83,7 +83,7 @@ Formatter(){
 			! $(StringValidator isSubstring ${1} lib) ]]; then
 
 			if [[ $(cat ${1}) != include* && $(cat ${1}) != @class* ]]; then
-				_log error "missing_@class_anootation:_${1}"
+				${_log} error "missing_@class_anootation:_${1}"
 			fi
 		fi
 	}
@@ -98,7 +98,7 @@ Formatter(){
 				if [[ ${length} > 80 && ${line} != *gitpr* ]]; then
 					local n=${lineNumber}
 
-					_log error "character_limit_exceeded:_${1}:${n}"
+					${_log} error "character_limit_exceeded:_${1}:${n}"
 				fi
 
 				local lineNumber=$(MathUtil increment ${lineNumber})
@@ -111,7 +111,7 @@ Formatter(){
 			! $(StringValidator isSubstring ${1} Test) ]]; then
 
 			if [[ $(FileUtil getContent ${1}) =~ include ]]; then
-				_log error "illegal_include:_${1}"
+				${_log} error "illegal_include:_${1}"
 			fi
 		fi
 	}
@@ -131,7 +131,7 @@ Formatter(){
 			local count=$(grep -o ${include} ${1} | wc -w)
 
 			if [[ $(BaseComparator isEqual ${count} 1) ]]; then
-				_log error "unused_include_'${include}':_${1}"
+				${_log} error "unused_include_'${include}':_${1}"
 			fi
 		done
 	}
