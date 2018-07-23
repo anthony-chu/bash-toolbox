@@ -12,7 +12,7 @@ include string.validator.StringValidator
 @class
 BundleUtil(){
 	configure(){
-		_log info "increasing_memory_limit..."
+		${_log} info "increasing_memory_limit..."
 
 		if [[ $(AppServerValidator isTomcat appServer) ]]; then
 			local tomcatReplace="${replace} ${appServerDir}/bin/setenv.sh"
@@ -36,47 +36,47 @@ BundleUtil(){
 			${replace} ${file} 'Xmx[0-9]\+m' 'Xmx2048m -Xms1024m'
 		fi
 
-		_log info "completed"
+		${_log} info "completed"
 	}
 
 	deleteBundleContent(){
 		deleteHomeFolders ${1}
 		deleteTempFiles ${1}
 
-		_log info "deleting_remaining_bundle_folders..."
+		${_log} info "deleting_remaining_bundle_folders..."
 
 		rm -rf ${bundleDir}/{.githash,deploy,osgi,poshi,tools,work}
 
-		_log info "completed"
+		${_log} info "completed"
 
-		_log info "deleting_app_server_directory..."
+		${_log} info "deleting_app_server_directory..."
 		rm -rf ${appServerDir}
-		_log info "completed"
+		${_log} info "completed"
 	}
 
 	deleteHomeFolders(){
-		_log info "deleting_home_folders..."
+		${_log} info "deleting_home_folders..."
 
 		rm -rf ${bundleDir}/{data,logs}
 
-		_log info "completed"
+		${_log} info "completed"
 	}
 
 	deleteTempFiles(){
-		_log info "deleting_temporary_directories..."
+		${_log} info "deleting_temporary_directories..."
 
 		rm -rf ${appServerDir}/{temp,work}
 
-		_log info "completed"
+		${_log} info "completed"
 	}
 
 	resetOSGiState(){
 		local osgiStateDir=${bundleDir}/osgi/state
 
 		if [[ -e ${osgiStateDir} ]]; then
-			_log info "deleting_osgi_state_folder..."
+			${_log} info "deleting_osgi_state_folder..."
 			rm -rf ${osgiStateDir}
-			_log info "completed"
+			${_log} info "completed"
 		fi
 	}
 
