@@ -52,8 +52,8 @@ BaseVars(){
 
 	getBranch(){
 		local branches=(
-			ee-6.1.30 ee-6.1.x ee-6.2.x ee-6.2.10 6.1.x 6.2.x
-			master-private master 7.0.x-private 7.0.x 7.1.x-private 7.1.x
+			ee-6.1.30 ee-6.1.x ee-6.2.x ee-6.2.10 6.1.x 6.2.x 7.0.x-private
+			7.0.x 7.1.x-private 7.1.x master-private master
 		)
 
 		for branch in ${branches[@]}; do
