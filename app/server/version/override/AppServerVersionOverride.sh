@@ -9,8 +9,6 @@ AppServerVersionOverride(){
 	getTomcatVersion(){
 		if [[ $(StringValidator isSubstring ${branch} 7.0) ]]; then
 			echo 8.0.53
-		elif [[ $(StringValidator isSubstring ${branch} ee-6.2) ]]; then
-			echo 7.0.90
 		elif [[ $(StringValidator isSubstring ${branch} 6.2) ]]; then
 			echo 7.0.90
 		elif [[ $(StringValidator isSubstring ${branch} 6.1) ]]; then
