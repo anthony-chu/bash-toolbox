@@ -2,6 +2,17 @@ include string.util.StringUtil
 
 @class
 AppServerVersionConstants(){
+	@private
+	_convertMethodToConstant(){
+		local cmd=${1}
+
+		if [[ ${cmd} == *Version ]]; then
+			local cmd=$(StringUtil toUpperCase ${1//Version/}_VERSION)
+		fi
+
+		echo ${cmd}
+	}
+
 	GLASSFISH_VERSION(){
 		echo "3.1.2.2"
 	}
@@ -46,11 +57,5 @@ AppServerVersionConstants(){
 		echo "11.0.0"
 	}
 
-	if [[ ${1} == *Version ]]; then
-		$(StringUtil toUpperCase ${1//Version/}_VERSION)
-
-		shift
-	fi
-
-	$@
+	_convertMethodToConstant ${@}
 }
