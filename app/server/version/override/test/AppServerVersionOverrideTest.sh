@@ -11,12 +11,12 @@ AppServerVersionOverrideTest(){
 
 	@test
 	testGetTomcatVersion[6.2.x](){
-		${assertEquals} $(${getTomcatVersion} 6.2.x) 7.0.42
+		${assertEquals} $(${getTomcatVersion} 6.2.x) 7.0.90
 	}
 
 	@test
 	testGetTomcatVersion[7.0.x](){
-		${assertEquals} $(${getTomcatVersion} 7.0.x) 8.0.32
+		${assertEquals} $(${getTomcatVersion} 7.0.x) 8.0.53
 	}
 
 	@test
@@ -26,17 +26,17 @@ AppServerVersionOverrideTest(){
 
 	@test
 	testGetTomcatVersion[ee-6.2.10](){
-		${assertEquals} $(${getTomcatVersion} ee-6.2.10) 7.0.62
+		${assertEquals} $(${getTomcatVersion} ee-6.2.10) 7.0.90
 	}
 
 	@test
 	testGetTomcatVersion[ee-6.2.x](){
-		${assertEquals} $(${getTomcatVersion} ee-6.2.x) 7.0.62
+		${assertEquals} $(${getTomcatVersion} ee-6.2.x) 7.0.90
 	}
 
 	@test
 	testGetTomcatVersion[null](){
-		${assertEquals} $(${getTomcatVersion}) 9.0.6
+		${assertEquals} $(${getTomcatVersion}) 9.0.10
 	}
 
 	local assertEquals="TestUtil assertEquals"

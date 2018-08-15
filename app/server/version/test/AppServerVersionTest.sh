@@ -69,12 +69,12 @@ AppServerVersionTest(){
 
 	@test
 	testGetAppServerVersion[tomcat,6.2.x](){
-		${assertEquals} $(${getAppServerVersion} tomcat 6.2.x) 7.0.42
+		${assertEquals} $(${getAppServerVersion} tomcat 6.2.x) 7.0.90
 	}
 
 	@test
 	testGetAppServerVersion[tomcat,7.0.x](){
-		${assertEquals} $(${getAppServerVersion} tomcat 7.0.x) 8.0.32
+		${assertEquals} $(${getAppServerVersion} tomcat 7.0.x) 8.0.53
 	}
 
 	@test
@@ -89,12 +89,12 @@ AppServerVersionTest(){
 
 	@test
 	testGetAppServerVersion[tomcat,ee-6.2.10](){
-		${assertEquals} $(${getAppServerVersion} tomcat ee-6.2.10) 7.0.42
+		${assertEquals} $(${getAppServerVersion} tomcat ee-6.2.10) 7.0.90
 	}
 
 	@test
 	testGetAppServerVersion[tomcat,ee-6.2.x](){
-		${assertEquals} $(${getAppServerVersion} tomcat ee-6.2.x) 7.0.62
+		${assertEquals} $(${getAppServerVersion} tomcat ee-6.2.x) 7.0.90
 	}
 
 	@test
