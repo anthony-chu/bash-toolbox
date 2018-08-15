@@ -2,7 +2,7 @@ include string.util.StringUtil
 
 @class
 AppServerVersionConstants(){
-	@private
+	@deprecated @private
 	_convertMethodToConstant(){
 		local cmd=${1}
 
