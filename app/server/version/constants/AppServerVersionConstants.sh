@@ -7,7 +7,8 @@ AppServerVersionConstants(){
 		local cmd=${1}
 
 		if [[ ${cmd} == *Version ]]; then
-			local cmd=$(StringUtil toUpperCase ${1//Version/}_VERSION)
+			local cmd=$(
+				StringUtil toUpperCase $(StringUtil strip cmd Version)_VERSION)
 		fi
 
 		echo ${cmd}
