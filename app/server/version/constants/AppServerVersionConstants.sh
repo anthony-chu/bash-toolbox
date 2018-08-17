@@ -11,7 +11,7 @@ AppServerVersionConstants(){
 				StringUtil toUpperCase $(StringUtil strip cmd Version)_VERSION)
 		fi
 
-		echo ${cmd}
+		${cmd}
 	}
 
 	GLASSFISH_VERSION(){
