@@ -16,7 +16,7 @@ AppServerVersion(){
 
 			local _appServer=$(StringUtil capitalize ${appServer})
 
-			AppServerVersionOverride get${_appServer}Version ${branch}
+			AppServerVersionOverride get${_appServer}Version ${liferayVersion}
 		elif [[ $(AppServerValidator isTCServer appServer) ]]; then
 			AppServerVersionConstants TCSERVER_VERSION
 		else
@@ -25,8 +25,8 @@ AppServerVersion(){
 		fi
 	}
 
-	local appServer=$(AppServerValidator returnAppServer $@)
-	local branch=$(BaseVars getBranch $@)
+	local appServer=$(AppServerValidator returnAppServer ${1})
+	local liferayVersion=${2}
 
 	$@
 }
