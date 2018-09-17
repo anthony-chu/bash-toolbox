@@ -6,6 +6,18 @@ include string.validator.StringValidator
 
 @class
 AppServerVersionOverride(){
+	getJBossVersion(){
+		if [[ $(StringValidator isSubstring ${version} 7.0) ]]; then
+			echo "eap-7.0.0"
+		elif [[ $(StringValidator isSubstring ${version} 6.2) ]]; then
+			echo "eap-6.4.0"
+		elif [[ $(StringValidator isSubstring ${version} 6.1) ]]; then
+			echo "eap-6.0.1"
+		else
+			AppServerVersionConstants JBOSS_VERSION
+		fi
+	}
+
 	getTomcatVersion(){
 		if [[ $(StringValidator isSubstring ${version} 7.0) ]]; then
 			echo 8.0.53
