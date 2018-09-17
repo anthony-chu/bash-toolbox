@@ -36,7 +36,7 @@ SourceUtil(){
 		${writer} setAppServerProps ${branch} app.server.type ${appServer}
 
 		local appServerVersion=$(
-			AppServerVersion getAppServerVersion ${appServer ${branch}}
+			AppServerVersion getAppServerVersion ${appServer} ${branch}
 		)
 
 		local propName="app.server.${appServer}.version"
@@ -82,11 +82,18 @@ SourceUtil(){
 
 	local appServer=$(AppServerValidator returnAppServer $@)
 	local branch=$(BaseVars getBranch $@)
-	local buildDir=$(FileNameUtil getPath 1 $(
-		BaseVars getBuildDir ${branch}))
 
-	local bundleDir=$(FileNameUtil getPath 1 $(
-		BaseVars getBundleDir ${branch}))
+	local buildDir=$(
+		FileNameUtil getPath 1 $(
+			BaseVars getBuildDir ${branch}
+		)
+	)
+
+	local bundleDir=$(
+		FileNameUtil getPath 1 $(
+			BaseVars getBundleDir ${branch}
+		)
+	)
 
 	local writer=PropsWriter
 
