@@ -19,7 +19,7 @@ AppServerVersionConstants(){
 	}
 
 	JBOSS_VERSION(){
-		echo "eap-7.0.0"
+		echo "eap-7.1.0"
 	}
 
 	JETTY_VERSION(){
@@ -58,5 +58,7 @@ AppServerVersionConstants(){
 		echo "11.0.0"
 	}
 
-	_convertMethodToConstant ${@}
+	# _convertMethodToConstant ${@}
+
+	$@
 }
