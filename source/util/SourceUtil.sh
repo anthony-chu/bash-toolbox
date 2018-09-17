@@ -1,4 +1,5 @@
 include app.server.validator.AppServerValidator
+include app.server.version.AppServerVersion
 
 include base.vars.BaseVars
 
@@ -33,6 +34,14 @@ SourceUtil(){
 
 		${writer} setAppServerProps ${branch} app.server.parent.dir ${bundleDir}
 		${writer} setAppServerProps ${branch} app.server.type ${appServer}
+
+		local appServerVersion=$(
+			AppServerVersion getAppServerVersion ${appServer ${branch}}
+		)
+
+		local propName="app.server.${appServer}.version"
+
+		${writer} setAppServerProps ${branch} ${propName} ${appServerVersion}
 
 		local cacheDir=$(FileNameUtil getPath 1 /d/liferay-binaries-cache-2017)
 
