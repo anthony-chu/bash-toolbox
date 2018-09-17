@@ -41,7 +41,7 @@ SourceUtil(){
 
 		local propName="app.server.${appServer}.version"
 
-		${writer} setAppServerProps ${branch} ${propName} ${appServerVersion}
+		${writer} setAppServerProps ${branch} ${propName} ${appServerVersion//[a-zA-Z-]/}
 
 		local cacheDir=$(FileNameUtil getPath 1 /d/liferay-binaries-cache-2017)
 
