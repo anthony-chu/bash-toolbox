@@ -12,8 +12,18 @@ AppServerVersionTest(){
 	}
 
 	@test
-	testGetAppServerVersion[jboss](){
-		${assertEquals} $(${getAppServerVersion} jboss) $(
+	testGetAppServerVersion[jboss,6.2](){
+		${assertEquals} $(${getAppServerVersion} jboss 6.2) eap-6.4.0
+	}
+
+	@test
+	testGetAppServerVersion[jboss,7.0](){
+		${assertEquals} $(${getAppServerVersion} jboss 7.0) eap-7.0.0
+	}
+
+	@test
+	testGetAppServerVersion[jboss,master](){
+		${assertEquals} $(${getAppServerVersion} jboss master) $(
 			AppServerVersionConstants JBOSS_VERSION)
 	}
 
