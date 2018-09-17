@@ -81,7 +81,7 @@ SourceUtil(){
 	local _log="Logger log"
 
 	local appServer=$(AppServerValidator returnAppServer $@)
-	local branch=$(FileNameUtil getPath 1 $(BaseVars getBranch $@))
+	local branch=$(BaseVars getBranch $@)
 	local buildDir=$(FileNameUtil getPath 1 $(
 		BaseVars getBuildDir ${branch}))
 
