@@ -26,7 +26,7 @@ AppServerVersion(){
 		fi
 	}
 
-	local appServer=$(AppServerValidator returnAppServer ${1})
+	local appServer=$(AppServerValidator returnAppServer ${@})
 	local liferayVersion=${2}
 
 	$@
