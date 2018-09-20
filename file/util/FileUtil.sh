@@ -37,17 +37,14 @@ FileUtil(){
 	}
 
 	makeFile(){
-		local fileName=$(FileNameUtil getPath ${1})
-		local _fileNameArray=($(StringUtil split fileName /))
-		local fileNameArray=($(ArrayUtil trim _fileNameArray 1))
-		local filePath=$(
-			construct /$(
-				StringUtil replace fileNameArray space /
-			)
-		)
+		local filePath=$(FileNameUtil getPath ${1})
 
-		for cmd in {touch,echo}; do
-			${cmd} ${filePath}/${_fileNameArray[-1]}
+		local fileName=${filePath//*\/}
+
+		mkdir -p ${filePath//${fileName}/}
+
+		for command in {touch,echo}; do
+			${command} ${filePath}
 		done
 	}
 
