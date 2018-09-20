@@ -17,15 +17,22 @@ TestExecutor(){
 		local results_pass=()
 		local testClass=${1}
 
-		local path=($(echo ${testClass} | sed "s#\([A-Z]\)# \1#g"))
+		local path=(
+			$(
+				echo ${testClass} | \
+				sed "s#\([A-Z]\)# \1#g"
+			)
+		)
 
 		for p in ${path[@],,}; do
 			local classpath+=/${p}
 		done
 
 		local _tests=(
-			$(CommandValidator
-				getTestCommands bash-toolbox${classpath}/${testClass}.sh)
+			$(
+				CommandValidator
+					getTestCommands bash-toolbox${classpath}/${testClass}.sh
+			)
 		)
 
 		for _test in ${_tests[@]}; do
@@ -52,13 +59,21 @@ TestExecutor(){
 		local total=$(MathUtil
 			sum ${#results_debug[@]} ${#results_fail[@]} ${#results_pass[@]})
 
-		local results_debug_msg=($(LanguageUtil
-			togglePlurality ${#results_debug[@]} test tests))
-		local results_fail_msg=($(LanguageUtil
-			togglePlurality ${#results_fail[@]} test tests))
-		local results_pass_msg=($(LanguageUtil
-			togglePlurality ${#results_pass[@]} test tests))
-		local total_msg=($(LanguageUtil togglePlurality ${total} test tests))
+		local results_debug_msg=(
+			$(LanguageUtil togglePlurality ${#results_debug[@]} test tests)
+		)
+
+		local results_fail_msg=(
+			$(LanguageUtil togglePlurality ${#results_fail[@]} test tests)
+		)
+
+		local results_pass_msg=(
+			$(LanguageUtil togglePlurality ${#results_pass[@]} test tests)
+		)
+
+		local total_msg=(
+			$(LanguageUtil togglePlurality ${total} test tests)
+		)
 
 		local message=(
 			$(StringUtil join total_msg _)_found,

@@ -43,7 +43,10 @@ LoggerUtil(){
 		fi
 
 		echo -e "$(CalendarUtil getTimestamp log) [ $(_formatLogLevel ${1}) ] $(
-			colorme ${color} $(StringUtil parseMessage message))"
+			colorme ${color} $(
+				StringUtil parseMessage message
+			)
+		)"
 	}
 
 	$@

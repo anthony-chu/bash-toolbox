@@ -93,7 +93,11 @@ Formatter(){
 
 		if [[ ! $(StringValidator isSubstring ${1} lib) ]]; then
 			while read line; do
-				local length=$(MathUtil format $(StringUtil length ${line}))
+				local length=$(
+					MathUtil format $(
+						StringUtil length ${line}
+					)
+				)
 
 				if [[ ${length} > 80 && ${line} != *gitpr* ]]; then
 					local n=${lineNumber}

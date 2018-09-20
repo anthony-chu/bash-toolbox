@@ -46,7 +46,12 @@ ArrayUtil(){
 		local _length=${#array[@]}
 
 		local end=$(MathUtil quotient ${_length} ${numOfParitions})
-		local init=$(MathUtil product $(MathUtil decrement ${partition}) ${end})
+
+		local init=$(
+			MathUtil product $(
+				MathUtil decrement ${partition}
+			) ${end}
+		)
 
 		local subArray=()
 

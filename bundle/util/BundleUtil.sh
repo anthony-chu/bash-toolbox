@@ -86,7 +86,9 @@ BundleUtil(){
 	local branch=$(BaseVars getBranch $@)
 
 	local appServerDir=$(
-			AppServerFactory getAppServerDir ${appServer} ${branch})
+		AppServerFactory getAppServerDir ${appServer} ${branch}
+	)
+
 	local bundleDir=$(BaseVars getBundleDir ${branch})
 	local replace="FileWriter replace"
 

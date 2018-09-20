@@ -69,10 +69,14 @@ CalendarUtil(){
 
 			if [[ ${this_month} == 01 ]]; then
 				local prev_month=12
+
 				local prev_year=$(MathUtil decrement ${this_year})
 			elif [[ $(StringValidator beginsWith 0 ${this_month}) ]]; then
 				local prev_month=$(
-					MathUtil decrement $(StringUtil strip this_month 0))
+					MathUtil decrement $(
+						StringUtil strip this_month 0
+					)
+				)
 			else
 				local prev_month=$(MathUtil decrement ${this_month})
 			fi
@@ -81,7 +85,11 @@ CalendarUtil(){
 				local prev_month=0${prev_month}
 			fi
 		elif [[ $(StringValidator beginsWith 0 ${this_day}) ]]; then
-			local prev_day=$(MathUtil decrement $(StringUtil strip this_day 0))
+			local prev_day=$(
+				MathUtil decrement $(
+					StringUtil strip this_day 0
+				)
+			)
 		else
 			local prev_day=$(MathUtil decrement ${this_day})
 		fi

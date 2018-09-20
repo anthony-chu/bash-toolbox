@@ -29,7 +29,9 @@ PropsReaderUtil(){
 			fi
 		done
 
-		local value=($(StringUtil split ${output[0]} =))
+		local value=(
+			$(StringUtil split ${output[0]} =)
+		)
 
 		echo ${value[-1]}
 	}

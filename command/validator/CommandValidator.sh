@@ -54,9 +54,15 @@ CommandValidator(){
 	}
 
 	getTestCommands(){
-		local ignore=($(getCommandsByAnnotation ${1} @ignore))
+		local ignore=(
+			$(getCommandsByAnnotation ${1} @ignore)
+		)
+
 		local testCommands=()
-		local tests=($(getCommandsByAnnotation ${1} @test))
+
+		local tests=(
+			$(getCommandsByAnnotation ${1} @test)
+		)
 
 		for t in ${tests[@]}; do
 			if [[ ! ${ignore[@]} =~ ${t} ]]; then
@@ -68,7 +74,9 @@ CommandValidator(){
 	}
 
 	validateCommand(){
-		local validCommands=($(getValidFunctions ${1}))
+		local validCommands=(
+			$(getValidFunctions ${1})
+		)
 
 		if [[ ! $(ArrayValidator hasEntry validCommands ${2}) ]]; then
 			local cmd=${2}

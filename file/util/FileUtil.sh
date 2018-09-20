@@ -40,7 +40,11 @@ FileUtil(){
 		local fileName=$(FileNameUtil getPath ${1})
 		local _fileNameArray=($(StringUtil split fileName /))
 		local fileNameArray=($(ArrayUtil trim _fileNameArray 1))
-		local filePath=$(construct /$(StringUtil replace fileNameArray space /))
+		local filePath=$(
+			construct /$(
+				StringUtil replace fileNameArray space /
+			)
+		)
 
 		for cmd in {touch,echo}; do
 			${cmd} ${filePath}/${_fileNameArray[-1]}
