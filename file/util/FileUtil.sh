@@ -9,19 +9,11 @@ include system.validator.SystemValidator
 @class
 FileUtil(){
 	construct(){
-		local _path=$(FileNameUtil getPath ${1})
+		local path=$(FileNameUtil getPath ${1})
 
-		for directory in $(StringUtil replace _path / space); do
-			local dir=${dir}/${directory}
+		mkdir -p ${path}
 
-			if [ ! -e ${dir} ]; then
-				mkdir ${dir}
-			fi
-
-			cd ${dir}
-		done
-
-		echo ${_path}
+		echo ${path}
 	}
 
 	deleteIfExists(){
