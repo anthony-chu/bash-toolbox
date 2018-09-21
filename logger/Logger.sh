@@ -12,40 +12,5 @@ Logger(){
 		LoggerUtil getLogMsg ${logLevel} ${logMessage}
 	}
 
-	@deprecated
-	logCompletedMsg(){
-		log completed ${1}
-	}
-
-	@deprecated
-	logDebugMsg(){
-		log debug ${1}
-	}
-
-	@deprecated
-	logErrorMsg(){
-		log error ${1}
-	}
-
-	@deprecated
-	logInfoMsg(){
-		log info ${1}
-	}
-
-	@deprecated
-	logProgressMsg(){
-		log info ${1}...
-	}
-
-	@deprecated
-	logRequestMsg(){
-		log info ${1}:
-	}
-
-	@deprecated
-	logSuccessMsg(){
-		log success ${1}
-	}
-
 	${@}
 }
