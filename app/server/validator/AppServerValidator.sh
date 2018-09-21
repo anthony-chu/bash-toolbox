@@ -4,7 +4,8 @@ include string.validator.StringValidator
 
 @class
 AppServerValidator(){
-	getAppServers(){
+	@private
+	_getAppServers(){
 		local appServers=(
 			glassfish
 			jboss
@@ -20,6 +21,18 @@ AppServerValidator(){
 		)
 
 		echo ${appServers[@]}
+	}
+
+	@private
+	_validateAppServer(){
+		local args=(${@})
+
+		for appServer in $(_getAppServers); do
+			if [[ $(ArrayValidator hasEntry args ${appServer}) ]]; then
+				echo ${appServer}
+				break
+			fi
+		done
 	}
 
 	isGlassfish(){
@@ -94,7 +107,7 @@ AppServerValidator(){
 		if [[ $(${SV} isNull $@) ]]; then
 			echo tomcat
 		else
-			local appServer=$(validateAppServer $@)
+			local appServer=$(_validateAppServer $@)
 
 			if [[ ${appServer} ]]; then
 				echo ${appServer}
@@ -103,17 +116,6 @@ AppServerValidator(){
 				exit
 			fi
 		fi
-	}
-
-	validateAppServer(){
-		local args=(${@})
-
-		for appServer in $(getAppServers); do
-			if [[ $(ArrayValidator hasEntry args ${appServer}) ]]; then
-				echo ${appServer}
-				break
-			fi
-		done
 	}
 
 	$@
