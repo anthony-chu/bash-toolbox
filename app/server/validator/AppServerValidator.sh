@@ -111,7 +111,6 @@ AppServerValidator(){
 				echo ${appServer}
 			else
 				echo tomcat
-				exit
 			fi
 		fi
 	}
