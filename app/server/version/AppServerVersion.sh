@@ -2,10 +2,7 @@ include app.server.validator.AppServerValidator
 include app.server.version.constants.AppServerVersionConstants
 include app.server.version.override.AppServerVersionOverride
 
-include base.vars.BaseVars
-
 include string.util.StringUtil
-include string.validator.StringValidator
 
 @class
 AppServerVersion(){
