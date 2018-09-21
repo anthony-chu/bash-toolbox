@@ -26,6 +26,8 @@ System(){
 				export JAVA_HOME="/usr/java/jdk1.7.0_80"
 			fi
 
+			export PATH="${JAVA_HOME}:${JAVA_HOME}/bin:${PATH}"
+
 			${_log} info "completed"
 		fi
 	}
