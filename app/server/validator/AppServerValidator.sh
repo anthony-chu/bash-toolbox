@@ -102,9 +102,7 @@ AppServerValidator(){
 	}
 
 	returnAppServer(){
-		local SV=StringValidator
-
-		if [[ $(${SV} isNull $@) ]]; then
+		if [[ $(StringValidator isNull $@) ]]; then
 			echo tomcat
 		else
 			local appServer=$(_validateAppServer $@)
