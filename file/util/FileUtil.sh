@@ -1,5 +1,3 @@
-include array.util.ArrayUtil
-
 include file.name.util.FileNameUtil
 
 include string.util.StringUtil
