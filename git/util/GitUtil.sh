@@ -87,5 +87,7 @@ GitUtil(){
 	local branch=$(BaseVars getBranch ${@})
 	local buildDir=$(BaseVars getBuildDir ${branch})
 
+	local _log="Logger log"
+
 	$@
 }
