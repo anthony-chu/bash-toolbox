@@ -1,22 +1,5 @@
-include string.util.StringUtil
-
 @class
 AppServerVersionConstants(){
-	@deprecated @private
-	_convertMethodToConstant(){
-		local cmd=${1}
-
-		if [[ ${cmd} == *Version ]]; then
-			local cmd=$(
-				StringUtil toUpperCase $(
-					StringUtil strip cmd Version
-				)_VERSION
-			)
-		fi
-
-		${cmd}
-	}
-
 	GLASSFISH_VERSION(){
 		echo "3.1.2.2"
 	}
@@ -60,8 +43,6 @@ AppServerVersionConstants(){
 	WILDFLY_VERSION(){
 		echo "11.0.0"
 	}
-
-	# _convertMethodToConstant ${@}
 
 	$@
 }
