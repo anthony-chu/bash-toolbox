@@ -38,11 +38,7 @@ StringUtil(){
 
 		for _string in ${array[@]}; do
 			if [[ ${str} ]]; then
-				local str=$(append
-					$(
-						append ${str} ${separator}
-					) ${_string}
-				)
+				local str=$(append $(append ${str} ${separator}) ${_string})
 			else
 				local str=${_string}
 			fi
