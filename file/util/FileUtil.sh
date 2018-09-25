@@ -6,6 +6,7 @@ include system.validator.SystemValidator
 
 @class
 FileUtil(){
+	@deprecated
 	construct(){
 		local path=$(FileNameUtil getPath ${1})
 
