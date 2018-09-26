@@ -96,7 +96,11 @@ TestUtil(){
 	}
 
 	setupTestDir(){
-		FileUtil construct $(pwd)/bash-toolbox/test/dependencies
+		local testDir=$(pwd)/bash-toolbox/test/dependencies
+
+		mkdir -p ${testDir}
+
+		echo ${testDir}
 	}
 
 	tearDown(){
