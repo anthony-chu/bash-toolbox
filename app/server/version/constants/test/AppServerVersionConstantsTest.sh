@@ -11,7 +11,7 @@ AppServerVersionConstantsTest(){
 
 	@test
 	testJbossVersion(){
-		${assertEquals} $(AppServerVersionConstants JBOSS_VERSION) eap-7.0.0
+		${assertEquals} $(AppServerVersionConstants JBOSS_VERSION) eap-7.1.0
 	}
 
 	@test
@@ -51,7 +51,7 @@ AppServerVersionConstantsTest(){
 
 	@test
 	testWebsphereVersion(){
-		${assertEquals} $(AppServerVersionConstants WEBSPHERE_VERSION) 8.5.5.0
+		${assertEquals} $(AppServerVersionConstants WEBSPHERE_VERSION) 9.0.0.0
 	}
 
 	@test
