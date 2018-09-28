@@ -21,8 +21,8 @@ GitUtil(){
 		local changeLog=()
 
 		for string in ${commits[@]}; do
-			if [[ $(StringValidator isSubstring string LRQA) ||
-					$(StringValidator isSubstring string LPS) ]]; then
+			if [[ $(StringValidator isSubstring string LRQA) || $(
+					StringValidator isSubstring string LPS) ]]; then
 
 				changeLog+=(${string})
 			fi
