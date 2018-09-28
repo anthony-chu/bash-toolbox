@@ -14,7 +14,9 @@ GitUtil(){
 	_getChangeLog(){
 		cd ${buildDir}
 
-		local commits=($(git log --oneline upstream/${branch}..HEAD))
+		local commits=(
+			$(git log --oneline upstream/${branch}..HEAD)
+		)
 
 		local changeLog=()
 
