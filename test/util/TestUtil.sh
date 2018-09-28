@@ -69,6 +69,14 @@ TestUtil(){
 		fi
 	}
 
+	assertNotNull(){
+		if [[ ! $(StringValidator isNull ${1}) ]]; then
+			echo PASS
+		else
+			echo FAIL
+		fi
+	}
+
 	assertNull(){
 		if [[ $(StringValidator isNull ${1}) ]]; then
 			echo PASS
