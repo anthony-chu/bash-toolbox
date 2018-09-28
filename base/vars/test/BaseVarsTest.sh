@@ -108,7 +108,7 @@ BaseVarsTest(){
 	@test
 	testGetBuildDir[7.1.x](){
 		${assertEquals} $(BaseVars getBuildDir 7.1.x) $(FileNameUtil
-			getPath /d/public/7.1.x/portal)
+			getPath /d/private/7.1.x/portal)
 	}
 
 	@test
@@ -174,7 +174,7 @@ BaseVarsTest(){
 	@test
 	testGetBundleDir[7.1.x](){
 		${assertEquals} $(BaseVars getBundleDir 7.1.x) $(FileNameUtil
-			getPath /d/public/7.1.x/bundles)
+			getPath /d/private/7.1.x/bundles)
 	}
 
 	@test
