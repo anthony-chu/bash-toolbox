@@ -38,11 +38,8 @@ FileNameUtil(){
 	}
 
 	getPath(){
-		if [[ $(BaseComparator isEqual $# 2) &&
-			$(BaseComparator isEqual ${1} 1) &&
-			$(SystemValidator isWindows) ]]; then
-
-			_getPathWin ${2}
+		if [[ $(SystemValidator isWindows) ]]; then
+			_getPathWin ${1}
 		else
 			_getPathUnix ${1}
 		fi
