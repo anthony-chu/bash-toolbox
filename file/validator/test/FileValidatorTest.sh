@@ -16,7 +16,7 @@ FileValidatorTest(){
 
 	@test
 	testIsNotPath(){
-		${assertNull} $(FileValidator isPath _file)
+		TestUtil assertNotNull $(FileValidator isPath _file)
 	}
 
 	@test
