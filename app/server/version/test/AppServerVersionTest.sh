@@ -120,8 +120,8 @@ AppServerVersionTest(){
 	}
 
 	@test
-	testGetAppServerVersion[websphere](){
-		${assertEquals} $(${getAppServerVersion} websphere) $(
+	testGetAppServerVersion[websphere,master](){
+		${assertEquals} $(${getAppServerVersion} websphere master) $(
 			AppServerVersionConstants WEBSPHERE_VERSION)
 	}
 
@@ -131,8 +131,8 @@ AppServerVersionTest(){
 	}
 
 	@test
-	testGetAppServerVersion[wildfly](){
-		${assertEquals} $(${getAppServerVersion} wildfly) $(
+	testGetAppServerVersion[wildfly,master](){
+		${assertEquals} $(${getAppServerVersion} wildfly master) $(
 			AppServerVersionConstants WILDFLY_VERSION)
 	}
 
