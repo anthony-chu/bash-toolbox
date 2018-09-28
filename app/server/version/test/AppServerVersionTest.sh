@@ -99,7 +99,7 @@ AppServerVersionTest(){
 
 	@test
 	testGetAppServerVersion[tomcat,ee-6.2.10](){
-		${assertEquals} $(${getAppServerVersion} tomcat ee-6.2.10) 7.0.90
+		${assertEquals} $(${getAppServerVersion} tomcat ee-6.2.10) 7.0.62
 	}
 
 	@test
