@@ -41,7 +41,8 @@ AppServerVersionTest(){
 
 	@test
 	testGetAppServerVersion[null](){
-		${assertEquals} $(${getAppServerVersion} tomcat master)
+		${assertEquals} $(${getAppServerVersion} tomcat master) $(
+			AppServerVersionConstants TOMCAT_VERSION)
 	}
 
 	@test
