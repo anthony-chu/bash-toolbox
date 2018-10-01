@@ -7,15 +7,6 @@ include system.validator.SystemValidator
 @class
 FileUtil(){
 	@deprecated
-	construct(){
-		local path=$(FileNameUtil getPath ${1})
-
-		mkdir -p ${path}
-
-		echo ${path}
-	}
-
-	@deprecated
 	deleteIfExists(){
 		if [[ -e ${1} || -d ${1} ]]; then
 			rm -rf ${1}
