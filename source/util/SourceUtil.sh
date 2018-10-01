@@ -43,7 +43,7 @@ SourceUtil(){
 
 		${writer} setAppServerProps ${branch} ${propName} ${appServerVersion//[a-zA-Z-]/}
 
-		local cacheDir=$(FileNameUtil getPath 1 /d/liferay-binaries-cache-2017)
+		local cacheDir=$(FileNameUtil getPath /d/liferay-binaries-cache-2017)
 
 		${writer} setBuildProps ${branch} lp.source.dir ${buildDir}
 
@@ -84,13 +84,13 @@ SourceUtil(){
 	local branch=$(BaseVars getBranch $@)
 
 	local buildDir=$(
-		FileNameUtil getPath 1 $(
+		FileNameUtil getPath $(
 			BaseVars getBuildDir ${branch}
 		)
 	)
 
 	local bundleDir=$(
-		FileNameUtil getPath 1 $(
+		FileNameUtil getPath $(
 			BaseVars getBundleDir ${branch}
 		)
 	)
