@@ -6,11 +6,6 @@ include test.util.TestUtil
 @class
 FileUtilTest(){
 	@test
-	testConstruct(){
-		${assertExists} $(FileUtil construct ${testDir}/foo)
-	}
-
-	@test
 	testGetContent(){
 		local content="this is a string"
 		local file=$(FileUtil makeFile ${testDir}/test.txt)
