@@ -14,7 +14,11 @@ FileNameUtil(){
 
 		if [[ $(StringValidator isSubstring ${path} :) ]]; then
 			echo /$(StringUtil replace path [A-Z]: $(
-				StringUtil toLowerCase $(StringUtil substring path 1)))
+					StringUtil toLowerCase $(
+						StringUtil substring path 1
+					)
+				)
+			)
 			return
 		fi
 
@@ -26,8 +30,11 @@ FileNameUtil(){
 		local path=${1}
 
 		if [[ ! $(StringValidator isSubstring ${path} :) ]]; then
-			local drive=$(StringUtil capitalize $(
-				StringUtil substring path 1 1))
+			local drive=$(
+				StringUtil capitalize $(
+					StringUtil substring path 1 1
+				)
+			)
 
 			local headlessPath=${path/\/[a-z]/}
 
