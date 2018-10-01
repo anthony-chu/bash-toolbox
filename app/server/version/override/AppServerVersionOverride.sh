@@ -39,12 +39,12 @@ AppServerVersionOverride(){
 	}
 
 	getWebsphereVersion(){
-		if [[ $(StringValidator isSubstring ${version} 7.1) || $(
+		if [[ $(StringValidator isSubstring ${version} 7.0) ]]; then
+			echo 8.5.5.0
+		elif [[ $(StringValidator isSubstring ${version} 7.1) || $(
 				StringValidator isSubstring ${version} master) ]]; then
 
 			AppServerVersionConstants WEBSPHERE_VERSION
-		elif [[ $(StringValidator isSubstring ${version} 7.0) ]]; then
-			echo 8.5.5.0
 		fi
 	}
 
