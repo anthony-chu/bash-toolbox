@@ -104,7 +104,7 @@ TestUtil(){
 	}
 
 	setupTestDir(){
-		local testDir=$(pwd)/bash-toolbox/test/dependencies
+		local testDir=${testDirectory}
 
 		mkdir -p ${testDir}
 
@@ -112,10 +112,12 @@ TestUtil(){
 	}
 
 	tearDown(){
-		rm -rf $(pwd)/bash-toolbox/test/dependencies
+		rm -rf ${testDirectory}
 	}
 
 	local _log="Logger log"
+
+	local testDirectory=$(pwd)/bash-toolbox/test/dependencies
 
 	$@
 }
