@@ -48,12 +48,6 @@ SourceUtil(){
 
 		${writer} setBuildProps ${branch} lp.source.dir ${buildDir}
 
-		if [[ $(StringValidator isSubstring ${branch} 6.1) ]]; then
-			${writer} setBuildProps ${branch} jsp.precompile off
-		else
-			${writer} setBuildProps ${branch} jsp.precompile on
-		fi
-
 		if [[ $(StringValidator isSubstring ${branch} 6.2) ]]; then
 			${writer} setBuildProps ${branch} javac.compiler modern
 		fi
