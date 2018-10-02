@@ -23,7 +23,7 @@ PropsWriterUtil(){
 
 	setProps(){
 		if [[ ! -e ${1} ]]; then
-			local file=$(FileUtil makeFile ${1})
+			nullify FileUtil makeFile ${1}
 		fi
 
 		local property=$(${getProps} ${1} ${2})

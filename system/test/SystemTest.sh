@@ -10,16 +10,16 @@ SystemTest(){
 
 	@test
 	testExtendAntOpts[6.x](){
-		System setJavaHome 6.1 > /dev/null
+		nullify System setJavaHome 6.1
 
-		System extendAntOpts > /dev/null
+		nullify System extendAntOpts
 
 		${assertContains} ANT_OPTS -XX:MaxPermSize=1024m
 	}
 
 	@test
 	testExtendAntOpts[7.x](){
-		System extendAntOpts 7.x > /dev/null
+		nullify System extendAntOpts 7.x
 
 		${assertDoesNotContain} ANT_OPTS -XX:MaxPermSize=1024m
 	}
