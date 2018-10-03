@@ -17,7 +17,9 @@ System(){
 	}
 
 	setJavaHome(){
-		if [[ $(StringValidator beginsWith 6.1 ${1}) ]]; then
+		local version=${1}
+
+		if [[ $(StringValidator isSubstring version 6.1) ]]; then
 			${_log} info "configuring_Liferay_to_use_JDK7..."
 
 			if [[ $(getOS) =~ NT ]]; then
