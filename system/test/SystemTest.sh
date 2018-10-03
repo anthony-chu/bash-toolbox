@@ -7,6 +7,8 @@ SystemTest(){
 	@private
 	tearDown(){
 		export ANT_OPTS=${ant_opts}
+		export JAVA_HOME=${java_home}
+		export PATH=${path}
 	}
 
 	@test
@@ -29,6 +31,7 @@ SystemTest(){
 	local assertContains="TestUtil assertContains"
 	local assertDoesNotContain="TestUtil assertDoesNotContain"
 	local java_home=${JAVA_HOME}
+	local path=${PATH}
 
 	$@
 
