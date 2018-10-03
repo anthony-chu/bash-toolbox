@@ -10,7 +10,7 @@ SystemTest(){
 
 	@test
 	testExtendAntOpts[6.x](){
-		nullify System setJavaHome 6.1
+		nullify System setJavaHome ee-6.1.x
 
 		nullify System extendAntOpts
 
