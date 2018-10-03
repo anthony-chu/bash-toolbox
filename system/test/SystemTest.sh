@@ -4,6 +4,7 @@ include test.util.TestUtil
 
 @class
 SystemTest(){
+	@private
 	tearDown(){
 		export ANT_OPTS=${ant_opts}
 	}
