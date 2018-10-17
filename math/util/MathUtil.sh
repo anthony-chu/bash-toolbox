@@ -1,5 +1,3 @@
-include string.validator.StringValidator
-
 @class
 MathUtil(){
 	decrement(){
@@ -45,7 +43,7 @@ MathUtil(){
 	modulus(){
 		local var=${1}
 
-		if [[ $(StringValidator beginsWith 0 ${var}) ]]; then
+		if [[ ${var} == 0* ]]; then
 			local var=${var//0/}
 		fi
 

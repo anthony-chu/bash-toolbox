@@ -3,8 +3,6 @@ include file.validator.FileValidator
 
 include logger.Logger
 
-include string.validator.StringValidator
-
 @class
 TestUtil(){
 	assertContains(){
@@ -92,7 +90,7 @@ TestUtil(){
 	}
 
 	logSuccessMsg(){
-		if [[ $(StringValidator isSubstring ${1} PASSED) ]]; then
+		if [[ ${1} =~ PASSED ]]; then
 			local message=$(colorme green ${1})
 		else
 			local message=${1}

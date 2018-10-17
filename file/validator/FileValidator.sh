@@ -1,14 +1,13 @@
 include matcher.Matcher
 
 include string.util.StringUtil
-include string.validator.StringValidator
 
 @class
 FileValidator(){
 	isFile(){
 		local filePath=$(readvar ${1})
 
-		if [[ $(StringValidator isSubstring filePath [.]) ]]; then
+		if [[ ${filePath} =~ . ]]; then
 			local newFilePath=$(StringUtil trim filePath . 1)
 
 			isPath newFilePath

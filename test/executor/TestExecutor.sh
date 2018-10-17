@@ -7,7 +7,6 @@ include logger.Logger
 include math.util.MathUtil
 
 include string.util.StringUtil
-include string.validator.StringValidator
 
 @class
 TestExecutor(){
@@ -38,11 +37,11 @@ TestExecutor(){
 		for _test in ${_tests[@]}; do
 			local status=$(${testClass} ${_test})ED
 
-			if [[ $(StringValidator isSubstring status FAIL) ]]; then
+			if [[ ${status} =~ FAIL ]]; then
 				local logLevel=error
 
 				results_fail+=(${_test})
-			elif [[ $(StringValidator isSubstring status PASS) ]]; then
+			elif [[ ${status} =~ PASS ]]; then
 				local logLevel=success;
 
 				results_pass+=(${_test})

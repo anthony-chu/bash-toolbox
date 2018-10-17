@@ -6,7 +6,6 @@ include logger.Logger
 include math.util.MathUtil
 
 include string.util.StringUtil
-include string.validator.StringValidator
 
 @class
 Formatter(){
@@ -76,9 +75,9 @@ Formatter(){
 	}
 
 	verifyBashToolboxClassAnnotation(){
-		if [[ $(StringValidator isSubstring ${1} bash-toolbox) &&
-			! $(StringValidator isSubstring ${1} init.sh) &&
-			! $(StringValidator isSubstring ${1} lib) ]]; then
+		if [[ ${1} =~ bash-toolbox && \
+			! ${1} =~ init.sh && \
+			! ${1} =~ lib ]]; then
 
 			if [[ $(cat ${1}) != include* && $(cat ${1}) != @class* ]]; then
 				${_log} error "missing_@class_anootation:_${1}"
@@ -89,7 +88,7 @@ Formatter(){
 	verifyCharacterLimitPerLine(){
 		local lineNumber=1
 
-		if [[ ! $(StringValidator isSubstring ${1} lib) ]]; then
+		if [[ ! ${1} =~ lib ]]; then
 			while read line; do
 				local length=$(
 					MathUtil format $(

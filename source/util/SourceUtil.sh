@@ -7,8 +7,6 @@ include logger.Logger
 
 include props.writer.PropsWriter
 
-include string.validator.StringValidator
-
 include repo.Repo
 
 @class
@@ -58,7 +56,7 @@ SourceUtil(){
 
 		${writer} setBuildProps ${branch} lp.source.dir ${buildDir}
 
-		if [[ $(StringValidator isSubstring ${branch} 6.2) ]]; then
+		if [[ ${branch} =~ 6.2 ]]; then
 			${writer} setBuildProps ${branch} javac.compiler modern
 		fi
 
@@ -66,8 +64,7 @@ SourceUtil(){
 	}
 
 	setupSDK(){
-		if [[ $(StringValidator isSubstring ${branch} master) || $(
-				StringValidator isSubstring ${branch} 7.0.x) ]]; then
+		if [[ ${branch} =~ master || ${branch} =~ 7.0.x ]]; then
 
 			local lib="tools/sdk/dependencies/com.liferay.source.formatter/lib"
 

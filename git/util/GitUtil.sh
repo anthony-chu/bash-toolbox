@@ -3,7 +3,6 @@ include array.util.ArrayUtil
 include logger.Logger
 
 include string.util.StringUtil
-include string.validator.StringValidator
 
 include repo.Repo
 
@@ -20,9 +19,7 @@ GitUtil(){
 		local changeLog=()
 
 		for string in ${commits[@]}; do
-			if [[ $(StringValidator isSubstring string LRQA) || $(
-					StringValidator isSubstring string LPS) ]]; then
-
+			if [[ ${string} =~ LRQA) || ${string} =~ LPS) ]]; then
 				changeLog+=(${string})
 			fi
 		done
