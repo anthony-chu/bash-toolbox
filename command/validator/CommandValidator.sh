@@ -1,7 +1,5 @@
 include array.validator.ArrayValidator
 
-include base.comparator.BaseComparator
-
 include command.exception.CommandException
 
 include string.util.StringUtil

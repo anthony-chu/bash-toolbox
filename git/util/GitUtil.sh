@@ -1,6 +1,5 @@
 include array.util.ArrayUtil
 
-include base.comparator.BaseComparator
 include logger.Logger
 
 include string.util.StringUtil

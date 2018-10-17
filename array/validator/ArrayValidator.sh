@@ -1,5 +1,3 @@
-include base.comparator.BaseComparator
-
 include math.util.MathUtil
 
 @class

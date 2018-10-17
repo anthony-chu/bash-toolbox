@@ -1,5 +1,3 @@
-include base.comparator.BaseComparator
-
 include file.util.FileUtil
 include file.validator.FileValidator
 
