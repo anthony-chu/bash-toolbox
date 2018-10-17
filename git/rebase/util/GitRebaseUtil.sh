@@ -1,5 +1,3 @@
-include repo.Repo
-
 include git.util.GitUtil
 
 include language.util.LanguageUtil
@@ -7,6 +5,8 @@ include language.util.LanguageUtil
 include logger.Logger
 
 include string.util.StringUtil
+
+include repo.Repo
 
 @class
 GitRebaseUtil(){

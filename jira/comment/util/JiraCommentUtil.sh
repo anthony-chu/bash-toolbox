@@ -4,13 +4,13 @@ include app.server.validator.AppServerValidator
 include app.server.version.AppServerVersion
 
 include base.comparator.BaseComparator
-include repo.Repo
-
 include git.util.GitUtil
 
 include logger.Logger
 
 include string.util.StringUtil
+
+include repo.Repo
 
 @class
 JiraCommentUtil(){

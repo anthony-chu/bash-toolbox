@@ -1,11 +1,11 @@
 include app.server.factory.AppServerFactory
 include app.server.validator.AppServerValidator
 
-include repo.Repo
-
 include file.writer.FileWriter
 
 include logger.Logger
+
+include repo.Repo
 
 include string.validator.StringValidator
 

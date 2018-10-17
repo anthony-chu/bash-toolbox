@@ -1,6 +1,6 @@
-include repo.Repo
-
 include props.reader.util.PropsReaderUtil
+
+include repo.Repo
 
 @class
 PropsReader(){

@@ -1,6 +1,6 @@
-include repo.Repo
-
 include props.writer.util.PropsWriterUtil
+
+include repo.Repo
 
 @class
 PropsWriter(){

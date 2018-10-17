@@ -1,6 +1,6 @@
-include repo.Repo
-
 include file.name.util.FileNameUtil
+
+include repo.Repo
 
 include test.util.TestUtil
 

@@ -1,12 +1,12 @@
 include array.util.ArrayUtil
 
 include base.comparator.BaseComparator
-include repo.Repo
-
 include logger.Logger
 
 include string.util.StringUtil
 include string.validator.StringValidator
+
+include repo.Repo
 
 @class
 GitUtil(){

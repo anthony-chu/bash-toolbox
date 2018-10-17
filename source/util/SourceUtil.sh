@@ -1,8 +1,6 @@
 include app.server.validator.AppServerValidator
 include app.server.version.AppServerVersion
 
-include repo.Repo
-
 include file.name.util.FileNameUtil
 
 include logger.Logger
@@ -10,6 +8,8 @@ include logger.Logger
 include props.writer.PropsWriter
 
 include string.validator.StringValidator
+
+include repo.Repo
 
 @class
 SourceUtil(){
