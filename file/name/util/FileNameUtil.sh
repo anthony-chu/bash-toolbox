@@ -28,9 +28,9 @@ FileNameUtil(){
 
 	getPath(){
 		if [[ $(SystemValidator isWindows) ]]; then
-			_getPathWin ${1}
+			_getPathWin ${@}
 		else
-			_getPathUnix ${1}
+			_getPathUnix ${@}
 		fi
 	}
 
