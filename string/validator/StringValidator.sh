@@ -46,12 +46,6 @@ StringValidator(){
 		fi
 	}
 
-	isNull(){
-		if [[ ! ${1} ]]; then
-			echo true
-		fi
-	}
-
 	isNum(){
 		if [[ ! ${1//-[0-9]/} ]]; then
 			echo true
