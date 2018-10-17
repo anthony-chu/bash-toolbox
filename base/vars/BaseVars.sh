@@ -1,3 +1,7 @@
+include file.name.util.FileNameUtil
+
+include props.util.PropsUtil
+
 @class
 BaseVars(){
 
@@ -5,33 +9,12 @@ BaseVars(){
 	_getBaseDir(){
 		local propsFile=$(pwd)/base.properties
 
-		local _baseDir=$(_getProperty ${propsFile} base.dir)
+		local _baseDir=$(PropsUtil getProperty ${propsFile} base.dir)
 
 		if [[ ! ${_baseDir} ]]; then
 			echo "/d"
 		else
 			echo ${_baseDir//*=/}
-		fi
-	}
-
-	@private
-	_getPath(){
-		local path=${1}
-
-		if [[ $(uname) =~ NT ]]; then
-			local _drive=${path:1:1}
-			local headlessPath=${path/\/[a-z]/}
-
-			local path=${_drive^^}:${headlessPath}
-		fi
-
-		echo ${path}
-	}
-
-	@private
-	_getProperty(){
-		if [[ -e ${1} ]]; then
-			cat ${1} | grep ${2}=.*
 		fi
 	}
 
@@ -68,11 +51,15 @@ BaseVars(){
 	}
 
 	getBuildDir(){
-		_getPath $(_getBaseDir)/$(_getPrivacy $@)/$(getBranch $@)/portal
+		local path=$(_getBaseDir)/$(_getPrivacy $@)/$(getBranch $@)/portal
+
+		FileNameUtil getPath ${path}
 	}
 
 	getBundleDir(){
-		_getPath $(_getBaseDir)/$(_getPrivacy $@)/$(getBranch $@)/bundles
+		local path=$(_getBaseDir)/$(_getPrivacy $@)/$(getBranch $@)/bundles
+
+		FileNameUtil getPath ${path}
 	}
 
 	$@
