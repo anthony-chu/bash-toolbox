@@ -7,9 +7,7 @@ BaseVars(){
 
 	@private
 	_getBaseDir(){
-		local propsFile=$(pwd)/base.properties
-
-		local _baseDir=$(PropsUtil getProperty ${propsFile} base.dir)
+		local _baseDir=$(PropsUtil getProperty $(pwd)/base.properties base.dir)
 
 		if [[ ! ${_baseDir} ]]; then
 			echo "/d"
