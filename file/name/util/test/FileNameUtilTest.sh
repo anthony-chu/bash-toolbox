@@ -5,6 +5,20 @@ include test.util.TestUtil
 @class
 FileNameUtilTest(){
 	@test
+	testGetHybridPathFromUnixPath(){
+		local path=/d/foo/bar
+
+		${assertEquals} $(FileNameUtil getHybridPath ${path}) D:/foo/bar
+	}
+
+	@test
+	testGetHybridPathFromWindowsPath(){
+		local path="D:\\foo\\bar"
+
+		${assertEquals} $(FileNameUtil getHybridPath ${path}) D:/foo/bar
+	}
+
+	@test
 	testGetPathConvertToUnixPath(){
 		local path="D:\\foo\\bar"
 
