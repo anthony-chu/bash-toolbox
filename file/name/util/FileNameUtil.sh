@@ -17,7 +17,7 @@ FileNameUtil(){
 		if [[ ${@} =~ "/" ]]; then
 			echo ${@} | sed "s#^/\([a-z]\)#\u\1:#g" | sed "s#/#\\\\#g"
 		else
-			echo $@
+			echo ${@}
 		fi
 	}
 
