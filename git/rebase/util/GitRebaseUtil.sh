@@ -1,4 +1,4 @@
-include base.vars.BaseVars
+include repo.Repo
 
 include git.util.GitUtil
 
@@ -71,8 +71,8 @@ GitRebaseUtil(){
 
 	local _log="Logger log"
 
-	local branch=$(BaseVars getBranch ${@})
-	local buildDir=$(BaseVars getBuildDir ${branch})
+	local branch=$(Repo getBranch ${@})
+	local buildDir=$(Repo getBuildDir ${branch})
 
 	$@
 }

@@ -1,7 +1,7 @@
 include array.util.ArrayUtil
 
 include base.comparator.BaseComparator
-include base.vars.BaseVars
+include repo.Repo
 
 include logger.Logger
 
@@ -82,8 +82,8 @@ GitUtil(){
 		git branch | sed s/\*/\ /g
 	}
 
-	local branch=$(BaseVars getBranch ${@})
-	local buildDir=$(BaseVars getBuildDir ${branch})
+	local branch=$(Repo getBranch ${@})
+	local buildDir=$(Repo getBuildDir ${branch})
 
 	local _log="Logger log"
 

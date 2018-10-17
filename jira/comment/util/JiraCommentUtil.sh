@@ -4,7 +4,7 @@ include app.server.validator.AppServerValidator
 include app.server.version.AppServerVersion
 
 include base.comparator.BaseComparator
-include base.vars.BaseVars
+include repo.Repo
 
 include git.util.GitUtil
 
@@ -28,7 +28,7 @@ JiraCommentUtil(){
 		local gitId=$(GitUtil getOriginSHA ${branch})
 
 		if [[ ${nightly} ]]; then
-			local bundleDir=$(BaseVars getBundleDir ${branch})
+			local bundleDir=$(Repo getBundleDir ${branch})
 			local gitHashFile=${bundleDir}/.githash
 
 			if [[ -e ${gitHashFile} ]]; then
@@ -65,7 +65,7 @@ JiraCommentUtil(){
 
 	local args=($@)
 	local appServer=$(AppServerValidator returnAppServer ${args[@]})
-	local branch=$(BaseVars getBranch ${args[@]})
+	local branch=$(Repo getBranch ${args[@]})
 
 	if [[ $(ArrayValidator hasEntry args nightly) ]]; then
 		local nightly=true

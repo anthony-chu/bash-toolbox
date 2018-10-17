@@ -1,7 +1,7 @@
 include app.server.factory.AppServerFactory
 include app.server.validator.AppServerValidator
 
-include base.vars.BaseVars
+include repo.Repo
 
 include file.writer.FileWriter
 
@@ -83,13 +83,13 @@ BundleUtil(){
 	local _log="Logger log"
 
 	local appServer=$(AppServerValidator returnAppServer $@)
-	local branch=$(BaseVars getBranch $@)
+	local branch=$(Repo getBranch $@)
 
 	local appServerDir=$(
 		AppServerFactory getAppServerDir ${appServer} ${branch}
 	)
 
-	local bundleDir=$(BaseVars getBundleDir ${branch})
+	local bundleDir=$(Repo getBundleDir ${branch})
 	local replace="FileWriter replace"
 
 	$@

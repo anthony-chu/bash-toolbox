@@ -1,7 +1,7 @@
 include app.server.validator.AppServerValidator
 include app.server.version.AppServerVersion
 
-include base.vars.BaseVars
+include repo.Repo
 
 include file.name.util.FileNameUtil
 
@@ -76,17 +76,17 @@ SourceUtil(){
 	local _log="Logger log"
 
 	local appServer=$(AppServerValidator returnAppServer $@)
-	local branch=$(BaseVars getBranch $@)
+	local branch=$(Repo getBranch $@)
 
 	local buildDir=$(
 		FileNameUtil getPath $(
-			BaseVars getBuildDir ${branch}
+			Repo getBuildDir ${branch}
 		)
 	)
 
 	local bundleDir=$(
 		FileNameUtil getPath $(
-			BaseVars getBundleDir ${branch}
+			Repo getBundleDir ${branch}
 		)
 	)
 

@@ -1,7 +1,7 @@
 include app.server.validator.AppServerValidator
 include app.server.version.AppServerVersion
 
-include base.vars.BaseVars
+include repo.Repo
 
 include string.util.StringUtil
 
@@ -9,7 +9,7 @@ include string.util.StringUtil
 AppServerFactory(){
 	getAppServerDir(){
 		local _appServerDir=(
-			$(BaseVars getBundleDir ${branch})/
+			$(Repo getBundleDir ${branch})/
 			${appServer}-
 			$(AppServerVersion getAppServerVersion ${appServer} ${branch})
 		)
@@ -18,7 +18,7 @@ AppServerFactory(){
 	}
 
 	local appServer=$(AppServerValidator returnAppServer $@)
-	local branch=$(BaseVars getBranch $@)
+	local branch=$(Repo getBranch $@)
 
 	$@
 }
