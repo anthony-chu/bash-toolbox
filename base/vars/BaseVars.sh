@@ -18,11 +18,13 @@ BaseVars(){
 
 	@private
 	_getPrivacy(){
+		local privacy=public
+
 		if [[ $(isPrivate $@) ]]; then
-			echo private
-		else
-			echo public
+			local privacy=private
 		fi
+
+		echo ${privacy}
 	}
 
 	isPrivate(){
