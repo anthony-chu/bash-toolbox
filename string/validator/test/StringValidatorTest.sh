@@ -115,28 +115,6 @@ StringValidatorTest(){
 	}
 
 	@test
-	testIsNull[empty-variable](){
-		local this=""
-
-		${assertTrue} $(StringValidator isNull ${this})
-	}
-
-	@test
-	testIsNull[false](){
-		${assertNull} $(StringValidator isNull foo)
-	}
-
-	@test
-	testIsNull[true](){
-		${assertTrue} $(StringValidator isNull)
-	}
-
-	@test
-	testIsNull[undefined-variable](){
-		${assertTrue} $(StringValidator isNull ${this})
-	}
-
-	@test
 	testIsNum[false](){
 		${assertNull} $(StringValidator isNum abc)
 	}
