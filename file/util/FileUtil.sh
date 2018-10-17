@@ -28,7 +28,7 @@ FileUtil(){
 	}
 
 	makeFile(){
-		local filePath=$(FileNameUtil getPath ${1})
+		local filePath=${1}
 
 		local fileName=${filePath//*\/}
 
