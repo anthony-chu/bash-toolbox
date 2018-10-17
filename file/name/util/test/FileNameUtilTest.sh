@@ -5,7 +5,7 @@ include test.util.TestUtil
 @class
 FileNameUtilTest(){
 	@test
-	testGetPathConvertToNixPath(){
+	testGetPathConvertToUnixPath(){
 		local path="D:/foo/bar"
 
 		${assertEquals} $(FileNameUtil _getPathUnix ${path}) /d/foo/bar
@@ -19,7 +19,7 @@ FileNameUtilTest(){
 	}
 
 	@test
-	testGetPathPreserveNixPath(){
+	testGetPathPreserveUnixPath(){
 		local path="/d/foo/bar"
 
 		${assertEquals} ${path} $(FileNameUtil _getPathUnix ${path})
