@@ -10,38 +10,20 @@ FileNameUtil(){
 
 	@private
 	_getPathUnix(){
-		local path=${1}
-
-		if [[ $(StringValidator isSubstring ${path} :) ]]; then
-			echo /$(StringUtil replace path [A-Z]: $(
-					StringUtil toLowerCase $(
-						StringUtil substring path 1
-					)
-				)
-			)
-			return
+		if [[ ${@} =~ "\\" ]]; then
+        	echo /${@} | sed "s#\([A-Z]\):#\l\1#g" | sed "s#\\\\#/#g"
+		else
+			echo ${@}
 		fi
-
-		echo ${path}
 	}
 
 	@private
 	_getPathWin(){
-		local path=${1}
-
-		if [[ ! $(StringValidator isSubstring ${path} :) ]]; then
-			local drive=$(
-				StringUtil capitalize $(
-					StringUtil substring path 1 1
-				)
-			)
-
-			local headlessPath=${path/\/[a-z]/}
-
-			local path=${drive}:${headlessPath}
+		if [[ ${@} =~ "/" ]]; then
+			echo ${@} | sed "s#^/\([a-z]\)#\u\1:#g" | sed "s#/#\\\\#g"
+		else
+			echo $@
 		fi
-
-		echo ${path}
 	}
 
 	getPath(){
