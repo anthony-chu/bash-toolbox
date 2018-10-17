@@ -3,7 +3,7 @@ include file.name.util.FileNameUtil
 include props.util.PropsUtil
 
 @class
-BaseVars(){
+Repo(){
 
 	@private
 	_getBaseDir(){

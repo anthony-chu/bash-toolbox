@@ -5,7 +5,7 @@ include file.name.util.FileNameUtil
 include test.util.TestUtil
 
 @class
-BaseVarsTest(){
+RepoTest(){
 	@test
 	test_getPrivacyTest[ee-private](){
 		${assertEquals} $(BaseVars _getPrivacy ee-) private
