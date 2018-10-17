@@ -112,7 +112,9 @@ Formatter(){
 		local includes=()
 
 		while read line; do
-			local isInclude=$(StringValidator isNull ${line//[a-zA-Z.]/})
+			if [[ ! ${line//[a-zA-Z.]/} ]]
+				local isInclude=true
+			fi
 
 			if [[ ${line} == include* && ${isInclude} ]]; then
 				includes+=(${line//*./})

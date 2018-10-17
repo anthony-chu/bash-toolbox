@@ -29,15 +29,15 @@ StringValidator(){
 	}
 
 	isAlpha(){
-		local str=${@}
-
-		isNull ${str//[a-zA-Z]/}
+		if [[ ! ${str//[a-zA-Z]/} ]];
+			echo true
+		fi
 	}
 
 	isAlphaNum(){
-		local str=${@}
-
-		isNull ${str//[0-9a-zA-Z]/}
+		if [[ ! ${str//[0-9a-zA-Z]/} ]];
+			echo true
+		fi
 	}
 
 	isSubstring(){
@@ -53,13 +53,9 @@ StringValidator(){
 	}
 
 	isNum(){
-		local str=${@}
-
-		if [[ $(beginsWith - ${str}) ]]; then
-			local str=${str/-/}
+		if [[ ! ${1//-[0-9]/} ]]; then
+			echo true
 		fi
-
-		isNull ${str//[0-9]/}
 	}
 
 	isOption(){

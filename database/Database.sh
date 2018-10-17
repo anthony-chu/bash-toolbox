@@ -7,7 +7,7 @@ include string.validator.StringValidator
 @class
 Database(){
 	create(){
-		if [[ $(StringValidator isNull ${2}) ]]; then
+		if [[ ! ${2} ]]; then
 			local cmd="create database ${1};"
 		elif [[ ${2} == utf8 ]]; then
 			local cmd="create database ${1} char set ${2};"
