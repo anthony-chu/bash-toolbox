@@ -18,7 +18,7 @@ CommandValidator(){
 			if [[ ${line} == *\(\)*\{ ]]; then
 				local prevLineNumber=$((${lineNumber}-1))
 
-				if [[ $(BaseComparator isEqual ${prevLineNumber} 0) ]]; then
+				if [[ ${prevLineNumber} == 0 ]]; then
 					local prevLineContent=""
 				else
 					local prevLineContent=$(sed "${prevLineNumber}q;d" ${file})

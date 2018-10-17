@@ -134,7 +134,7 @@ Formatter(){
 		for include in ${includes[@]}; do
 			local count=$(grep -o ${include} ${1} | wc -w)
 
-			if [[ $(BaseComparator isEqual ${count} 1) ]]; then
+			if [[ ${count} == 1 ]]; then
 				${_log} error "unused_include_'${include}':_${1}"
 			fi
 		done

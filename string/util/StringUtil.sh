@@ -20,7 +20,7 @@ StringUtil(){
 		local level=$(MathUtil decrement ${2})
 		local str=${1}
 
-		if [[ ! $(BaseComparator isLessThan ${level} 0) ]]; then
+		if [[ ${level} -gt 0 ]]; then
 			for (( i=0; i<$(MathUtil exp 2 ${level}); i++ )); do
 				local str=$(append \\ ${str})
 			done
@@ -62,13 +62,13 @@ StringUtil(){
 		local new=${3}
 		local old=${2}
 
-		if [[ $(BaseComparator isEqual ${new} space) ]]; then
+		if [[ ${new} == space ]]; then
 			local new="\ "
-		elif [[ $(BaseComparator isEqual ${new} null) ]]; then
+		elif [[ ${new} == null ]]; then
 			local new=""
 		fi
 
-		if [[ $(BaseComparator isEqual ${old} space) ]]; then
+		if [[ ${old} == space ]]; then
 			local old=" "
 		fi
 
@@ -92,11 +92,11 @@ StringUtil(){
 	}
 
 	substring(){
-		if [[ $(BaseComparator isEqual $# 3) ]]; then
+		if [[ $# == 3 ]]; then
 			local init=${2}
 			local length=${3}
 			local string=$(readvar ${1})
-		elif [[ $(BaseComparator isEqual $# 2) ]]; then
+		elif [[ $# == 2 ]]; then
 			local init=0
 			local length=${2}
 			local string=$(readvar ${1})

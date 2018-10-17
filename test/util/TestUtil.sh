@@ -86,7 +86,7 @@ TestUtil(){
 	}
 
 	assertTrue(){
-		if [[ $(BaseComparator isEqual ${1} true) ]]; then
+		if [[ ${1} == true ]]; then
 			echo PASS
 		else
 			echo FAIL

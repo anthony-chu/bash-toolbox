@@ -31,9 +31,9 @@ ArrayUtil(){
 		local array=($(readvar ${2}))
 		local state=${1}
 
-		if [[ $(BaseComparator isEqual ${state} true) ]]; then
+		if [[ ${state} == true ]]; then
 			partition 2 1 array
-		elif [[ $(BaseComparator isEqual ${state} false) ]]; then
+		elif [[ ${state} == false ]]; then
 			partition 2 2 array
 		fi
 	}
@@ -100,7 +100,7 @@ ArrayUtil(){
 		local array=($(readvar ${1}))
 
 		for (( i=0; i < ${#array[@]}; i++ )); do
-			if [[ $(BaseComparator isEqual ${2} ${array[i]}) ]]; then
+			if [[ ${2} == ${array[i]} ]]; then
 				array[${i}]=""
 			fi
 		done

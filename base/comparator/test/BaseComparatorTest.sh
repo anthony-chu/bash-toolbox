@@ -6,22 +6,22 @@ include test.util.TestUtil
 BaseComparatorTest(){
 	@test
 	testIsEqual[number][false](){
-		${assertNull} $(BaseComparator isEqual 123 321)
+		${assertNull} 123 == 321
 	}
 
 	@test
 	testIsEqual[number][true](){
-		${assertTrue} $(BaseComparator isEqual 123 123)
+		${assertTrue} 123 == 123
 	}
 
 	@test
 	testIsEqual[string][false](){
-		${assertNull} $(BaseComparator isEqual foo bar)
+		${assertNull} foo == bar
 	}
 
 	@test
 	testIsEqual[string][true](){
-		${assertTrue} $(BaseComparator isEqual foo foo)
+		${assertTrue} foo == foo
 	}
 
 	@test

@@ -29,7 +29,9 @@ MathUtil(){
 	}
 
 	isDivisible(){
-		BaseComparator isEqual $(modulus ${1} ${2}) 0
+		if [[ $(modulus ${1} ${2}) == 0 ]]; then
+			echo true
+		fi
 	}
 
 	isEven(){

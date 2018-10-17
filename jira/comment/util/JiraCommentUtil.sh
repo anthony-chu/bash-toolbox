@@ -71,14 +71,14 @@ JiraCommentUtil(){
 		local nightly=true
 	fi
 
-	while [[ $(BaseComparator isEqual ${1} ${branch}) || $(
-		BaseComparator isEqual ${1} ${appServer}) || $(
-		BaseComparator isEqual ${1} nightly) ]]; do
+	while [[ ${1} == ${branch} ||
+			${1} == ${appServer} ||
+			$${1} == nightly) ]]; do
 
 		shift
 	done
 
-	if [[ $(BaseComparator isEqual ${branch} master) ]]; then
+	if [[ ${branch} == master ]]; then
 		local branch=$(StringUtil capitalize ${branch})
 	fi
 

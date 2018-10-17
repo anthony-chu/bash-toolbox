@@ -19,8 +19,7 @@ LanguageUtil(){
 		local singularForm=${2}
 		local value=${1}
 
-		if [[ $(BaseComparator isGreaterThan ${value} 1) ||
-			$(BaseComparator isEqual ${value} 0) ]]; then
+		if [[ ${value} -gt 1 || ${value} == 0 ]]; then
 
 			echo ${value} ${pluralForm}
 		else

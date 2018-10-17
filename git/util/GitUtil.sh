@@ -71,9 +71,9 @@ GitUtil(){
 
 		local length=${2}
 
-		if [[ $(BaseComparator isEqual ${length} long) ]]; then
+		if [[ ${length} == long ]]; then
 			git log --oneline --pretty=format:%H -1
-		elif [[ $(BaseComparator isEqual ${length} short) ]]; then
+		elif [[ ${length} == short ]]; then
 			git log --oneline --pretty=format:%h -1
 		fi
 	}

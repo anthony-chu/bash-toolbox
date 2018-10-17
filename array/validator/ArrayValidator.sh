@@ -9,7 +9,7 @@ ArrayValidator(){
 		local entry=${2}
 
 		for a in ${array[@]}; do
-			if [[ $(BaseComparator isEqual ${a} ${2}) ]]; then
+			if [[ ${a} == ${2} ]]; then
 				echo true
 				break
 			fi
@@ -22,12 +22,12 @@ ArrayValidator(){
 			local count=0
 
 			for a in ${array[@]}; do
-				if [[ $(BaseComparator isEqual ${a} ${2}) ]]; then
+				if [[ ${a} == ${2} ]]; then
 					local count=$(MathUtil increment ${count})
 				fi
 			done
 
-			if [[ ! $(BaseComparator isGreaterThan ${count} 1) ]]; then
+			if [[ ${count} == 0 ]]; then
 				echo true
 			fi
 		fi

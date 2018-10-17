@@ -17,8 +17,7 @@ LoggerUtil(){
 
 		local maxLength=$(ArrayUtil returnMaxLength validLogLevels)
 
-		while [[ $(BaseComparator isLessThan $(StringUtil
-			length ${logLevel}) ${maxLength}) ]]; do
+		while [[ $(StringUtil length ${logLevel}) -lt ${maxLength} ]]; do
 
 			if [[ $(MathUtil isEven $(StringUtil length ${logLevel})) ]]; then
 				local logLevel=$(StringUtil append _ ${logLevel})
@@ -34,11 +33,11 @@ LoggerUtil(){
 		local color=null
 		local message=$(StringUtil capitalize ${2})
 
-		if [[ $(BaseComparator isEqualIgnoreCase ${1} error) ]]; then
+		if [[ ${1,,} == error ]]; then
 			local color=red
-		elif [[ $(BaseComparator isEqualIgnoreCase ${1} debug) ]]; then
+		elif [[ ${1,,} == debug ]]; then
 			local color=yellow
-		elif [[ $(BaseComparator isEqualIgnoreCase ${1} success) ]]; then
+		elif [[ ${1,,} == success ]]; then
 			local color=green
 		fi
 
