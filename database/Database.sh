@@ -2,8 +2,6 @@ include database.util.DatabaseUtil
 
 include logger.Logger
 
-include string.validator.StringValidator
-
 @class
 Database(){
 	create(){

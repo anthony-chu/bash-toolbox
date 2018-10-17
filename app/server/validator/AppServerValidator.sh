@@ -1,7 +1,5 @@
 include array.validator.ArrayValidator
 
-include string.validator.StringValidator
-
 @class
 AppServerValidator(){
 	@private
