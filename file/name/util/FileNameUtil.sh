@@ -1,5 +1,3 @@
-include system.validator.SystemValidator
-
 @class
 FileNameUtil(){
 
@@ -22,7 +20,7 @@ FileNameUtil(){
 	}
 
 	getPath(){
-		if [[ $(SystemValidator isWindows) ]]; then
+		if [[ $(uname) =~ NT ]]; then
 			_getPathWin ${@}
 		else
 			_getPathUnix ${@}
