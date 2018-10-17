@@ -79,13 +79,13 @@ SourceUtil(){
 	local branch=$(Repo getBranch $@)
 
 	local buildDir=$(
-		FileNameUtil getPath $(
+		FileNameUtil getHybridPath $(
 			Repo getBuildDir ${branch}
 		)
 	)
 
 	local bundleDir=$(
-		FileNameUtil getPath $(
+		FileNameUtil getHybridPath $(
 			Repo getBundleDir ${branch}
 		)
 	)
