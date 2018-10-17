@@ -70,10 +70,7 @@ JiraCommentUtil(){
 		local nightly=true
 	fi
 
-	while [[ ${1} == ${branch} ||
-			${1} == ${appServer} ||
-			$${1} == nightly) ]]; do
-
+	while [[ ${1} == ${branch} || ${1} == ${appServer} || ${1} == nightly ]]; do
 		shift
 	done
 
