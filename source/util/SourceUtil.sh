@@ -32,6 +32,18 @@ SourceUtil(){
 			touch ${buildDir}/${prop}.${HOSTNAME}.properties
 		done
 
+		local buildDir=$(
+			FileNameUtil getHybridPath $(
+				Repo getBuildDir ${branch}
+			)
+		)
+
+		local bundleDir=$(
+			FileNameUtil getHybridPath $(
+				Repo getBundleDir ${branch}
+			)
+		)
+
 		${writer} setAppServerProps ${branch} app.server.parent.dir ${bundleDir}
 		${writer} setAppServerProps ${branch} app.server.type ${appServer}
 
@@ -77,18 +89,6 @@ SourceUtil(){
 
 	local appServer=$(AppServerValidator returnAppServer $@)
 	local branch=$(Repo getBranch $@)
-
-	local buildDir=$(
-		FileNameUtil getHybridPath $(
-			Repo getBuildDir ${branch}
-		)
-	)
-
-	local bundleDir=$(
-		FileNameUtil getHybridPath $(
-			Repo getBundleDir ${branch}
-		)
-	)
 
 	local writer=PropsWriter
 
