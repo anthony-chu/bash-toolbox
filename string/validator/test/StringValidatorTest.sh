@@ -105,16 +105,6 @@ StringValidatorTest(){
 	}
 
 	@test
-	testIsSubstring[false](){
-		${assertNull} $(StringValidator isSubstring foobar this)
-	}
-
-	@test
-	testIsSubstring[true](){
-		${assertTrue} $(StringValidator isSubstring foobar foo)
-	}
-
-	@test
 	testIsNum[false](){
 		${assertNull} $(StringValidator isNum abc)
 	}

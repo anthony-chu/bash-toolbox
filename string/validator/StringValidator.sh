@@ -40,12 +40,6 @@ StringValidator(){
 		fi
 	}
 
-	isSubstring(){
-		if [[ $(readvar ${1}) =~ $(readvar ${2}) ]]; then
-			echo true
-		fi
-	}
-
 	isNum(){
 		if [[ ! ${1//-[0-9]/} ]]; then
 			echo true
