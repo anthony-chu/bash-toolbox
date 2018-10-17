@@ -19,6 +19,14 @@ FileNameUtil(){
 		fi
 	}
 
+	getHybridPath(){
+		if [[ $(uname) =~ NT && $TERM =~ xterm ]]; then
+			local path=$(_getPathWin ${@})
+
+			echo ${path//\\/\/}
+		fi
+	}
+
 	getPath(){
 		if [[ $(uname) =~ NT ]]; then
 			_getPathWin ${@}
