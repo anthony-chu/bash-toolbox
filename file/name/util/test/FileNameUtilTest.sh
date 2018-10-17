@@ -6,7 +6,7 @@ include test.util.TestUtil
 FileNameUtilTest(){
 	@test
 	testGetPathConvertToUnixPath(){
-		local path="D:/foo/bar"
+		local path="D:\\foo\\bar"
 
 		${assertEquals} $(FileNameUtil _getPathUnix ${path}) /d/foo/bar
 	}
@@ -27,7 +27,7 @@ FileNameUtilTest(){
 
 	@test
 	testGetPathPreserveWinPath(){
-		local path="D:/foo/bar"
+		local path="D:\\foo\\bar"
 
 		${assertEquals} ${path} $(FileNameUtil _getPathWin ${path})
 	}
