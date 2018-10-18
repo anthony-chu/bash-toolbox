@@ -25,7 +25,7 @@ ArrayValidator(){
 				fi
 			done
 
-			if [[ ${count} == 0 ]]; then
+			if [[ ${count} -eq 1 ]]; then
 				echo true
 			fi
 		fi
