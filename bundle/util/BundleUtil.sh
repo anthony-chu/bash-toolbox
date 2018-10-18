@@ -15,7 +15,7 @@ BundleUtil(){
 		if [[ $(AppServerValidator isTomcat appServer) ]]; then
 			local tomcatReplace="${replace} ${appServerDir}/bin/setenv.sh"
 
-			if [[ ! ${branch} =~ 6.) ]]; then
+			if [[ ! ${branch} =~ 6. ]]; then
 				${tomcatReplace} 'Xmx[0-9]\+m' Xmx2048m
 
 				${tomcatReplace} 'XX:MaxPermSize=[0-9]\+m' Xms1024m
