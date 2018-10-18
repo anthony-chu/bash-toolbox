@@ -28,12 +28,10 @@ PropsWriterUtil(){
 
 		local property=$(${getProps} ${1} ${2})
 
-		if [[ ${property} ]]; then
-			if [[ $(StringValidator beginsWith "#" ${property}) ]]; then
-				enableProps ${1} ${2} ${3}
-			else
-				${replace} ${1} ${2}=.* ${2}=${3}
-			fi
+		if [[ $(StringValidator beginsWith "#" ${property}) ]]; then
+			enableProps ${1} ${2} ${3}
+		elif [[ ${property} ]]; then
+			${replace} ${1} ${2}=.* ${2}=${3}\
 		else
 			FileWriter append ${1} ${2}=${3}
 		fi
