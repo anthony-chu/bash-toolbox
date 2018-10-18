@@ -29,13 +29,13 @@ StringValidator(){
 	}
 
 	isAlpha(){
-		if [[ ! ${str//[a-zA-Z]/} ]];
+		if [[ ! ${str//[a-zA-Z]/} ]]; then
 			echo true
 		fi
 	}
 
 	isAlphaNum(){
-		if [[ ! ${str//[0-9a-zA-Z]/} ]];
+		if [[ ! ${str//[0-9a-zA-Z]/} ]]; then
 			echo true
 		fi
 	}
