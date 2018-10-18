@@ -19,7 +19,7 @@ GitUtil(){
 		local changeLog=()
 
 		for string in ${commits[@]}; do
-			if [[ ${string} =~ LRQA) || ${string} =~ LPS) ]]; then
+			if [[ ${string} =~ LRQA || ${string} =~ LPS ]]; then
 				changeLog+=(${string})
 			fi
 		done

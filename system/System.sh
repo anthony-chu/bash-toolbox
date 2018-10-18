@@ -3,7 +3,7 @@ include logger.Logger
 @class
 System(){
 	extendAntOpts(){
-		if [[ ${JAVA_HOME} =~ 1.7) ]]; then
+		if [[ ${JAVA_HOME} =~ 1.7 ]]; then
 			${_log} info "configuring_ANT_OPTS_JVM..."
 			export ANT_OPTS="${ANT_OPTS} -XX:MaxPermSize=1024m"
 			${_log} info "completed"
