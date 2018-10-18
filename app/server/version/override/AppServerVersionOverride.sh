@@ -19,7 +19,7 @@ AppServerVersionOverride(){
 			echo 9.0.6
 		elif [[ ${version} =~ 7.0.10 ]]; then
 			echo 8.0.32
-		elif [[ ${version} =~ 7.0) ]]; then
+		elif [[ ${version} =~ 7.0 ]]; then
 			echo 8.0.53
 		elif [[ ${version} =~ 6.2.10 ]]; then
 			echo 7.0.62
