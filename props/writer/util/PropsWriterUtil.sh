@@ -31,7 +31,7 @@ PropsWriterUtil(){
 		if [[ $(StringValidator beginsWith "#" ${property}) ]]; then
 			enableProps ${1} ${2} ${3}
 		elif [[ ${property} ]]; then
-			${replace} ${1} ${2}=.* ${2}=${3}\
+			${replace} ${1} ${2}=.* ${2}=${3}
 		else
 			FileWriter append ${1} ${2}=${3}
 		fi
