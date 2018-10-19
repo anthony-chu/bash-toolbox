@@ -8,6 +8,12 @@ SystemValidator(){
 		fi
 	}
 
+	isShell(){
+		case $TERM in
+			xterm|cygwin|rxvt) echo true ;;
+		esac
+	}
+
 	isWindows(){
 		if [[ $(System getOS) =~ NT ]]; then
 			echo true
