@@ -29,7 +29,7 @@ FileNameUtilTest(){
 	testGetPathConvertToWinPath(){
 		local path="/d/foo/bar"
 
-		${assertEquals} $(FileNameUtil _getPathWin ${path}) D:/foo/bar
+		${assertEquals} $(FileNameUtil _getPathWin ${path}) 'D:\\foo\\bar'
 	}
 
 	@test
