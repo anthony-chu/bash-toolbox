@@ -32,6 +32,32 @@ DefaultPortalPropsWriter(){
         done
     }
 
+    writeClusterProps(){
+        local port=11312
+
+        if [[ ${2} && ! ${2//[0-9]/} ]]; then
+            local propsKeyValueList=$((defaultPort+${2}))
+        fi
+
+        local propsKeyValueList=(
+            cluster.link.autodetect.address=
+            cluster.link.enabled=
+            dl.store.impl=com.liferay.portal.db.DBStore
+            web.server.display.node=true
+            module.framework.properties.osgi.console=${port}
+        )
+
+        for propsKeyValue in ${propsKeyValueList[@]}; do
+            local key=${propsKeyValue%%=*}
+
+            local value=${propsKeyValue/${key}=/}
+
+            PropsWriterUtil setProps ${propsFile} ${key} ${value}
+
+            FileWriter append ${propsFile}
+        done
+    }
+
     writeDatabaseProps(){
         local databaseName=lportal${branch}
 
