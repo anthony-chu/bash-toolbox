@@ -7,84 +7,84 @@ include repo.Repo
 
 @class
 DefaultPortalPropsWriter(){
-    writeBaseProps(){
-        local propsKeyValueList=(
-            liferay.home=$(FileNameUtil getHybridPath ${bundleDir})
-            plugin.notifications.enabled=false
-            index.on.startup=false
-            browser.launcher.url=
-            setup.wizard.enabled=false
-            mail.session.jndi.name=
-            tunnel.servlet.hosts.allowed=
-            auth.verifier.TunnelAuthVerifier.hosts.allowed=
-            javascript.fast.load=false
-            minifier.enabled=false
-        )
+	writeBaseProps(){
+		local propsKeyValueList=(
+			liferay.home=$(FileNameUtil getHybridPath ${bundleDir})
+			plugin.notifications.enabled=false
+			index.on.startup=false
+			browser.launcher.url=
+			setup.wizard.enabled=false
+			mail.session.jndi.name=
+			tunnel.servlet.hosts.allowed=
+			auth.verifier.TunnelAuthVerifier.hosts.allowed=
+			javascript.fast.load=false
+			minifier.enabled=false
+		)
 
-        for propsKeyValue in ${propsKeyValueList[@]}; do
-            local key=${propsKeyValue%%=*}
+		for propsKeyValue in ${propsKeyValueList[@]}; do
+			local key=${propsKeyValue%%=*}
 
-            local value=${propsKeyValue/${key}=/}
+			local value=${propsKeyValue/${key}=/}
 
-            PropsWriterUtil setProps ${propsFile} ${key} ${value}
+			PropsWriterUtil setProps ${propsFile} ${key} ${value}
 
-            FileWriter append ${propsFile}
-        done
-    }
+			FileWriter append ${propsFile}
+		done
+	}
 
-    writeClusterProps(){
-        local port=11312
+	writeClusterProps(){
+		local port=11312
 
-        if [[ ${2} && ! ${2//[0-9]/} ]]; then
-            local propsKeyValueList=$((port+${2}))
-        fi
+		if [[ ${2} && ! ${2//[0-9]/} ]]; then
+			local propsKeyValueList=$((port+${2}))
+		fi
 
-        local propsKeyValueList=(
-            cluster.link.autodetect.address=
-            cluster.link.enabled=
-            dl.store.impl=com.liferay.portal.db.DBStore
-            web.server.display.node=true
-            module.framework.properties.osgi.console=${port}
-        )
+		local propsKeyValueList=(
+			cluster.link.autodetect.address=
+			cluster.link.enabled=
+			dl.store.impl=com.liferay.portal.db.DBStore
+			web.server.display.node=true
+			module.framework.properties.osgi.console=${port}
+		)
 
-        for propsKeyValue in ${propsKeyValueList[@]}; do
-            local key=${propsKeyValue%%=*}
+		for propsKeyValue in ${propsKeyValueList[@]}; do
+			local key=${propsKeyValue%%=*}
 
-            local value=${propsKeyValue/${key}=/}
+			local value=${propsKeyValue/${key}=/}
 
-            PropsWriterUtil setProps ${propsFile} ${key} ${value}
+			PropsWriterUtil setProps ${propsFile} ${key} ${value}
 
-            FileWriter append ${propsFile}
-        done
-    }
+			FileWriter append ${propsFile}
+		done
+	}
 
-    writeDatabaseProps(){
-        local databaseName=lportal${branch//-/}
+	writeDatabaseProps(){
+		local databaseName=lportal${branch//-/}
 
-        local propsKeyValueList=(
-            jdbc.default.jndi.name=
-            jdbc.default.driverClassName=com.mysql.jdbc.Driver
-            jdbc.default.url=jdbc:mysql://localhost/${databaseName}?useUnicode=true\&characterEncoding=UTF-8\&useFastDateParsing=false
-            jdbc.default.username=
-            jdbc.default.password=
-        )
+		local propsKeyValueList=(
+			jdbc.default.jndi.name=
+			jdbc.default.driverClassName=com.mysql.jdbc.Driver
+			jdbc.default.url=jdbc:mysql://localhost/${databaseName}?useUnicode=true\&characterEncoding=UTF-8\&useFastDateParsing=false
+			jdbc.default.username=
+			jdbc.default.password=
+		)
 
-        for propsKeyValue in ${propsKeyValueList[@]}; do
-            local key=${propsKeyValue%%=*}
+		for propsKeyValue in ${propsKeyValueList[@]}; do
+			local key=${propsKeyValue%%=*}
 
-            local value=${propsKeyValue/${key}=/}
+			local value=${propsKeyValue/${key}=/}
 
-            PropsWriterUtil setProps ${propsFile} ${key} ${value}
-        done
+			PropsWriterUtil setProps ${propsFile} ${key} ${value}
+		done
 
-        FileWriter append ${propsFile}
-    }
+		FileWriter append ${propsFile}
+	}
 
-    local branch=$(Repo getBranch ${2})
+	local branch=$(Repo getBranch ${2})
 
-    local bundleDir=$(Repo getBundleDir ${branch})
+	local bundleDir=$(Repo getBundleDir ${branch})
 
-    local propsFile=${bundleDir}/portal-ext.properties
+	local propsFile=${bundleDir}/portal-ext.properties
 
-    $@
+	$@
 }
