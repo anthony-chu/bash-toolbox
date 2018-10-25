@@ -3,7 +3,7 @@ include file.writer.FileWriter
 include repo.Repo
 
 @class
-UpgradePropsWriter(){
+UpgradePortalPropsWriter(){
     writeUpgradeProps(){
         local fromPropsDir=${buildDir}/portal-impl/src
 

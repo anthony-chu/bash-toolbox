@@ -6,7 +6,7 @@ include props.writer.util.PropsWriterUtil
 include repo.Repo
 
 @class
-PortalPropsWriter(){
+DefaultPortalPropsWriter(){
     writeBaseProps(){
         local propsKeyValueList=(
             liferay.home=$(FileNameUtil getHybridPath ${bundleDir})
