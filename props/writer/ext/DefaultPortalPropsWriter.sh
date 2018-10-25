@@ -59,7 +59,7 @@ DefaultPortalPropsWriter(){
     }
 
     writeDatabaseProps(){
-        local databaseName=lportal${branch}
+        local databaseName=lportal${branch//-/}
 
         local propsKeyValueList=(
             jdbc.default.jndi.name=
