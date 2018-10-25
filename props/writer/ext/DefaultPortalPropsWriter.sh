@@ -7,6 +7,21 @@ include repo.Repo
 
 @class
 DefaultPortalPropsWriter(){
+    @private
+    _writeProps(){
+        local file=${2}
+
+        local keyValuePair=${1}
+
+        local key=${keyValuePair%%=*}
+
+        local value=${keyValuePair/${key}=/}
+
+        PropsWriterUtil setProps ${file} ${key} ${value}
+
+        FileWriter append ${file}
+    }
+
 	writeBaseProps(){
 		local propsKeyValueList=(
 			liferay.home=$(FileNameUtil getHybridPath ${bundleDir})
@@ -22,13 +37,7 @@ DefaultPortalPropsWriter(){
 		)
 
 		for propsKeyValue in ${propsKeyValueList[@]}; do
-			local key=${propsKeyValue%%=*}
-
-			local value=${propsKeyValue/${key}=/}
-
-			PropsWriterUtil setProps ${propsFile} ${key} ${value}
-
-			FileWriter append ${propsFile}
+			_writeProps ${propsKeyValue} ${propsFile}
 		done
 	}
 
@@ -48,13 +57,7 @@ DefaultPortalPropsWriter(){
 		)
 
 		for propsKeyValue in ${propsKeyValueList[@]}; do
-			local key=${propsKeyValue%%=*}
-
-			local value=${propsKeyValue/${key}=/}
-
-			PropsWriterUtil setProps ${propsFile} ${key} ${value}
-
-			FileWriter append ${propsFile}
+			_writeProps ${propsKeyValue} ${propsFile}
 		done
 	}
 
@@ -70,11 +73,7 @@ DefaultPortalPropsWriter(){
 		)
 
 		for propsKeyValue in ${propsKeyValueList[@]}; do
-			local key=${propsKeyValue%%=*}
-
-			local value=${propsKeyValue/${key}=/}
-
-			PropsWriterUtil setProps ${propsFile} ${key} ${value}
+			_writeProps ${propsKeyValue} ${propsFile}
 		done
 
 		FileWriter append ${propsFile}
