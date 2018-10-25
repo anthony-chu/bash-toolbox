@@ -13,6 +13,16 @@ FileUtil(){
 		fi
 	}
 
+	extract(){
+		if [[ ${1} == *.zip ]]; then
+			unzip -q ${1} -d ${2}
+		elif [[ ${1} == *.tar.gz ]]; then
+			tar -xf ${1} -C ${2}
+		elif [[ $1} == *.7z ]]; then
+			7z x -o${2}
+		fi
+	}
+
 	getContent(){
 		cat ${1}
 	}
