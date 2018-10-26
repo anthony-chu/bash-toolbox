@@ -7,20 +7,20 @@ include repo.Repo
 
 @class
 DefaultPortalPropsWriter(){
-    @private
-    _writeProps(){
-        local file=${2}
+	@private
+	_writeProps(){
+		local file=${2}
 
-        local keyValuePair=${1}
+		local keyValuePair=${1}
 
-        local key=${keyValuePair%%=*}
+		local key=${keyValuePair%%=*}
 
-        local value=${keyValuePair/${key}=/}
+		local value=${keyValuePair/${key}=/}
 
-        PropsWriterUtil setProps ${file} ${key} ${value}
+		PropsWriterUtil setProps ${file} ${key} ${value}
 
-        FileWriter append ${file}
-    }
+		FileWriter append ${file}
+	}
 
 	writeBaseProps(){
 		local propsKeyValueList=(

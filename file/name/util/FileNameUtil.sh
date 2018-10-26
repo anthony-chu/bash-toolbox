@@ -6,7 +6,7 @@ FileNameUtil(){
 	@private
 	_getPathUnix(){
 		if [[ ${@} =~ "\\" ]]; then
-        	echo /${@} | sed "s#\([A-Z]\):#\l\1#g" | sed "s#\\\\#/#g"
+			echo /${@} | sed "s#\([A-Z]\):#\l\1#g" | sed "s#\\\\#/#g"
 		else
 			echo ${@}
 		fi

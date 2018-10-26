@@ -4,34 +4,34 @@ include repo.Repo
 
 @class
 UpgradePortalPropsWriter(){
-    writeUpgradeProps(){
-        local fromPropsDir=${buildDir}/portal-impl/src
+	writeUpgradeProps(){
+		local fromPropsDir=${buildDir}/portal-impl/src
 
-        local fromPropsFileName=portal-legacy-${fromVersion}.properties
+		local fromPropsFileName=portal-legacy-${fromVersion}.properties
 
-        local fromPropsFilePath=${fromPropsDir}/${fromPropsFileName}
+		local fromPropsFilePath=${fromPropsDir}/${fromPropsFileName}
 
-        ${append} ${propsFile}
+		${append} ${propsFile}
 
-        ${append} ${propsFile} "### ${fromVersion} properties ###"
+		${append} ${propsFile} "### ${fromVersion} properties ###"
 
-        ${append} ${propsFile}
+		${append} ${propsFile}
 
-        cat ${fromPropsFilePath} >> ${propsFile}
+		cat ${fromPropsFilePath} >> ${propsFile}
 
-        ${append} ${propsFile}
-    }
+		${append} ${propsFile}
+	}
 
-    local append="FileWriter append"
+	local append="FileWriter append"
 
-    local branch=$(Repo getBranch ${2})
+	local branch=$(Repo getBranch ${2})
 
-    local buildDir=$(Repo getBuildDir ${branch})
-    local bundleDir=$(Repo getBundleDir ${branch})
+	local buildDir=$(Repo getBuildDir ${branch})
+	local bundleDir=$(Repo getBundleDir ${branch})
 
-    local fromVersion=${3}
+	local fromVersion=${3}
 
-    local propsFile=${bundleDir}/portal-ext.properties
+	local propsFile=${bundleDir}/portal-ext.properties
 
-    $@
+	$@
 }
