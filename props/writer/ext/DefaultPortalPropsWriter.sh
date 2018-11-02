@@ -50,7 +50,7 @@ DefaultPortalPropsWriter(){
 
 		local propsKeyValueList=(
 			cluster.link.autodetect.address=
-			cluster.link.enabled=
+			cluster.link.enabled=true
 			dl.store.impl=com.liferay.portal.db.DBStore
 			web.server.display.node=true
 			module.framework.properties.osgi.console=${port}
