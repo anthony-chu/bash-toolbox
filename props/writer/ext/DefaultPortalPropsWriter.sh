@@ -53,7 +53,7 @@ DefaultPortalPropsWriter(){
 			cluster.link.enabled=true
 			dl.store.impl=com.liferay.portal.db.DBStore
 			web.server.display.node=true
-			module.framework.properties.osgi.console=${port}
+			module.framework.properties.osgi.console=localhost:${port}
 		)
 
 		for propsKeyValue in ${propsKeyValueList[@]}; do
