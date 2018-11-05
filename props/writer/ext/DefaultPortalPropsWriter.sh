@@ -42,7 +42,7 @@ DefaultPortalPropsWriter(){
 	}
 
 	writeClusterProps(){
-		local port=11312
+		local port=11311
 
 		if [[ ${2} && ! ${2//[0-9]/} ]]; then
 			local propsKeyValueList=$((port+${2}))
