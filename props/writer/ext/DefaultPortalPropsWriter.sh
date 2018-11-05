@@ -11,15 +11,17 @@ DefaultPortalPropsWriter(){
 	_writeProps(){
 		local file=${2}
 
-		local keyValuePair=${1}
+		local keyValuePairs=($(readvar ${1}))
 
-		local key=${keyValuePair%%=*}
+		for keyValuePair in ${keyValuePairs[@]}; do
+			local key=${keyValuePair%%=*}
 
-		local value=${keyValuePair/${key}=/}
+			local value=${keyValuePair/${key}=/}
 
-		PropsWriterUtil setProps ${file} ${key} ${value}
+			PropsWriterUtil setProps ${file} ${key} ${value}
 
-		FileWriter append ${file}
+			FileWriter append ${file}
+		done
 	}
 
 	writeBaseProps(){
@@ -36,9 +38,7 @@ DefaultPortalPropsWriter(){
 			minifier.enabled=false
 		)
 
-		for propsKeyValue in ${propsKeyValueList[@]}; do
-			_writeProps ${propsKeyValue} ${propsFile}
-		done
+		_writeProps propsKeyValueList ${propsFile}
 	}
 
 	writeClusterProps(){
@@ -56,9 +56,7 @@ DefaultPortalPropsWriter(){
 			module.framework.properties.osgi.console=localhost:${port}
 		)
 
-		for propsKeyValue in ${propsKeyValueList[@]}; do
-			_writeProps ${propsKeyValue} ${propsFile}
-		done
+		_writeProps propsKeyValueList ${propsFile}
 	}
 
 	writeDatabaseProps(){
@@ -72,11 +70,7 @@ DefaultPortalPropsWriter(){
 			jdbc.default.password=
 		)
 
-		for propsKeyValue in ${propsKeyValueList[@]}; do
-			_writeProps ${propsKeyValue} ${propsFile}
-		done
-
-		FileWriter append ${propsFile}
+		_writeProps propsKeyValueList ${propsFile}
 	}
 
 	local branch=$(Repo getBranch ${2})
