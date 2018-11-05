@@ -45,7 +45,7 @@ DefaultPortalPropsWriter(){
 		local port=11311
 
 		if [[ ${2} && ! ${2//[0-9]/} ]]; then
-			local propsKeyValueList=$((port+${2}))
+			local port=$((port+${2}))
 		fi
 
 		local propsKeyValueList=(
