@@ -4,7 +4,6 @@ main(){
 		include.sh
 		markups.sh
 		nullify.sh
-		package.sh
 		readvar.sh
 	)
 
