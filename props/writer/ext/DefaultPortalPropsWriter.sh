@@ -20,6 +20,8 @@ DefaultPortalPropsWriter(){
 	}
 
 	writeBaseProps(){
+		local bundleDir=$(Repo getBundleDir ${branch})
+
 		local propsKeyValueList=(
 			liferay.home=$(FileNameUtil getHybridPath ${bundleDir})
 			plugin.notifications.enabled=false
@@ -69,8 +71,6 @@ DefaultPortalPropsWriter(){
 	}
 
 	local branch=$(Repo getBranch ${2})
-
-	local bundleDir=$(Repo getBundleDir ${branch})
 
 	$@
 }
