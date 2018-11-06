@@ -1,7 +1,6 @@
 include file.name.util.FileNameUtil
-include file.writer.FileWriter
 
-include props.writer.util.PropsWriterUtil
+include props.writer.PropsWriter
 
 include repo.Repo
 
@@ -9,8 +8,6 @@ include repo.Repo
 DefaultPortalPropsWriter(){
 	@private
 	_writeProps(){
-		local file=${2}
-
 		local keyValuePairs=($(readvar ${1}))
 
 		for keyValuePair in ${keyValuePairs[@]}; do
@@ -18,9 +15,7 @@ DefaultPortalPropsWriter(){
 
 			local value=${keyValuePair/${key}=/}
 
-			PropsWriterUtil setProps ${file} ${key} ${value}
-
-			FileWriter append ${file}
+			PropsWriter setPortalProps ${branch} ${key} ${value}
 		done
 	}
 
@@ -38,7 +33,7 @@ DefaultPortalPropsWriter(){
 			minifier.enabled=false
 		)
 
-		_writeProps propsKeyValueList ${propsFile}
+		_writeProps propsKeyValueList
 	}
 
 	writeClusterProps(){
@@ -56,7 +51,7 @@ DefaultPortalPropsWriter(){
 			module.framework.properties.osgi.console=localhost:${port}
 		)
 
-		_writeProps propsKeyValueList ${propsFile}
+		_writeProps propsKeyValueList
 	}
 
 	writeDatabaseProps(){
@@ -70,14 +65,12 @@ DefaultPortalPropsWriter(){
 			jdbc.default.password=
 		)
 
-		_writeProps propsKeyValueList ${propsFile}
+		_writeProps propsKeyValueList
 	}
 
 	local branch=$(Repo getBranch ${2})
 
 	local bundleDir=$(Repo getBundleDir ${branch})
-
-	local propsFile=${bundleDir}/portal-ext.properties
 
 	$@
 }
