@@ -10,8 +10,23 @@ FileValidatorTest(){
 	}
 
 	@test
+	testIsFilePathFile(){
+		${assertTrue} $(FileValidator isFilePath _file)
+	}
+
+	@test
+	testIsFilePathPath(){
+		${assertTrue} $(FileValidator isFilePath _path)
+	}
+
+	@test
 	testIsNotFile(){
 		${assertNull} $(FileValidator isFile _path)
+	}
+
+	@test
+	testIsNotFilePath(){
+		${assertNull} $(FileValidator isFilePath @${path})
 	}
 
 	@test
