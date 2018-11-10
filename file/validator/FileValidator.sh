@@ -14,6 +14,10 @@ FileValidator(){
 		fi
 	}
 
+	isFilePath(){
+		isPath ${1} || isFile ${1}
+	}
+
 	isPath(){
 		local filePath=$(readvar ${1})
 		local pattern='\(/[a-zA-Z\]\+\)\+'
