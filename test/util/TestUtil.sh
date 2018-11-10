@@ -24,18 +24,10 @@ TestUtil(){
 	assertDoesNotExist(){
 		local path=$(readvar ${1})
 
-		if [[ $(FileValidator isFile path) ]]; then
-			if [[ ! -e ${path} ]]; then
-				echo PASS
-			else
-				echo FAIL
-			fi
-		elif [[ $(FileValidator isPath path) ]]; then
-			if [[ ! -d ${path} ]]; then
-				echo PASS
-			else
-				echo FAIL
-			fi
+		if [[ ! $(FileValidator isFilePath path) ]]; then
+			echo PASS
+		else
+			echo FAIL
 		fi
 	}
 
@@ -50,18 +42,10 @@ TestUtil(){
 	assertExists(){
 		local path=$(readvar ${1})
 
-		if [[ $(FileValidator isFile path) ]]; then
-			if [[ -e ${path} ]]; then
-				echo PASS
-			else
-				echo FAIL
-			fi
-		elif [[ $(FileValidator isPath path) ]]; then
-			if [[ -d ${path} ]]; then
-				echo PASS
-			else
-				echo FAIL
-			fi
+		if [[ $(FileValidator isFilePath path) ]]; then
+			echo PASS
+		else
+			echo FAIL
 		fi
 	}
 
