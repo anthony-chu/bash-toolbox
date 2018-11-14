@@ -19,7 +19,7 @@ FileUtil(){
 		elif [[ ${1} == *.tar.gz ]]; then
 			tar -xf ${1} -C ${2}
 		elif [[ ${1} == *.7z ]]; then
-			7z x ${1} -o${2}
+			nullify 7z x ${1} -o${2}
 		fi
 	}
 
