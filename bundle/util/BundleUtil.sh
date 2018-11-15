@@ -43,7 +43,7 @@ BundleUtil(){
 
 		${_log} info "deleting_remaining_bundle_folders..."
 
-		rm -rf ${bundleDir}/{.githash,deploy,osgi,poshi,tools,work}
+		rm -rf ${bundleDir}/{.githash,.liferay-home,deploy,osgi,poshi,tools,work}
 
 		${_log} info "completed"
 
