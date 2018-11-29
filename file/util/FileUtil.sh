@@ -21,7 +21,7 @@ FileUtil(){
 		elif [[ ${1} == *.7z ]]; then
 			cd ${2}
 
-			nullify 7z x ${1} -aoa
+			nullify 7z x ${1} -aoa -y
 		fi
 	}
 
