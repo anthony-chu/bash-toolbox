@@ -118,6 +118,17 @@ RepoTest(){
 	}
 
 	@test
+	testGetBuildDir[7.2.x](){
+		${assertEquals} $(Repo getBuildDir 7.2.x) $(FileNameUtil
+			getPath /d/private/7.2.x/portal)
+	}
+
+	@test
+	testGetBuildDir[7.2.x-private](){
+		${assertEquals} $(Repo getBuildDir 7.2.x-private) $(FileNameUtil
+			getPath /d/private/7.2.x-private/portal)
+	}
+	@test
 	testGetBuildDir[default](){
 		${assertEquals} $(Repo getBuildDir default) $(FileNameUtil
 			getPath /d/public/master/portal)
@@ -183,6 +194,17 @@ RepoTest(){
 			getPath /d/private/7.1.x-private/bundles)
 	}
 
+	@test
+	testGetBundleDir[7.2.x](){
+		${assertEquals} $(Repo getBundleDir 7.2.x) $(FileNameUtil
+			getPath /d/private/7.2.x/bundles)
+	}
+
+	@test
+	testGetBundleDir[7.2.x-private](){
+		${assertEquals} $(Repo getBundleDir 7.2.x-private) $(FileNameUtil
+			getPath /d/private/7.2.x-private/bundles)
+	}
 	@test
 	testGetBundleDir[default](){
 		${assertEquals} $(Repo getBundleDir default) $(FileNameUtil
