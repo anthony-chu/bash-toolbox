@@ -128,6 +128,7 @@ RepoTest(){
 		${assertEquals} $(Repo getBuildDir 7.2.x-private) $(FileNameUtil
 			getPath /d/private/7.2.x-private/portal)
 	}
+
 	@test
 	testGetBuildDir[default](){
 		${assertEquals} $(Repo getBuildDir default) $(FileNameUtil
@@ -205,6 +206,7 @@ RepoTest(){
 		${assertEquals} $(Repo getBundleDir 7.2.x-private) $(FileNameUtil
 			getPath /d/private/7.2.x-private/bundles)
 	}
+
 	@test
 	testGetBundleDir[default](){
 		${assertEquals} $(Repo getBundleDir default) $(FileNameUtil
