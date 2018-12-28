@@ -34,6 +34,10 @@ GitUtil(){
 
 		git reset --hard -q
 
+		if [[ $(Repo isPrivate ${branch}) ]]; then
+			rm -rf ${buildDir}/modules/apps
+		fi
+
 		git clean -fdqx
 
 		${_log} info "completed"
