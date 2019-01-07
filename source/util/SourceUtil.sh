@@ -26,15 +26,15 @@ SourceUtil(){
 	config(){
 		${_log} info "building_properties..."
 
-		for prop in {app.server,build}; do
-			touch ${buildDir}/${prop}.${HOSTNAME}.properties
-		done
-
 		local buildDir=$(
 			FileNameUtil getHybridPath $(
 				Repo getBuildDir ${branch}
 			)
 		)
+
+		for prop in {app.server,build}; do
+			touch ${buildDir}/${prop}.${HOSTNAME}.properties
+		done
 
 		local bundleDir=$(
 			FileNameUtil getHybridPath $(
