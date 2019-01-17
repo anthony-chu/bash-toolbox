@@ -6,13 +6,6 @@ include system.validator.SystemValidator
 
 @class
 FileUtil(){
-	@deprecated
-	deleteIfExists(){
-		if [[ -e ${1} || -d ${1} ]]; then
-			rm -rf ${1}
-		fi
-	}
-
 	extract(){
 		if [[ ${1} == *.zip ]]; then
 			unzip -q ${1} -d ${2}
