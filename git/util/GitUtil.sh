@@ -34,7 +34,7 @@ GitUtil(){
 
 		git reset --hard -q
 
-		if [[ $(Repo isPrivate ${branch}) ]]; then
+		if [[ ${branch} =~ "-private" ]]; then
 			rm -rf ${buildDir}/modules/apps
 		fi
 
