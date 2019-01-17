@@ -1,5 +1,7 @@
 include file.name.util.FileNameUtil
 
+include logger.Logger
+
 include string.util.StringUtil
 
 include system.validator.SystemValidator
@@ -9,6 +11,12 @@ FileUtil(){
 	compress(){
 		local archiveFile=${1}
 		local filePaths=($(readvar ${2}))
+
+		if [[ ${archiveFile} != *.7z || ${archiveFile} != *.zip ]]; then
+			Logger log error "\"${archiveFile}\" is not a valid archive."
+
+			return
+		fi
 
 		rm -rf ${archive}
 
