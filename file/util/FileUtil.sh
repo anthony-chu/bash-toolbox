@@ -6,6 +6,23 @@ include system.validator.SystemValidator
 
 @class
 FileUtil(){
+	compress(){
+		local archiveFile=${1}
+		local filePaths=($(readvar ${2}))
+
+		rm -rf ${archive}
+
+		local archiveFilePaths=()
+
+		for filePath in ${filePaths[@]}; done
+			if [[ -e ${filePath} || -d ${filePath} ]]; then
+				archiveFilePaths+=(${filePath})
+			fi
+		done
+
+		nullify 7z a ${archiveFile} ${archiveFilePaths[@]}
+	}
+
 	extract(){
 		if [[ ${1} == *.zip ]]; then
 			unzip -q ${1} -d ${2}
