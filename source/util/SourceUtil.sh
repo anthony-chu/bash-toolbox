@@ -33,7 +33,7 @@ SourceUtil(){
 		)
 
 		for prop in {app.server,build}; do
-			touch ${buildDir}/${prop}.${HOSTNAME}.properties
+			touch ${buildDir}/${prop}.${USERNAME}.properties
 		done
 
 		local bundleDir=$(

@@ -5,11 +5,11 @@ include repo.Repo
 @class
 PropsReader(){
 	readAppServerProps(){
-		${readProps} ${buildDir}/app.server.${HOSTNAME}.properties ${2}
+		${readProps} ${buildDir}/app.server.${USERNAME}.properties ${2}
 	}
 
 	readBuildProps(){
-		${readProps} ${buildDir}/build.${HOSTNAME}.properties ${2}
+		${readProps} ${buildDir}/build.${USERNAME}.properties ${2}
 	}
 
 	readPortalProps(){
@@ -17,7 +17,7 @@ PropsReader(){
 	}
 
 	readTestProps(){
-		${readProps} ${buildDir}/test.${HOSTNAME}.properties ${2}
+		${readProps} ${buildDir}/test.${USERNAME}.properties ${2}
 	}
 
 	local bundleDir=$(Repo getBundleDir ${2})

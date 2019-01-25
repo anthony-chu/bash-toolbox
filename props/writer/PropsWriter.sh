@@ -38,12 +38,12 @@ PropsWriter(){
 
 	local _buildDir=$(Repo getBuildDir ${2})
 	local _bundleDir=$(Repo getBundleDir ${2})
-	local appServerProps=${_buildDir}/app.server.${HOSTNAME}.properties
-	local buildProps=${_buildDir}/build.${HOSTNAME}.properties
+	local appServerProps=${_buildDir}/app.server.${USERNAME}.properties
+	local buildProps=${_buildDir}/build.${USERNAME}.properties
 	local disableProps="PropsWriterUtil disableProps"
 	local portalProps=${_bundleDir}/portal-ext.properties
 	local setProps="PropsWriterUtil setProps"
-	local testProps=${_buildDir}/test.${HOSTNAME}.properties
+	local testProps=${_buildDir}/test.${USERNAME}.properties
 
 	$@
 }
