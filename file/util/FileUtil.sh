@@ -22,7 +22,7 @@ FileUtil(){
 
 		local archiveFilePaths=()
 
-		for filePath in ${filePaths[@]}; done
+		for filePath in ${filePaths[@]}; do
 			if [[ -e ${filePath} || -d ${filePath} ]]; then
 				archiveFilePaths+=(${filePath})
 			fi
