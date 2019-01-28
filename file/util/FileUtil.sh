@@ -12,7 +12,7 @@ FileUtil(){
 		local archiveFile=${1}
 		local filePaths=($(readvar ${2}))
 
-		if [[ ${archiveFile} != *.7z || ${archiveFile} != *.zip ]]; then
+		if [[ ${archiveFile} != *.7z && ${archiveFile} != *.zip ]]; then
 			Logger log error "\"${archiveFile}\"_is_not_a_valid archive."
 
 			return
