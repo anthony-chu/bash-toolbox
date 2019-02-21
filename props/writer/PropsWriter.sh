@@ -16,6 +16,10 @@ PropsWriter(){
 		${setProps} ${portalProps} ${2} ${3}
 	}
 
+	setSqlProps(){
+		${setProps} ${sqlProps} ${2} ${3}
+	}
+
 	setTestProps(){
 		${setProps} ${testProps} ${2} ${3}
 	}
@@ -32,6 +36,10 @@ PropsWriter(){
 		${disableProps} ${portalProps} ${2}
 	}
 
+	unsetSqlProps(){
+		${unsetProps} ${sqlProps}
+	}
+
 	unsetTestProps(){
 		${disableProps} ${testProps} ${2}
 	}
@@ -43,6 +51,7 @@ PropsWriter(){
 	local disableProps="PropsWriterUtil disableProps"
 	local portalProps=${_bundleDir}/portal-ext.properties
 	local setProps="PropsWriterUtil setProps"
+	local sqlProps=${_buildDir}/test.${USERNAME}.properties
 	local testProps=${_buildDir}/test.${USERNAME}.properties
 
 	$@
