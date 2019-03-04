@@ -6,17 +6,17 @@ include test.util.TestUtil
 LoggerUtilTest(){
 	@test
 	test_formatLogLevel[debug](){
-		${assertEquals} $(LoggerUtil _formatLogLevel debug) _DEBUG_
+		${assertEquals} $(LoggerUtil _formatLogLevel debug) DEBUG
 	}
 
 	@test
 	test_formatLogLevel[error](){
-		${assertEquals} $(LoggerUtil _formatLogLevel error) _ERROR_
+		${assertEquals} $(LoggerUtil _formatLogLevel error) ERROR
 	}
 
 	@test
 	test_formatLogLevel[info](){
-		${assertEquals} $(LoggerUtil _formatLogLevel info) __INFO_
+		${assertEquals} $(LoggerUtil _formatLogLevel info) INFO
 	}
 
 	@test
