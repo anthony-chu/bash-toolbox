@@ -8,7 +8,7 @@ include string.util.StringUtil
 
 @class
 LoggerUtil(){
-	@private
+	@deprecated @private
 	_formatLogLevel(){
 		local logLevel=${1}
 		local validLogLevels=(debug error info success)
@@ -39,7 +39,7 @@ LoggerUtil(){
 			local color=green
 		fi
 
-		echo -e "$(CalendarUtil getTimestamp log) [ $(_formatLogLevel ${1}) ] $(
+		echo -e "$(CalendarUtil getTimestamp log) [ ${1} ] $(
 			colorme ${color} $(
 				StringUtil parseMessage message
 			)
