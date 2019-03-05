@@ -60,7 +60,7 @@ DefaultPortalPropsWriter(){
 		local databaseName=lportal${branch//[-.]/}
 		local driverClassName="com.mysql.jdbc.Driver"
 
-		if [[ ${branch} == master ]]; then
+		if [[ ${branch} =~ master ]]; then
 			local driverClassName="com.mysql.cj.jdbc.Driver"
 		fi
 
