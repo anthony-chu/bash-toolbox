@@ -29,17 +29,18 @@ LoggerUtil(){
 
 	getLogMsg(){
 		local color=null
+		local logLevel=$(StringUtil toUpperCase ${1})
 		local message=$(StringUtil capitalize ${2})
 
-		if [[ ${1,,} == error ]]; then
+		if [[ ${logLevel,,} == error ]]; then
 			local color=red
-		elif [[ ${1,,} == debug ]]; then
+		elif [[ $logLevel,,} == debug ]]; then
 			local color=yellow
-		elif [[ ${1,,} == success ]]; then
+		elif [[ $logLevel,,} == success ]]; then
 			local color=green
 		fi
 
-		echo -e "$(CalendarUtil getTimestamp log) [ ${1} ] $(
+		echo -e "$(CalendarUtil getTimestamp log) [ ${logLevel} ] $(
 			colorme ${color} $(
 				StringUtil parseMessage message
 			)
