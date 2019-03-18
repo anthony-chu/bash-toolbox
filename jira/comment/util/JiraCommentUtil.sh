@@ -21,8 +21,14 @@ JiraCommentUtil(){
 		local environment=(
 			$(StringUtil capitalize ${1})
 			${appServerVersion}
-			+_MySQL_5.7
+			+_MySQL
 		)
+
+		if [[ ${branch} == master* || ${branch} == 7.2.x* ]]; then
+			environment+=(8.0)
+		else
+			environment+=(5.7)
+		fi
 
 		local gitId=$(GitUtil getOriginSHA ${branch})
 
