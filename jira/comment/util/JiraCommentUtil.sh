@@ -30,21 +30,7 @@ JiraCommentUtil(){
 			environment+=(5.7)
 		fi
 
-		local gitId=$(GitUtil getOriginSHA ${branch})
-
-		if [[ ${nightly} ]]; then
-			local bundleDir=$(Repo getBundleDir ${branch})
-			local gitHashFile=${bundleDir}/.githash
-
-			if [[ -e ${gitHashFile} ]]; then
-				local gitId=$(cat ${gitHashFile})
-			else
-				${_log} error "the_current_bundle_is_not_a_nightly_bundle"
-				${_log} error "please_remove_'nightly'_as_an_argument"
-
-				exit
-			fi
-		fi
+		local gitId=$(cat ${bundleDir}/.githash)
 
 		StringUtil replace $(StringUtil join environment _) _ space
 		echo "Portal *${branch}* GIT ID: ${gitId}"
@@ -71,6 +57,7 @@ JiraCommentUtil(){
 	local args=($@)
 	local appServer=$(AppServerValidator returnAppServer ${args[@]})
 	local branch=$(Repo getBranch ${args[@]})
+	local bundleDir=$(Repo getBundleDir ${branch})
 
 	if [[ $(ArrayValidator hasEntry args nightly) ]]; then
 		local nightly=true
