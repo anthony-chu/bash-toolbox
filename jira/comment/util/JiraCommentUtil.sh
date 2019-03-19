@@ -59,11 +59,7 @@ JiraCommentUtil(){
 	local branch=$(Repo getBranch ${args[@]})
 	local bundleDir=$(Repo getBundleDir ${branch})
 
-	if [[ $(ArrayValidator hasEntry args nightly) ]]; then
-		local nightly=true
-	fi
-
-	while [[ ${1} == ${branch} || ${1} == ${appServer} || ${1} == nightly ]]; do
+	while [[ ${1} == ${branch} || ${1} == ${appServer} ]]; do
 		shift
 	done
 
