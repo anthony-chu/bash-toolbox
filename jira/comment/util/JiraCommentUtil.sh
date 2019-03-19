@@ -59,10 +59,6 @@ JiraCommentUtil(){
 		shift
 	done
 
-	if [[ ${branch} == master ]]; then
-		local branch=$(StringUtil capitalize ${branch})
-	fi
-
 	$@
 	_getEnv ${appServer} ${branch}
 }
