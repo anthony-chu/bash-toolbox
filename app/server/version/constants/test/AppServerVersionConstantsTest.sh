@@ -34,6 +34,7 @@ AppServerVersionConstantsTest(){
 		${assertEquals} $(AppServerVersionConstants TCAT_VERSION) 7.0.2
 	}
 
+	@deprecated
 	@test
 	testTcserverVersion(){
 		${assertEquals} $(AppServerVersionConstants TCSERVER_VERSION) 3.2.5

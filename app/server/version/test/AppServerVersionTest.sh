@@ -57,6 +57,7 @@ AppServerVersionTest(){
 			AppServerVersionConstants TCAT_VERSION)
 	}
 
+	@deprecated
 	@test
 	testGetAppServerVersion[tcserver](){
 		${assertEquals} $(${getAppServerVersion} tcserver) $(

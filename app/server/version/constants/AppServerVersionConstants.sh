@@ -24,6 +24,7 @@ AppServerVersionConstants(){
 		echo "7.0.2"
 	}
 
+	@deprecated
 	TCSERVER_VERSION(){
 		echo "3.2.5"
 	}

@@ -69,6 +69,7 @@ AppServerValidator(){
 		fi
 	}
 
+	@deprecated
 	isTCServer(){
 		if [[ $(ArrayValidator hasEntry ${1} tc*server) ]]; then
 			echo true

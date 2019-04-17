@@ -48,6 +48,7 @@ AppServerValidatorTest(){
 		${assertTrue} $(AppServerValidator isTcat appServers)
 	}
 
+	@deprecated
 	@test
 	testIsTCserver(){
 		${assertTrue} $(AppServerValidator isTCServer appServers)
