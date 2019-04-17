@@ -57,6 +57,14 @@ StringUtilTest(){
 	}
 
 	@test
+	testParseMessageConvertUnderscore(){
+		local output="foo_bar"
+		local result="$(StringUtil parseMessage foo@UNDERSCORE@bar)"
+
+		${assertEquals} result output
+	}
+
+	@test
 	testReplace(){
 		${assertEquals} $(StringUtil replace foo-bar - .) foo.bar
 	}
