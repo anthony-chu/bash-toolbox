@@ -52,7 +52,9 @@ StringUtil(){
 	}
 
 	parseMessage(){
-		replace ${1} _ space
+		local msg=$(replace ${1} _ space)
+
+		replace msg @UNDERSCORE@ _
 	}
 
 	replace(){
