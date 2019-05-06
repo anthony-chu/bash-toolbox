@@ -4,11 +4,9 @@ include system.validator.SystemValidator
 FileNameUtil(){
 	@private
 	getHybridPath(){
-		if [[ $(SystemValidator isWindows) && $(SystemValidator isShell) ]]; then
-			local path=$(_getPathWin ${@})
+		local path=$(_getPathWin ${@})
 
-			echo ${path//\\/\/}
-		fi
+		echo ${path//\\/\/}
 	}
 
 	@private
@@ -32,6 +30,10 @@ FileNameUtil(){
 	getPath(){
 		if [[ $(SystemValidator isWindows) ]]; then
 			local path=$(_getPathWin ${@})
+
+			if [[ $(SystemValidator isShell) ]]; then
+				local path=${path//\\/\/}
+			fi
 		else
 			local path=$(_getPathUnix ${@})
 		fi
