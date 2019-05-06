@@ -31,10 +31,12 @@ FileNameUtil(){
 
 	getPath(){
 		if [[ $(SystemValidator isWindows) ]]; then
-			_getPathWin ${@}
+			local path=$(_getPathWin ${@})
 		else
-			_getPathUnix ${@}
+			local path=$(_getPathUnix ${@})
 		fi
+
+		echo ${path}
 	}
 
 	$@
