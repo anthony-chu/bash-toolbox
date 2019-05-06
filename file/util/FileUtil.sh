@@ -57,6 +57,17 @@ FileUtil(){
 		fi
 	}
 
+	join(){
+		local filePaths=(${@})
+		local path="/"
+
+		for (( i=0; i<${#filePaths[@]}; i++ )); do
+			path+=${filePaths[i]}$(FILE_PATH_SEPARATOR)
+		done
+
+		FileNameUtil getPath ${path%?}
+	}
+
 	makeFile(){
 		local filePath=${1}
 
