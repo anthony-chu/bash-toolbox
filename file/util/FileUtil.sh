@@ -87,5 +87,13 @@ FileUtil(){
 		sed -i "s;${pattern};${replace};g" ${file}
 	}
 
+	FILE_PATH_SEPARATOR(){
+		if [[ $(SystemValidator isWindows) ]]; then
+			echo "\\"
+		else
+			echo "/"
+		fi
+	}
+
 	$@
 }
