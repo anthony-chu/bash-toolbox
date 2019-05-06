@@ -2,6 +2,14 @@ include system.validator.SystemValidator
 
 @class
 FileNameUtil(){
+	@private
+	getHybridPath(){
+		if [[ $(uname) =~ NT && $(SystemValidator isShell) ]]; then
+			local path=$(_getPathWin ${@})
+
+			echo ${path//\\/\/}
+		fi
+	}
 
 	@private
 	_getPathUnix(){
@@ -18,14 +26,6 @@ FileNameUtil(){
 			echo ${@} | sed "s#^/\([a-z]\)#\u\1:#g" | sed "s#/#\\\\#g"
 		else
 			echo ${@}
-		fi
-	}
-
-	getHybridPath(){
-		if [[ $(uname) =~ NT && $(SystemValidator isShell) ]]; then
-			local path=$(_getPathWin ${@})
-
-			echo ${path//\\/\/}
 		fi
 	}
 
