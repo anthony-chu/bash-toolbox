@@ -27,7 +27,7 @@ SourceUtil(){
 		${_log} info "building_properties..."
 
 		local buildDir=$(
-			FileNameUtil getHybridPath $(
+			FileNameUtil getPath $(
 				Repo getBuildDir ${branch}
 			)
 		)
@@ -37,7 +37,7 @@ SourceUtil(){
 		done
 
 		local bundleDir=$(
-			FileNameUtil getHybridPath $(
+			FileNameUtil getPath $(
 				Repo getBundleDir ${branch}
 			)
 		)

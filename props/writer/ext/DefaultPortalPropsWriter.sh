@@ -23,7 +23,7 @@ DefaultPortalPropsWriter(){
 		local bundleDir=$(Repo getBundleDir ${branch})
 
 		local propsKeyValueList=(
-			liferay.home=$(FileNameUtil getHybridPath ${bundleDir})
+			liferay.home=$(FileNameUtil getPath ${bundleDir})
 			plugin.notifications.enabled=false
 			index.on.startup=false
 			browser.launcher.url=
