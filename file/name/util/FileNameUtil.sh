@@ -2,7 +2,7 @@ include system.validator.SystemValidator
 
 @class
 FileNameUtil(){
-	@private
+	@deprecate
 	getHybridPath(){
 		local path=$(_getPathWin ${@})
 
